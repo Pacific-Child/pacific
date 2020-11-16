@@ -1,7 +1,7 @@
 {
   "name": "pacific",
   "version": "0.1.0",
-  "description": "The web platform front-end for PRC4ECD",
+  "description": "The web platform for PRC4ECD",
   "main": "src/index.html",
   "scripts": {
     "start": "run-p watch:*",
@@ -10,9 +10,9 @@
     "build:sass": "sass source/assets/stylesheets/:.tmp/ --load-path=node_modules/bourbon/core/bourbon",
     "lint:js": "npx eslint source/components/**",
     "lint:sass": "npx stylelint source/assets/stylesheets/**",
-    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "watch:eleventy": "npm run build:eleventy -- --serve",
     "watch:lint": "onchange source/ -- run-s lint:*",
-    "watch:sass": "sass --watch source/assets/stylesheets/:.tmp/  --load-path=node_modules/bourbon/core/bourbon",
+    "watch:sass": "npm run build:sass -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
