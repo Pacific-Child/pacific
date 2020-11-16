@@ -1,0 +1,45 @@
+{
+  "name": "pacific",
+  "version": "0.1.0",
+  "description": "The web platform front-end for PRC4ECD",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "run-p watch:*",
+    "build": "run-s lint:* build:sass build:eleventy",
+    "build:eleventy": "npx @11ty/eleventy",
+    "build:sass": "sass source/assets/stylesheets/:.tmp/",
+    "lint:sass": "npx stylelint source/assets/stylesheets/**",
+    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "watch:lint": "onchange source/assets/ -- run-s lint:*",
+    "watch:sass": "sass --watch source/assets/stylesheets/:.tmp/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hostcreative/pacific.git"
+  },
+  "author": "Høst Creative Inc.",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hostcreative/pacific/issues"
+  },
+  "homepage": "https://github.com/hostcreative/pacific#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@mightyplow/eleventy-plugin-cache-buster": "^1.1.3",
+    "@sherby/eleventy-plugin-files-minifier": "^1.1.0",
+    "bourbon": "^7.0.0",
+    "eslint": "^7.13.0",
+    "include-media": "^1.4.9",
+    "markdown-it": "^12.0.2",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "sass": "^1.29.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "stylelint-order": "^4.1.0",
+    "svgo": "^1.3.2",
+    "svgstore-cli": "^2.0.0",
+    "yaml-lint": "^1.2.4"
+  }
+}
