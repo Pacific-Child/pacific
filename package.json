@@ -8,7 +8,7 @@
     "build": "run-s lint:* build:sass build:eleventy",
     "build:eleventy": "npx @11ty/eleventy",
     "build:sass": "sass source/assets/stylesheets/:.tmp/ --load-path=node_modules/bourbon/core/bourbon",
-    "lint-js": "npx eslint source/components/**",
+    "lint:js": "npx eslint source/components/**",
     "lint:sass": "npx stylelint source/assets/stylesheets/**",
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "watch:lint": "onchange source/ -- run-s lint:*",
