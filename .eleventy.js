@@ -5,19 +5,20 @@ const markdownIt = require('markdown-it')
 
 module.exports = (config) => {
 
-	// integrate Sass pipeline
-	config.setUseGitIgnore(false)
-	config.addWatchTarget("./.tmp/main.css")
-	config.addPassthroughCopy({ "./.tmp/main.css": "./stylesheets/main.css" })
-
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,
 		html: true
 	}))
 
-	// 'component' shortcodes
+	// Eleventy shortcode components pattern:
+	// https://github.com/adamduncan/eleventy-shortcomps
 	// config.addPairedShortcode('Markdown', Markdown)
+
+	// integrate Sass pipeline
+	config.setUseGitIgnore(false)
+	config.addWatchTarget("./.tmp/main.css")
+	config.addPassthroughCopy({ "./.tmp/main.css": "./stylesheets/main.css" })
 
 	// folder config
 	return {

@@ -1,6 +1,1 @@
-@use 'tokens';
-
-body {
-	background: tokens.$test;
-	font-size: 2rem;
-}
+@use 'base';
