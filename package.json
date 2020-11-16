@@ -7,12 +7,12 @@
     "start": "run-p watch:*",
     "build": "run-s lint:* build:sass build:eleventy",
     "build:eleventy": "npx @11ty/eleventy",
-    "build:sass": "sass source/assets/stylesheets/:.tmp/",
-    "lint:js": "npx eslint source/components/**",
+    "build:sass": "sass source/assets/stylesheets/:.tmp/ --load-path=node_modules/bourbon/core/bourbon",
+    "lint-js": "npx eslint source/components/**",
     "lint:sass": "npx stylelint source/assets/stylesheets/**",
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "watch:lint": "onchange source/ -- run-s lint:*",
-    "watch:sass": "sass --watch source/assets/stylesheets/:.tmp/",
+    "watch:sass": "sass --watch source/assets/stylesheets/:.tmp/  --load-path=node_modules/bourbon/core/bourbon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -36,7 +36,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.1.0",
-    "include-media": "^1.4.9",
     "markdown-it": "^12.0.2",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
