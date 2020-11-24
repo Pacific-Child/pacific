@@ -10,7 +10,7 @@ The web platform of UNICEF's Pacific Regional Council for Early Childhood Develo
 3. Run `npm start` to start a development server and build on code changes
 
 ### Deployment
-1. Run `npm run build`
+The deploy command is `npm run build`. This site is hosted on Netlify; push or merge your changes to the remote `main` branch and it will automatically deploy.
 
 ## Code style
 - This site is built on [Eleventy](http://11ty.dev), a Node static site generator, using the "[Shortcode components](https://github.com/adamduncan/eleventy-shortcomps)" pattern
