@@ -9,11 +9,11 @@ html {
 	min-height: 100vh;
 
 	@include breakpoints.query('small') {
-		font-size: 105%;
+		font-size: 110%;
 	}
 
 	@include breakpoints.query('medium') {
-		font-size: 110%;
+		font-size: 115%;
 	}
 
 	@include breakpoints.query('large') {
@@ -55,12 +55,23 @@ p {
 	& + &,
 	& + ul,
 	& + ol, {
-		margin-top: spacing.get('narrow', 1em);
+		margin-top: spacing.get('medium', 1em);
 	}
+}
+
+ul,
+ol,
+dl {
+	margin: 0;
+	padding-left: 1em;
 }
 
 li {
 	font-size: type.scale('epsilon');
+
+	& + & {
+		padding-top: spacing.get('narrow', 1em);
+	}
 }
 
 a {

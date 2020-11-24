@@ -12,7 +12,7 @@ $-white: #fff;
 $palette: (
 	'highlight': $-pink,
 	'primary': $-dark-purple,
-	'secondary': bourbon.tint($-dark-purple, 20),
+	'secondary': bourbon.tint($-dark-purple, 60),
 	'border': bourbon.tint($-dark-purple, 80),
 	'bg': $-white
 );

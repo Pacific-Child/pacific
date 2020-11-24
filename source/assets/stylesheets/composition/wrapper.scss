@@ -1,0 +1,15 @@
+// Wrapper container
+// -> restricts width and centers itself on wider screens
+@use '../tokens/layout_width';
+
+.wrapper {
+	max-width: layout_width.get();
+	margin-left: auto;
+	margin-right: auto;
+
+	@each $name, $width in layout_width.$list {
+		&.#{$name} {
+			max-width: $width;
+		}
+	}
+}

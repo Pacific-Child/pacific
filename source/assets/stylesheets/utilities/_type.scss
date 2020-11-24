@@ -1,26 +1,6 @@
-@use '../tokens/type';
 @use 'sass:map';
-
-// fonts, weights, styles
-@each $name, $font in type.$fonts {
-	.type-font-#{$name} {
-		font-family: type.font-family($name);
-
-		@each $weight, $weight-value in map.get($font, 'weights') {
-			&.type-weight-#{$weight} {
-				font-weight: $weight-value;
-			}
-		}
-
-		@if map.get($font, 'styles') {
-			@each $style, $style-value in map.get($font, 'styles') {
-				&.type-style-#{$style-value} {
-					font-style: $style-value;
-				}
-			}
-		}
-	}
-}
+@use '../tokens/type';
+@use '../tokens/color';
 
 // alignment
 @each $position in [left, center, right] {
@@ -38,16 +18,19 @@
 h1,
 .type-scale-alpha {
 	@include type.fluid($size-min: 'beta', $size-max: 'alpha');
+	letter-spacing: -0.02em;
 }
 
 h2,
 .type-scale-beta {
 	@include type.fluid($size-min: 'gamma', $size-max: 'beta');
+	letter-spacing: -0.02em;
 }
 
 h3,
 .type-scale-gamma {
 	@include type.fluid($size-min: 'delta', $size-max: 'gamma');
+	letter-spacing: -0.01em;
 }
 
 h4,
@@ -83,4 +66,39 @@ h6,
 	line-height: type.leading('tight');
 	margin-bottom: 0;
 	margin-top: 0;
+
+	&.type-weight-light {
+		font-weight: type.font-weight('display', 'light');
+	}
+
+	strong {
+		color: color.get('highlight');
+	}
+}
+
+@each $name, $height in type.$leading {
+	.type-leading-#{$name} {
+		line-height: $height;
+	}
+}
+
+// fonts, weights, styles
+@each $name, $font in type.$fonts {
+	.type-font-#{$name} {
+		font-family: type.font-family($name);
+
+		@each $weight, $weight-value in map.get($font, 'weights') {
+			&.type-weight-#{$weight} {
+				font-weight: $weight-value;
+			}
+		}
+
+		@if map.get($font, 'styles') {
+			@each $style, $style-value in map.get($font, 'styles') {
+				&.type-style-#{$style-value} {
+					font-style: $style-value;
+				}
+			}
+		}
+	}
 }

@@ -1,0 +1,13 @@
+// Layout width config
+@use 'sass:map';
+
+// width of main layout
+$list: (
+	'default': 40rem,
+	'wide': 64rem
+);
+
+// Getter function for layout widths
+@function get($width: 'default') {
+	@return map.get($list, $width);
+}
