@@ -3,8 +3,8 @@ const outputDir = 'build'
 const componentsDir = `./${inputDir}/components`
 
 const markdownIt = require('markdown-it')
-const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster")
-const minifier = require("@sherby/eleventy-plugin-files-minifier")
+const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
+const minifier = require('@sherby/eleventy-plugin-files-minifier')
 
 module.exports = (config) => {
 
@@ -25,8 +25,12 @@ module.exports = (config) => {
 
 	// integrate Sass pipeline
 	config.setUseGitIgnore(false)
-	config.addWatchTarget("./.tmp/main.css")
-	config.addPassthroughCopy({ "./.tmp/main.css": "./stylesheets/main.css" })
+	config.addWatchTarget('./.tmp/main.css')
+	config.addPassthroughCopy({ './.tmp/main.css': './stylesheets/main.css' })
+	config.addPassthroughCopy({ './.tmp/main.css.map': './stylesheets/main.css.map' })
+
+	// copy images over as-is
+	config.addPassthroughCopy({ './source/assets/images': './images' })
 
 	// folder config
 	return {
