@@ -8,10 +8,25 @@
 	  <link rel="stylesheet" href="/stylesheets/main.css">
 	</head>
 	<body>
-		{{ content | safe }}
+		<span>
+			<header>
+				<p>Pacific Regional Council for Early Childhood Development</p>
+				<a href="#">Contact us</a>
+			</header>
 
-		<!-- Alpine JS from their CDN -->
-		<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-		<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+			<main>{{ content | safe }}</main>
+
+			<footer>
+				<p>
+					<strong>UNICEF</strong> Pacific Regional Council for Early Childhood Development
+					<small>&copy; Copyright 2020. All rights reserved.</small>
+				</p>
+				<aside>Questions? <a href="#">Contact us</a></aside>
+			</footer>
+
+			<!-- Alpine JS from their CDN -->
+			<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+			<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+		</span>
 	</body>
 </html>
