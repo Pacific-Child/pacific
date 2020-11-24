@@ -1,0 +1,14 @@
+// Color utility classes
+// -> generated from the color tokens
+
+@use '../tokens/color';
+
+@each $name, $color in color.$palette {
+	.color-fg-#{$name} {
+		color: $color;
+	}
+
+	.color-bg-#{$name} {
+		background-color: $color;
+	}
+}

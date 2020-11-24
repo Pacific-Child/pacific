@@ -1,0 +1,22 @@
+// Color design tokens
+
+@use 'sass:map';
+@use 'bourbon';
+
+$-pink: #ee0173;
+$-dark-purple: #18287a;
+$-white: #fff;
+
+// Utility classes
+// -> global element styles: lists, text, images, etc.
+$palette: (
+	'highlight': $-pink,
+	'primary': $-dark-purple,
+	'secondary': bourbon.tint($-dark-purple, 20),
+	'border': bourbon.tint($-dark-purple, 80),
+	'bg': $-white
+);
+
+@function get($role) {
+	@return map.get($palette, $role);
+}

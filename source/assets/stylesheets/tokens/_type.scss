@@ -1,0 +1,112 @@
+// Type tokens
+@use 'sass:map';
+@use 'sass:string';
+@use 'bourbon';
+@use 'breakpoints';
+@use 'scale';
+
+// --- fonts ---
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap');
+
+$fonts: (
+	'display': (
+		'family': 'Josefin Sans',
+		'stack': bourbon.$font-stack-system,
+		'weights': (
+			'light': 300,
+			'bold': 600,
+			'normal': 400
+		)
+	),
+	'body': (
+		'family': 'Cardo',
+		'stack': bourbon.$font-stack-georgia,
+		'weights': (
+			'bold': 700,
+			'normal': 400
+		),
+		'styles': (
+			'italic': 400
+		)
+	)
+);
+
+@function font-family($name: 'body') {
+	$font: map.get($fonts, $name);
+	@return unquote('#{map.get($font, 'family')}, #{map.get($font, 'stack')}')
+}
+
+@function font-weight($font: 'body', $weight: 'normal') {
+	$name: map.get($fonts, $font);
+	$weights: map.get($name, 'weights');
+	@return map.get($weights, $weight);
+}
+
+@function font-style($font: 'body', $style: 'normal') {
+	$name: map.get($fonts, $font);
+	$styles: map.get($name, 'styles');
+	@return map.get($styles, $style);
+}
+
+// --- type scale ---
+$scale: (
+	'alpha': 4,
+	'beta': 3,
+	'gamma': 2,
+	'delta': 1,
+	'epsilon': 0,
+	'zeta': -1
+);
+
+@function scale($size) {
+	@return scale.get(map.get($scale, $size));
+}
+
+// --- leading ---
+$leading: (
+	'tight': 1.2,
+	'default': 1.5
+);
+
+@function leading($name: 'default') {
+	@return map.get($leading, $name);
+}
+
+// set up viewport-sized fluid type scaling, with minimum and maximum sizes
+// -> a modified version of Indrek Paas' fluid type mixin: https://www.sassmeister.com/gist/7f22e44ace49b5124eec
+// -> which is based on Mike Riethmuller's formula: https://madebymike.com.au/writing/fluid-type-calc-examples/
+// -> also inspired by Eduardo Boucas' mixin: https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html
+@mixin fluid(
+	$properties: 'font-size',
+	$size-min: 'eta',
+	$size-max: 'alpha',
+	$screen-min: 'xsmall',
+	$screen-max: 'xlarge'
+) {
+
+	// set base (min) size as default
+	@each $property in $properties {
+		#{$property}: scale($size-min);
+	}
+
+	// start to scale up at the minimum screen size
+	@include breakpoints.query('>#{$screen-min}') {
+		@each $property in $properties {
+			// sass-lint:disable no-duplicate-properties
+			// -> using redundant props as fallback here
+
+			// use an in-between value as the fallback where vw units or calc aren't supported
+			#{$property}: ((scale($size-min) + scale($size-max)) / 2);
+
+			// use calc and vw units to make the type scale fluidly between two sizes
+			#{$property}: calc(#{scale($size-min)} + #{bourbon.strip-unit(scale($size-max) - scale($size-min))} * (100vw - #{bourbon.strip-unit(breakpoints.get($screen-min))}rem) / #{bourbon.strip-unit(breakpoints.get($screen-max) - breakpoints.get($screen-min))});
+		}
+	}
+
+	// stop scaling at the maximum screen size
+	@include breakpoints.query('>#{$screen-max}') {
+		@each $property in $properties {
+			#{$property}: scale($size-max);
+		}
+	}
+}

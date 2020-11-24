@@ -1,0 +1,53 @@
+// Breakpoint tokens
+@use 'sass:map';
+
+$list: (
+	'xsmall': 30em,
+	'small': 42em,
+	'medium': 62em,
+	'large': 75em,
+	'xlarge': 100em
+);
+
+@function get($name) {
+	@return map.get($list, $name);
+}
+// convenience decorator for media query, using the tokens
+@mixin query($name) {
+	@media screen and (min-width: #{get($name)}) {
+		@content;
+	}
+}
+
+// Breakpointify mixin by Hugo Giraudel, lightly modified
+// -> https://twitter.com/HugoGiraudel/status/696707047946108929
+// -> Helper mixin to create suffixed modifiers of a class
+// -> to make it effective starting certain breakpoints.
+// -> @param {String} $class - Class to “breakpointify”
+@mixin suffix(
+	$class,
+	$default: false,
+	$sizes: all
+) {
+	@if $default == true {
+		#{$class} { @content; }
+	}
+
+	@if $sizes == 'all' {
+		@each $name, $size in $list {
+			@include query($name) {
+				#{$class}\@#{$name} {
+					@content;
+				}
+			}
+		}
+	} @else {
+		@each $name in $sizes {
+			@include query($name) {
+				#{$class}\@#{$name} {
+					@content;
+				}
+			}
+		}
+	}
+}

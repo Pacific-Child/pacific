@@ -1,0 +1,13 @@
+@use '../helpers';
+@use '../tokens/color';
+@use 'sass:map';
+
+.border {
+	border: 1px solid color.get('border');
+}
+
+@each $side in helpers.$sides {
+	.border-#{$side} {
+		border-#{$side}: 1px solid color.get('border');
+	}
+}

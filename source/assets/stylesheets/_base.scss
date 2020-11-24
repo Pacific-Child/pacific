@@ -1,5 +1,77 @@
+@use 'tokens/type';
+@use 'tokens/spacing';
+@use 'tokens/breakpoints';
+@use 'tokens/color';
+
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+	min-height: 100vh;
+
+	@include breakpoints.query('small') {
+		font-size: 105%;
+	}
+
+	@include breakpoints.query('medium') {
+		font-size: 110%;
+	}
+
+	@include breakpoints.query('large') {
+		font-size: 120%;
+	}
+}
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+body {
+	font-family: type.font-family('body');
+	font-weight: type.font-weight();
+	line-height: type.leading();
+	color: color.get('primary');
+	margin: 0;
+	font-size: 1rem;
+
+	@supports (display: flex) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	> footer {
+		margin-top: auto;
+	}
+}
+
 img,
 picture,
 video {
 	max-width: 100%;
+}
+
+p {
+	margin: 0;
+
+	& + &,
+	& + ul,
+	& + ol, {
+		margin-top: spacing.get('narrow', 1em);
+	}
+}
+
+li {
+	font-size: type.scale('epsilon');
+}
+
+a {
+	border-bottom: 1px dotted color.get('border');
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
+
+	&:hover,
+	&:active {
+		border-bottom-color: color.get('highlight');
+		color: color.get('highlight');
+	}
 }

@@ -1,0 +1,31 @@
+// Spacing tokens
+@use 'bourbon';
+@use 'scale';
+@use 'sass:map';
+
+// standard spacing for margins and padding, etc.
+$scale: (
+	'xxnarrow': -8,
+	'xnarrow': -4,
+	'narrow': -2,
+	'medium': 1,
+	'wide': 3,
+	'xwide': 6
+);
+
+@function get($name: 'medium', $unit: 1rem) {
+	@return scale.get(map.get($scale, $name), $unit);
+}
+
+// outside margins for full-width containers
+// -> spacing can change for different screen sizes to keep content from getting too scrunched on small devices, and to add more air on larger devices
+// -> [screen size]: [margin width]
+// -> see _breakpoint.scss for global screen size settings
+$outside: (
+	'default': 'narrow',
+	'small': 'medium'
+);
+
+@function outside($name: 'default') {
+	@return map.get($outside, $name);
+}

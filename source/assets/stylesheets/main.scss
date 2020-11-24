@@ -2,11 +2,16 @@
 
 // Base styles
 // -> global element styles: lists, text, images, etc.
-@import 'base';
+@use 'base';
+
+// Composition styles
+
 
 // Utility classes
-// -> global element styles: lists, text, images, etc.
+@use 'utilities/border';
+@use 'utilities/color';
+@use 'utilities/spacing';
+@use 'utilities/type';
 
-
-// Component styles
+// Block styles
 // -> self-contained, namespaced, opinionated UI elements
