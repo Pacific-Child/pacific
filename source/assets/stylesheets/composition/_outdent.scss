@@ -21,6 +21,10 @@ $max-width: 68rem;
   font-size: 1rem;
   max-width: 100%;
   vertical-align: top;
+
+  .outdent.align-middle & {
+  	vertical-align: middle;
+  }
 }
 
 .outdent-figure {
