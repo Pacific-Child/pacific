@@ -33,7 +33,7 @@ $fonts: (
 
 @function font-family($name: 'body') {
 	$font: map.get($fonts, $name);
-	@return unquote('#{map.get($font, 'family')}, #{map.get($font, 'stack')}')
+	@return unquote("#{map.get($font, 'family')}, #{map.get($font, 'stack')}")
 }
 
 @function font-weight($font: 'body', $weight: 'normal') {
