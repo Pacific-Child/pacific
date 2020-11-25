@@ -1,0 +1,29 @@
+// Gutter spacing
+// -> add equal space around all child elements, regardless of flow
+// -> the spacing is 'split' between elements
+@use '../tokens/spacing';
+
+// --- base
+.gutter {
+	margin: -(spacing.get());
+	padding: (spacing.get() / 2);
+}
+
+// --- modifiers
+@each $name, $size in spacing.$scale {
+	@if $name != 'medium' {
+		.gutter.#{$name} {
+			margin: -(spacing.get($name));
+			padding: (spacing.get($name) / 2);
+
+			.gutter-item {
+				padding: (spacing.get($name) / 2);
+			}
+		}
+	}
+}
+
+// --- children
+.gutter-item {
+	padding: (spacing.get() / 2);
+}

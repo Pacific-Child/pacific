@@ -1,0 +1,22 @@
+// Button block
+// -> make a thing look clickable!
+@use '../tokens/color';
+@use '../tokens/spacing';
+@use '../tokens/type';
+
+// --- base ---
+.button {
+	display: inline-block;
+	border: 2px solid color.get('highlight');
+	padding: spacing.get('xnarrow', 1em) spacing.get('narrow', 1em) (spacing.get('xnarrow', 1em) - 0.15em);
+	border-radius: 0.2em;
+	font-family: type.font-family('display');
+	font-weight: type.font-weight('display', 'bold');
+	font-size: type.scale('epsilon');
+	color: color.get('highlight');
+}
+
+.button.disabled {
+	border-color: color.get('secondary');
+	color: color.get('secondary');
+}

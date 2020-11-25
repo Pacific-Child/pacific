@@ -1,0 +1,23 @@
+// Pretty numbers
+// -> add a big pretty number to a container via pseudo-element
+@use '../tokens/type';
+@use '../tokens/color';
+
+.pretty-numbers {
+	counter-reset: prettyNumbers;
+}
+
+.pretty-numbers-item {
+	counter-increment: prettyNumbers;
+
+	&::before {
+		content: counter(prettyNumbers);
+		display: block;
+		position: relative;
+		font-size: 4em;
+		font-family: type.font-family('display');
+		font-weight: type.font-weight('display', 'bold');
+		color: color.get('highlight');
+		line-height: type.leading('tight');
+	}
+}

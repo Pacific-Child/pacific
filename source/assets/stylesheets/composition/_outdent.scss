@@ -1,0 +1,42 @@
+// Outdent
+// -> divide content into 2 columns,
+//    with a figure 'outdented' to the left of the 'body' text
+@use '../tokens/breakpoints' as bp;
+
+$breakpoint: bp.get('medium');
+$figure-width: 30rem;
+$max-width: 68rem;
+
+.outdent {
+  --figure-width: #{$figure-width};
+  --breakpoint: #{$breakpoint};
+
+  display: block;
+  font-size: 0;
+}
+
+.outdent-figure,
+.outdent-body {
+  display: inline-block;
+  font-size: 1rem;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.outdent-figure {
+  width: 100%;
+
+  @include bp.query('xsmall') {
+    min-width: var(--figure-width);
+    width: calc((var(--breakpoint) - 100%) * 1000);
+  }
+}
+
+.outdent-body {
+  width: 100%;
+
+  @include bp.query('xsmall') {
+    min-width: calc(100% - var(--figure-width));
+    width: calc((var(--breakpoint) - 100%) * 1000);
+  }
+}

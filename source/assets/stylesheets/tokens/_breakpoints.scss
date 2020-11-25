@@ -13,9 +13,15 @@ $list: (
 	@return map.get($list, $name);
 }
 // convenience decorator for media query, using the tokens
-@mixin query($name) {
-	@media screen and (min-width: #{get($name)}) {
-		@content;
+@mixin query($name, $direction: 'above') {
+	@if $direction == 'above' {
+		@media screen and (min-width: #{get($name)}) {
+			@content;
+		}
+	} @else {
+		@media screen and (max-width: #{get($name) - 0.01em}) {
+			@content;
+		}
 	}
 }
 
@@ -25,18 +31,18 @@ $list: (
 // -> to make it effective starting certain breakpoints.
 // -> @param {String} $class - Class to “breakpointify”
 @mixin suffix(
-	$class,
+	$selector,
 	$default: false,
 	$sizes: all
 ) {
 	@if $default == true {
-		#{$class} { @content; }
+		#{$selector} { @content; }
 	}
 
 	@if $sizes == 'all' {
 		@each $name, $size in $list {
 			@include query($name) {
-				#{$class}\@#{$name} {
+				#{$selector}\@#{$name} {
 					@content;
 				}
 			}
@@ -44,7 +50,7 @@ $list: (
 	} @else {
 		@each $name in $sizes {
 			@include query($name) {
-				#{$class}\@#{$name} {
+				#{$selector}\@#{$name} {
 					@content;
 				}
 			}

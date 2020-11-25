@@ -1,0 +1,30 @@
+.display-block {
+	display: block;
+}
+
+.display-inline-block {
+	display: inline-block;
+}
+
+.position-absolute {
+	position: absolute !important;
+}
+
+.position-top-right {
+	right: 0;
+	top: 0;
+}
+
+.position-relative {
+	position: relative;
+}
+
+@each $name, $level in (
+	'low': 1,
+	'middle': 2,
+	'high': 3
+) {
+	.z-#{$name} {
+		z-index: $level;
+	}
+}

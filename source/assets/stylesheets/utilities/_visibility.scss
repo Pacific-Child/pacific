@@ -1,0 +1,72 @@
+// Visibility utilities
+@use 'bourbon';
+@use '../tokens/breakpoints';
+
+.hide-visually {
+	@include bourbon.hide-visually();
+}
+
+// hide but keep it accessible
+@include breakpoints.suffix('.hide-visually-above') {
+	@include bourbon.hide-visually();
+}
+
+@include breakpoints.suffix('.show-visually-above') {
+	@include bourbon.hide-visually('unhide');
+}
+
+// see hidden-[below|above]@[size] in _breakpoints for media-query versions
+.hide {
+	display: none;
+}
+
+// --- show/hide at screen sizes
+// -> hide content until screen reaches specified breakpoint size
+
+// usage: <span class='hide-[below|above]@small'>
+@each $name, $size in breakpoints.$list {
+	.hide-below\@#{$name} {
+		@include breakpoints.query($size, 'below') {
+			display: none;
+		}
+	}
+
+	.hide-above\@#{$name} {
+		@include breakpoints.query($size) {
+			display: none;
+		}
+	}
+}
+
+// --- show/hide for JS
+.hide\@js {
+	.js & {
+		display: none;
+	}
+}
+
+.show\@js {
+	.no-js & {
+		display: none;
+	}
+}
+
+.hide\@print {
+	@media print {
+		display: none;
+	}
+}
+
+// --- show/hide for print
+.show\@print {
+	display: none;
+
+	@media print {
+		display: block;
+	}
+}
+
+// --- overflow
+.hide-overflow {
+	overflow: hidden;
+}

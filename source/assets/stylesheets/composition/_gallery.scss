@@ -1,0 +1,108 @@
+// Gallery
+// -> arrange content in a fluid grid
+@use '../tokens/spacing';
+@use '../tokens/layout_width';
+@use '../tokens/breakpoints';
+
+// default values
+$gutter: spacing.get();
+$breakpoint: 600px;
+$min-percentage: 33.33333%;
+$max-percentage: 100%;
+
+// --- base ---
+.gallery {
+	--gutter: var(--space-medium, #{$gutter});
+	--min-width: 240px;
+	--breakpoint: #{$breakpoint};
+	--min-percentage: #{$min-percentage};
+	--max-percentage: #{$max-percentage};
+
+	display: block;
+	font-size: 0;
+	list-style: none;
+	margin: (($gutter / 2) * -1);
+	margin: calc((var(--gutter) / 2) * -1);
+	padding-left: 0;
+	position: relative;
+	text-align: left;
+
+	@supports (display: grid) and (display: flex) {
+		display: grid;
+		grid-column-gap: var(--gutter);
+		grid-row-gap: var(--gutter);
+		grid-template-columns: 1fr;
+		margin: 0;
+
+		@include breakpoints.query('xsmall') {
+			grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
+		}
+	}
+}
+
+// --- variations ---
+.gallery.small {
+	--min-width: 180px;
+	--breakpoint: 480px;
+	--min-percentage: 25%;
+}
+
+.gallery.large {
+	--min-width: 600px;
+	--breakpoint: 1200px;
+	--min-percentage: 25%;
+
+	@include breakpoints.query('xsmall') {
+		grid-template-columns: 1fr;
+	}
+
+	@include breakpoints.query('small') {
+		grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
+	}
+}
+
+// --- children ---
+.gallery-item {
+	// stylelint-disable order/properties-alphabetical-order
+	// -> these props are sorted to make progressive enhancement clearer
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0 !important; // overrule default li spacing
+	padding: ($gutter / 2);
+	padding: calc(var(--gutter) / 2);
+	position: relative;
+	vertical-align: top;
+
+
+	// fallback fluid sizing method using a calc() hack
+	// -> allows grid to be somewhat responsive without media queries
+	// -> mainly for IE and old browsers
+	// -> https://www.sitepoint.com/responsive-css-patterns-without-media-queries/
+	max-width: $max-percentage;
+	max-width: var(--max-percentage);
+	min-width: $min-percentage;
+	min-width: var(--min-percentage);
+	width: calc((#{$breakpoint} - 100%) * 1000);
+	width: calc((var(--breakpoint) - 100%) * 1000);
+
+	@supports (display: grid) {
+		max-width: 36rem;
+		max-width: 70ch;
+		min-width: auto;
+		padding: 0;
+		width: auto;
+	}
+
+	.gallery.large & {
+		max-width: 64rem;
+		max-width: 100ch;
+	}
+
+	.gallery.flex & {
+		@supports (display: flex) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	// stylelint-enable order/properties-alphabetical-order
+}

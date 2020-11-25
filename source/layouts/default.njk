@@ -1,3 +1,7 @@
+---
+contact: kmillan@unicef.org
+---
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
@@ -17,11 +21,33 @@
 	</head>
 	<body>
 		{# Main header #}
-		<header class="color-fg-bg color-bg-primary | padding-y-narrow padding-x-outside">
-			<p class="type-scale-zeta type-font-display type-weight-bold | no-margin">
-				Pacific Regional Council for Early Childhood Development
-			</p>
-			<a class="type-scale-zeta type-font-display type-weight-bold" href="#">Contact us</a>
+		<header class="
+			color-fg-bg color-bg-primary
+			padding-y-narrow padding-x-outside
+		">
+			<div class="bookend horizontal | gutter narrow | type-scale-zero">
+				<p class="
+					bookend-item
+					gutter-item
+					display-inline-block
+					type-scale-zeta type-font-display type-weight-bold
+					no-margin"
+				>
+					Pacific Regional Council for Early Childhood Development
+				</p>
+				<a
+					class="
+						bookend-item
+						gutter-item
+						display-inline-block
+						type-scale-zeta type-font-display type-weight-bold
+						hide-visually show-visually-above@xsmall
+					"
+					href="mailto:{{ contact }}"
+				>
+					Contact us
+				</a>
+			</div>
 		</header>
 
 		{# Main content #}
@@ -29,15 +55,27 @@
 
 		{# Main footer #}
 		<footer class="border-top | padding-x-outside padding-y-narrow | type-scale-zeta">
-			<p class="type-font-display">
-				<strong>UNICEF</strong> Pacific Regional Council for Early Childhood Development
-				<small>&copy; Copyright 2020. All rights reserved.</small>
-			</p>
-			<aside class="type-font-display">Questions? <a href="#">Contact us</a></aside>
+			<div class="bookend horizontal@small | gutter narrow">
+				<p class="bookend-item | gutter-item | type-font-display">
+					<strong>UNICEF</strong> Pacific Regional Council for Early Childhood Development
+					<small>&copy; Copyright 2020. All rights reserved.</small>
+				</p>
+				<aside class="bookend-item | gutter-item | type-font-display">
+					Questions? <a href="mailto:{{ contact }}">Contact us</a>
+				</aside>
+			</div>
 		</footer>
 
 		<!-- Alpine JS from their CDN -->
-		<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
-		<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+		<script
+			type="module"
+			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+		></script>
+		<script
+			nomodule
+			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/
+			alpine-ie11.min.js"
+			defer
+		></script>
 	</body>
 </html>

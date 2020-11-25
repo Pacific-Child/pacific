@@ -1,17 +1,28 @@
-// Styles for IAIG's Annual Report: 2019 in Review
+// Styles for the Pacific Regional Council
+// by Høst Creative Inc.
 
 // Base styles
 // -> global element styles: lists, text, images, etc.
 @use 'base';
 
 // Composition styles
+// -> unopinionated, composeable layout
+@use 'composition/bookend';
+@use 'composition/gallery';
+@use 'composition/gutter';
+@use 'composition/outdent';
 @use 'composition/wrapper';
+
+// Block styles
+// -> self-contained, namespaced, opinionated UI elements
+@use 'blocks/button';
+@use 'blocks/pretty_numbers';
 
 // Utility classes
 @use 'utilities/border';
 @use 'utilities/color';
+@use 'utilities/list';
+@use 'utilities/positioning';
 @use 'utilities/spacing';
 @use 'utilities/type';
-
-// Block styles
-// -> self-contained, namespaced, opinionated UI elements
+@use 'utilities/visibility';
