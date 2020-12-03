@@ -11,7 +11,7 @@ $min-percentage: 33.33333%;
 $max-percentage: 100%;
 
 // --- base ---
-.gallery {
+.c-gallery {
 	--gutter: var(--space-medium, #{$gutter});
 	--min-width: 240px;
 	--breakpoint: #{$breakpoint};
@@ -41,13 +41,13 @@ $max-percentage: 100%;
 }
 
 // --- variations ---
-.gallery.small {
+.c-gallery.small {
 	--min-width: 180px;
 	--breakpoint: 480px;
 	--min-percentage: 25%;
 }
 
-.gallery.large {
+.c-gallery.large {
 	--min-width: 600px;
 	--breakpoint: 1200px;
 	--min-percentage: 25%;
@@ -62,7 +62,7 @@ $max-percentage: 100%;
 }
 
 // --- children ---
-.gallery-item {
+.c-gallery-item {
 	// stylelint-disable order/properties-alphabetical-order
 	// -> these props are sorted to make progressive enhancement clearer
 	display: inline-block;
@@ -93,12 +93,12 @@ $max-percentage: 100%;
 		width: auto;
 	}
 
-	.gallery.large & {
+	.c-gallery.large & {
 		max-width: 64rem;
 		max-width: 100ch;
 	}
 
-	.gallery.flex & {
+	.c-gallery.flex & {
 		@supports (display: flex) {
 			display: flex;
 			flex-direction: column;

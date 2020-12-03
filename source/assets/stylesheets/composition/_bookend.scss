@@ -3,12 +3,12 @@
 @use 'bourbon';
 @use '../tokens/breakpoints';
 
-.bookend {
+.c-bookend {
 	display: block;
 	position: relative;
 }
 
-.bookend-item {
+.c-bookend-item {
 	--item-width: auto;
 
 	@include bourbon.clearfix;
@@ -20,7 +20,7 @@
 }
 
 @include breakpoints.suffix(
-	'.bookend.horizontal',
+	'.c-bookend.horizontal',
 	$default: true,
 	$sizes: [xsmall, small]
 ) {
@@ -32,7 +32,7 @@
 		min-height: 3rem;
 	}
 
-	.bookend-item {
+	.c-bookend-item {
 		display: inline-block;
 		vertical-align: middle;
 
@@ -62,12 +62,12 @@
 	}
 }
 
-// .bookend.align-stretch {
+// .c-bookend.align-stretch {
 // 	@supports (align-items: flex-start) {
 // 		align-items: stretch !important;
 // 	}
 
-// 	.bookend-item {
+// 	.c-bookend-item {
 // 		max-width: var(--item-width);
 // 		vertical-align: top;
 
@@ -79,12 +79,12 @@
 // 	}
 // }
 
-.bookend.align-top {
+.c-bookend.align-top {
   @supports (align-items: flex-start) {
     align-items: flex-start !important;
   }
 
-  .bookend-item {
+  .c-bookend-item {
     vertical-align: top;
   }
 }

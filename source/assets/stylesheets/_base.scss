@@ -26,8 +26,7 @@ html {
 *::after { box-sizing: inherit; }
 
 body {
-	font-family: type.font-family('body');
-	font-weight: type.font-weight();
+	@include type.font();
 	line-height: type.leading();
 	color: color.get('primary');
 	margin: 0;

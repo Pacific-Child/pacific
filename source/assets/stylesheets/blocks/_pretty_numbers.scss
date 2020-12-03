@@ -3,20 +3,19 @@
 @use '../tokens/type';
 @use '../tokens/color';
 
-.pretty-numbers {
+.b-pretty-numbers {
 	counter-reset: prettyNumbers;
 }
 
-.pretty-numbers-item {
+.b-pretty-numbers-item {
 	counter-increment: prettyNumbers;
 
 	&::before {
+		@include type.font('display', 'bold');
 		content: counter(prettyNumbers);
 		display: block;
 		position: relative;
 		font-size: 4em;
-		font-family: type.font-family('display');
-		font-weight: type.font-weight('display', 'bold');
 		color: color.get('highlight');
 		line-height: type.leading('tight');
 	}

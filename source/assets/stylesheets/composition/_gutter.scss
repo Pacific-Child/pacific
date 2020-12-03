@@ -4,7 +4,7 @@
 @use '../tokens/spacing';
 
 // --- base
-.gutter {
+.c-gutter {
 	margin: -(spacing.get());
 	padding: (spacing.get() / 2);
 }
@@ -12,11 +12,11 @@
 // --- modifiers
 @each $name, $size in spacing.$scale {
 	@if $name != 'medium' {
-		.gutter.#{$name} {
+		.c-gutter.#{$name} {
 			margin: -(spacing.get($name));
 			padding: (spacing.get($name) / 2);
 
-			.gutter-item {
+			.c-gutter-item {
 				padding: (spacing.get($name) / 2);
 			}
 		}
@@ -24,6 +24,6 @@
 }
 
 // --- children
-.gutter-item {
+.c-gutter-item {
 	padding: (spacing.get() / 2);
 }

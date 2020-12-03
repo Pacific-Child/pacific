@@ -2,12 +2,12 @@
 @use '../tokens/color';
 @use 'sass:map';
 
-.border {
+.u-border {
 	border: 1px solid color.get('border');
 }
 
 @each $side in helpers.$sides {
-	.border-#{$side} {
+	.u-border-#{$side} {
 		border-#{$side}: 1px solid color.get('border');
 	}
 }

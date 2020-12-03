@@ -5,28 +5,28 @@
 
 // generate utilities for each side and scale interval
 @each $prop in [padding, margin] {
-	.#{$prop} {
+	.u-#{$prop} {
 		#{$prop}: spacing.get();
 	}
 
-	.#{$prop}-x {
+	.u-#{$prop}-x {
 		#{$prop}-left: spacing.get();
 		#{$prop}-right: spacing.get();
 	}
 
-	.#{$prop}-y {
+	.u-#{$prop}-y {
 		#{$prop}-top: spacing.get();
 		#{$prop}-bottom: spacing.get();
 	}
 
 	// add space between all children on a given axis
-	.#{$prop}-x-flow {
+	.u-#{$prop}-x-flow {
 		> * + * {
 			#{$prop}-left: spacing.get();
 		}
 	}
 
-	.#{$prop}-y-flow {
+	.u-#{$prop}-y-flow {
 		> * + * {
 			#{$prop}-top: spacing.get();
 		}
@@ -34,28 +34,28 @@
 
 	@each $name, $length in spacing.$scale {
 		@if $name != 'default' {
-			.#{$prop}-#{$name} {
+			.u-#{$prop}-#{$name} {
 				#{$prop}: spacing.get($name);
 			}
 
-			.#{$prop}-x-#{$name} {
+			.u-#{$prop}-x-#{$name} {
 				#{$prop}-left: spacing.get($name);
 				#{$prop}-right: spacing.get($name);
 			}
 
-			.#{$prop}-y-#{$name} {
+			.u-#{$prop}-y-#{$name} {
 				#{$prop}-top: spacing.get($name);
 				#{$prop}-bottom: spacing.get($name);
 			}
 
 			// add space flow all children on a given axis
-			.#{$prop}-x-flow-#{$name} {
+			.u-#{$prop}-x-flow-#{$name} {
 				> * + * {
 					#{$prop}-left: spacing.get($name);
 				}
 			}
 
-			.#{$prop}-y-flow-#{$name} {
+			.u-#{$prop}-y-flow-#{$name} {
 				> * + * {
 					#{$prop}-top: spacing.get($name);
 				}
@@ -64,30 +64,30 @@
 	}
 
 	@each $side in helpers.$sides {
-		.#{$prop}-#{$side} {
+		.u-#{$prop}-#{$side} {
 			#{$prop}-#{$side}: spacing.get();
 		}
 
 		@each $name, $length in spacing.$scale {
 			@if $name != 'default' {
-				.#{$prop}-#{$side}-#{$name} {
+				.u-#{$prop}-#{$side}-#{$name} {
 					#{$prop}-#{$side}: spacing.get($name);
 				}
 			}
 		}
 
-		.no-#{$prop}-#{$side} {
+		.u-no-#{$prop}-#{$side} {
 			#{$prop}-#{$side}: 0;
 		}
 	}
 
-	.no-#{$prop} {
+	.u-no-#{$prop} {
 		#{$prop}: 0;
 	}
 }
 
 // Outside spacing for containers
-.padding-x-outside {
+.u-padding-x-outside {
 	padding-left: spacing.get(spacing.outside());
 	padding-right: spacing.get(spacing.outside());
 

@@ -8,44 +8,35 @@
 // --- fonts ---
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap');
 
-$fonts: (
-	'display': (
-		'family': 'Josefin Sans',
-		'stack': bourbon.$font-stack-system,
-		'weights': (
+@mixin font($name: 'default', $weight: 'normal', $style: 'normal') {
+	// display font
+	@if $name == 'display' {
+		$weights: (
 			'light': 300,
 			'bold': 600,
 			'normal': 400
-		)
-	),
-	'body': (
-		'family': 'Cardo',
-		'stack': bourbon.$font-stack-georgia,
-		'weights': (
-			'bold': 700,
-			'normal': 400
-		),
-		'styles': (
-			'italic': 400
-		)
-	)
-);
+		);
 
-@function font-family($name: 'body') {
-	$font: map.get($fonts, $name);
-	@return unquote("#{map.get($font, 'family')}, #{map.get($font, 'stack')}")
-}
+		font-family: 'Josefin Sans', bourbon.$font-stack-system;
+		font-weight: map.get($weights, $weight);
+		@if $style != 'normal' {
+			font-style: $style;
+		}
+	}
 
-@function font-weight($font: 'body', $weight: 'normal') {
-	$name: map.get($fonts, $font);
-	$weights: map.get($name, 'weights');
-	@return map.get($weights, $weight);
-}
+	// default/body font
+	@if $name == 'default' {
+		$weights: (
+			'normal': 400,
+			'bold': 700
+		);
 
-@function font-style($font: 'body', $style: 'normal') {
-	$name: map.get($fonts, $font);
-	$styles: map.get($name, 'styles');
-	@return map.get($styles, $style);
+		font-family: 'Cardo', bourbon.$font-stack-georgia;
+		font-weight: map.get($weights, $weight);
+		@if $style != 'normal' {
+			font-style: $style;
+		}
+	}
 }
 
 // --- type scale ---

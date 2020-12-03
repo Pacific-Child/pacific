@@ -7,7 +7,7 @@ $breakpoint: bp.get('medium');
 $figure-width: 30rem;
 $max-width: 68rem;
 
-.outdent {
+.c-outdent {
   --figure-width: #{$figure-width};
   --breakpoint: #{$breakpoint};
 
@@ -15,19 +15,19 @@ $max-width: 68rem;
   font-size: 0;
 }
 
-.outdent-figure,
-.outdent-body {
+.c-outdent-figure,
+.c-outdent-body {
   display: inline-block;
   font-size: 1rem;
   max-width: 100%;
   vertical-align: top;
 
-  .outdent.align-middle & {
+  .c-outdent.align-middle & {
   	vertical-align: middle;
   }
 }
 
-.outdent-figure {
+.c-outdent-figure {
   width: 100%;
 
   @include bp.query('xsmall') {
@@ -36,7 +36,7 @@ $max-width: 68rem;
   }
 }
 
-.outdent-body {
+.c-outdent-body {
   width: 100%;
 
   @include bp.query('xsmall') {

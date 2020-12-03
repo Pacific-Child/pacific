@@ -4,71 +4,31 @@
 
 // alignment
 @each $position in [left, center, right] {
-	.type-align-#{$position} {
+	.u-type-align-#{$position} {
 		text-align: $position;
 	}
 }
 
 // case
-.type-case-upper {
+.u-type-case-upper {
 	text-transform: uppercase;
 }
 
-// scale
-h1,
-.type-scale-alpha {
-	@include type.fluid($size-min: 'beta', $size-max: 'alpha');
-	letter-spacing: -0.02em;
-}
-
-h2,
-.type-scale-beta {
-	@include type.fluid($size-min: 'gamma', $size-max: 'beta');
-	letter-spacing: -0.02em;
-}
-
-h3,
-.type-scale-gamma {
-	@include type.fluid($size-min: 'delta', $size-max: 'gamma');
-	letter-spacing: -0.01em;
-}
-
-h4,
-.type-scale-delta {
-	@include type.fluid($size-min: 'epsilon', $size-max: 'delta');
-}
-
-h5,
-.type-scale-epsilon {
-	font-size: type.scale('epsilon');
-}
-
-h6,
-.type-scale-zeta {
-	font-size: type.scale('zeta');
-}
-
-// set font size to zero to fix whitespace bugs
-.type-scale-zero {
-	font-size: 0;
-}
-
+// headings
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-.type-heading {
-	display: block;
-	font-family: type.font-family('display');
-	font-weight: type.font-weight('display', 'bold');
+.u-type-heading {
+	@include type.font('display', 'bold');
 	line-height: type.leading('tight');
 	margin-bottom: 0;
 	margin-top: 0;
 
-	&.type-weight-light {
-		font-weight: type.font-weight('display', 'light');
+	&.u-type-weight-light {
+		@include type.font('display', 'light');
 	}
 
 	strong {
@@ -76,29 +36,86 @@ h6,
 	}
 }
 
+// scale
+h1,
+.u-type-scale-alpha {
+	@include type.fluid($size-min: 'beta', $size-max: 'alpha');
+	letter-spacing: -0.02em;
+}
+
+h2,
+.u-type-scale-beta {
+	@include type.fluid($size-min: 'gamma', $size-max: 'beta');
+	letter-spacing: -0.02em;
+}
+
+h3,
+.u-type-scale-gamma {
+	@include type.fluid($size-min: 'delta', $size-max: 'gamma');
+	letter-spacing: -0.01em;
+}
+
+h4,
+.u-type-scale-delta {
+	@include type.fluid($size-min: 'epsilon', $size-max: 'delta');
+}
+
+h5,
+.u-type-scale-epsilon {
+	font-size: type.scale('epsilon');
+}
+
+h6,
+.u-type-scale-zeta {
+	font-size: type.scale('zeta');
+}
+
+// set font size to zero to fix whitespace bugs
+.u-type-scale-zero {
+	font-size: 0;
+}
+
 @each $name, $height in type.$leading {
-	.type-leading-#{$name} {
+	.u-type-leading-#{$name} {
 		line-height: $height;
 	}
 }
 
 // fonts, weights, styles
-@each $name, $font in type.$fonts {
-	.type-font-#{$name} {
-		font-family: type.font-family($name);
+.u-type-font-display {
+	@include type.font('display');
 
-		@each $weight, $weight-value in map.get($font, 'weights') {
-			&.type-weight-#{$weight} {
-				font-weight: $weight-value;
-			}
-		}
+	.u-type-weight-light,
+	&.u-type-weight-light {
+		@include type.font('display', 'light');
+	}
 
-		@if map.get($font, 'styles') {
-			@each $style, $style-value in map.get($font, 'styles') {
-				&.type-style-#{$style-value} {
-					font-style: $style-value;
-				}
-			}
-		}
+	.u-type-weight-bold,
+	&.u-type-weight-bold {
+		@include type.font('display', 'bold');
+	}
+
+	.u-type-weight-normal,
+	&.u-type-weight-normal {
+		@include type.font('display', 'normal');
+	}
+}
+
+.u-type-font-default {
+	@include type.font();
+
+	.u-type-weight-bold,
+	&.u-type-weight-bold {
+		@include type.font($weight: 'bold');
+	}
+
+	.u-type-style-italic,
+	&.u-type-style-italic {
+		@include type.font($style: italic);
+	}
+
+	.u-type-weight-normal,
+	&.u-type-weight-normal {
+		@include type.font($weight: 'normal');
 	}
 }

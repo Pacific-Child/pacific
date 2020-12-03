@@ -2,21 +2,21 @@
 @use 'bourbon';
 @use '../tokens/breakpoints';
 
-.hide-visually {
+.u-hide-visually {
 	@include bourbon.hide-visually();
 }
 
 // hide but keep it accessible
-@include breakpoints.suffix('.hide-visually-above') {
+@include breakpoints.suffix('.u-hide-visually-above') {
 	@include bourbon.hide-visually();
 }
 
-@include breakpoints.suffix('.show-visually-above') {
+@include breakpoints.suffix('.u-show-visually-above') {
 	@include bourbon.hide-visually('unhide');
 }
 
 // see hidden-[below|above]@[size] in _breakpoints for media-query versions
-.hide {
+.u-hide {
 	display: none;
 }
 
@@ -25,13 +25,13 @@
 
 // usage: <span class='hide-[below|above]@small'>
 @each $name, $size in breakpoints.$list {
-	.hide-below\@#{$name} {
+	.u-hide-below\@#{$name} {
 		@include breakpoints.query($size, 'below') {
 			display: none;
 		}
 	}
 
-	.hide-above\@#{$name} {
+	.u-hide-above\@#{$name} {
 		@include breakpoints.query($size) {
 			display: none;
 		}
@@ -39,26 +39,26 @@
 }
 
 // --- show/hide for JS
-.hide\@js {
+.u-hide\@js {
 	.js & {
 		display: none;
 	}
 }
 
-.show\@js {
+.u-show\@js {
 	.no-js & {
 		display: none;
 	}
 }
 
-.hide\@print {
+.u-hide\@print {
 	@media print {
 		display: none;
 	}
 }
 
 // --- show/hide for print
-.show\@print {
+.u-show\@print {
 	display: none;
 
 	@media print {
@@ -67,6 +67,6 @@
 }
 
 // --- overflow
-.hide-overflow {
+.u-hide-overflow {
 	overflow: hidden;
 }
