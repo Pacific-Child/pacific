@@ -4,114 +4,113 @@ title: Home
 logo_width: 30rem
 ---
 
-{# Jumbotron #}
-<header class="u-padding-x-outside u-padding-y-wide | u-type-align-center">
-	<div class="c-wrapper">
-		{# Logo #}
-		<img
-			src="/images/pacific-logo-vertical.png"
-			alt="Pacific Regional Council for Early Childhood Development"
-			style="width: {{ logo_width }};"
+<header>
+	<div class="
+		c-wrapper
+		u-margin-y-flow u-padding-y-wide u-padding-x-outside
+	">
+		<div style="max-width: {{logo_width}};">
+			{# Figure out how to mark this up - hide image? #}
+			<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
+		</div>
+		<div class="c-flow">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, porro natus nulla non ipsa dolore necessitatibus earum, mollitia. Consectetur architecto qui voluptas ipsum aliquid eligendi recusandae nemo saepe esse dolores.</p>
+		</div>
+		<a
+			class="b-button"
+			href="#"
 		>
-		<h1 class="u-type-weight-light u-type-align-center | u-padding-top">
-			Meeting
-		</h1>
-		<time class="
-			u-type-font-display u-type-scale-gamma u-type-weight-bold u-type-leading-tight
-			color-fg-secondary
-			u-padding-top-xnarrow
-		">
-			November 27, 2020
-		</time>
+			About Pacific Child &rsaquo;
+		</a>
 	</div>
 </header>
+<main>
 
-<article class="u-padding-y-wide u-padding-x-outside | u-border-top">
-
-	{# Intro #}
-	<div class="c-wrapper">
-		<h2 class="u-padding-bottom | u-type-align-center">About the meeting</h2>
-		<p>The Pacific Regional Council for Early Childhood Development (PRC4ECD), established at a ministerial roundtable in the 2019 Pacific ECD Forum held in Nadi, Fiji, is an inter-governmental and multisectoral body that provides leadership and strategic direction on policies, programmes, and investments that support the holistic development of our young children in the Pacific.</p>
-		<p>The council brings together the ministries of education, finance, health, planning, internal affairs, women & children, and social welfare from fifteen Pacific Island Countries and territories: Cook Islands, Federated States of Micronesia, Fiji, Kiribati, Nauru, Niue, Palau, Papua New Guinea, Marshall Islands, Samoa, Solomon Islands, Tonga, Tokelau, Tuvalu, and Vanuatu.</p>
-		<p>Their first formal meeting is to be held virtually on 27 November, 2020. In this meeting, the objectives are to foster even stronger political will on a whole-of-government approach to early investments, specifically in the context of COVID-19 and as the Pacific region builds back better.</p>
-	</div>
-
-	{# Outcomes #}
-	<section class="c-wrapper wide | u-padding-y-wide u-margin-y-wide | u-border-top u-border-bottom">
-		<div class="c-wrapper">
-			<h3 class="u-type-align-center">
-				Concrete outcomes of the meeting include:
-			</h3>
-		</div>
-		<div class="u-padding-top">
-			<ol class="c-gallery | b-pretty-numbers">
-				<li class="c-gallery-item | b-pretty-numbers-item">
-					<p><strong>Feedback and endorsement</strong> of an ECD paper for distribution to Forum of Economic Ministers Meeting</p>
-				</li>
-				<li class="c-gallery-item | b-pretty-numbers-item">
-					<p><strong>Endorsement</strong> of the workplan for the Council and election the next Chairs</p>
-				</li>
-				<li class="c-gallery-item | b-pretty-numbers-item">
-					<p><strong>Lessons</strong> from countries on advances and challenges in ECD</p>
-				</li>
-			</ol>
+	{# Meeting #}
+	<section class="u-border-top | u-padding-y-wide u-padding-x-outside">
+		<header>
+			<h2 class="u-type-align-center">Latest meeting outcomes</h2>
+			<div class="c-wrapper">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum nisi, nulla exercitationem, temporibus, veritatis omnis impedit quo quisquam dolores ut mollitia libero saepe molestias ipsum, hic eaque corporis quas tenetur.</p>
+			</div>
+		</header>
+		<div class="c-wrapper wide | u-padding-top-wide">
+			<article class="u-border u-border-radius u-padding">
+				<h3 class="u-padding-bottom"><time>November 27, 2020</time></h3>
+				<div class="c-outdent | c-gutter" style="--figure-width: 15rem;">
+					<div class="c-outdent-figure | c-gutter-item">
+						<img src="https://placehold.it/600x600?text=Photo" alt="Photo from event">
+					</div>
+					<div class="c-outdent-body | c-gutter-item">
+						<ol>
+							{% for item in [1, 2, 3] %}
+							<li>
+								<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Facere adipisci consequatur nemo veniam laboriosam perferendis incidunt earum quisquam quia alias, aliquid qui. Iure expedita eaque ratione, dolor vero magni error.</p>
+							</li>
+							{% endfor %}
+						</ol>
+					</div>
+				</div>
+			</article>
 		</div>
 	</section>
 
-	<div class="c-wrapper">
-		<p>The meeting is convened by the Chairs of the Council – Hon. Ifereimi Waqainebete, Minister of Health, Fiji and Hon. Sili Epa Tuioti, Minister of Finance, Samoa, with the support of UNICEF Pacific, which is the Council’s Secretariat. The council meeting is expected to recur every two years.</p>
-	</div>
-
-	{# Downloads #}
-	<aside class="c-wrapper | u-padding-top | u-margin-top">
-		<ul class="u-list-undecorated u-margin-y-flow-narrow">
-			<li class="u-border u-border-radius | u-padding-narrow">
-				<div class="c-bookend horizontal@small align-top | c-gutter">
-					<p class="
-						c-bookend-item
-						c-gutter-item
-						u-type-font-display u-type-weight-bold
-					">
-						The meeting agenda
-					</p>
-					<div class="c-bookend-item | c-gutter-item">
-						<a class="b-button" href='uploads/PRC4ECD-2020-Meeting-Agenda_v3.docx'>Download</a>
-					</div>
-				</div>
-			</li>
-			<li class="u-border u-border-radius | u-padding-narrow">
-				<div class="c-bookend horizontal@small align-top | c-gutter">
-					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<strong class="u-type-font-display u-type-weight-bold">Outcomes and Meeting Papers</strong> of the 2020 Pacific Regional Council for ECD Meeting
-					</p>
-					<div class="c-bookend-item | c-gutter-item">
-						<span class="b-button disabled">Coming&nbsp;soon!</span>
-					</div>
-				</div>
-			</li>
-		</ul>
-	</aside>
-</article>
-
-{# Logo description #}
-<article class="u-padding-x-outside u-padding-y-wide | u-border-top">
-	<div class="c-wrapper | u-padding-bottom">
-		<h2 class="u-type-align-center">Our logo</h2>
-	</div>
-	<div class="c-wrapper wide">
-		<div class="c-outdent | c-gutter wide">
-			<div class="c-outdent-figure | c-gutter-item | u-type-align-center">
-				<img
-					src="/images/pacific-logo-vertical.png"
-					style="width: {{ logo_width }};"
-				>
+	{# Resources #}
+	<section class="u-border-top u-padding-y-wide u-padding-x-outside u-margin-y-flow-wide">
+		<header class="u-margin-y-flow">
+			<h2 class="u-type-align-center">
+				Early childhood development resources
+			</h2>
+			<div class="c-wrapper">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
 			</div>
-			<div class="c-outdent-body | c-gutter-item">
-				<div class="c-wrapper | u-padding-top-narrow">
-					<p>The Pacific Regional Council for Early Childhood Development (PRC4ECD) has chosen the baby sea turtle as its symbol, as it represents both childhood and the Pacific community as a whole. Turtles are considered sacred in many Pacific cultures, symbolizing longevity, wellness, and protection &mdash; all of which are intrinsic to the concept of early childhood development. A baby turtle, specifically, represents strength, resilience, and even hope: this tiny, vulnerable creature &mdash; swimming in a huge expanse of ocean &mdash; will grow into a majestic giant that may live for hundreds of years and swim thousands of miles.</p>
-					<p>Turtles range widely across the Pacific. They are not associated with any single nation, and thus act as an inclusive symbol for the Blue Continent’s whole community. They are, finally, a symbol of the community’s complexity and potential: they live in the water, in the vast depths, always moving, swimming from one place to another like connecting threads in the vast and diverse Pacific.</p>
-				</div>
-			</div>
+		</header>
+		<div class="u-border-y u-padding-y-wide">
+			<ul class="c-gallery">
+				{% for item in [1, 2, 3] %}
+					<li class="c-gallery-item | u-margin-y-flow-narrow">
+						<h3>Resource title lorem ipsum</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse maiores illo, amet itaque expedita. Iusto reiciendis est, quidem sunt ipsa blanditiis ducimus hic in, quia magnam sint placeat architecto pariatur.</p>
+						<a class="b-button u-margin-top" href="#">Read more &rsaquo;</a>
+					</li>
+				{% endfor %}
+			</ul>
 		</div>
-	</div>
-</article>
+		<div class="u-type-align-center">
+			<a class="b-button" href="#">About ECD &rsaquo;</a>
+		</div>
+	</section>
+
+	{# Updates #}
+	<section class="u-border-top u-padding-y-wide u-padding-x-outside u-margin-y-flow-wide">
+		<header class="u-margin-y-flow">
+			<h2 class="u-type-align-center">
+				Updates
+			</h2>
+			<div class="c-wrapper">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
+			</div>
+		</header>
+		<div class="c-wrapper">
+			<ul class="u-list-undecorated">
+				{% for item in [1, 2, 3] %}
+					<li>
+						<article class="u-border | u-padding u-margin-y-flow">
+							<div>
+								<img src="https://placehold.it/800x800" alt="Image">
+							</div>
+							<div>
+								<h3>Title lorem ipsum dolor sit</h3>
+								<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis iste et tempora nisi non ipsum asperiores voluptates, aspernatur adipisci veritatis nesciunt sit provident nulla eaque inventore recusandae labore commodi architecto.</p>
+							</div>
+							<footer class="c-bookend horizontal">
+								<time class="c-bookend-item left">12 December 2020</time>
+								<cite class="c-bookend-item right"><a href="#">Source</a></cite>
+							</footer>
+						</article>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+</main>
