@@ -1,4 +1,5 @@
 ---
+title: UNICEF Pacific Regional Council for Early Childhood Development
 contact: kmillan@unicef.org
 nav:
   - label: Country profiles
@@ -9,13 +10,46 @@ nav:
     url: /about-ecd/
   - label: Pacific Council
     url: /about-prc/
+footer_nav:
+  - heading: Country profiles
+    links:
+    - Cook Islands
+    - Fiji
+    - FSM
+    - Kiribati
+    - Marshall Islands
+    - Nauru
+    - Niue
+    - Palau
+    - Papau New Guinea
+    - Samoa
+    - Solomon Islands
+    - Tokelau
+    - Tonga
+    - Tuvalu
+    - Vanuatu
+  - heading: About ECD
+    links:
+    - Section
+    - Section
+    - Section
+  - heading: Resources
+    links:
+    - Section
+    - Section
+    - Section
+  - heading: Pacific Council
+    links:
+    - Section
+    - Section
+    - Section
 ---
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>UNICEF Pacific Regional Council for Early Childhood Development</title>
+		<title>{{title}}</title>
 	  <meta name="description" content="">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="/stylesheets/main.css">
@@ -36,16 +70,73 @@ nav:
 		<main>{{ content | safe }}</main>
 
 		{# Main footer #}
-		<footer class="u-border-top | u-padding-x-outside u-padding-y-narrow | u-type-scale-zeta">
-			<div class="c-bookend horizontal@small | c-gutter narrow">
-				<p class="c-bookend-item | c-gutter-item | u-type-font-display">
-					<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
-					<small>&copy; Copyright 2020. All rights reserved.</small>
-				</p>
-				<aside class="c-bookend-item | c-gutter-item | u-type-font-display">
-					Questions? <a class="u-color-fg-highlight" href="mailto:{{ contact }}">Contact us</a>
-				</aside>
+		<footer
+			class="u-border-top | u-type-scale-zeta"
+			role="contentinfo"
+		>
+			<div class="u-padding-x-outside u-padding-y-narrow">
+				<div>
+					<img
+						src="https://placehold.it/600x200?text=logo"
+						alt="{{title}}"
+					>
+				</div>
+				<form action="">
+					<label
+						class="u-hide-visually"
+						for="footer-search"
+					>
+						Search
+					</label>
+					<input
+						id="footer-search"
+						name="footer-search"
+						type="search"
+						placeholder="Search"
+					>
+					<button class="u-hide-visually">Submit</button>
+				</form>
 			</div>
+			<div>
+				<nav>
+					<ul>
+						{% for category in footer_nav %}
+						<li>
+							<h2>{{category.heading}}</h2>
+							<ul>
+								{% for link in category.links %}
+									<li><a href="#">{{link}}</a></li>
+								{% endfor %}
+							</ul>
+						</li>
+						{% endfor %}
+					</ul>
+				</nav>
+				<div>
+					<form action="">
+						<label for="footer-subscribe">Subscribe</label>
+						<input
+							type="email"
+							id="footer-subscribe"
+							name="footer-subscribe"
+						>
+						<button>Subscribe</button>
+					</form>
+				</div>
+			</div>
+			<aside class="u-border-top | u-padding-x-outside u-padding-y-narrow">
+				<div class="c-bookend horizontal@small | c-gutter narrow">
+					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
+						<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
+						<small>&copy; Copyright 2020. All rights reserved.</small>
+					</p>
+					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
+						<a class="u-color-fg-highlight" href="mailto:{{ contact }}">
+							Contact us
+						</a>
+					</div>
+				</div>
+			</aside>
 		</footer>
 
 		{# Alpine JS from their CDN #}
