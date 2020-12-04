@@ -1,3 +1,7 @@
+// Content Wrapper component
+// -> restrict child content to a standard width
+// 		and (optionally) center it on wider screens
+
 module.exports = (content, {
 	width = 'default',
 	centered = true,

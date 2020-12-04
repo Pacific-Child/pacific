@@ -1,3 +1,5 @@
+// Markdown component
+// -> render markdown text to html
 const markdownIt = require('markdown-it')
 
 const markdownOptions = {

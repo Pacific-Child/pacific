@@ -6,9 +6,14 @@ const markdownIt = require('markdown-it')
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
 
+// components
 const Markdown = require(`${componentsDir}/Markdown.js`)
-const Passage = require(`${componentsDir}/Passage.js`)
 const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
+
+// blocks
+// -> components use to render CMS "block" content
+const Passage = require(`${componentsDir}/blocks/Passage.js`)
+
 
 module.exports = (config) => {
 	// custom markdown settings
