@@ -4,10 +4,9 @@ title: Home
 logo_width: 30rem
 ---
 
-<header>
-	{% ContentWrapper {
-		className: 'u-margin-y-flow u-padding-y-wide u-padding-x-outside'
-	} %}
+<header class="u-padding-y-wide u-padding-x-outside">
+	<div class="">
+	{% ContentWrapper { className: 'u-margin-y-flow' } %}
 		<div style="max-width: {{logo_width}};">
 			{# Figure out how to mark this up - hide image? #}
 			<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
@@ -33,7 +32,12 @@ logo_width: 30rem
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum nisi, nulla exercitationem, temporibus, veritatis omnis impedit quo quisquam dolores ut mollitia libero saepe molestias ipsum, hic eaque corporis quas tenetur.</p>
 			{% endPassage %}
 		</header>
-		<div class="c-wrapper wide | u-padding-top-wide">
+
+		{# Outcomes list #}
+		{% ContentWrapper {
+			width: 'wide',
+			className: 'u-padding-top-wide'
+		} %}
 			<article class="u-border u-border-radius u-padding">
 				<h3 class="u-padding-bottom"><time>November 27, 2020</time></h3>
 				<div class="c-outdent | c-gutter" style="--figure-width: 15rem;">
@@ -51,7 +55,7 @@ logo_width: 30rem
 					</div>
 				</div>
 			</article>
-		</div>
+		{% endContentWrapper %}
 	</section>
 
 	{# Resources #}
@@ -60,20 +64,20 @@ logo_width: 30rem
 			<h2 class="u-type-align-center">
 				Early childhood development resources
 			</h2>
-			<div class="c-wrapper c-flow">
+			{% Passage %}
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
-			</div>
+			{% endPassage %}
 		</header>
 		<div class="u-border-y u-padding-y-wide">
-			<ul class="c-gallery">
+			{% Gallery %}
 				{% for item in [1, 2, 3] %}
-					<li class="c-gallery-item | u-margin-y-flow-narrow">
+					<li class="u-margin-y-flow-narrow">
 						<h3>Resource title lorem ipsum</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse maiores illo, amet itaque expedita. Iusto reiciendis est, quidem sunt ipsa blanditiis ducimus hic in, quia magnam sint placeat architecto pariatur.</p>
 						<a class="b-button u-margin-top" href="#">Read more &rsaquo;</a>
 					</li>
 				{% endfor %}
-			</ul>
+			{% endGallery %}
 		</div>
 		<div class="u-type-align-center">
 			<a class="b-button" href="#">About ECD &rsaquo;</a>

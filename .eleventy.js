@@ -13,6 +13,7 @@ const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
 // blocks
 // -> components use to render CMS "block" content
 const Passage = require(`${componentsDir}/blocks/Passage.js`)
+const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
 
 
 module.exports = (config) => {
@@ -30,9 +31,13 @@ module.exports = (config) => {
 
 	// Eleventy shortcode components pattern:
 	// https://github.com/adamduncan/eleventy-shortcomps
-	config.addPairedShortcode('Markdown', Markdown)
-	config.addPairedShortcode('Passage', Passage)
+  // components
 	config.addPairedShortcode('ContentWrapper', ContentWrapper)
+	config.addPairedShortcode('Markdown', Markdown)
+
+	// blocks
+	config.addPairedShortcode('Gallery', Gallery)
+	config.addPairedShortcode('Passage', Passage)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts

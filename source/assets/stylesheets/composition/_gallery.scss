@@ -61,6 +61,7 @@ $max-percentage: 100%;
 }
 
 // --- children ---
+.c-gallery > li,
 .c-gallery-item {
 	// stylelint-disable order/properties-alphabetical-order
 	// -> these props are sorted to make progressive enhancement clearer
