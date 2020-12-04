@@ -90,30 +90,24 @@ logo_width: 30rem
 			<h2 class="u-type-align-center">
 				Updates
 			</h2>
-			<div class="c-wrapper">
+			{% Passage %}
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
-			</div>
+			{% endPassage %}
 		</header>
-		<div class="c-wrapper">
+		{% ContentWrapper %}
 			<ul class="u-list-undecorated u-padding-y-flow">
 				{% for item in [1, 2, 3] %}
 					<li>
-						<article class="u-border | u-padding u-margin-y-flow">
-							<div>
-								<img src="https://placehold.it/800x800" alt="Image">
-							</div>
-							<div>
-								<h3>Title lorem ipsum dolor sit</h3>
-								<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis iste et tempora nisi non ipsum asperiores voluptates, aspernatur adipisci veritatis nesciunt sit provident nulla eaque inventore recusandae labore commodi architecto.</p>
-							</div>
-							<footer class="c-bookend horizontal">
-								<time class="c-bookend-item left">12 December 2020</time>
-								<cite class="c-bookend-item right"><a href="#">Source</a></cite>
-							</footer>
-						</article>
+						{% UpdateCard {
+							image: 'https://placehold.it/800x800',
+							title: 'Title lorem ipsum dolor sit',
+							summary: '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis iste et tempora nisi non ipsum asperiores voluptates, aspernatur adipisci veritatis nesciunt sit provident nulla eaque inventore recusandae labore commodi architecto.</p>',
+							date: '12 December 2020',
+							source: 'Source'
+						} %}
 					</li>
 				{% endfor %}
 			</ul>
-		</div>
+			{% endContentWrapper %}
 	</section>
 </main>

@@ -14,6 +14,7 @@ const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
 // -> components use to render CMS "block" content
 const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
+const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 
 module.exports = (config) => {
@@ -36,6 +37,7 @@ module.exports = (config) => {
 	config.addPairedShortcode('Markdown', Markdown)
 
 	// blocks
+	config.addShortcode('UpdateCard', UpdateCard)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 
