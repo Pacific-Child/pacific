@@ -4,8 +4,7 @@ title: Home
 logo_width: 30rem
 ---
 
-<header class="u-padding-y-wide u-padding-x-outside">
-	<div class="">
+{% Cover %}
 	{% ContentWrapper { className: 'u-margin-y-flow' } %}
 		<div style="max-width: {{logo_width}};">
 			{# Figure out how to mark this up - hide image? #}
@@ -21,9 +20,8 @@ logo_width: 30rem
 			About Pacific Child &rsaquo;
 		</a>
 	{% endContentWrapper %}
-</header>
+{% endCover %}
 <main>
-
 	{# Meeting #}
 	<section class="u-border-top | u-padding-y-wide u-padding-x-outside">
 		<header class="u-margin-y-flow-narrow">

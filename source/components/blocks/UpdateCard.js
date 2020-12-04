@@ -10,7 +10,7 @@ module.exports = (
 	summary,
 	date,
 	source
-}) => {
+} = {}) => {
 	return `
 		<article class="u-border | u-padding u-margin-y-flow">
 			${image ? `

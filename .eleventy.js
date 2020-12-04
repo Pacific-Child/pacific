@@ -16,6 +16,10 @@ const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
+// sections
+// -> components used to render CMS "section" content
+const Cover = require(`${componentsDir}/sections/Cover.js`)
+const Section = require(`${componentsDir}/sections/Section.js`)
 
 module.exports = (config) => {
 	// custom markdown settings
@@ -36,10 +40,12 @@ module.exports = (config) => {
 	config.addPairedShortcode('ContentWrapper', ContentWrapper)
 	config.addPairedShortcode('Markdown', Markdown)
 
-	// blocks
+	// blocks & sections
 	config.addShortcode('UpdateCard', UpdateCard)
+	config.addPairedShortcode('Cover', Cover)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
+	config.addPairedShortcode('Section', Section)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts

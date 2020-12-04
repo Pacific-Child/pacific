@@ -50,12 +50,6 @@ video {
 
 p {
 	margin: 0;
-
-	& + &,
-	& + ul,
-	& + ol, {
-		margin-top: spacing.get('medium', 1em);
-	}
 }
 
 ul,

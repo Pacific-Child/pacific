@@ -4,21 +4,18 @@
 
 .c-flow {
 	> * + * {
-		margin-top: spacing.get();
+		margin-top: spacing.get('narrow', $unit: 1em);
 	}
+}
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		> * + & {
-			margin-top: spacing.get('wide');
-		}
-
-		& + & {
-			margin-top: 0;
-		}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	// remove margin between paired headings
+	.c-flow & + & {
+		margin-top: 0;
 	}
 }

@@ -4,7 +4,8 @@ const Wrapper = require('../ContentWrapper.js')
 
 module.exports = (content, {
 	className = '',
-	width = 'default'
+	width = 'default',
+	centered = true
 } = {}) => {
-	return Wrapper(content, { width, className: `c-flow ${className}` })
+	return Wrapper(content, { width, centered, className: `c-flow ${className}` })
 }

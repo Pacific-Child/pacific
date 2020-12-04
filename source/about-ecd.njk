@@ -1,0 +1,73 @@
+---
+layout: default
+title: Early Childhood Development
+---
+
+{% Cover %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h1 class="u-padding-bottom">{{title}}</h1>
+		{% Passage { centered: false } %}
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta quas rerum odio quisquam provident dicta, veniam dolores, accusamus deserunt dolorum modi vel sunt, ratione fuga, dolor illum quis tempore esse.</p>
+		{% endPassage %}
+	{% endContentWrapper %}
+{% endCover %}
+
+{# Stages #}
+{% Section %}
+	<h2 class="u-type-align-center | u-padding-bottom-wide">
+		Stages of Early Childhood Development
+	</h2>
+
+	{# Timeline #}
+	<div>
+		<ul class="u-list-undecorated">
+			<li>
+				<article class="u-padding-y-flow">
+					<div><img src="https://placehold.it/800x800" alt="Image"></div>
+					<div>
+						{% ContentWrapper %}
+							<h3 class="u-padding-bottom">Social and emotional development</h3>
+							{% Passage %}
+								<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel ipsa incidunt at quasi, iusto, reiciendis blanditiis corporis ea voluptas sunt fuga veritatis, veniam ipsum, assumenda alias hic amet asperiores nostrum?</p>
+								<p>Cumque optio minus, esse hic repudiandae eveniet, accusantium explicabo. Eligendi iure quod molestias dolore distinctio dicta vero? Corrupti deserunt dolor optio possimus, quaerat consequuntur vel eaque et nesciunt, molestiae quae?</p>
+							{% endPassage %}
+						{% endContentWrapper %}
+					</div>
+				</article>
+			</li>
+		</ul>
+	</div>
+{% endSection %}
+
+{# Sectors #}
+{% Section %}
+	<h2 class="u-type-align-center">Sectors</h2>
+	{% Passage %}
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus odio commodi rerum soluta esse at dicta doloremque magnam cum odit temporibus vitae deleniti deserunt a, voluptate maxime molestias repellendus!</p>
+	{% endPassage %}
+{% endSection %}
+
+{# Care #}
+{% Section %}
+	<header>
+		<h2 class="u-type-align-center u-padding-bottom-wide">Nurturing care</h2>
+		<div>
+			<div><img src="https://placehold.it/600x600" alt="icon"></div>
+			{% Passage %}
+				<p>To reach their full potential, children need the five inter-related and indivisible components of nurturing care: good health, adequate nutrition, safety and security, responsive caregiving and opportunities for learning.</p>
+				<p>In the first years of life, parents, intimate family members and caregivers are the closest to the young child and thus the best providers of Nurturing Care. This is why secure family environments are important for young children. In order to provide caregivers with time and resources to provide nurturing care, policies, services and community supports need to be in place.</p>
+			{% endPassage %}
+		</div>
+	</header>
+	<ul>
+		<li>
+			<article>
+				<header>
+					<img src="https://placehold.it/600x600" alt="icon">
+					<h3>Good health</h3>
+				</header>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae at, quis culpa consequuntur qui ea rerum, consectetur eum fuga deleniti earum commodi recusandae iure, veritatis natus. Voluptate, saepe rem animi.</p>
+			</article>
+		</li>
+	</ul>
+{% endSection %}

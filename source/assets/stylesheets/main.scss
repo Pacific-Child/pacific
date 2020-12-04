@@ -9,6 +9,7 @@
 // -> unopinionated, composeable layout
 @use 'composition/bookend';
 @use 'composition/content-width';
+@use 'composition/flow';
 @use 'composition/gallery';
 @use 'composition/gutter';
 @use 'composition/outdent';
