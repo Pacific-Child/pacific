@@ -1,5 +1,14 @@
 ---
 contact: kmillan@unicef.org
+nav:
+  - label: Country profiles
+    url: /country-profiles/
+  - label: Resources
+    url: /resources/
+  - label: About ECD
+    url: /about-ecd/
+  - label: Pacific Council
+    url: /about-prc/
 ---
 
 <!DOCTYPE html>
@@ -21,34 +30,7 @@ contact: kmillan@unicef.org
 	</head>
 	<body>
 		{# Main header #}
-		<header class="
-			u-color-fg-bg u-color-bg-primary
-			u-padding-y-narrow u-padding-x-outside
-		">
-			<div class="c-bookend horizontal | c-gutter narrow | u-type-scale-zero">
-				<p class="
-					c-bookend-item
-					c-gutter-item
-					u-display-inline-block
-					u-type-scale-zeta u-type-font-display u-type-weight-bold
-					u-no-margin"
-				>
-					Pacific Regional Council for Early Childhood Development
-				</p>
-				<a
-					class="
-						c-bookend-item
-						c-gutter-item
-						u-display-inline-block
-						u-type-scale-zeta u-type-font-display u-type-weight-bold
-						u-hide-visually u-show-visually-above@xsmall
-					"
-					href="mailto:{{ contact }}"
-				>
-					Contact us
-				</a>
-			</div>
-		</header>
+		{% MainNav { items: nav } %}
 
 		{# Main content #}
 		<main>{{ content | safe }}</main>
@@ -67,7 +49,7 @@ contact: kmillan@unicef.org
 		</footer>
 
 		{# Alpine JS from their CDN #}
-		{# <script
+		<script
 			type="module"
 			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
 		></script>
@@ -76,6 +58,6 @@ contact: kmillan@unicef.org
 			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/
 			alpine-ie11.min.js"
 			defer
-		></script> #}
+		></script>
 	</body>
 </html>
