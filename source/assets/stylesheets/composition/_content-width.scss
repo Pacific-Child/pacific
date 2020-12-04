@@ -1,0 +1,18 @@
+// Wrapper container
+// -> restricts width and (optionally) centers itself on wider screens
+
+.c-content-width {
+	max-width: 36rem;
+	max-width: 70ch;
+
+	// variations
+	&.wide {
+		max-width: 64rem;
+		max-width: 100ch;
+	}
+
+	&.centered {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

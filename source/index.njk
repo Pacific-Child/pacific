@@ -5,34 +5,33 @@ logo_width: 30rem
 ---
 
 <header>
-	<div class="
-		c-wrapper
-		u-margin-y-flow u-padding-y-wide u-padding-x-outside
-	">
+	{% ContentWrapper {
+		className: 'u-margin-y-flow u-padding-y-wide u-padding-x-outside'
+	} %}
 		<div style="max-width: {{logo_width}};">
 			{# Figure out how to mark this up - hide image? #}
 			<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
 		</div>
-		<div class="c-flow">
+		{% Passage %}
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, porro natus nulla non ipsa dolore necessitatibus earum, mollitia. Consectetur architecto qui voluptas ipsum aliquid eligendi recusandae nemo saepe esse dolores.</p>
-		</div>
+		{% endPassage %}
 		<a
 			class="b-button"
 			href="#"
 		>
 			About Pacific Child &rsaquo;
 		</a>
-	</div>
+	{% endContentWrapper %}
 </header>
 <main>
 
 	{# Meeting #}
 	<section class="u-border-top | u-padding-y-wide u-padding-x-outside">
-		<header>
+		<header class="u-margin-y-flow-narrow">
 			<h2 class="u-type-align-center">Latest meeting outcomes</h2>
-			<div class="c-wrapper">
+			{% Passage %}
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum nisi, nulla exercitationem, temporibus, veritatis omnis impedit quo quisquam dolores ut mollitia libero saepe molestias ipsum, hic eaque corporis quas tenetur.</p>
-			</div>
+			{% endPassage %}
 		</header>
 		<div class="c-wrapper wide | u-padding-top-wide">
 			<article class="u-border u-border-radius u-padding">
@@ -61,7 +60,7 @@ logo_width: 30rem
 			<h2 class="u-type-align-center">
 				Early childhood development resources
 			</h2>
-			<div class="c-wrapper">
+			<div class="c-wrapper c-flow">
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
 			</div>
 		</header>

@@ -1,0 +1,24 @@
+// Flowing content, usually rendered markdown
+// -> wrap rendered content with this class to better control spacing and layout
+@use '../tokens/spacing';
+
+.c-flow {
+	> * + * {
+		margin-top: spacing.get();
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		> * + & {
+			margin-top: spacing.get('wide');
+		}
+
+		& + & {
+			margin-top: 0;
+		}
+	}
+}

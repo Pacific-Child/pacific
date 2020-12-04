@@ -6,14 +6,18 @@ const markdownIt = require('markdown-it')
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
 
-module.exports = (config) => {
+const Markdown = require(`${componentsDir}/Markdown.js`)
+const Passage = require(`${componentsDir}/Passage.js`)
+const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
 
+module.exports = (config) => {
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,
 		html: true
 	}))
 
+	// plugins
   config.addPlugin(cacheBuster({
   	outputDirectory: outputDir
   }))
@@ -21,9 +25,13 @@ module.exports = (config) => {
 
 	// Eleventy shortcode components pattern:
 	// https://github.com/adamduncan/eleventy-shortcomps
-	// config.addPairedShortcode('Markdown', Markdown)
+	config.addPairedShortcode('Markdown', Markdown)
+	config.addPairedShortcode('Passage', Passage)
+	config.addPairedShortcode('ContentWrapper', ContentWrapper)
 
 	// integrate Sass pipeline
+	// -> see Package.json scripts
+	// -> Sass compiles to a .tmp folder, then Eleventy grabs it
 	config.setUseGitIgnore(false)
 	config.addWatchTarget('./.tmp/main.css')
 	config.addPassthroughCopy({ './.tmp/main.css': './stylesheets/main.css' })
