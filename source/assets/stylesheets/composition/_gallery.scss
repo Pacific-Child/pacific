@@ -47,8 +47,8 @@ $max-percentage: 100%;
 }
 
 .c-gallery.large {
-	--min-width: 600px;
-	--breakpoint: 1200px;
+	--min-width: 480px;
+	--breakpoint: 800px;
 	--min-percentage: 25%;
 
 	@include breakpoints.query('xsmall') {

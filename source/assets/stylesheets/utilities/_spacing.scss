@@ -3,6 +3,13 @@
 @use '../tokens/breakpoints';
 @use '../helpers';
 
+// define spacing variables from scale tokens
+:root {
+  @each $name, $length in spacing.$scale {
+    --space-#{$name}: #{spacing.get($name)};
+  }
+}
+
 // generate utilities for each side and scale interval
 @each $prop in [padding, margin] {
 	.u-#{$prop} {

@@ -2,14 +2,16 @@ const inputDir = 'source'
 const outputDir = 'build'
 const componentsDir = `./${inputDir}/components`
 
+// plugins and libs
 const markdownIt = require('markdown-it')
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
 
 // components
-const Markdown = require(`${componentsDir}/Markdown.js`)
 const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
+const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
+const Markdown = require(`${componentsDir}/Markdown.js`)
 
 // blocks
 // -> components use to render CMS "block" content
@@ -40,14 +42,15 @@ module.exports = (config) => {
   // components
 	config.addPairedShortcode('ContentWrapper', ContentWrapper)
 	config.addPairedShortcode('Markdown', Markdown)
+	config.addShortcode('MainFooter', MainFooter)
 	config.addShortcode('MainNav', MainNav)
 
 	// blocks & sections
-	config.addShortcode('UpdateCard', UpdateCard)
 	config.addPairedShortcode('Cover', Cover)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('Section', Section)
+	config.addShortcode('UpdateCard', UpdateCard)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts

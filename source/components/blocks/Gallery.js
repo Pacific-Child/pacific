@@ -5,16 +5,25 @@
 module.exports = (content, {
 	size = 'default',
 	flex = false,
-	className = ''
+	className = '',
+	tag = 'ul',
+	gutter = 'medium'
 } = {}) => {
 	const sizes = ['small', 'large']
 
 	return `
-		<ul class="
-			c-gallery ${size !== 'default' ? size : ''} ${flex ? 'flex' : ''}
-			${className}
-		">
+		<${tag}
+			class="
+				c-gallery ${size !== 'default' ? size : ''} ${flex ? 'flex' : ''}
+				${className}
+			"
+			style="--gutter: ${
+				typeof gutter === 'string'
+				? `var(--space-${gutter});`
+				: gutter
+			};"
+		>
 			${content}
-		</ul>
+		</${tag}>
 	`
 }
