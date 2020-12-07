@@ -16,7 +16,10 @@ function navSection(section) {
 				section.links.map(link => `
 					<li><a href="${link.url}">${link.label}</a></li>
 				`).join(''),
-				galleryConfig
+				{
+					size: 'small',
+					gutter: 'narrow'
+				}
 			)}
 	`
 }
@@ -25,23 +28,26 @@ function navSection(section) {
 function navGrid(menu) {
 	return `
 		${menu && `
-			<nav class="c-gallery-item">
+			<nav class="c-gallery-item | u-color-bg-bg">
 				<div class="u-padding-x-outside u-padding-y">
-					${navSection(menu.countries)}
-				</div>
-				<div class="u-padding-x-outside u-padding-y">
+					<div class="u-padding-bottom u-margin-bottom | u-border-bottom">
+						${navSection(menu.countries)}
+					</div>
 					${Gallery(
 						menu.secondary.map((section) => `
 							<li>
 								${navSection(section)}
 							</li>
 						`,).join(''),
-						galleryConfig
+						{
+							size: 'small',
+							gutter: 'medium'
+						}
 					)}
 				</div>
 			</nav>
 		`}
-		<div class="c-gallery-item">
+		<div class="c-gallery-item | u-color-bg-bg">
 			<div class="u-padding-x-outside u-padding-y">
 				<form action="">
 					<label for="footer-subscribe">Subscribe</label>
@@ -70,35 +76,44 @@ module.exports = ({
 		>
 
 			<!-- logo and search -->
-			<div class="u-padding-x-outside u-padding-y-narrow">
-				<div>
-					<img
-						src="${logo}"
-						alt="${title}"
+			<div class="u-padding-x-outside u-padding-y-narrow | u-border-bottom">
+				<div class="c-bookend horizontal | c-gutter narrow">
+					<div
+						class="c-bookend-item left | c-gutter-item"
+						style="max-width: 10rem;"
 					>
+						<img
+							src="${logo}"
+							alt="${title}"
+						>
+					</div>
+					<form
+						class="c-bookend-item right fill | c-gutter-item"
+						action=""
+					>
+						<label
+							class="u-hide-visually"
+							for="footer-search"
+						>
+							Search
+						</label>
+						<input
+							id="footer-search"
+							name="footer-search"
+							type="search"
+							placeholder="Search"
+						>
+						<button class="u-hide-visually">Submit</button>
+					</form>
 				</div>
-				<form action="">
-					<label
-						class="u-hide-visually"
-						for="footer-search"
-					>
-						Search
-					</label>
-					<input
-						id="footer-search"
-						name="footer-search"
-						type="search"
-						placeholder="Search"
-					>
-					<button class="u-hide-visually">Submit</button>
-				</form>
 			</div>
 
 			<!-- footer nav & subscribe -->
 			${Gallery(navGrid(menu), {
 				size: 'large',
 				tag: 'div',
-				gutter: 0
+				gutter: 1,
+				className: 'u-color-bg-border'
 			})}
 
 			<!-- copyright & contact -->

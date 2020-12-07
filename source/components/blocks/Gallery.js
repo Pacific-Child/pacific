@@ -20,7 +20,7 @@ module.exports = (content, {
 			style="--gutter: ${
 				typeof gutter === 'string'
 				? `var(--space-${gutter});`
-				: gutter
+				: (gutter > 0 ? `${gutter}px` : gutter)
 			};"
 		>
 			${content}
