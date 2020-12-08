@@ -2,6 +2,15 @@
 // -> display a list of items in a grid
 // -> use with GalleryItem components
 
+// format the 'gutter' prop to populate the css variable
+// -> see composition/gallery.scss
+function gutterStyle(gutter) {
+	if (typeof gutter === 'string') {
+		return `var(--space-${gutter});`
+	}
+	return (gutter > 0 ? `${gutter}px` : gutter)
+}
+
 module.exports = (content, {
 	size = 'default',
 	flex = false,
@@ -17,11 +26,7 @@ module.exports = (content, {
 				c-gallery ${size !== 'default' ? size : ''} ${flex ? 'flex' : ''}
 				${className}
 			"
-			style="--gutter: ${
-				typeof gutter === 'string'
-				? `var(--space-${gutter});`
-				: (gutter > 0 ? `${gutter}px` : gutter)
-			};"
+			style="--gutter: ${gutterStyle(gutter)};"
 		>
 			${content}
 		</${tag}>

@@ -1,4 +1,6 @@
+const ContentWrapper = require('./ContentWrapper.js')
 const Gallery = require('./blocks/Gallery.js')
+const Passage = require('./blocks/Passage.js')
 
 // props for the navSection and navGrid components
 const galleryConfig = {
@@ -30,34 +32,52 @@ function navGrid(menu) {
 		${menu && `
 			<nav class="c-gallery-item | u-color-bg-bg">
 				<div class="u-padding-x-outside u-padding-y">
-					<div class="u-padding-bottom u-margin-bottom | u-border-bottom">
-						${navSection(menu.countries)}
-					</div>
-					${Gallery(
-						menu.secondary.map((section) => `
-							<li>
-								${navSection(section)}
-							</li>
-						`,).join(''),
-						{
-							size: 'small',
-							gutter: 'medium'
-						}
-					)}
+					${ContentWrapper(`
+						<div class="u-padding-bottom u-margin-bottom | u-border-bottom">
+							${navSection(menu.countries)}
+						</div>
+						${Gallery(
+							menu.secondary.map((section) => `
+								<li>
+									${navSection(section)}
+								</li>
+							`,).join(''),
+							{
+								size: 'small',
+								gutter: 'medium'
+							}
+						)}
+					`, { width: 'wide' })}
 				</div>
 			</nav>
 		`}
 		<div class="c-gallery-item | u-color-bg-bg">
 			<div class="u-padding-x-outside u-padding-y">
-				<form action="">
-					<label for="footer-subscribe">Subscribe</label>
-					<input
-						type="email"
-						id="footer-subscribe"
-						name="footer-subscribe"
-					>
-					<button>Subscribe</button>
-				</form>
+				${ContentWrapper(`
+					<form action="">
+						<label
+							class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
+							for="footer-subscribe"
+						>
+							Subscribe
+						</label>
+						<div class="c-bookend horizontal@xsmall | c-gutter narrow">
+							<div class="c-bookend-item left fill | c-gutter-item">
+								<input
+									type="email"
+									id="footer-subscribe"
+									name="footer-subscribe"
+								>
+							</div>
+							<div class="c-bookend-item right | c-gutter-item">
+								<button class="b-button">Subscribe</button>
+							</div>
+						</div>
+					</form>
+					${Passage(`
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tria genera bonorum; Eadem nunc mea adversum te oratio est.</p>
+					`, { className: 'u-padding-top-narrow u-color-fg-secondary' })}
+				`)}
 			</div>
 		</div>
 	`
@@ -77,7 +97,7 @@ module.exports = ({
 
 			<!-- logo and search -->
 			<div class="u-padding-x-outside u-padding-y-narrow | u-border-bottom">
-				<div class="c-bookend horizontal | c-gutter narrow">
+				<div class="c-bookend horizontal | c-gutter">
 					<div
 						class="c-bookend-item left | c-gutter-item"
 						style="max-width: 10rem;"

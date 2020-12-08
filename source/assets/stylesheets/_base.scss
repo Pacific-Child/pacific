@@ -79,3 +79,51 @@ a {
 		color: color.get('highlight');
 	}
 }
+
+// forms
+label {
+	@include type.font('display', 'bold');
+	display: block;
+}
+
+input,
+textarea {
+	$base-padding: spacing.get('narrow', $unit: 1em);
+
+	@include type.font('display');
+	border-radius: 0.3em;
+	border: 1px solid color.get('border');
+	color: color.get('primary');
+	display: block;
+	font-size: type.scale('epsilon');
+	padding: ($base-padding + 0.1em) $base-padding ($base-padding - 0.1em);
+	position: relative;
+	text-shadow: none;
+	transition: all 0.25s ease-in-out;
+	width: 100%;
+
+	&:focus {
+		border-color: color.get('highlight');
+		box-shadow: none;
+		outline: 0;
+		outline: thin dotted \9;
+	}
+
+	&::placeholder {
+		color: color.get('secondary');
+	}
+}
+
+input[type='search'] {
+	$icon-w: 1.5em;
+	$base-padding: spacing.get('narrow', $unit: 1em);
+
+	height: auto;
+	padding-left: ($icon-w + $base-padding);
+	// TODO: add a search icon
+}
+
+textarea {
+	height: auto;
+	resize: vertical;
+}

@@ -6,16 +6,25 @@
 
 // --- base ---
 .b-button {
+	$base-padding: spacing.get('narrow', 1em);
+
 	@include type.font('display', 'bold');
 	display: inline-block;
 	border: 2px solid color.get('highlight');
-	padding: spacing.get('xnarrow', 1em) spacing.get('narrow', 1em) (spacing.get('xnarrow', 1em) - 0.15em);
+	padding: ($base-padding + 0.1em) spacing.get($unit: 1em) ($base-padding - 0.1em);
 	border-radius: 0.2em;
 	font-size: type.scale('epsilon');
 	color: color.get('highlight');
-}
+	background-color: transparent;
+	cursor: pointer;
 
-.b-button.disabled {
-	border-color: color.get('secondary');
-	color: color.get('secondary');
+	&.disabled {
+		border-color: color.get('secondary');
+		color: color.get('secondary');
+	}
+
+	&.small {
+		font-size: type.scale('zeta');
+	}
+
 }
