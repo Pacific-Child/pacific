@@ -2,8 +2,7 @@
 // -> a listing for an Update (blog) post
 const Passage = require('./Passage.js')
 
-module.exports = (
-{
+module.exports = ({
 	image = false,
 	title,
 	subtitle = false,
@@ -13,11 +12,14 @@ module.exports = (
 } = {}) => {
 	return `
 		<article class="u-border | u-padding u-margin-y-flow">
-			${image ? `
-				<div>
-					<img src="https://placehold.it/800x800" alt="${title}">
-				</div>
-			` : ''}
+			${image
+				? `
+					<div>
+						<img src="https://placehold.it/800x800" alt="${title}">
+					</div>
+				`
+				: ''
+			}
 			<div>
 				<h3>${title}</h3>
 				${Passage(summary)}

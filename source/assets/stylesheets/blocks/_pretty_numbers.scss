@@ -12,11 +12,11 @@
 
 	&::before {
 		@include type.font('display', 'bold');
+		color: color.get('highlight');
 		content: counter(prettyNumbers);
 		display: block;
-		position: relative;
 		font-size: 4em;
-		color: color.get('highlight');
 		line-height: type.leading('tight');
+		position: relative;
 	}
 }

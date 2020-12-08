@@ -4,6 +4,7 @@
 @use 'bourbon';
 @use 'breakpoints';
 @use 'scale';
+@use 'color';
 
 // --- fonts ---
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap');
@@ -35,6 +36,31 @@
 		font-weight: map.get($weights, $weight);
 		@if $style != 'normal' {
 			font-style: $style;
+		}
+	}
+}
+
+// base styles for headings, used for both h1, h2, etc. and utilities
+@mixin heading() {
+	@include font('display', 'bold');
+	line-height: leading('tight');
+	margin-bottom: 0;
+	margin-top: 0;
+
+	&.u-type-weight-light {
+		@include font('display', 'light');
+	}
+
+	strong {
+		color: color.get('highlight');
+	}
+
+	a {
+		border-bottom: 0;
+
+		&:hover,
+		&:active {
+			border-bottom: 1px dotted color.get('highlight');
 		}
 	}
 }

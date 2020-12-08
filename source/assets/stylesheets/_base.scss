@@ -23,14 +23,16 @@ html {
 
 *,
 *::before,
-*::after { box-sizing: inherit; }
+*::after {
+	box-sizing: inherit;
+}
 
 body {
 	@include type.font();
-	line-height: type.leading();
 	color: color.get('primary');
-	margin: 0;
 	font-size: 1rem;
+	line-height: type.leading();
+	margin: 0;
 
 	@supports (display: flex) {
 		display: flex;
@@ -46,6 +48,15 @@ img,
 picture,
 video {
 	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include type.heading();
 }
 
 p {
@@ -91,8 +102,8 @@ textarea {
 	$base-padding: spacing.get('narrow', $unit: 1em);
 
 	@include type.font('display');
-	border-radius: 0.3em;
 	border: 1px solid color.get('border');
+	border-radius: 0.3em;
 	color: color.get('primary');
 	display: block;
 	font-size: type.scale('epsilon');
@@ -114,7 +125,7 @@ textarea {
 	}
 }
 
-input[type='search'] {
+[type='search'] {
 	$icon-w: 1.5em;
 	$base-padding: spacing.get('narrow', $unit: 1em);
 

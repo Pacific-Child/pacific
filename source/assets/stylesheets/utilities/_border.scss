@@ -10,9 +10,13 @@
 	border-radius: 0.3em;
 }
 
+.u-border-round {
+	border-radius: 100000000px;
+}
+
 .u-border-y {
-	border-top: 1px solid color.get('border');
 	border-bottom: 1px solid color.get('border');
+	border-top: 1px solid color.get('border');
 }
 
 @each $side in helpers.$sides {

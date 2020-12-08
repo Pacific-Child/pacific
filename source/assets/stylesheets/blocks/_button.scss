@@ -9,14 +9,14 @@
 	$base-padding: spacing.get('narrow', 1em);
 
 	@include type.font('display', 'bold');
-	display: inline-block;
-	border: 2px solid color.get('highlight');
-	padding: ($base-padding + 0.1em) spacing.get($unit: 1em) ($base-padding - 0.1em);
-	border-radius: 0.2em;
-	font-size: type.scale('epsilon');
-	color: color.get('highlight');
 	background-color: transparent;
+	border: 2px solid color.get('highlight');
+	border-radius: 0.2em;
+	color: color.get('highlight');
 	cursor: pointer;
+	display: inline-block;
+	font-size: type.scale('epsilon');
+	padding: ($base-padding + 0.1em) spacing.get($unit: 1em) ($base-padding - 0.1em);
 
 	&.disabled {
 		border-color: color.get('secondary');

@@ -22,18 +22,29 @@ title: Early Childhood Development
 	<div>
 		<ul class="u-list-undecorated">
 			<li>
-				<article class="u-padding-y-flow">
-					<div><img src="https://placehold.it/800x800" alt="Image"></div>
-					<div>
-						{% ContentWrapper %}
-							<h3 class="u-padding-bottom">Social and emotional development</h3>
-							{% Passage %}
-								<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel ipsa incidunt at quasi, iusto, reiciendis blanditiis corporis ea voluptas sunt fuga veritatis, veniam ipsum, assumenda alias hic amet asperiores nostrum?</p>
-								<p>Cumque optio minus, esse hic repudiandae eveniet, accusantium explicabo. Eligendi iure quod molestias dolore distinctio dicta vero? Corrupti deserunt dolor optio possimus, quaerat consequuntur vel eaque et nesciunt, molestiae quae?</p>
-							{% endPassage %}
-						{% endContentWrapper %}
-					</div>
-				</article>
+				<details open>
+					<summary>
+						<p class="u-type-heading u-type-scale-delta">
+							Social and emotional development
+						</p>
+					</summary>
+					<article class="c-bookend horizontal@small | c-gutter">
+						<div class="c-bookend-item left | c-gutter-item">
+							<div style="max-width: 20rem;">
+								<img src="https://placehold.it/800x600" alt="Image">
+							</div>
+						</div>
+						<div class="c-bookend-item right fill | c-gutter-item">
+							{% ContentWrapper %}
+								<h3 class="u-padding-bottom">Social and emotional development</h3>
+								{% Passage %}
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel ipsa incidunt at quasi, iusto, reiciendis blanditiis corporis ea voluptas sunt fuga veritatis, veniam ipsum, assumenda alias hic amet asperiores nostrum?</p>
+									<p>Cumque optio minus, esse hic repudiandae eveniet, accusantium explicabo. Eligendi iure quod molestias dolore distinctio dicta vero? Corrupti deserunt dolor optio possimus, quaerat consequuntur vel eaque et nesciunt, molestiae quae?</p>
+								{% endPassage %}
+							{% endContentWrapper %}
+						</div>
+					</article>
+				</details>
 			</li>
 		</ul>
 	</div>
@@ -51,22 +62,42 @@ title: Early Childhood Development
 {% Section %}
 	<header>
 		<h2 class="u-type-align-center u-padding-bottom-wide">Nurturing care</h2>
-		<div>
-			<div><img src="https://placehold.it/600x600" alt="icon"></div>
-			{% Passage %}
-				<p>To reach their full potential, children need the five inter-related and indivisible components of nurturing care: good health, adequate nutrition, safety and security, responsive caregiving and opportunities for learning.</p>
-				<p>In the first years of life, parents, intimate family members and caregivers are the closest to the young child and thus the best providers of Nurturing Care. This is why secure family environments are important for young children. In order to provide caregivers with time and resources to provide nurturing care, policies, services and community supports need to be in place.</p>
-			{% endPassage %}
-		</div>
-	</header>
-	<ul>
-		<li>
-			<article>
-				<header>
+		{% ContentWrapper { width: 'wide' } %}
+			<div class="c-bookend horizontal@small | c-gutter">
+				<div class="c-bookend-item right | c-gutter-item" style="max-width: 20rem;">
 					<img src="https://placehold.it/600x600" alt="icon">
-					<h3>Good health</h3>
-				</header>
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae at, quis culpa consequuntur qui ea rerum, consectetur eum fuga deleniti earum commodi recusandae iure, veritatis natus. Voluptate, saepe rem animi.</p>
+				</div>
+				<div class="c-bookend-item left fill | c-gutter-item">
+					{% Passage %}
+						<p>To reach their full potential, children need the five inter-related and indivisible components of nurturing care: good health, adequate nutrition, safety and security, responsive caregiving and opportunities for learning.</p>
+						<p>In the first years of life, parents, intimate family members and caregivers are the closest to the young child and thus the best providers of Nurturing Care. This is why secure family environments are important for young children. In order to provide caregivers with time and resources to provide nurturing care, policies, services and community supports need to be in place.</p>
+					{% endPassage %}
+				</div>
+			</div>
+		{% endContentWrapper %}
+	</header>
+	<ul class="u-list-undecorated | u-padding-y-flow u-padding-top-wide">
+		<li>
+			<article class="
+				c-content-width centered wide
+				u-border u-border-radius
+				u-padding
+			">
+				<div class="c-bookend horizontal@small | c-gutter">
+					<header class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
+							<img
+								class="u-display-inline-block u-border-round"
+								src="https://placehold.it/600x600"
+								alt="icon"
+							>
+						<h3 class="u-padding-top">Good health</h3>
+					</header>
+					<div class="c-bookend-item right fill | c-gutter-item">
+						{% Passage %}
+							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae at, quis culpa consequuntur qui ea rerum, consectetur eum fuga deleniti earum commodi recusandae iure, veritatis natus. Voluptate, saepe rem animi.</p>
+						{% endPassage %}
+					</div>
+				</div>
 			</article>
 		</li>
 	</ul>

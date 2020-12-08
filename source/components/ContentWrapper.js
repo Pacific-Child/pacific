@@ -5,20 +5,21 @@
 module.exports = (content, {
 	width = 'default',
 	centered = true,
-	className = ''
+	className = '',
+	tag = 'div'
 } = {}) => {
 	const widthClasses = {
-		'default': '',
-		'wide': 'wide'
+		default: '',
+		wide: 'wide'
 	}
 	const centeredClass = centered === true ? 'centered' : ''
 
 	return `
-		<div class="
+		<${tag} class="
 			c-content-width ${widthClasses[width] || ''} ${centeredClass}
 			${className}
 		">
 			${content}
-		</div>
+		</${tag}>
 	`
 }

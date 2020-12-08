@@ -8,39 +8,39 @@ $figure-width: 30rem;
 $max-width: 68rem;
 
 .c-outdent {
-  --figure-width: #{$figure-width};
-  --breakpoint: #{$breakpoint};
+	--figure-width: #{$figure-width};
+	--breakpoint: #{$breakpoint};
 
-  display: block;
-  font-size: 0;
+	display: block;
+	font-size: 0;
 }
 
 .c-outdent-figure,
 .c-outdent-body {
-  display: inline-block;
-  font-size: 1rem;
-  max-width: 100%;
-  vertical-align: top;
+	display: inline-block;
+	font-size: 1rem;
+	max-width: 100%;
+	vertical-align: top;
 
-  .c-outdent.align-middle & {
-  	vertical-align: middle;
-  }
+	.c-outdent.align-middle & {
+		vertical-align: middle;
+	}
 }
 
 .c-outdent-figure {
-  width: 100%;
+	width: 100%;
 
-  @include bp.query('xsmall') {
-    min-width: var(--figure-width);
-    width: calc((var(--breakpoint) - 100%) * 1000);
-  }
+	@include bp.query('xsmall') {
+		min-width: var(--figure-width);
+		width: calc((var(--breakpoint) - 100%) * 1000);
+	}
 }
 
 .c-outdent-body {
-  width: 100%;
+	width: 100%;
 
-  @include bp.query('xsmall') {
-    min-width: calc(100% - var(--figure-width));
-    width: calc((var(--breakpoint) - 100%) * 1000);
-  }
+	@include bp.query('xsmall') {
+		min-width: calc(100% - var(--figure-width));
+		width: calc((var(--breakpoint) - 100%) * 1000);
+	}
 }

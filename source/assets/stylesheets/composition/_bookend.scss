@@ -30,6 +30,10 @@
 		flex-direction: row;
 		justify-content: space-between;
 		min-height: 3rem;
+
+		&.reverse {
+			flex-direction: row-reverse;
+		}
 	}
 
 	.c-bookend-item {
@@ -46,7 +50,6 @@
 
 		&.right {
 			float: right;
-			text-align: right;
 
 			@supports (display: flex) {
 				float: none;
@@ -80,11 +83,11 @@
 // }
 
 .c-bookend.align-top {
-  @supports (align-items: flex-start) {
-    align-items: flex-start !important;
-  }
+	@supports (align-items: flex-start) {
+		align-items: flex-start !important;
+	}
 
-  .c-bookend-item {
-    vertical-align: top;
-  }
+	.c-bookend-item {
+		vertical-align: top;
+	}
 }

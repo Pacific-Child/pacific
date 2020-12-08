@@ -2,32 +2,23 @@ const ContentWrapper = require('./ContentWrapper.js')
 const Gallery = require('./blocks/Gallery.js')
 const Passage = require('./blocks/Passage.js')
 
-// props for the navSection and navGrid components
-const galleryConfig = {
-	size: 'small',
-	gutter: 'narrow'
-}
-
 // a section of the nav
-function navSection(section) {
+function navSection (section) {
 	return `
-			<h2 class="u-type-scale-delta | u-padding-bottom-narrow">
-				<a href="${section.url}">${section.heading}</a>
-			</h2>
-			${Gallery(
-				section.links.map(link => `
-					<li><a href="${link.url}">${link.label}</a></li>
-				`).join(''),
-				{
-					size: 'small',
-					gutter: 'narrow'
-				}
-			)}
+		<h2 class="u-type-scale-delta | u-padding-bottom-narrow">
+			<a href="${section.url}">${section.heading}</a>
+		</h2>
+		${Gallery(section.links.map(link => `
+			<li><a href="${link.url}">${link.label}</a></li>
+		`).join(''), {
+			size: 'small',
+			gutter: 'narrow'
+		})}
 	`
 }
 
 // footer nav and subscribe sections
-function navGrid(menu) {
+function navGrid (menu) {
 	return `
 		${menu && `
 			<nav class="c-gallery-item | u-color-bg-bg">
@@ -36,17 +27,14 @@ function navGrid(menu) {
 						<div class="u-padding-bottom u-margin-bottom | u-border-bottom">
 							${navSection(menu.countries)}
 						</div>
-						${Gallery(
-							menu.secondary.map((section) => `
-								<li>
-									${navSection(section)}
-								</li>
-							`,).join(''),
-							{
-								size: 'small',
-								gutter: 'medium'
-							}
-						)}
+						${Gallery(menu.secondary.map((section) => `
+							<li>
+								${navSection(section)}
+							</li>
+						`).join(''), {
+							size: 'small',
+							gutter: 'medium'
+						})}
 					`, { width: 'wide' })}
 				</div>
 			</nav>
@@ -144,7 +132,7 @@ module.exports = ({
 						<small>&copy; Copyright 2020. All rights reserved.</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<a class="u-color-fg-highlight" href="mailto:${ contact }">
+						<a class="u-color-fg-highlight" href="mailto:${contact}">
 							Contact us
 						</a>
 					</div>

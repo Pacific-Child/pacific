@@ -4,7 +4,7 @@
 
 // format the 'gutter' prop to populate the css variable
 // -> see composition/gallery.scss
-function gutterStyle(gutter) {
+function gutterStyle (gutter) {
 	if (typeof gutter === 'string') {
 		return `var(--space-${gutter});`
 	}
@@ -18,8 +18,6 @@ module.exports = (content, {
 	tag = 'ul',
 	gutter = 'medium'
 } = {}) => {
-	const sizes = ['small', 'large']
-
 	return `
 		<${tag}
 			class="

@@ -5,9 +5,9 @@
 
 // define spacing variables from scale tokens
 :root {
-  @each $name, $length in spacing.$scale {
-    --space-#{$name}: #{spacing.get($name)};
-  }
+	@each $name, $length in spacing.$scale {
+		--space-#{$name}: #{spacing.get($name)};
+	}
 }
 
 // generate utilities for each side and scale interval
