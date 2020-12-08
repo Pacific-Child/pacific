@@ -18,6 +18,7 @@
 // -> self-contained, namespaced, opinionated UI elements
 @use 'blocks/button';
 @use 'blocks/pretty_numbers';
+@use 'blocks/timeline';
 
 // Utility classes
 @use 'utilities/border';

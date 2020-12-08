@@ -11,6 +11,11 @@
 		max-width: 100ch;
 	}
 
+	&.xwide {
+		max-width: 90rem;
+		max-width: 175ch;
+	}
+
 	&.centered {
 		margin-left: auto;
 		margin-right: auto;

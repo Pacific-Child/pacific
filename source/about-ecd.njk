@@ -1,6 +1,24 @@
 ---
 layout: default
 title: Early Childhood Development
+sections:
+  development:
+    - title: Congitive Development
+      slug: cognitive
+    - title: Social and Emotional Development
+      slug: social
+    - title: Speech and Language Development
+      slug: speech
+    - title: Fine Motor Skill Development
+      slug: fine-motor
+    - title: Gross Motor Skill Development
+      slug: gross-motor
+  care:
+    - Good Health
+    - Adequate Nutrition
+    - Safety and Security
+    - Responsive Caregiving
+    - Opportunities for Early Learning
 ---
 
 {% Cover %}
@@ -19,15 +37,36 @@ title: Early Childhood Development
 	</h2>
 
 	{# Timeline #}
-	<div>
-		<ul class="u-list-undecorated">
-			<li>
-				<details open>
-					<summary>
-						<p class="u-type-heading u-type-scale-delta">
-							Social and emotional development
-						</p>
-					</summary>
+	{% set breakpoint = 'medium' %}
+	<div x-data="{ tab: '{{sections.development[0].slug}}' }">
+		<nav class="
+			c-content-width xwide centered
+			u-padding-bottom-wide
+		">
+			<ul class="b-timeline | u-margin-x-flow">
+				{% for item in sections.development %}
+					<li
+						class="b-timeline-item"
+						:class="{ 'u-color-fg-highlight': tab === '{{item.slug}}' }"
+					>
+						<a
+							class="u-type-heading u-type-scale-delta u-type-link-undecorated"
+							@click.prevent="tab = '{{item.slug}}'"
+							href="#{{item.slug}}"
+						>
+							{{item.title}}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+		<ul class="c-content-width wide centered | u-list-undecorated">
+			{% for item in sections.development %}
+				<li
+					class="u-no-padding-top"
+					id="{{item.slug}}"
+					x-show="tab === '{{item.slug}}'"
+				>
 					<article class="c-bookend horizontal@small | c-gutter">
 						<div class="c-bookend-item left | c-gutter-item">
 							<div style="max-width: 20rem;">
@@ -35,27 +74,30 @@ title: Early Childhood Development
 							</div>
 						</div>
 						<div class="c-bookend-item right fill | c-gutter-item">
-							{% ContentWrapper %}
-								<h3 class="u-padding-bottom">Social and emotional development</h3>
+							<div class="c-content-width centered">
+								<h3 class="u-padding-bottom">{{item.title}}</h3>
 								{% Passage %}
 									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel ipsa incidunt at quasi, iusto, reiciendis blanditiis corporis ea voluptas sunt fuga veritatis, veniam ipsum, assumenda alias hic amet asperiores nostrum?</p>
 									<p>Cumque optio minus, esse hic repudiandae eveniet, accusantium explicabo. Eligendi iure quod molestias dolore distinctio dicta vero? Corrupti deserunt dolor optio possimus, quaerat consequuntur vel eaque et nesciunt, molestiae quae?</p>
 								{% endPassage %}
-							{% endContentWrapper %}
+							</div>
 						</div>
 					</article>
-				</details>
-			</li>
+				</li>
+			{% endfor %}
 		</ul>
 	</div>
 {% endSection %}
 
 {# Sectors #}
 {% Section %}
-	<h2 class="u-type-align-center">Sectors</h2>
-	{% Passage %}
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus odio commodi rerum soluta esse at dicta doloremque magnam cum odit temporibus vitae deleniti deserunt a, voluptate maxime molestias repellendus!</p>
-	{% endPassage %}
+	<header class="u-padding-bottom-wide">
+		<h2 class="u-type-align-center | u-padding-bottom">Sectors</h2>
+		{% Passage %}
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus odio commodi rerum soluta esse at dicta doloremque magnam cum odit temporibus vitae deleniti deserunt a, voluptate maxime molestias repellendus!</p>
+		{% endPassage %}
+	</header>
+	<div class="u-type-align-center"><strong>- Content TBD -</strong></div>
 {% endSection %}
 
 {# Care #}
@@ -63,7 +105,7 @@ title: Early Childhood Development
 	<header>
 		<h2 class="u-type-align-center u-padding-bottom-wide">Nurturing care</h2>
 		{% ContentWrapper { width: 'wide' } %}
-			<div class="c-bookend horizontal@small | c-gutter">
+			<div class="c-bookend horizontal@small reverse | c-gutter">
 				<div class="c-bookend-item right | c-gutter-item" style="max-width: 20rem;">
 					<img src="https://placehold.it/600x600" alt="icon">
 				</div>
@@ -77,28 +119,34 @@ title: Early Childhood Development
 		{% endContentWrapper %}
 	</header>
 	<ul class="u-list-undecorated | u-padding-y-flow u-padding-top-wide">
-		<li>
-			<article class="
-				c-content-width centered wide
-				u-border u-border-radius
-				u-padding
-			">
-				<div class="c-bookend horizontal@small | c-gutter">
-					<header class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
-							<img
-								class="u-display-inline-block u-border-round"
-								src="https://placehold.it/600x600"
-								alt="icon"
-							>
-						<h3 class="u-padding-top">Good health</h3>
-					</header>
-					<div class="c-bookend-item right fill | c-gutter-item">
-						{% Passage %}
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae at, quis culpa consequuntur qui ea rerum, consectetur eum fuga deleniti earum commodi recusandae iure, veritatis natus. Voluptate, saepe rem animi.</p>
-						{% endPassage %}
+		{% for title in sections.care %}
+			<li>
+				<article class="
+					c-content-width centered wide
+					u-border u-border-radius
+					u-padding
+				">
+
+					<div class="
+						c-bookend horizontal@small {% if loop.index % 2 == 0 %}reverse{% endif %}
+						c-gutter
+					">
+						<header class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
+								<img
+									class="u-display-inline-block u-border-round"
+									src="https://placehold.it/600x600"
+									alt="icon"
+								>
+							<h3 class="u-padding-top">{{title}}</h3>
+						</header>
+						<div class="c-bookend-item right fill | c-gutter-item">
+							{% Passage %}
+								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae at, quis culpa consequuntur qui ea rerum, consectetur eum fuga deleniti earum commodi recusandae iure, veritatis natus. Voluptate, saepe rem animi.</p>
+							{% endPassage %}
+						</div>
 					</div>
-				</div>
-			</article>
-		</li>
+				</article>
+			</li>
+		{% endfor %}
 	</ul>
 {% endSection %}

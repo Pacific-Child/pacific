@@ -34,6 +34,14 @@
 		&.reverse {
 			flex-direction: row-reverse;
 		}
+
+		&.justify-start {
+			justify-content: flex-start;
+		}
+
+		&.justify-center {
+			justify-content: center;
+		}
 	}
 
 	.c-bookend-item {
@@ -58,8 +66,11 @@
 		}
 
 		&.fill {
+			float: none;
+
 			@supports (flex: 1) {
 				flex: 1;
+				margin-left: unset;
 			}
 		}
 	}

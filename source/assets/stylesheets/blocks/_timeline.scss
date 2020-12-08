@@ -1,0 +1,61 @@
+@use '../tokens/color';
+@use '../tokens/spacing';
+
+$-line-h: 0.5rem;
+$-dot-h: 1rem;
+$-padding: spacing.get('narrow');
+$-line-top: (($-dot-h - $-line-h) / 2);
+
+// the clickable buttons that trigger the visibility of tab content
+.b-timeline {
+	display: block;
+	list-style: none;
+	overflow-x: scroll;
+	padding-left: 0;
+	padding-top: ($-padding + $-dot-h);
+	position: relative;
+	text-align: center;
+
+	@supports (display: flex) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&::before {
+		background-color: color.get('border');
+		border-radius: 1000000px;
+		content: '';
+		display: block;
+		height: $-line-h;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: $-line-top;
+	}
+}
+
+.b-timeline-item {
+	display: inline-block;
+	position: relative;
+
+	@supports (flex: 1) {
+		flex: 1;
+	}
+
+	&::before {
+		background-color: currentColor;
+		border-radius: 10000000px;
+		content: '';
+		display: block;
+		height: $-dot-h;
+		left: 50%;
+		margin-left: -#{$-dot-h / 2};
+		position: absolute;
+		top: -#{$-padding + $-dot-h};
+		width: $-dot-h;
+	}
+
+	& + & {
+		padding-top: 0;
+	}
+}

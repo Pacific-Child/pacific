@@ -43,6 +43,7 @@
 // base styles for headings, used for both h1, h2, etc. and utilities
 @mixin heading() {
 	@include font('display', 'bold');
+	display: block;
 	line-height: leading('tight');
 	margin-bottom: 0;
 	margin-top: 0;
