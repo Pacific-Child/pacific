@@ -6,6 +6,19 @@
 	border: 1px solid color.get('border');
 }
 
+.u-border-radius {
+	border-radius: 0.3em;
+}
+
+.u-border-round {
+	border-radius: 100000000px;
+}
+
+.u-border-y {
+	border-bottom: 1px solid color.get('border');
+	border-top: 1px solid color.get('border');
+}
+
 @each $side in helpers.$sides {
 	.u-border-#{$side} {
 		border-#{$side}: 1px solid color.get('border');

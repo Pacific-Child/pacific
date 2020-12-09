@@ -23,16 +23,16 @@
 // --- show/hide at screen sizes
 // -> hide content until screen reaches specified breakpoint size
 
-// usage: <span class='hide-[below|above]@small'>
+// usage: <span class='u-hide-[below|above]@small'>
 @each $name, $size in breakpoints.$list {
 	.u-hide-below\@#{$name} {
-		@include breakpoints.query($size, 'below') {
+		@include breakpoints.query($name, 'below') {
 			display: none;
 		}
 	}
 
 	.u-hide-above\@#{$name} {
-		@include breakpoints.query($size) {
+		@include breakpoints.query($name) {
 			display: none;
 		}
 	}

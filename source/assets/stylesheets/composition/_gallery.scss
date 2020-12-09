@@ -1,7 +1,6 @@
 // Gallery
 // -> arrange content in a fluid grid
 @use '../tokens/spacing';
-@use '../tokens/layout_width';
 @use '../tokens/breakpoints';
 
 // default values
@@ -49,7 +48,7 @@ $max-percentage: 100%;
 
 .c-gallery.large {
 	--min-width: 600px;
-	--breakpoint: 1200px;
+	--breakpoint: 800px;
 	--min-percentage: 25%;
 
 	@include breakpoints.query('xsmall') {
@@ -62,6 +61,7 @@ $max-percentage: 100%;
 }
 
 // --- children ---
+.c-gallery > li,
 .c-gallery-item {
 	// stylelint-disable order/properties-alphabetical-order
 	// -> these props are sorted to make progressive enhancement clearer
@@ -86,17 +86,17 @@ $max-percentage: 100%;
 	width: calc((var(--breakpoint) - 100%) * 1000);
 
 	@supports (display: grid) {
-		max-width: 36rem;
-		max-width: 70ch;
+		// max-width: 36rem;
+		// max-width: 70ch;
 		min-width: auto;
 		padding: 0;
 		width: auto;
 	}
 
-	.c-gallery.large & {
-		max-width: 64rem;
-		max-width: 100ch;
-	}
+	// .c-gallery.large & {
+	// 	max-width: 64rem;
+	// 	max-width: 100ch;
+	// }
 
 	.c-gallery.flex & {
 		@supports (display: flex) {

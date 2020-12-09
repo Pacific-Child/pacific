@@ -30,6 +30,18 @@
 		flex-direction: row;
 		justify-content: space-between;
 		min-height: 3rem;
+
+		&.reverse {
+			flex-direction: row-reverse;
+		}
+
+		&.justify-start {
+			justify-content: flex-start;
+		}
+
+		&.justify-center {
+			justify-content: center;
+		}
 	}
 
 	.c-bookend-item {
@@ -46,7 +58,6 @@
 
 		&.right {
 			float: right;
-			text-align: right;
 
 			@supports (display: flex) {
 				float: none;
@@ -55,8 +66,11 @@
 		}
 
 		&.fill {
+			float: none;
+
 			@supports (flex: 1) {
 				flex: 1;
+				margin-left: unset;
 			}
 		}
 	}
@@ -80,11 +94,11 @@
 // }
 
 .c-bookend.align-top {
-  @supports (align-items: flex-start) {
-    align-items: flex-start !important;
-  }
+	@supports (align-items: flex-start) {
+		align-items: flex-start !important;
+	}
 
-  .c-bookend-item {
-    vertical-align: top;
-  }
+	.c-bookend-item {
+		vertical-align: top;
+	}
 }

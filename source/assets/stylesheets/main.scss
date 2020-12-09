@@ -8,15 +8,17 @@
 // Composition styles
 // -> unopinionated, composeable layout
 @use 'composition/bookend';
+@use 'composition/content-width';
+@use 'composition/flow';
 @use 'composition/gallery';
 @use 'composition/gutter';
 @use 'composition/outdent';
-@use 'composition/wrapper';
 
 // Block styles
 // -> self-contained, namespaced, opinionated UI elements
 @use 'blocks/button';
 @use 'blocks/pretty_numbers';
+@use 'blocks/timeline';
 
 // Utility classes
 @use 'utilities/border';

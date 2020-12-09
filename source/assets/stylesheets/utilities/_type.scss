@@ -15,25 +15,8 @@
 }
 
 // headings
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 .u-type-heading {
-	@include type.font('display', 'bold');
-	line-height: type.leading('tight');
-	margin-bottom: 0;
-	margin-top: 0;
-
-	&.u-type-weight-light {
-		@include type.font('display', 'light');
-	}
-
-	strong {
-		color: color.get('highlight');
-	}
+	@include type.heading();
 }
 
 // scale
@@ -118,4 +101,8 @@ h6,
 	&.u-type-weight-normal {
 		@include type.font($weight: 'normal');
 	}
+}
+
+.u-type-link-undecorated {
+	border-bottom: 0;
 }
