@@ -4,23 +4,21 @@ title: Home
 logo_width: 30rem
 ---
 
-{% Cover %}
-	{% ContentWrapper { className: 'u-margin-y-flow' } %}
-		<div style="max-width: {{logo_width}};">
-			{# Figure out how to mark this up - hide image? #}
-			<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
-		</div>
-		{% Passage %}
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, porro natus nulla non ipsa dolore necessitatibus earum, mollitia. Consectetur architecto qui voluptas ipsum aliquid eligendi recusandae nemo saepe esse dolores.</p>
-		{% endPassage %}
-		<a
-			class="b-button"
-			href="#"
-		>
-			About Pacific Child &rsaquo;
-		</a>
-	{% endContentWrapper %}
-{% endCover %}
+{% Jumbotron %}
+	<div style="max-width: {{logo_width}};">
+		{# Figure out how to mark this up - hide image? #}
+		<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
+	</div>
+	{% Passage %}
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, porro natus nulla non ipsa dolore necessitatibus earum, mollitia. Consectetur architecto qui voluptas ipsum aliquid eligendi recusandae nemo saepe esse dolores.</p>
+	{% endPassage %}
+	<a
+		class="b-button"
+		href="#"
+	>
+		About Pacific Child &rsaquo;
+	</a>
+{% endJumbotron %}
 <main>
 	{# Meeting #}
 	<section class="u-border-top | u-padding-y-wide u-padding-x-outside">

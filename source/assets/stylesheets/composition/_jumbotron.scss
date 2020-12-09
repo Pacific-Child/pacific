@@ -1,0 +1,12 @@
+// Jumbotron
+// -> create a big obnoxious header or titling for a page
+
+.jumbotron {
+	min-height: 80vh;
+
+	@supports (display: flex) {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

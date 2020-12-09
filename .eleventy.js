@@ -21,7 +21,7 @@ const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
-const Cover = require(`${componentsDir}/sections/Cover.js`)
+const Jumbotron = require(`${componentsDir}/sections/Jumbotron.js`)
 const Section = require(`${componentsDir}/sections/Section.js`)
 
 module.exports = (config) => {
@@ -46,7 +46,7 @@ module.exports = (config) => {
 	config.addShortcode('MainNav', MainNav)
 
 	// blocks & sections
-	config.addPairedShortcode('Cover', Cover)
+	config.addPairedShortcode('Jumbotron', Jumbotron)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('Section', Section)
