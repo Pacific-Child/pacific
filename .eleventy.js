@@ -6,7 +6,6 @@ const componentsDir = `./${inputDir}/components`
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const markdownIt = require('markdown-it')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
-const yaml = require('js-yaml')
 
 // components
 const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
@@ -17,17 +16,19 @@ const Cover = require(`${componentsDir}/Cover.js`)
 
 // blocks
 // -> components use to render CMS "block" content
-const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
+const Passage = require(`${componentsDir}/blocks/Passage.js`)
+const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
+const EventList = require(`${componentsDir}/sections/EventList.js`)
+const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const Section = require(`${componentsDir}/sections/Section.js`)
+const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
 module.exports = (config) => {
-	// custom data formats
-		config.addDataExtension("yml", contents => yaml.safeLoad(contents))
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,
@@ -53,7 +54,11 @@ module.exports = (config) => {
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('Section', Section)
+	config.addShortcode('EventList', EventList)
+	config.addShortcode('ResourceCard', ResourceCard)
+	config.addShortcode('ResourceList', ResourceList)
 	config.addShortcode('UpdateCard', UpdateCard)
+	config.addShortcode('UpdateList', UpdateList)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts
