@@ -74,7 +74,6 @@ function navGrid (menu) {
 module.exports = ({
 	logo = '',
 	title = '',
-	contact = '',
 	menu
 } = {}) => {
 	return `
@@ -132,7 +131,7 @@ module.exports = ({
 						<small>&copy; Copyright 2020. All rights reserved.</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<a class="u-color-fg-highlight" href="mailto:${contact}">
+						<a class="u-color-fg-highlight" href="/contact">
 							Contact us
 						</a>
 					</div>

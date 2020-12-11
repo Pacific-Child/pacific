@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+{% Cover %}
+	<h1>{{ contactForm.title }}</h1>
+
+	{# Contact form - better styling to come #}
+	<form name="contact" method="POST" data-netlify="true" action="/contact-success">
+		<label
+			class=""
+			for="contact-name"
+		>
+			{{ contactForm.nameField }}
+		</label>
+		<input
+			id="contact-name"
+			name="contact-name"
+			type="text"
+		>
+
+		<label
+			class=""
+			for="contact-email"
+		>
+			{{ contactForm.emailField }}
+		</label>
+		<input
+			id="contact-email"
+			name="contact-email"
+			type="email"
+		>
+
+		<label
+			class=""
+			for="contact-subject"
+		>
+			{{ contactForm.subjectField }}
+		</label>
+		<input
+			id="contact-subject"
+			name="contact-subject"
+			type="text"
+		>
+
+		<label
+			class=""
+			for="contact-message"
+		>
+			{{ contactForm.messageField }}
+		</label>
+		<textarea
+			id="contact-message"
+			name="contact-message"
+		></textarea>
+		<button class="b-button">{{ contactForm.submitButton }}</button>
+	</form>
+
+{% endCover %}
+
+{# List of resources here to be added #}

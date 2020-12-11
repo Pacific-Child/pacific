@@ -1,5 +1,6 @@
 module.exports = (dato, root, i18n) => {
 	const home = dato.home
+	const contactForm = dato.contactForm
 
 	root.createDataFile('source/data/home.json', 'json', {
 		cover: {
@@ -32,5 +33,16 @@ module.exports = (dato, root, i18n) => {
 				sections: page.sections.toMap()
 			})
 		})
+	})
+
+	root.createDataFile('source/data/contactForm.json', 'json', {
+		title: contactForm.title,
+		nameField: contactForm.nameField,
+		emailField: contactForm.emailField,
+		subjectField: contactForm.subjectField,
+		messageField: contactForm.messageField,
+		submitButton: contactForm.submitButton,
+		thankYouTitle: contactForm.thankYouTitle,
+		thankYouMessage: contactForm.thankYouMessage
 	})
 }
