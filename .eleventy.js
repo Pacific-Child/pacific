@@ -3,8 +3,8 @@ const outputDir = 'build'
 const componentsDir = `./${inputDir}/components`
 
 // plugins and libs
-const markdownIt = require('markdown-it')
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
+const markdownIt = require('markdown-it')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
 
 // components
@@ -12,17 +12,21 @@ const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
 const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
 const Markdown = require(`${componentsDir}/Markdown.js`)
+const Cover = require(`${componentsDir}/Cover.js`)
 
 // blocks
 // -> components use to render CMS "block" content
-const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
+const Passage = require(`${componentsDir}/blocks/Passage.js`)
+const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
-const Jumbotron = require(`${componentsDir}/sections/Jumbotron.js`)
+const EventList = require(`${componentsDir}/sections/EventList.js`)
+const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const Section = require(`${componentsDir}/sections/Section.js`)
+const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
 module.exports = (config) => {
 	// custom markdown settings
@@ -46,11 +50,15 @@ module.exports = (config) => {
 	config.addShortcode('MainNav', MainNav)
 
 	// blocks & sections
-	config.addPairedShortcode('Jumbotron', Jumbotron)
+	config.addPairedShortcode('Cover', Cover)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('Section', Section)
+	config.addShortcode('EventList', EventList)
+	config.addShortcode('ResourceCard', ResourceCard)
+	config.addShortcode('ResourceList', ResourceList)
 	config.addShortcode('UpdateCard', UpdateCard)
+	config.addShortcode('UpdateList', UpdateList)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts
@@ -71,7 +79,7 @@ module.exports = (config) => {
 			output: outputDir,
 			layouts: 'layouts',
 			includes: 'partials',
-			data: 'content'
+			data: 'data'
 		},
 		passthroughFileCopy: true
 	}

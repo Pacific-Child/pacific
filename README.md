@@ -7,6 +7,7 @@ The web platform of UNICEF's Pacific Regional Council for Early Childhood Develo
 ### Development
 1. Install Node.js if needed
 2. Run `npm install`
+3. Run `npm run setup` to pull content from Dato CMS.
 3. Run `npm start` to start a development server and build on code changes
 
 ### Deployment
@@ -14,7 +15,12 @@ The deploy command is `npm run build`. This site is hosted on Netlify; push or m
 
 ## Code style
 - This site is built on [Eleventy](http://11ty.dev), a Node static site generator, using the "[Shortcode components](https://github.com/adamduncan/eleventy-shortcomps)" pattern
-- The CSS is written in [Sass](https://sass-lang.com) (the [Dart version](https://sass-lang.com/dart-sass)), and follows [Cube CSS](https://piccalil.li/cube-css/) style. 
+- The CSS is written in [Sass](https://sass-lang.com) (the [Dart version](https://sass-lang.com/dart-sass)), and follows [Cube CSS](https://piccalil.li/cube-css/) conventions.
+	- Class naming format: `.[category prefix]-[partial name]-[variation]`, e.g. `.u-border-top`
+	- Category prefixes are:
+		- `c` for _composition_, e.g. `.c-bookend`
+		- `u` for _utility_, e.g. `.u-padding-top`
+		- `b` for _block_, e.g. `.b-button`
 - Tabs not spaces
 
 ### Linters

@@ -1,10 +1,9 @@
 ---
 layout: default.njk
 title: Home
-logo_width: 30rem
 ---
 
-{% Jumbotron {
+{% Cover {
 	contentWidth: false,
 	className: 'u-type-align-center'
 } %}
@@ -15,103 +14,58 @@ logo_width: 30rem
 		{# Figure out how to mark this up - hide image? #}
 		<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
 	</div>
-	{% Passage %}
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, porro natus nulla non ipsa dolore necessitatibus earum, mollitia. Consectetur architecto qui voluptas ipsum aliquid eligendi recusandae nemo saepe esse dolores.</p>
-	{% endPassage %}
+		{% Passage %}
+			{{home.cover.introduction}}
+		{% endPassage %}
+
 	<a
 		class="b-button"
 		href="#"
 	>
-		About Pacific Child &rsaquo;
+		{{home.cover.callToAction.label}} &rsaquo;
 	</a>
-{% endJumbotron %}
+{% endCover %}
 <main>
-	{# Meeting #}
-	<section class="u-border-top | u-padding-y-wide u-padding-x-outside">
-		<header class="u-margin-y-flow-narrow">
-			<h2 class="u-type-align-center">Latest meeting outcomes</h2>
-			{% Passage %}
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum nisi, nulla exercitationem, temporibus, veritatis omnis impedit quo quisquam dolores ut mollitia libero saepe molestias ipsum, hic eaque corporis quas tenetur.</p>
-			{% endPassage %}
-		</header>
 
-		{# Outcomes list #}
-		<div class="c-content-width wide centered | u-padding-top-wide">
-			<article class="u-border u-border-radius u-padding">
-				<h3 class="u-padding-bottom"><time>November 27, 2020</time></h3>
-					<div class="c-bookend horizontal@small align-top | c-gutter">
-						<div
-							class="c-bookend-item left | c-gutter-item"
-							style="max-width: 20rem;"
-						>
-							<img src="https://placehold.it/600x600?text=Photo" alt="Photo from event">
-						</div>
-						<div class="c-bookend-item right fill | c-gutter-item">
-							<ol class="u-padding-left">
-								{% for item in [1, 2, 3] %}
-								<li>
-									<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Facere adipisci consequatur nemo veniam laboriosam perferendis incidunt earum quisquam quia alias, aliquid qui.</p>
-								</li>
-								{% endfor %}
-							</ol>
-						</div>
-					</div>
-				</div>
-			</article>
-		</div>
-	</section>
+	{% for section in home.sections %}
 
-	{# Resources #}
-	<section class="u-border-top u-padding-y-wide u-padding-x-outside u-margin-y-flow-wide">
-		<header class="u-margin-y-flow">
-			<h2 class="u-type-align-center">
-				Early childhood development resources
-			</h2>
-			{% Passage %}
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
-			{% endPassage %}
-		</header>
-		<div class="u-border-y u-padding-y-wide">
-			{% Gallery %}
-				{% for item in [1, 2, 3] %}
-					<li class="u-margin-y-flow-narrow">
-						<h3>Resource title lorem ipsum</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse maiores illo, amet itaque expedita. Iusto reiciendis est, quidem sunt ipsa blanditiis ducimus hic in, quia magnam sint placeat architecto pariatur.</p>
-						<a class="b-button u-margin-top" href="#">Read more &rsaquo;</a>
-					</li>
-				{% endfor %}
-			{% endGallery %}
-		</div>
-		<div class="u-type-align-center">
-			<a class="b-button" href="#">About ECD &rsaquo;</a>
-		</div>
-	</section>
+		{# Meeting #}
+		{% if section.itemType == 'event_list' %}
+			{% EventList {
+				title: section.heading,
+				introduction: section.intro,
+				events: section.events
+			} %}
+		{% endif %}
 
-	{# Updates #}
-	<section class="u-border-top u-padding-y-wide u-padding-x-outside u-margin-y-flow-wide">
-		<header class="u-margin-y-flow">
-			<h2 class="u-type-align-center">
-				Updates
-			</h2>
-			{% Passage %}
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias explicabo, incidunt optio ut nobis cum, maxime distinctio ab cumque nesciunt. Obcaecati, aperiam! Veniam expedita, impedit earum, dolorum eos totam ab!</p>
-			{% endPassage %}
-		</header>
-		<ul class="
-			c-content-width wide centered
-			u-list-undecorated u-padding-y-flow
-		">
-			{% for item in [1, 2, 3] %}
-				<li>
-					{% UpdateCard {
-						image: 'https://placehold.it/800x800',
-						title: 'Title lorem ipsum dolor sit',
-						summary: '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis iste et tempora nisi non ipsum asperiores voluptates, aspernatur adipisci veritatis nesciunt sit provident nulla eaque inventore recusandae labore commodi architecto.</p>',
-						date: '12 December 2020',
-						source: 'Source'
-					} %}
-				</li>
-			{% endfor %}
-		</ul>
-	</section>
+		{# Countries #}
+		{% if section.itemType == 'countries_list' %}
+			<section class="u-border-top u-padding-y-wide u-padding-x-outside u-margin-y-flow-wide">
+				<h2 class="u-type-align-center">
+					{{section.title}}
+				</h2>
+				<p>Countries list to come</p>
+			</section>
+		{% endif %}
+
+		{# Resources #}
+		{% if section.itemType == 'resource_list' %}
+			{% ResourceList {
+				title: section.heading,
+				introduction: section.introduction,
+				resources: section.resources,
+				callToAction: section.callToAction
+			} %}
+		{% endif %}
+
+		{# Updates #}
+		{% if section.itemType == 'update_list' %}
+			{% UpdateList {
+				title: section.title,
+				introduction: section.introduction,
+				updates: section.updates
+			} %}
+		{% endif %}
+
+	{% endfor %}
 </main>
