@@ -15,7 +15,7 @@ The web platform of UNICEF's Pacific Regional Council for Early Childhood Develo
 The deploy command is `npm run build`. This site is hosted on Netlify; push or merge your changes to the remote `main` branch and it will automatically deploy.
 
 ## Code style
-- This site is built on [Eleventy](http://11ty.dev), a Node static site generator, using the "[Shortcode components](https://github.com/adamduncan/eleventy-shortcomps)" pattern
+- This site is built on [Eleventy](http://11ty.dev), a Node static site generator, using the "[Shortcode components](https://github.com/adamduncan/eleventy-shortcomps)" pattern. We are using [Nunjucks](https://www.11ty.dev/docs/languages/nunjucks/) templates for pages, and [Javascript functions](https://www.11ty.dev/docs/languages/javascript/) for components.
 - The CSS is written in [Sass](https://sass-lang.com) (the [Dart version](https://sass-lang.com/dart-sass)), and follows [Cube CSS](https://piccalil.li/cube-css/) conventions.
 	- Class naming format: `.[category prefix]-[partial name]-[variation]`, e.g. `.u-border-top`
 	- Category prefixes are:
