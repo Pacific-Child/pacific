@@ -3,4 +3,26 @@ layout: default
 title: Resources
 ---
 
-<h1>{{title}}</h1>
+{% Cover %}
+	<h1>{{title}}</h1>
+
+	{# Search box - icon/better styling to come #}
+	<form action="">
+		<label
+			class="u-hide-visually"
+			for="footer-search"
+		>
+			Search
+		</label>
+		<input
+			id="footer-search"
+			name="footer-search"
+			type="search"
+			placeholder="Search"
+		>
+		<button class="u-hide-visually">Submit</button>
+	</form>
+
+{% endCover %}
+
+{# List of resources here to be added #}
