@@ -9,7 +9,7 @@
 		"prestart": "run-s clean build:sass",
 		"start": "run-p watch:*",
 		"setup": "run-s clean fetch:dato",
-		"build": "run-s clean build:sass build:compress build:eleventy",
+		"build": "run-s setup lint:* build:sass build:compress build:eleventy",
 		"build:eleventy": "npx @11ty/eleventy",
 		"build:sass": "sass --load-path=node_modules/bourbon/core source/assets/stylesheets/:.tmp/",
 		"build:compress": "npx postcss ./.tmp/main.css -r",
