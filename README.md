@@ -22,7 +22,7 @@ The deploy command is `npm run build`. This site is hosted on Netlify; push or m
 		- `c` for _composition_, e.g. `.c-bookend`
 		- `u` for _utility_, e.g. `.u-padding-top`
 		- `b` for _block_, e.g. `.b-button`
-- Tabs not spaces
+- [Tabs not spaces](https://alexandersandberg.com/tabs-for-accessibility/). There's an [`.editorconfig` file](https://editorconfig.org) if you use that.
 
 ### Linters
 - Javascript is linted using [ESlint](http://eslint.org), in the [Standard](https://standardjs.com) style
