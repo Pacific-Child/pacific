@@ -55,7 +55,7 @@ module.exports = ({
 							</div>
 						</article>
 					</li>
-				`)}
+				`).join('')}
 			</ul>
 		</section>
 	`

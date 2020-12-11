@@ -13,6 +13,7 @@ const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
 const Markdown = require(`${componentsDir}/Markdown.js`)
 const Cover = require(`${componentsDir}/Cover.js`)
+const PageContent = require(`${componentsDir}/PageContent.js`)
 
 // blocks
 // -> components use to render CMS "block" content
@@ -29,6 +30,7 @@ const Section = require(`${componentsDir}/sections/Section.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
 module.exports = (config) => {
+
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,
@@ -48,6 +50,7 @@ module.exports = (config) => {
 	config.addPairedShortcode('Markdown', Markdown)
 	config.addShortcode('MainFooter', MainFooter)
 	config.addShortcode('MainNav', MainNav)
+	config.addShortcode('PageContent', PageContent)
 
 	// blocks & sections
 	config.addPairedShortcode('Cover', Cover)
@@ -78,7 +81,6 @@ module.exports = (config) => {
 			input: inputDir,
 			output: outputDir,
 			layouts: 'layouts',
-			includes: 'partials',
 			data: 'data'
 		},
 		passthroughFileCopy: true

@@ -26,46 +26,5 @@ title: Home
 	</a>
 {% endCover %}
 <main>
-
-	{% for section in home.sections %}
-
-		{# Meeting #}
-		{% if section.itemType == 'event_list' %}
-			{% EventList {
-				title: section.heading,
-				introduction: section.intro,
-				events: section.events
-			} %}
-		{% endif %}
-
-		{# Countries #}
-		{% if section.itemType == 'countries_list' %}
-			<section class="u-border-top u-padding-y-wide u-padding-x-outside u-margin-y-flow-wide">
-				<h2 class="u-type-align-center">
-					{{section.title}}
-				</h2>
-				<p>Countries list to come</p>
-			</section>
-		{% endif %}
-
-		{# Resources #}
-		{% if section.itemType == 'resource_list' %}
-			{% ResourceList {
-				title: section.heading,
-				introduction: section.introduction,
-				resources: section.resources,
-				callToAction: section.callToAction
-			} %}
-		{% endif %}
-
-		{# Updates #}
-		{% if section.itemType == 'update_list' %}
-			{% UpdateList {
-				title: section.title,
-				introduction: section.introduction,
-				updates: section.updates
-			} %}
-		{% endif %}
-
-	{% endfor %}
+	{% PageContent home.sections %}
 </main>
