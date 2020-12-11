@@ -1,10 +1,9 @@
 ---
 layout: default.njk
 title: Home
-logo_width: 30rem
 ---
 
-{% Jumbotron {
+{% Cover {
 	contentWidth: false,
 	className: 'u-type-align-center'
 } %}
@@ -15,16 +14,17 @@ logo_width: 30rem
 		{# Figure out how to mark this up - hide image? #}
 		<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
 	</div>
-	{% Passage %}
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, porro natus nulla non ipsa dolore necessitatibus earum, mollitia. Consectetur architecto qui voluptas ipsum aliquid eligendi recusandae nemo saepe esse dolores.</p>
-	{% endPassage %}
+		{% Passage %}
+			{{home.cover.introduction}}
+		{% endPassage %}
+
 	<a
 		class="b-button"
 		href="#"
 	>
-		About Pacific Child &rsaquo;
+		{{home.cover.callToAction.label}} &rsaquo;
 	</a>
-{% endJumbotron %}
+{% endCover %}
 <main>
 	{# Meeting #}
 	<section class="u-border-top | u-padding-y-wide u-padding-x-outside">

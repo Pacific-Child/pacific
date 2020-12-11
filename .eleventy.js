@@ -3,15 +3,17 @@ const outputDir = 'build'
 const componentsDir = `./${inputDir}/components`
 
 // plugins and libs
-const markdownIt = require('markdown-it')
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
+const markdownIt = require('markdown-it')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
+const yaml = require('js-yaml')
 
 // components
 const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
 const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
 const Markdown = require(`${componentsDir}/Markdown.js`)
+const Cover = require(`${componentsDir}/Cover.js`)
 
 // blocks
 // -> components use to render CMS "block" content
@@ -21,10 +23,11 @@ const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
-const Jumbotron = require(`${componentsDir}/sections/Jumbotron.js`)
 const Section = require(`${componentsDir}/sections/Section.js`)
 
 module.exports = (config) => {
+	// custom data formats
+		config.addDataExtension("yml", contents => yaml.safeLoad(contents))
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,
@@ -46,7 +49,7 @@ module.exports = (config) => {
 	config.addShortcode('MainNav', MainNav)
 
 	// blocks & sections
-	config.addPairedShortcode('Jumbotron', Jumbotron)
+	config.addPairedShortcode('Cover', Cover)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('Section', Section)
@@ -71,7 +74,7 @@ module.exports = (config) => {
 			output: outputDir,
 			layouts: 'layouts',
 			includes: 'partials',
-			data: 'content'
+			data: 'data'
 		},
 		passthroughFileCopy: true
 	}
