@@ -8,25 +8,25 @@ const markdownIt = require('markdown-it')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
 
 // components
-const ContentWrapper = require(`${componentsDir}/ContentWrapper.js`)
 const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
-const Markdown = require(`${componentsDir}/Markdown.js`)
 const Cover = require(`${componentsDir}/Cover.js`)
 const PageContent = require(`${componentsDir}/PageContent.js`)
 
 // blocks
 // -> components use to render CMS "block" content
+const ContentWrapper = require(`${componentsDir}/blocks/ContentWrapper.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
+const Markdown = require(`${componentsDir}/blocks/Markdown.js`)
 const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
+const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
 
 // sections
 // -> components used to render CMS "section" content
 const EventList = require(`${componentsDir}/sections/EventList.js`)
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
-const Section = require(`${componentsDir}/sections/Section.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
 module.exports = (config) => {
@@ -56,7 +56,7 @@ module.exports = (config) => {
 	config.addPairedShortcode('Cover', Cover)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
-	config.addPairedShortcode('Section', Section)
+	config.addPairedShortcode('SectionWrapper', SectionWrapper)
 	config.addShortcode('EventList', EventList)
 	config.addShortcode('ResourceCard', ResourceCard)
 	config.addShortcode('ResourceList', ResourceList)

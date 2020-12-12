@@ -1,16 +1,17 @@
 // Section
-// -> a full-width, stacking 'panel' for a section of content
+// -> a full-width, bordered container for a section of content
 
 module.exports = (content, {
-	className = ''
+	className = '',
+	tag = 'section'
 } = {}) => {
 	return `
-		<section class="
+		<${tag} class="
 			u-border-top
 			u-padding-y-wide u-padding-x-outside
 			${className}
 		">
 			${content}
-		</section>
+		</${tag}>
 	`
 }

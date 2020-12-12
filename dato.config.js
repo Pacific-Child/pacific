@@ -18,6 +18,7 @@ module.exports = (dato, root, i18n) => {
 		dato.pages.forEach((page) => {
 			pagesDir.createDataFile(`${page.slug}.json`, 'json', {
 				title: page.title,
+				date: page.createdAt,
 				slug: page.slug,
 				id: page.id,
 				locale: page.locale,

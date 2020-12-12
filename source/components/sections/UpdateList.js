@@ -1,6 +1,6 @@
 // Update list section
 // -> display a stack of Update posts in cards
-const Markdown = require('../Markdown.js')
+const Markdown = require('../blocks/Markdown.js')
 const Passage = require('../blocks/Passage.js')
 const UpdateCard = require('../blocks/UpdateCard.js')
 
@@ -26,13 +26,7 @@ module.exports = ({
 				${updates.length > 0
 					? updates.map(update => `
 							<li>
-								${UpdateCard({
-									image: update.image,
-									title: update.title,
-									summary: update.summary,
-									date: update.date,
-									source: update.source
-								})}
+								${UpdateCard({ ...update })}
 							</li>
 						`).join('')
 					: ''

@@ -29,7 +29,7 @@ sections:
 {% endCover %}
 
 {# Stages #}
-{% Section %}
+{% SectionWrapper %}
 	<h2 class="u-type-align-center | u-padding-bottom-wide">
 		Stages of Early Childhood Development
 	</h2>
@@ -85,10 +85,10 @@ sections:
 			{% endfor %}
 		</ul>
 	</div>
-{% endSection %}
+{% endSectionWrapper %}
 
 {# Sectors #}
-{% Section %}
+{% SectionWrapper %}
 	<header class="u-padding-bottom-wide">
 		<h2 class="u-type-align-center | u-padding-bottom">Sectors</h2>
 		{% Passage %}
@@ -96,10 +96,10 @@ sections:
 		{% endPassage %}
 	</header>
 	<div class="u-type-align-center"><strong>- Content TBD -</strong></div>
-{% endSection %}
+{% endSectionWrapper %}
 
 {# Care #}
-{% Section %}
+{% SectionWrapper %}
 	<header>
 		<h2 class="u-type-align-center u-padding-bottom-wide">Nurturing care</h2>
 		{% ContentWrapper { width: 'wide' } %}
@@ -154,4 +154,4 @@ sections:
 			</li>
 		{% endfor %}
 	</ul>
-{% endSection %}
+{% endSectionWrapper %}

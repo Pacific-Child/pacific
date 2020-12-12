@@ -2,7 +2,7 @@
 // -> render markdown text to html
 const markdownIt = require('markdown-it')
 
-const markdownOptions = {
+const options = {
 	typographer: true,
 	html: false
 }
@@ -10,10 +10,6 @@ const markdownOptions = {
 // https://github.com/11ty/eleventy/issues/685
 module.exports = (content, inline = false) => {
 	return inline
-		? markdownIt(markdownOptions).renderInline(content)
-		: `
-			<div class="t-content">
-				${markdownIt(markdownOptions).render(content)}
-			</div>
-		`
+		? markdownIt(options).renderInline(content)
+		: markdownIt(options).render(content)
 }

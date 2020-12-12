@@ -1,8 +1,8 @@
 // Resource card block
 // -> a card displaying summary info about a resource
 // -> display in a Gallery
-const Passage = require('../blocks/Passage.js')
-const Markdown = require('../Markdown.js')
+const Passage = require('./Passage.js')
+const Markdown = require('./Markdown.js')
 
 module.exports = ({
 	title,
