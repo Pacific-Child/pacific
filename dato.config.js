@@ -1,17 +1,24 @@
-module.exports = (dato, root, i18n) => {
-const { home, pages, siteConfiguration } = dato
+module.exports = ({
+	home,
+	pages,
+	siteConfiguration: site
+}, root, i18n) => {
 
 	// global site config
 	root.createDataFile('source/data/site.json', 'json', {
-		organization: siteConfiguration.organizationName,
-		title: siteConfiguration.siteTitle,
+		organization: site.organizationName,
+		title: site.siteTitle,
 		header: {
-			logo: siteConfiguration.logo.toMap(),
-			nav: siteConfiguration.mainMenu.toMap()
+			logo: {
+				url: site.logo.url(),
+				alt: site.logo.alt,
+				title: site.logo.title
+			},
+			nav: site.mainMenu.toMap(2)
 		},
 		footer: {
-			newsletterSignup: siteConfiguration.newsletterSignupBlurb,
-			copyright: siteConfiguration.copyrightNotice
+			newsletterSignup: site.newsletterSignupBlurb,
+			copyright: site.copyrightNotice
 		}
 	})
 
