@@ -23,9 +23,16 @@ module.exports = ({
 	})
 
 	// homepage
+	// use the site header logo if none is specified for the homepage
+	const homeLogo = home.logo || site.logo
+
 	root.createDataFile('source/data/home.json', 'json', {
 		cover: {
-			logo: home.logo,
+			logo: {
+				url: homeLogo.url(),
+				alt: homeLogo.alt,
+				title: homeLogo.title
+			},
 			introduction: home.introduction,
 			callToAction: {
 				label: home.callToActionLabel,

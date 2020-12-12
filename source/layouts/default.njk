@@ -93,7 +93,7 @@ footer_nav:
 	<body>
 		{# Main header #}
 		{% MainNav {
-			logo: site.header.logo,
+			logo: site.header.logo.url,
 			items: site.header.nav,
 			currentPage: page.url
 		} %}
@@ -103,12 +103,11 @@ footer_nav:
 
 		{# Main footer #}
 		{% MainFooter {
-			logo: 'https://placehold.it/600x200?text=logo',
-			title: title,
+			logo: site.header.logo.url,
+			title: site.title,
 			menu: footer_nav,
 			contact: contact
 		} %}
-
 
 		{# Alpine JS from their CDN #}
 		<script

@@ -1,23 +1,27 @@
 ---
 layout: default.njk
 title: Home
+logo_width: 30rem;
 ---
 
 {% Cover {
 	contentWidth: false,
 	className: 'u-type-align-center'
 } %}
-	<div
+	{# Figure out how to mark this up - hide text? #}
+	<h1
 		class="u-display-inline-block"
 		style="max-width: {{logo_width}};"
 	>
-		{# Figure out how to mark this up - hide image? #}
-		<h1><img src="/images/pacific-logo-vertical.png" alt="Pacific Child"></h1>
-	</div>
-		{% Passage %}
-			{{home.cover.introduction}}
-		{% endPassage %}
-
+		<img
+			class="u-display-block"
+			src="{{home.cover.logo.url}}"
+			alt="{{home.cover.logo.alt}}"
+		>
+	</h1>
+	{% Passage %}
+		{{home.cover.introduction}}
+	{% endPassage %}
 	<a
 		class="b-button"
 		href="#"
