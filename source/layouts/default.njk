@@ -2,14 +2,12 @@
 title: UNICEF Pacific Regional Council for Early Childhood Development
 contact: kmillan@unicef.org
 nav:
-  - label: Country profiles
-    url: /country-profiles/
   - label: Resources
-    url: /resources/
+    url: resources
   - label: About ECD
-    url: /about-ecd/
+    url: about-ecd
   - label: Pacific Council
-    url: /about-prc/
+    url: pacific-council
 footer_nav:
   countries:
     heading: Country profiles
@@ -94,7 +92,11 @@ footer_nav:
 	</head>
 	<body>
 		{# Main header #}
-		{% MainNav { items: nav } %}
+		{% MainNav {
+			logo: site.header.logo,
+			items: site.header.nav,
+			currentPage: page.url
+		} %}
 
 		{# Content #}
 		<main>{{ content | safe }}</main>
