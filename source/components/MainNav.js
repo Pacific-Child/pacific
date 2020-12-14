@@ -1,6 +1,24 @@
 // Main header nav
 
+const NavItem = (item, currentPage) => {
+	return `
+		<li class="u-display-inline-block u-no-padding-top u-type-scale-zero">
+			<a
+				class="
+					u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated
+					u-display-inline-block
+					${item.link.slug.includes(currentPage) ? 'u-border-bottom' : ''}
+				"
+				href="/${item.link.slug}/"
+			>
+				${item.label}
+			</a>
+		</li>
+	`
+}
+
 module.exports = ({
+	logo = '',
 	items = [],
 	currentPage = '/'
 } = {}) => {
@@ -28,19 +46,7 @@ module.exports = ({
 						u-hide-visually u-show-visually-above@xsmall
 						u-margin-x-flow
 					">
-						${items.map(item => `
-							<li class="u-display-inline-block u-no-padding-top u-type-scale-zero">
-								<a
-									class="
-										u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated
-										u-display-inline-block
-									"
-									href="${item.url}"
-								>
-									${item.label}
-								</a>
-							</li>
-						`).join('')}
+						${items.map(item => NavItem(item, currentPage)).join('')}
 					</ul>
 				</nav>
 			</div>
