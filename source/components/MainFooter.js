@@ -1,4 +1,4 @@
-const ContentWrapper = require('./ContentWrapper.js')
+const ContentWrapper = require('./blocks/ContentWrapper.js')
 const Gallery = require('./blocks/Gallery.js')
 const Passage = require('./blocks/Passage.js')
 
