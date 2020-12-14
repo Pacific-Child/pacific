@@ -4,6 +4,8 @@
 // Props:
 // section: OBJECT, containing the props of section components, e.g. title, introduction, etc.
 const componentNames = {
+	blurb_timeline: require('./sections/BlurbTimeline.js'),
+	countries_list: require('./sections/CountriesList.js'),
 	event_list: require('./sections/EventList.js'),
 	resource_list: require('./sections/ResourceList.js'),
 	update_list: require('./sections/UpdateList.js')
