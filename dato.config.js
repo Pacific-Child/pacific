@@ -1,7 +1,8 @@
 module.exports = ({
 	home,
 	pages,
-	siteConfiguration: site
+	siteConfiguration: site,
+	contactForm
 }, root, i18n) => {
 
 	// global site config
@@ -63,5 +64,16 @@ module.exports = ({
 				sections: page.sections.toMap()
 			})
 		})
+	})
+
+	root.createDataFile('source/data/contactForm.json', 'json', {
+		title: contactForm.title,
+		nameField: contactForm.nameField,
+		emailField: contactForm.emailField,
+		subjectField: contactForm.subjectField,
+		messageField: contactForm.messageField,
+		submitButton: contactForm.submitButton,
+		thankYouTitle: contactForm.thankYouTitle,
+		thankYouMessage: contactForm.thankYouMessage
 	})
 }
