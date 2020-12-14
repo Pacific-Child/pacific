@@ -19,13 +19,13 @@ const Card = ({ image, title, description }, index) => {
 					c-gutter
 				">
 					${image
-								? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
-									<img
-										class="u-display-inline-block u-border-round"
-										src="https://placehold.it/600x600"
-										alt="icon"
-									>
-							</div>`
+						? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
+							<img
+								class="u-display-inline-block u-border-round"
+								src="https://placehold.it/600x600"
+								alt="icon"
+							>
+						</div>`
 						: ''
 					}
 					<div class="c-bookend-item right fill | c-gutter-item">

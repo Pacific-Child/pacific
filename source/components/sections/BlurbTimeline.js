@@ -49,9 +49,11 @@ module.exports = ({
 	breakpoint = 'medium'
 }) => {
 	return SectionWrapper(`
-		<h2 class="u-type-align-center | u-padding-bottom-wide">
-			Stages of Early Childhood Development
-		</h2>
+		<header class="u-padding-bottom-wide">
+			<h2 class="u-type-align-center | u-padding-bottom-wide">
+				Stages of Early Childhood Development
+			</h2>
+		</header>
 
 		${introduction ? Passage(Markdown(introduction)) : ''}
 
