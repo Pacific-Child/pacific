@@ -37,7 +37,7 @@ module.exports = ({
 			introduction: home.introduction,
 			callToAction: {
 				label: home.callToActionLabel,
-				link: home.callToActionLink
+				link: home.callToActionLink.toMap(1)
 			}
 		},
 		sections: home.sections.toMap()
