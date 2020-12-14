@@ -5,7 +5,13 @@ const Gallery = require('../blocks/Gallery.js')
 const Markdown = require('../blocks/Markdown.js')
 const Passage = require('../blocks/Passage.js')
 
-function Blurb ({ title, description, image }) {
+function Blurb ({
+	title,
+	description,
+	image,
+	label,
+	linkInternalPage
+}) {
 	return `
 		<section class="
 			c-gallery-item
@@ -15,6 +21,15 @@ function Blurb ({ title, description, image }) {
 			${ContentWrapper(`
 				<h2 class="u-padding-bottom">${title}</h2>
 				${Passage(Markdown(description))}
+				${linkInternalPage
+					? `<a
+							class="b-button | u-margin-top"
+							href="/${linkInternalPage.slug}/"
+						>
+							${label}
+						</a>`
+					: ''
+				}
 			`)}
 		</section>
 	`
