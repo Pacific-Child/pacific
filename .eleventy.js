@@ -25,11 +25,14 @@ const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
 
 // sections
 // -> components used to render CMS "section" content
+const BlurbCardStack = require(`${componentsDir}/sections/BlurbCardStack.js`)
+const BlurbGrid = require(`${componentsDir}/sections/BlurbGrid.js`)
+const BlurbSection = require(`${componentsDir}/sections/BlurbSection.js`)
+const BlurbTimeline = require(`${componentsDir}/sections/BlurbTimeline.js`)
+const CountriesList = require(`${componentsDir}/sections/CountriesList.js`)
 const EventList = require(`${componentsDir}/sections/EventList.js`)
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
-const CountriesList = require(`${componentsDir}/sections/CountriesList.js`)
-const BlurbTimeline = require(`${componentsDir}/sections/BlurbTimeline.js`)
 
 module.exports = (config) => {
 
@@ -59,13 +62,16 @@ module.exports = (config) => {
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('SectionWrapper', SectionWrapper)
+	config.addShortcode('BlurbCardStack', BlurbCardStack)
+	config.addShortcode('BlurbGrid', BlurbGrid)
+	config.addShortcode('BlurbSection', BlurbSection)
+	config.addShortcode('BlurbTimeline', BlurbTimeline)
 	config.addShortcode('CountriesList', CountriesList)
 	config.addShortcode('EventList', EventList)
 	config.addShortcode('ResourceCard', ResourceCard)
 	config.addShortcode('ResourceList', ResourceList)
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
-	config.addShortcode('BlurbTimeline', BlurbTimeline)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts
