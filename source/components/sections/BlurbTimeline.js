@@ -53,9 +53,8 @@ module.exports = ({
 			<h2 class="u-type-align-center | u-padding-bottom-wide">
 				Stages of Early Childhood Development
 			</h2>
+			${introduction ? Passage(Markdown(introduction)) : ''}
 		</header>
-
-		${introduction ? Passage(Markdown(introduction)) : ''}
 
 		<div x-data="{ tab: '${blurbs[0].id}' }">
 			<nav class="
