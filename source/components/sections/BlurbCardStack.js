@@ -22,8 +22,8 @@ const Card = ({ image, title, description }, index) => {
 						? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
 							<img
 								class="u-display-inline-block u-border-round"
-								src="https://placehold.it/600x600"
-								alt="icon"
+								src="${image.url}"
+								alt="${image.alt}"
 							>
 						</div>`
 						: ''
@@ -45,7 +45,7 @@ module.exports = ({
 }) => {
 	return SectionWrapper(`
 		<header>
-			<h2 class="u-type-align-center u-padding-bottom-wide">Nurturing care</h2>
+			<h2 class="u-type-align-center u-padding-bottom-wide">${title}</h2>
 			${ContentWrapper(`
 				<div class="c-bookend horizontal@small reverse | c-gutter">
 					${image
