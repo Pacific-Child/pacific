@@ -3,25 +3,107 @@ layout: default
 title: Resources
 ---
 
+<!--
+	Todo:
+		-> Form styling
+			-> input
+			-> button
+			-> loading icon
+		-> Result styling
+			-> results
+			-> no results
+			-> totals
+-->
+
+<style>
+  [x-cloak] { display: none; }
+</style>
+
+<script>
+	function resourcesSearch() {
+		return {
+			resourceSearch: '',
+			isLoading: false,
+			results: null,
+			totalResults: 0,
+			fetchResources() {
+				this.isLoading = true;
+				fetch('http://localhost:3000/graphql', {
+					  method: 'POST',
+					  headers: { 'Content-Type': 'application/json' },
+					  body: JSON.stringify({ query: `
+					    query {
+								searchResults(query: "${this.resourceSearch}", page: 1, pageSize: 100) {
+									results {
+										id
+										heading
+										body
+										author
+										updatedAt
+										url
+										imageUrl
+									}
+									total
+								}
+							}`
+					  }),
+					})
+					.then(res => res.json())
+					.then(res => {
+						this.isLoading = false;
+						this.results = res.data.searchResults.results;
+						this.totalResults = res.data.searchResults.total;
+					});
+			}
+		}
+	}
+</script>
+
 {% Cover %}
 	<h1>{{title}}</h1>
 
-	{# Search box - icon/better styling to come #}
-	<form action="">
-		<label
-			class="u-hide-visually"
-			for="footer-search"
-		>
-			Search
-		</label>
-		<input
-			id="footer-search"
-			name="footer-search"
-			type="search"
-			placeholder="Search"
-		>
-		<button class="u-hide-visually">Submit</button>
-	</form>
+	<div x-data="resourcesSearch()">
+		<div>
+			<label
+				class="u-hide-visually"
+				for="resourceSearch"
+			>
+				Search
+			</label>
+			<input
+				id="resourceSearch"
+				name="resourceSearch"
+				x-model="resourceSearch"
+				type="text"
+				placeholder="Search"
+				@keydown.enter="fetchResources()"
+			>
+			<button
+				class="b-button"
+				type="submit"
+				@click="fetchResources()"
+				:disabled="isLoading"
+			>Submit</button>
+			<span x-show="isLoading" x-cloak>loading icon here?</span>
+		</div>
+
+		<p x-show="results && totalResults > 0"><span x-text="totalResults"></span> datasets</p>
+
+		<p x-show="results && totalResults < 1">No results</p>
+
+		<template x-if="results">
+			<template
+				x-for="result in results"
+				:key="result.id"
+			>
+				<article>
+					<h2 x-text="result.heading"></h2>
+					<h3 x-text="result.author"></h3>
+					<time x-text="result.updatedAt"></time>
+				</article>
+			</template>
+		</template>
+	</div>
 
 {% endCover %}
 
