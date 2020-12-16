@@ -22,8 +22,8 @@ const Card = ({ image, title, description }, index) => {
 						? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
 							<img
 								class="u-display-inline-block u-border-round"
-								src="https://placehold.it/600x600"
-								alt="icon"
+								src="${image.url}"
+								alt="${image.alt}"
 							>
 						</div>`
 						: ''
@@ -45,35 +45,37 @@ module.exports = ({
 }) => {
 	return SectionWrapper(`
 		<header>
-			<h2 class="u-type-align-center u-padding-bottom-wide">Nurturing care</h2>
-			${ContentWrapper(`
-				<div class="c-bookend horizontal@small reverse | c-gutter">
-					${image
-						? `<div
-								class="c-bookend-item right | c-gutter-item"
-								style="max-width: 20rem;"
-							>
-								<img
-									class="u-border-round"
-									src="${image.url}"
-									alt="${image.alt}"
-								>
-							</div>`
-						: ''
-					}
+			<h2 class="u-type-align-center">${title}</h2>
+			${image || introduction
+				? ContentWrapper(`
+						<div class="c-bookend horizontal@small reverse | c-gutter">
+							${image
+								? `<div
+										class="c-bookend-item right | c-gutter-item"
+										style="max-width: 20rem;"
+									>
+										<img
+											class="u-border-round"
+											src="${image.url}"
+											alt="${image.alt}"
+										>
+									</div>`
+								: ''
+							}
 
-					${introduction
-						? `<div class="c-bookend-item left fill | c-gutter-item">
-								${Passage(Markdown(introduction))}
-							</div>`
-						: ''
-					}
+							${introduction
+								? `<div class="c-bookend-item left fill | c-gutter-item">
+										${Passage(Markdown(introduction))}
+									</div>`
+								: ''
+							}
 
-				</div>
-			`, { width: 'wide' })}
+						</div>
+					`, { width: 'wide' })
+				: ''}
 		</header>
-		<ul class="u-list-undecorated | u-padding-y-flow u-padding-top-wide">
+		<ul class="u-list-undecorated | u-padding-y-flow">
 			${blurbs.map((blurb, index) => Card({ ...blurb }, index)).join('')}
 		</ul>
-	`)
+	`, { className: 'u-margin-y-flow-wide' })
 }

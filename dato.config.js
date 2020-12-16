@@ -36,14 +36,10 @@ module.exports = ({
 				title: homeLogo.title
 			},
 			introduction: home.introduction,
-			callToActionLabel: home.callToActionLabel,
-			callToActionLink: {
-				"__typename": home.callToActionTypeName
+			callToAction: {
+				label: home.callToActionLabel,
+				link: home.callToActionLink.toMap(1)
 			}
-			// callToAction: {
-				// label: home.callToActionLabel,
-			// 	link: home.callToActionLink
-			// }
 		},
 		sections: home.sections.toMap()
 	})
