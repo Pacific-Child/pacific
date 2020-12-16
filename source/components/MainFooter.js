@@ -95,7 +95,7 @@ module.exports = ({
 						>
 					</div>
 					<form
-						class="c-bookend-item right fill | c-gutter-item"
+						class="c-gutter-item u-hide"
 						action=""
 					>
 						<label
