@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Resources
 ---
 
 <!--
@@ -56,7 +55,6 @@ title: Resources
 		}
 	}
 	function formatDate(datetime) {
-		// Updated May 31, 2020
 		var month=["January","February","March","April","May","June","July","August","September","October","November","December"]
 		var d = new Date(datetime);
 		return `${month[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
@@ -64,7 +62,7 @@ title: Resources
 </script>
 
 {% Cover %}
-	<h1>{{title}}</h1>
+	<h1>{{ resourcesIndex.title }}</h1>
 {% endCover %}
 
 {# List of resources here to be added #}
@@ -76,7 +74,7 @@ title: Resources
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="resourceSearch"
 		>
-			Search
+			{{ resourcesIndex.label }}
 		</label>
 		<div class="c-bookend c-gutter narrow horizontal@xsmall">
 			<div class="c-bookend-item c-gutter-item left fill">
@@ -85,7 +83,7 @@ title: Resources
 					name="resourceSearch"
 					x-model="resourceSearch"
 					type="text"
-					placeholder="Search"
+					placeholder="{{ resourcesIndex.placeholder }}"
 					@keydown.enter="fetchResources()"
 				>
 			</div>
@@ -106,20 +104,20 @@ title: Resources
 						repeatCount="indefinite"/>
 					</path>
 				</svg>
-				Submit</button>
+				{{ resourcesIndex.button }}</button>
 			</div>
 		</div>
 		<span x-show="isLoading" x-cloak>loading icon here?</span>
 	</div>
 
 	<!-- empty state / no search done -->
-	<p x-show="!results">Some sort of insturctions?</p>
+	<p x-show="!results">{{ resourcesIndex.instructions }}</p>
 
 	<!-- search done but no results -->
-	<p class="u-type-scale-beta" x-show="results && totalResults < 1">No results - move to dato</p>
+	<p class="u-type-scale-beta" x-show="results && totalResults < 1">{{ resourcesIndex.noResultsMessage }}</p>
 
 	<!-- results -->
-	<h3 class="u-type-scale-beta u-padding-top" x-show="results && totalResults > 0"><span x-text="totalResults"></span> datasets - move to dato</h3>
+	<h3 class="u-type-scale-beta u-padding-top" x-show="results && totalResults > 0"><span x-text="totalResults"></span> {{ resourcesIndex.datasetSuffix }}</h3>
 
 	<template x-if="results">
 		<ul class="u-list-undecorated | u-margin-y-flow u-padding-top-wide">
@@ -138,7 +136,7 @@ title: Resources
 									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">tag</a></li>
 									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">tag</a></li>
 									<!-- will only need to show the following item if there's four or more tags -->
-									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 more - move to dato</a></li>
+									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ resourcesIndex.moreTags }}</a></li>
 								</ul>
 							</div>
 							<a href="#" class="u-position-absolute u-position-top-right u-no-border">
@@ -165,7 +163,7 @@ title: Resources
 									</svg>
 								</figure>
 								<p x-text="result.author"></p>
-								<time x-bind:datetime="result.updatedAt">Updated <span x-text="formatDate(result.updatedAt)"></span></time>
+								<time x-bind:datetime="result.updatedAt">{{ resourcesIndex.updated }} <span x-text="formatDate(result.updatedAt)"></span></time>
 								<p>file type</p>
 							</div>
 						</div>
