@@ -18,7 +18,7 @@ function navSection (section) {
 }
 
 // footer nav and subscribe sections
-function navGrid (menu) {
+function navGrid (menu, footerStrings) {
 	return `
 		${menu && `
 			<nav class="c-gallery-item | u-color-bg-bg">
@@ -47,7 +47,7 @@ function navGrid (menu) {
 							class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
 							for="footer-subscribe"
 						>
-							Subscribe
+							${footerStrings.newsletterLabel}
 						</label>
 						<div class="c-bookend horizontal@xsmall | c-gutter narrow">
 							<div class="c-bookend-item left fill | c-gutter-item">
@@ -55,15 +55,16 @@ function navGrid (menu) {
 									type="email"
 									id="footer-subscribe"
 									name="footer-subscribe"
+									placeholder="${footerStrings.newsletterInputPlaceholder}"
 								>
 							</div>
 							<div class="c-bookend-item right | c-gutter-item">
-								<button class="b-button">Subscribe</button>
+								<button class="b-button">${footerStrings.newsletterButton}</button>
 							</div>
 						</div>
 					</form>
 					${Passage(`
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tria genera bonorum; Eadem nunc mea adversum te oratio est.</p>
+						<p>${footerStrings.newsletterBlurb}</p>
 					`, { className: 'u-padding-top-narrow u-color-fg-secondary' })}
 				`)}
 			</div>
@@ -74,7 +75,8 @@ function navGrid (menu) {
 module.exports = ({
 	logo = '',
 	title = '',
-	menu
+	menu,
+	footerStrings
 } = {}) => {
 	return `
 		<footer
@@ -116,7 +118,7 @@ module.exports = ({
 			</div>
 
 			<!-- footer nav & subscribe -->
-			${Gallery(navGrid(menu), {
+			${Gallery(navGrid(menu, footerStrings), {
 				size: 'large',
 				tag: 'div',
 				gutter: 1,
@@ -128,7 +130,7 @@ module.exports = ({
 				<div class="c-bookend horizontal@small | c-gutter narrow">
 					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
-						<small>&copy; Copyright 2020. All rights reserved.</small>
+						<small>${footerStrings.copyright}</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<a class="u-color-fg-highlight" href="/contact">
