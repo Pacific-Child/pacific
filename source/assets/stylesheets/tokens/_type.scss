@@ -108,7 +108,7 @@ $leading: (
 	}
 
 	// start to scale up at the minimum screen size
-	@include breakpoints.query('>#{$screen-min}') {
+	@include breakpoints.query($screen-min) {
 		@each $property in $properties {
 			// sass-lint:disable no-duplicate-properties
 			// -> using redundant props as fallback here
@@ -122,7 +122,7 @@ $leading: (
 	}
 
 	// stop scaling at the maximum screen size
-	@include breakpoints.query('>#{$screen-max}') {
+	@include breakpoints.query($screen-max) {
 		@each $property in $properties {
 			#{$property}: scale($size-max);
 		}

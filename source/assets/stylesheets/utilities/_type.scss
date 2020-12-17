@@ -21,20 +21,20 @@
 // scale
 h1,
 .u-type-scale-alpha {
-	@include type.fluid($size-min: 'beta', $size-max: 'alpha');
-	letter-spacing: -0.02em;
+	@include type.fluid($size-min: 'gamma', $size-max: 'alpha');
+	letter-spacing: -0.04em;
 }
 
 h2,
 .u-type-scale-beta {
-	@include type.fluid($size-min: 'gamma', $size-max: 'beta');
-	letter-spacing: -0.02em;
+	@include type.fluid($size-min: 'delta', $size-max: 'beta');
+	letter-spacing: -0.03em;
 }
 
 h3,
 .u-type-scale-gamma {
 	@include type.fluid($size-min: 'delta', $size-max: 'gamma');
-	letter-spacing: -0.01em;
+	letter-spacing: -0.02em;
 }
 
 h4,
