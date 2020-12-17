@@ -53,7 +53,7 @@
 	}
 
 	strong {
-		color: color.get('highlight');
+		@include color.add('highlight');
 	}
 
 	a {

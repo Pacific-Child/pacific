@@ -11,6 +11,10 @@
 	position: relative;
 }
 
+.u-position-vertical-align-middle {
+	vertical-align: middle;
+}
+
 @each $name, $level in (
 	'low': 1,
 	'middle': 2,

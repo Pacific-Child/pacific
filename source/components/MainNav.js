@@ -5,7 +5,7 @@ const NavItem = (item, currentPage) => {
 		<li class="u-display-inline-block u-no-padding-top u-type-scale-zero">
 			<a
 				class="
-					u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated
+					u-type-scale-zeta u-type-font-display u-type-link-undecorated
 					u-display-inline-block
 					${item.link.slug.includes(currentPage) ? 'u-border-bottom' : ''}
 				"
@@ -23,10 +23,7 @@ module.exports = ({
 	currentPage = '/'
 } = {}) => {
 	return `
-		<header class="
-			u-color-fg-bg u-color-bg-primary
-			u-padding-y-narrow u-padding-x-outside
-		">
+		<header class="u-padding-y-narrow u-padding-x-outside">
 			<div class="c-bookend horizontal | c-gutter narrow | u-type-scale-zero">
 				<a
 					class="
@@ -38,6 +35,12 @@ module.exports = ({
 					"
 					href="/"
 				>
+					<img
+						class="u-display-inline-block u-position-vertical-align-middle u-padding-right-narrow"
+						src="/images/pacific-logo-icon.svg"
+						alt="Pacific Regional Council for Early Childhood Development"
+						style="max-width: 4.5rem;"
+					>
 					Pacific Regional Council for Early Childhood Development
 				</a>
 				<nav class="c-bookend-item | c-gutter-item | u-display-inline-block">

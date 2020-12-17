@@ -1,6 +1,5 @@
 @use 'sass:map';
 @use '../tokens/type';
-@use '../tokens/color';
 
 // alignment
 @each $position in [left, center, right] {

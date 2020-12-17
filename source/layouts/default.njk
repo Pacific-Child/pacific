@@ -92,7 +92,7 @@ footer_nav:
 	<body>
 		{# Main header #}
 		{% MainNav {
-			logo: site.header.logo.url,
+			logo: '/images/pacific-logo-icon.svg',
 			items: site.header.nav,
 			currentPage: page.url
 		} %}
@@ -102,7 +102,7 @@ footer_nav:
 
 		{# Main footer #}
 		{% MainFooter {
-			logo: site.header.logo.url,
+			logo: '/images/pacific-logo-icon.svg',
 			title: site.title,
 			menu: footer_nav,
 			resourcesIndex: resourcesIndex

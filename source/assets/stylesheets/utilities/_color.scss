@@ -1,14 +1,28 @@
 // Color utility classes
 // -> generated from the color tokens
-
+@use 'sass:map';
 @use '../tokens/color';
 
-@each $name, $color in color.$palette {
-	.u-color-fg-#{$name} {
-		color: $color;
+:root {
+	@each $role, $color in map.get(color.$palette, 'light') {
+		--color-#{$role}: #{$color};
+	}
+}
+
+@each $role, $color in map.get(color.$palette, 'light') {
+	.u-color-fg-#{$role} {
+		@include color.add($role);
 	}
 
-	.u-color-bg-#{$name} {
-		background-color: $color;
+	.u-color-bg-#{$role} {
+		@include color.add-bg($role);
+	}
+}
+
+@each $theme, $roles in color.$palette {
+	.u-theme-#{$theme} {
+		@each $role, $color in $roles {
+			--color-#{$role}: #{$color};
+		}
 	}
 }

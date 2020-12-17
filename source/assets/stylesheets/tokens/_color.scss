@@ -3,21 +3,49 @@
 @use 'sass:map';
 @use 'bourbon';
 
-$-pink: #ee0173;
-$-dark-purple: #18287a;
+$-light-pink: #ff99b7;
+$-pink: #fd5486;
+$-dark-purple: #423757;
+$-light-purple: #7759b1;
 $-white: #fff;
 
 // Utility classes
 // -> global element styles: lists, text, images, etc.
 $palette: (
-	'highlight': $-pink,
-	'primary': $-dark-purple,
-	'secondary': bourbon.tint($-dark-purple, 60),
-	'border': bourbon.tint($-dark-purple, 80),
-	'bg': $-white,
-	'shadow': bourbon.tint($-dark-purple, 60)
+	'light': (
+		'bg': $-white,
+		'border': bourbon.tint($-dark-purple, 80),
+		'highlight': $-pink,
+		'accent': $-light-purple,
+		'primary': $-dark-purple,
+		'secondary': bourbon.tint($-dark-purple, 60),
+		'shadow': bourbon.tint($-dark-purple, 60)
+	),
+	'dark': (
+		'bg': $-dark-purple,
+		'border': bourbon.tint($-dark-purple, 20),
+		'highlight': $-pink,
+		'accent': $-light-purple,
+		'primary': $-white,
+		'secondary': bourbon.tint($-dark-purple, 60),
+		'shadow': bourbon.shade($-dark-purple, 40)
+	)
 );
 
-@function get($role) {
-	@return map.get($palette, $role);
+@function get($role, $theme: 'light') {
+	$theme-colors: map.get($palette, $theme);
+	@return map.get($theme-colors, $role);
+}
+
+@mixin add($role, $prop: 'color') {
+	#{$prop}: get($role);
+	#{$prop}: var(--color-#{$role}, #{get($role)});
+}
+
+@mixin add-bg($role) {
+	@include add($role, 'background-color');
+}
+
+@mixin add-border($role) {
+	@include add($role, 'border-color');
 }

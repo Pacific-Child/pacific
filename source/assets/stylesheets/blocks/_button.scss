@@ -8,23 +8,23 @@
 .b-button {
 	$base-padding: spacing.get('narrow', 1em);
 
+	@include color.add('highlight');
 	@include type.font('display', 'bold');
 	background-color: transparent;
 	border: 2px solid color.get('highlight');
+	border: 2px solid var(--color-highlight);
 	border-radius: 0.2em;
-	color: color.get('highlight');
 	cursor: pointer;
 	display: inline-block;
 	font-size: type.scale('epsilon');
 	padding: ($base-padding + 0.1em) spacing.get($unit: 1em) ($base-padding - 0.1em);
 
 	&.disabled {
-		border-color: color.get('secondary');
-		color: color.get('secondary');
+		@include color.add('secondary');
+		@include color.add-border('secondary');
 	}
 
 	&.small {
 		font-size: type.scale('zeta');
 	}
-
 }
