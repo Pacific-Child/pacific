@@ -23,4 +23,12 @@
 	.u-border-#{$side} {
 		border-#{$side}: 1px solid color.get('border');
 	}
+
+	.u-no-border-#{$side} {
+		border-#{$side}: 0;
+	}
+}
+
+.u-no-border {
+	border: 0;
 }

@@ -14,7 +14,8 @@ $palette: (
 	'primary': $-dark-purple,
 	'secondary': bourbon.tint($-dark-purple, 60),
 	'border': bourbon.tint($-dark-purple, 80),
-	'bg': $-white
+	'bg': $-white,
+	'shadow': bourbon.tint($-dark-purple, 60)
 );
 
 @function get($role) {
