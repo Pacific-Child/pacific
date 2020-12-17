@@ -17,7 +17,7 @@ layout: default
 <script>
 	function resourcesSearch() {
 		return {
-			resourceSearch: '*',
+			searchTerm: new URLSearchParams(location.search).get('searchTerm') || '*',
 			isLoading: false,
 			results: null,
 			totalResults: 0,
@@ -30,7 +30,7 @@ layout: default
 						headers: { 'Content-Type': 'application/json' },
 						body: JSON.stringify({ query: `
 							query {
-								searchResults(query: "${this.resourceSearch}", page: ${this.page}, pageSize: ${this.pageSize}) {
+								searchResults(query: "${this.searchTerm}", page: ${this.page}, pageSize: ${this.pageSize}) {
 									results {
 										id
 										heading
@@ -68,20 +68,31 @@ layout: default
 {# List of resources here to be added #}
 
 {% SectionWrapper %}
-<div x-data="resourcesSearch()" x-init="() => { fetchResources() }">
+
+<div
+	x-data="resourcesSearch()"
+	x-init="() => {
+		$watch('searchTerm', (value) => {
+			const url = new URL(window.location.href);
+			url.searchParams.set('searchTerm', value);
+			history.pushState(null, document.title, url.toString());
+		})
+		fetchResources()
+	}"
+>
 	<div>
 		<label
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
-			for="resourceSearch"
+			for="searchTerm"
 		>
 			{{ resourcesIndex.label }}
 		</label>
 		<div class="c-bookend c-gutter narrow horizontal@xsmall">
 			<div class="c-bookend-item c-gutter-item left fill">
 				<input
-					id="resourceSearch"
-					name="resourceSearch"
-					x-model="resourceSearch"
+					id="searchTerm"
+					name="searchTerm"
+					x-model="searchTerm"
 					type="text"
 					placeholder="{{ resourcesIndex.placeholder }}"
 					@keydown.enter="fetchResources()"
