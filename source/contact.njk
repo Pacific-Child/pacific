@@ -8,48 +8,52 @@ layout: default
 	{# Contact form - better styling to come #}
 	<form name="contact" method="POST" data-netlify="true" action="/contact-success">
 		<label
-			class=""
+			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-name"
 		>
 			{{ contactForm.nameField }}
 		</label>
 		<input
+			class="u-margin-bottom"
 			id="contact-name"
 			name="contact-name"
 			type="text"
 		>
 
 		<label
-			class=""
+			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-email"
 		>
 			{{ contactForm.emailField }}
 		</label>
 		<input
+			class="u-margin-bottom"
 			id="contact-email"
 			name="contact-email"
 			type="email"
 		>
 
 		<label
-			class=""
+			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-subject"
 		>
 			{{ contactForm.subjectField }}
 		</label>
 		<input
+			class="u-margin-bottom"
 			id="contact-subject"
 			name="contact-subject"
 			type="text"
 		>
 
 		<label
-			class=""
+			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-message"
 		>
 			{{ contactForm.messageField }}
 		</label>
 		<textarea
+			class="u-margin-bottom"
 			id="contact-message"
 			name="contact-message"
 		></textarea>
