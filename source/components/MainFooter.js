@@ -76,7 +76,8 @@ module.exports = ({
 	logo = '',
 	title = '',
 	menu,
-	footerStrings
+	footerStrings,
+	resourcesIndex
 } = {}) => {
 	return `
 		<footer
@@ -96,24 +97,34 @@ module.exports = ({
 							alt="${title}"
 						>
 					</div>
-					<form
+					<div
 						class="c-bookend-item right fill | c-gutter-item"
-						action=""
+						x-data="{
+							searchTerm: '',
+							searchPath: '/resources/?searchTerm='
+						}"
 					>
 						<label
 							class="u-hide-visually"
 							for="footer-search"
 						>
-							Search
+							${resourcesIndex.label}
 						</label>
-						<input
-							id="footer-search"
-							name="footer-search"
-							type="search"
-							placeholder="Search"
-						>
-						<button class="u-hide-visually">Submit</button>
-					</form>
+						<div class="c-bookend c-gutter narrow horizontal@xsmall">
+							<div class="c-bookend-item c-gutter-item fill left">
+								<input
+									id="footer-search"
+									name="footer-search"
+									type="search"
+									placeholder="${resourcesIndex.placeholder}"
+									x-model="searchTerm"
+								>
+							</div>
+							<div class="c-bookend-item c-gutter-item right">
+								<a href="#" x-bind:href="searchPath + searchTerm" class="b-button">${resourcesIndex.button}</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 

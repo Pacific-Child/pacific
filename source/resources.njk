@@ -1,28 +1,187 @@
 ---
 layout: default
-title: Resources
 ---
 
+<!--
+	Todo:
+		-> Form styling
+			-> loading icon
+		-> Result styling
+			-> results
+-->
+
+<style>
+	[x-cloak] { display: none; }
+</style>
+
+<script>
+	function resourcesSearch() {
+		return {
+			searchTerm: new URLSearchParams(location.search).get('searchTerm') || '*',
+			isLoading: false,
+			results: null,
+			totalResults: 0,
+			page: 1,
+			pageSize: 10,
+			fetchResources() {
+				this.isLoading = true;
+				fetch('https://pacific-child-staging-a97ee5.pacific-child-staging.c66.me/graphql', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ query: `
+							query {
+								searchResults(query: "${this.searchTerm}", page: ${this.page}, pageSize: ${this.pageSize}) {
+									results {
+										id
+										heading
+										body
+										author
+										updatedAt
+										url
+										imageUrl
+									}
+									total
+								}
+							}`
+						}),
+					})
+					.then(res => res.json())
+					.then(res => {
+						this.isLoading = false;
+						this.results = res.data.searchResults.results;
+						this.totalResults = res.data.searchResults.total;
+					});
+			}
+		}
+	}
+	function formatDate(datetime) {
+		var month=["January","February","March","April","May","June","July","August","September","October","November","December"]
+		var d = new Date(datetime);
+		return `${month[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
+	}
+</script>
+
 {% Cover %}
-	<h1>{{title}}</h1>
-
-	{# Search box - icon/better styling to come #}
-	<form action="">
-		<label
-			class="u-hide-visually"
-			for="footer-search"
-		>
-			Search
-		</label>
-		<input
-			id="footer-search"
-			name="footer-search"
-			type="search"
-			placeholder="Search"
-		>
-		<button class="u-hide-visually">Submit</button>
-	</form>
-
+	<h1>{{ resourcesIndex.title }}</h1>
 {% endCover %}
 
 {# List of resources here to be added #}
+
+{% SectionWrapper %}
+
+<div
+	x-data="resourcesSearch()"
+	x-init="() => {
+		$watch('searchTerm', (value) => {
+			const url = new URL(window.location.href);
+			url.searchParams.set('searchTerm', value);
+			history.pushState(null, document.title, url.toString());
+		})
+		fetchResources()
+	}"
+>
+	<div>
+		<label
+			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
+			for="searchTerm"
+		>
+			{{ resourcesIndex.label }}
+		</label>
+		<div class="c-bookend c-gutter narrow horizontal@xsmall">
+			<div class="c-bookend-item c-gutter-item left fill">
+				<input
+					id="searchTerm"
+					name="searchTerm"
+					x-model="searchTerm"
+					type="text"
+					placeholder="{{ resourcesIndex.placeholder }}"
+					@keydown.enter="fetchResources()"
+				>
+			</div>
+			<div class="c-bookend-item c-gutter-item right">
+				<button
+					class="b-button"
+					type="submit"
+					@click="fetchResources()"
+					:disabled="isLoading"
+				>
+				<svg class="icon" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+					<animateTransform attributeType="xml"
+						attributeName="transform"
+						type="rotate"
+						from="0 25 25"
+						to="360 25 25"
+						dur="0.6s"
+						repeatCount="indefinite"/>
+					</path>
+				</svg>
+				{{ resourcesIndex.button }}</button>
+			</div>
+		</div>
+		<span x-show="isLoading" x-cloak>loading icon here?</span>
+	</div>
+
+	<!-- empty state / no search done -->
+	<p x-show="!results">{{ resourcesIndex.instructions }}</p>
+
+	<!-- search done but no results -->
+	<p class="u-type-scale-beta" x-show="results && totalResults < 1">{{ resourcesIndex.noResultsMessage }}</p>
+
+	<!-- results -->
+	<h3 class="u-type-scale-beta u-padding-top" x-show="results && totalResults > 0"><span x-text="totalResults"></span> {{ resourcesIndex.datasetSuffix }}</h3>
+
+	<template x-if="results">
+		<ul class="u-list-undecorated | u-margin-y-flow u-padding-top-wide">
+			<template
+				x-for="result in results"
+				:key="result.id"
+			>
+				<li class="u-border u-border-radius u-shadow u-padding">
+					<article class="c-bookend align-top c-gutter narrow horizontal@xsmall">
+						<div class="c-bookend-item c-gutter-item fill | u-position-relative u-padding-right | c-content-width xwide">
+							<div class="u-padding-right">
+								<h4 class="u-type-scale-gamma" x-text="result.heading"></h4>
+								<p x-text="$truncate(result.body, { words: 19, ellipsis: '...' })"></p>
+								<ul class="u-list-undecorated">
+									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">tag</a></li>
+									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">tag</a></li>
+									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">tag</a></li>
+									<!-- will only need to show the following item if there's four or more tags -->
+									<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ resourcesIndex.moreTags }}</a></li>
+								</ul>
+							</div>
+							<a href="#" class="u-position-absolute u-position-top-right u-no-border">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-bar-to-down" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+									<line x1="4" y1="20" x2="20" y2="20" />
+									<line x1="12" y1="14" x2="12" y2="4" />
+									<line x1="12" y1="14" x2="16" y2="10" />
+									<line x1="12" y1="14" x2="8" y2="10" />
+								</svg>
+							</a>
+						</div>
+						<div class="c-bookend-item c-gutter-item | u-border-left u-margin-left">
+							<div class="u-padding-left">
+								<figure class="b-figure" x-bind:class="{ 'u-type-align-center u-padding-y-wide u-color-bg-secondary u-no-margin': !result.imageUrl }">
+									<img x-bind:src="result.imageUrl" src="" alt="" x-show="result.imageUrl" class="u-display-block">
+									<svg x-show="!result.imageUrl" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-photo-off" width="44" height="44" viewBox="0 0 24 24" stroke-width="1" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+										<line x1="3" y1="3" x2="21" y2="21" />
+										<line x1="15" y1="8" x2="15.01" y2="8" />
+										<path d="M19.121 19.122a3 3 0 0 1 -2.121 .878h-10a3 3 0 0 1 -3 -3v-10c0 -.833 .34 -1.587 .888 -2.131m3.112 -.869h9a3 3 0 0 1 3 3v9" />
+										<path d="M4 15l4 -4c.928 -.893 2.072 -.893 3 0l5 5" />
+										<path d="M16.32 12.34c.577 -.059 1.162 .162 1.68 .66l2 2" />
+									</svg>
+								</figure>
+								<p x-text="result.author"></p>
+								<time x-bind:datetime="result.updatedAt">{{ resourcesIndex.updated }} <span x-text="formatDate(result.updatedAt)"></span></time>
+								<p>file type</p>
+							</div>
+						</div>
+					</article>
+				</li>
+			</template>
+		</ul>
+	</template>
+</div>
+{% endSectionWrapper %}

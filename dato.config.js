@@ -2,7 +2,8 @@ module.exports = ({
 	home,
 	pages,
 	siteConfiguration: site,
-	contactForm
+	contactForm,
+	resourcesIndex
 }, root, i18n) => {
 
 	// global site config
@@ -69,6 +70,7 @@ module.exports = ({
 		})
 	})
 
+	// contact page
 	root.createDataFile('source/data/contactForm.json', 'json', {
 		title: contactForm.title,
 		nameField: contactForm.nameField,
@@ -78,5 +80,18 @@ module.exports = ({
 		submitButton: contactForm.submitButton,
 		thankYouTitle: contactForm.thankYouTitle,
 		thankYouMessage: contactForm.thankYouMessage
+	})
+
+	// resources index
+	root.createDataFile('source/data/resourcesIndex.json', 'json', {
+		title: resourcesIndex.title,
+		label: resourcesIndex.label,
+		placeholder: resourcesIndex.placeholder,
+		button: resourcesIndex.button,
+		instructions: resourcesIndex.instructions,
+		noResultsMessage: resourcesIndex.noResultsMessage,
+		datasetSuffix: resourcesIndex.datasetSuffix,
+		moreTags: resourcesIndex.moreTags,
+		updated: resourcesIndex.updated
 	})
 }
