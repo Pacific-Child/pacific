@@ -19,7 +19,7 @@ $palette: (
 		'accent': $-light-purple,
 		'primary': $-dark-purple,
 		'secondary': bourbon.tint($-dark-purple, 60),
-		'shadow': bourbon.tint($-dark-purple, 60)
+		'shadow': rgba(bourbon.tint($-dark-purple, 40), 0.4)
 	),
 	'dark': (
 		'bg': $-dark-purple,
@@ -28,7 +28,7 @@ $palette: (
 		'accent': $-light-purple,
 		'primary': $-white,
 		'secondary': bourbon.tint($-dark-purple, 60),
-		'shadow': bourbon.shade($-dark-purple, 40)
+		'shadow': rgba(bourbon.shade($-dark-purple, 40), 0.4)
 	)
 );
 

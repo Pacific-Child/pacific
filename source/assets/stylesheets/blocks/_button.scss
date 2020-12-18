@@ -4,27 +4,63 @@
 @use '../tokens/spacing';
 @use '../tokens/type';
 
+$-padding-y: spacing.get('narrow', 1em);
+$-padding-x: spacing.get($unit: 1em);
+
 // --- base ---
 .b-button {
-	$base-padding: spacing.get('narrow', 1em);
-
 	@include color.add('highlight');
+	@include color.add-bg();
 	@include type.font('display', 'bold');
-	background-color: transparent;
 	border: 2px solid color.get('highlight');
-	border: 2px solid var(--color-highlight);
 	border-radius: 0.2em;
-	cursor: pointer;
 	display: inline-block;
 	font-size: type.scale('epsilon');
-	padding: ($base-padding + 0.1em) spacing.get($unit: 1em) ($base-padding - 0.1em);
+	padding: $-padding-y $-padding-x ($-padding-y - 0.2em);
+	position: relative;
 
-	&.disabled {
-		@include color.add('secondary');
-		@include color.add-border('secondary');
+	&:hover,
+	&:active {
+		filter: brightness(1.1);
 	}
 
-	&.small {
-		font-size: type.scale('zeta');
+	&:hover {
+		box-shadow: 0 2px 5px color.get('shadow');
+		box-shadow: 0 2px 5px var(--color-shadow);
+	}
+}
+
+.b-button.disabled {
+	@include color.add('secondary');
+	@include color.add-border('secondary');
+}
+
+.b-button.has-icon {
+	$-icon-size: 1em;
+	$-icon-margin: spacing.get('narrow', 1em);
+	$-icon-position: spacing.get('narrow', 1em);
+
+	.b-button-icon {
+		height: $-icon-size;
+		margin-top: -($-icon-size / 2);
+		position: absolute;
+		top: 50%;
+		width: $-icon-size;
+	}
+
+	&.left {
+		padding-left: ($-icon-size + $-icon-position + $-icon-margin);
+
+		.b-button-icon {
+			left: $-icon-position;
+		}
+	}
+
+	&.right {
+		padding-right: ($-icon-size + $-icon-position + $-icon-margin);
+
+		.b-button-icon {
+			right: $-icon-position;
+		}
 	}
 }

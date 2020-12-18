@@ -23,10 +23,14 @@ logo_width: 30rem;
 		{{home.cover.introduction}}
 	{% endPassage %}
 	<a
-		class="b-button"
+		class="b-button has-icon right"
 		href="/{{home.cover.callToAction.link.slug}}/"
 	>
-		{{home.cover.callToAction.label}} &rsaquo;
+		{{home.cover.callToAction.label}}
+		<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+		  <polyline points="9 6 15 12 9 18" />
+		</svg>
 	</a>
 {% endCover %}
 
