@@ -15,6 +15,7 @@ layout: default
 </style>
 
 <script>
+	var url = `{{ resourcesIndex.endpoint }}`;
 	function resourcesSearch() {
 		return {
 			searchTerm: new URLSearchParams(location.search).get('searchTerm') || '*',
@@ -25,7 +26,7 @@ layout: default
 			pageSize: 10,
 			fetchResources() {
 				this.isLoading = true;
-				fetch('https://pacific-child-staging-a97ee5.pacific-child-staging.c66.me/graphql', {
+				fetch(url, {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
 						body: JSON.stringify({ query: `

@@ -84,6 +84,7 @@ module.exports = ({
 
 	// resources index
 	root.createDataFile('source/data/resourcesIndex.json', 'json', {
+		endpoint: resourcesIndex.endpoint,
 		title: resourcesIndex.title,
 		label: resourcesIndex.label,
 		placeholder: resourcesIndex.placeholder,
