@@ -10,10 +10,6 @@ layout: default
 			-> results
 -->
 
-<style>
-	[x-cloak] { display: none; }
-</style>
-
 <script>
 	function resourcesSearch() {
 		return {
@@ -61,7 +57,7 @@ layout: default
 	}
 </script>
 
-{% Cover %}
+{% Cover { short: true } %}
 	<h1>{{ resourcesIndex.title }}</h1>
 {% endCover %}
 

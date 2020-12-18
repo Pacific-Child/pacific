@@ -9,6 +9,7 @@
 // -> unopinionated, composeable layout
 @use 'composition/bookend';
 @use 'composition/content-width';
+@use 'composition/cover';
 @use 'composition/flow';
 @use 'composition/gallery';
 @use 'composition/gutter';
@@ -18,6 +19,7 @@
 // -> self-contained, namespaced, opinionated UI elements
 @use 'blocks/button';
 @use 'blocks/icon';
+@use 'blocks/logo';
 @use 'blocks/pretty_numbers';
 @use 'blocks/timeline';
 

@@ -3,6 +3,9 @@
 @use 'tokens/breakpoints';
 @use 'tokens/color';
 
+// for alpine - hide JS-dependent elements until the JS is ready
+[x-cloak] { display: none; }
+
 html {
 	box-sizing: border-box;
 	font-size: 100%;

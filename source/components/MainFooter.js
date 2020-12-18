@@ -100,7 +100,12 @@ module.exports = ({
 			${menu && `
 				<nav
 					x-show.transition.opacity="navOpen"
-					class="c-overlay centered | u-type-align-center | u-border-bottom"
+					class="
+						c-overlay centered
+						u-type-align-center
+						u-border-bottom
+						u-position-z-high
+					"
 					id="footer-nav"
 				>
 					<button
@@ -130,20 +135,16 @@ module.exports = ({
 			`}
 
 			<!-- copyright & contact -->
-			<aside class="u-padding-x-outside u-padding-y-narrow">
-				<div class="c-bookend horizontal@small | c-gutter narrow">
+			<aside class="u-padding-x-outside u-padding-y">
+				<div class="c-bookend horizontal@large | c-gutter">
 					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<span
-							class="u-display-inline-block"
-							style="max-width: 10rem;"
-						>
-							<img
-								src="${logo}"
-								alt="${title}"
-							>
+						<span class="b-logo icon u-margin-right-narrow">
+							<img src="${logo}" alt="${title}">
 						</span>
-						<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
-						<small>${strings.copyright}</small>
+						<span class="u-display-inline-block">
+							<strong>UNICEF</strong> Pacific Regional Council for Early Childhood Development
+						</span>
+						<small class="u-display-inline-block">${strings.copyright}</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<a class="u-color-fg-highlight" href="/contact">

@@ -1,27 +1,26 @@
 ---
 layout: default.njk
 title: Home
-logo_width: 30rem;
 ---
 
 {% Cover {
 	contentWidth: false,
-	className: 'u-type-align-center'
+	className: 'u-type-align-center u-margin-y-flow'
 } %}
 	{# Figure out how to mark this up - hide text? #}
-	<h1
-		class="u-display-inline-block"
-		style="max-width: {{logo_width}};"
-	>
+	<h1 class="b-logo full vertical u-type-scale-zero">
 		<img
-			class="u-display-block"
+			class="u-display-inline-block"
 			src="/images/pacific-logo-vertical.svg"
 			alt="{{home.cover.logo.alt}}"
 		>
+		<span class="u-hide-visually">{{site.organization}}</span>
 	</h1>
-	{% Passage %}
-		{{home.cover.introduction}}
-	{% endPassage %}
+	{% ContentWrapper %}
+		<p class="u-type-heading u-type-weight-light u-type-scale-delta u-color-fg-secondary">
+			{% Markdown true %}{{home.cover.introduction}}{% endMarkdown %}
+		</p>
+	{% endContentWrapper %}
 	<a
 		class="b-button has-icon right"
 		href="/{{home.cover.callToAction.link.slug}}/"
@@ -32,6 +31,18 @@ logo_width: 30rem;
 		  <polyline points="9 6 15 12 9 18" />
 		</svg>
 	</a>
+
+	<div class="
+	  u-position-absolute u-position-bottom-full
+	  u-type-scale-gamma
+	  u-padding-y-narrow
+	  u-color-fg-secondary
+	">
+	  <svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+	    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+	    <polyline points="6 9 12 15 18 9" />
+	  </svg>
+	</div>
 {% endCover %}
 
 {% PageContent home.sections, resourcesIndex %}

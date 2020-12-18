@@ -9,10 +9,10 @@ permalink: '/{{ pagination.items[0].slug }}/'
 
 {% set page = pagination.items[0] %}
 
-{% Cover %}
+{% Cover { short: true } %}
 	<h1>{{ page.header.title or page.title }}</h1>
 	{% if page.header.introduction %}
-		{% Passage { centered: false } %}
+		{% Passage { centered: false, className: 'u-type-scale-delta' } %}
 			{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
 		{% endPassage %}
 	{% endif %}

@@ -24,7 +24,10 @@ module.exports = ({
 	breakpoint = 'medium'
 } = {}) => {
 	return `
-		<header class="u-padding-y-narrow u-padding-x-outside">
+		<header class="
+			u-padding-y-narrow u-padding-x-outside
+			u-position-absolute u-position-top-full u-position-z-middle
+		">
 			<div class="c-bookend horizontal | c-gutter | u-type-scale-zero">
 
 				<!-- logo -->
@@ -39,7 +42,7 @@ module.exports = ({
 					href="/"
 				>
 					<img
-						class="u-display-inline-block u-position-vertical-align-middle u-margin-right-narrow"
+						class="b-logo icon | u-margin-right-narrow"
 						src="/images/pacific-logo-icon.svg"
 						alt="Pacific Regional Council for Early Childhood Development"
 						style="max-width: 4.5rem;"

@@ -2,17 +2,17 @@
 // -> a full-bleed header for a page that introduces the content below
 
 module.exports = (content, {
-	contentWidth = 'xwide',
+	short = false,
+	centered = true,
 	className = ''
 } = {}) => {
 	return `
-		<header class="u-padding-y-wide u-padding-x-outside ${className}">
-			<div class="
-				c-content-width ${contentWidth || ''} centered
-				u-margin-y-flow
-			">
-				${content}
-			</div>
+		<header class="
+			c-cover ${short ? 'short' : ''} ${centered ? 'centered' : ''}
+			u-padding-top-wide u-padding-x-outside
+			${className}
+		">
+			${content}
 		</header>
 	`
 }

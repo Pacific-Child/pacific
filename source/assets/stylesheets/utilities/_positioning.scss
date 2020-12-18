@@ -2,6 +2,24 @@
 	position: absolute !important;
 }
 
+.u-position-flex-fill {
+	@supports (flex: 1) {
+		flex: 1;
+	}
+}
+
+.u-position-top-full {
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.u-position-bottom-full {
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
 .u-position-top-right {
 	right: 0;
 	top: 0;
