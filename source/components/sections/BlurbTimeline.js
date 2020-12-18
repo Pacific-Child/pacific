@@ -34,7 +34,7 @@ const Blurb = ({ title, description, image }) => {
 			}
 			<div class="c-bookend-item right fill | c-gutter-item">
 				<div class="c-content-width centered">
-					<h3 class="u-padding-bottom">${title}</h3>
+					<h3 class="u-padding-bottom-narrow">${title}</h3>
 					${Passage(Markdown(description))}
 				</div>
 			</div>
@@ -49,8 +49,8 @@ module.exports = ({
 	breakpoint = 'medium'
 }) => {
 	return SectionWrapper(`
-		<header class="u-padding-bottom-wide">
-			<h2 class="u-type-align-center | u-padding-bottom-wide">
+		<header class="u-padding-bottom-xwide">
+			<h2 class="u-type-align-center | u-padding-bottom">
 				Stages of Early Childhood Development
 			</h2>
 			${introduction ? Passage(Markdown(introduction)) : ''}
@@ -59,7 +59,7 @@ module.exports = ({
 		<div x-data="{ tab: '${blurbs[0].id}' }">
 			<nav class="
 				c-content-width xwide centered
-				u-padding-bottom-wide
+				u-padding-bottom-xwide
 			">
 				<ul class="b-timeline | u-margin-x-flow">
 					${blurbs.map((blurb) => Tab({ ...blurb })).join('')}

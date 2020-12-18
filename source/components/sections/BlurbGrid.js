@@ -19,7 +19,7 @@ function Blurb ({
 			u-color-bg-bg
 		">
 			${ContentWrapper(`
-				<h2 class="u-padding-bottom">${title}</h2>
+				<h2 class="u-padding-bottom | u-type-scale-gamma">${title}</h2>
 				${Passage(Markdown(description))}
 				${linkInternalPage
 					? `<a

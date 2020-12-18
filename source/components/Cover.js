@@ -9,7 +9,6 @@ module.exports = (content, {
 	return `
 		<header class="
 			c-cover ${short ? 'short' : ''} ${centered ? 'centered' : ''}
-			u-padding-top-wide u-padding-x-outside
 			${className}
 		">
 			${content}

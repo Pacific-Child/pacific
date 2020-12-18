@@ -9,7 +9,10 @@ permalink: '/{{ pagination.items[0].slug }}/'
 
 {% set page = pagination.items[0] %}
 
-{% Cover { short: true } %}
+{% Cover {
+	short: true,
+	className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow'
+} %}
 	<h1>{{ page.header.title or page.title }}</h1>
 	{% if page.header.introduction %}
 		{% Passage { centered: false, className: 'u-type-scale-delta' } %}

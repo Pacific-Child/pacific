@@ -18,10 +18,6 @@ html {
 	@include breakpoints.query('medium') {
 		font-size: 115%;
 	}
-
-	@include breakpoints.query('large') {
-		font-size: 120%;
-	}
 }
 
 *,
