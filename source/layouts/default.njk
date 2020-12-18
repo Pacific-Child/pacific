@@ -43,33 +43,33 @@ footer_nav:
     - label: Vanuatu
       url: /countries/
   secondary:
-  - heading: About ECD
-    url: /about-ecd/
-    links:
-    - label: Section
-      url: '#'
-    - label: Section
-      url: '#'
-    - label: Section
-      url: '#'
-  - heading: Resources
-    url: /resources/
-    links:
-    - label: Section
-      url: '#'
-    - label: Section
-      url: '#'
-    - label: Section
-      url: '#'
-  - heading: Pacific Council
-    url: /about-prc/
-    links:
-    - label: Section
-      url: '#'
-    - label: Section
-      url: '#'
-    - label: Section
-      url: '#'
+    - heading: About ECD
+      url: /about-ecd/
+      links:
+      - label: Section
+        url: '#'
+      - label: Section
+        url: '#'
+      - label: Section
+        url: '#'
+    - heading: Resources
+      url: /resources/
+      links:
+      - label: Section
+        url: '#'
+      - label: Section
+        url: '#'
+      - label: Section
+        url: '#'
+    - heading: Pacific Council
+      url: /about-prc/
+      links:
+      - label: Section
+        url: '#'
+      - label: Section
+        url: '#'
+      - label: Section
+        url: '#'
 ---
 
 <!DOCTYPE html>
@@ -77,16 +77,16 @@ footer_nav:
 	<head>
 		<meta charset="utf-8">
 		<title>{{title}}</title>
-	  <meta name="description" content="">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="/stylesheets/main.css">
-	  <script>
-	    // Add a class to the html element to confirm JS is available
-	    // -> used by the CSS for styling JS-dependent elements
-	    document.documentElement.className = "js";
-	    // Add a class if the browser/device supports touch
-	    document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
-	  </script>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/stylesheets/main.css">
+		<script>
+			// Add a class to the html element to confirm JS is available
+			// -> used by the CSS for styling JS-dependent elements
+			document.documentElement.className = "js";
+			// Add a class if the browser/device supports touch
+			document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
+		</script>
 
 	</head>
 	<body>
@@ -105,6 +105,7 @@ footer_nav:
 			logo: site.header.logo.url,
 			title: site.title,
 			menu: footer_nav,
+			footerStrings: site.footer,
 			resourcesIndex: resourcesIndex
 		} %}
 

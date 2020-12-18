@@ -19,7 +19,10 @@ module.exports = ({
 			nav: site.mainMenu.toMap(2)
 		},
 		footer: {
-			newsletterSignup: site.newsletterSignupBlurb,
+			newsletterLabel: site.newsletterLabel,
+			newsletterInputPlaceholder: site.newsletterInputPlaceholder || "",
+			newsletterBlurb: site.newsletterBlurb || "",
+			newsletterButton: site.newsletterButton,
 			copyright: site.copyrightNotice
 		}
 	})

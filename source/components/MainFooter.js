@@ -18,7 +18,7 @@ function navSection (section) {
 }
 
 // footer nav and subscribe sections
-function navGrid (menu) {
+function navGrid (menu, footerStrings) {
 	return `
 		${menu && `
 			<nav class="c-gallery-item | u-color-bg-bg">
@@ -42,28 +42,31 @@ function navGrid (menu) {
 		<div class="c-gallery-item | u-color-bg-bg">
 			<div class="u-padding-x-outside u-padding-y">
 				${ContentWrapper(`
-					<form action="">
-						<label
-							class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
-							for="footer-subscribe"
-						>
-							Subscribe
-						</label>
-						<div class="c-bookend horizontal@xsmall | c-gutter narrow">
-							<div class="c-bookend-item left fill | c-gutter-item">
-								<input
-									type="email"
-									id="footer-subscribe"
-									name="footer-subscribe"
-								>
+					<!-- Begin Mailchimp Signup Form -->
+					<div id="mc_embed_signup">
+						<form action="https://host-creative.us7.list-manage.com/subscribe/post?u=34a32d9d669cfa4d1d45bfa19&amp;id=33e8ddb123" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<label for="mce-EMAIL" class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow">${footerStrings.newsletterLabel}</label>
+							<div id="mc_embed_signup_scroll" class="c-bookend horizontal@xsmall | c-gutter narrow">
+								<div class="mc-field-group | c-bookend-item left fill | c-gutter-item">
+									<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="${footerStrings.newsletterInputPlaceholder}">
+									<div id="mce-responses" class="clear">
+										<div class="response" id="mce-error-response" style="display:none"></div>
+										<div class="response" id="mce-success-response" style="display:none"></div>
+									</div>
+									<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+									<div style="position: absolute; left: -5000px;" aria-hidden="true">
+										<input type="text" name="b_34a32d9d669cfa4d1d45bfa19_33e8ddb123" tabindex="-1" value="">
+									</div>
+								</div>
+								<div class="c-bookend-item right | c-gutter-item">
+									<input type="submit" value="${footerStrings.newsletterButton}" name="subscribe" id="mc-embedded-subscribe" class="button | b-button">
+								</div>
 							</div>
-							<div class="c-bookend-item right | c-gutter-item">
-								<button class="b-button">Subscribe</button>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
+					<!--End mc_embed_signup-->
 					${Passage(`
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tria genera bonorum; Eadem nunc mea adversum te oratio est.</p>
+						<p>${footerStrings.newsletterBlurb}</p>
 					`, { className: 'u-padding-top-narrow u-color-fg-secondary' })}
 				`)}
 			</div>
@@ -75,6 +78,7 @@ module.exports = ({
 	logo = '',
 	title = '',
 	menu,
+	footerStrings,
 	resourcesIndex
 } = {}) => {
 	return `
@@ -127,7 +131,7 @@ module.exports = ({
 			</div>
 
 			<!-- footer nav & subscribe -->
-			${Gallery(navGrid(menu), {
+			${Gallery(navGrid(menu, footerStrings), {
 				size: 'large',
 				tag: 'div',
 				gutter: 1,
@@ -139,7 +143,7 @@ module.exports = ({
 				<div class="c-bookend horizontal@small | c-gutter narrow">
 					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
-						<small>&copy; Copyright 2020. All rights reserved.</small>
+						<small>${footerStrings.copyright}</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<a class="u-color-fg-highlight" href="/contact">
