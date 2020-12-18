@@ -1,6 +1,7 @@
 // Resource card block
 // -> a card displaying summary info about a resource
 // -> display in a Gallery
+// TODO move abdullah's markup into this component from resources.njk
 const Passage = require('./Passage.js')
 const Markdown = require('./Markdown.js')
 

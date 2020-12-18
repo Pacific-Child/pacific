@@ -29,29 +29,30 @@ module.exports = ({
 			u-position-absolute u-position-top-full u-position-z-middle
 		">
 			<div class="c-bookend horizontal | c-gutter | u-type-scale-zero">
-
-				<!-- logo -->
-				<a
-					class="
-						c-bookend-item
-						c-gutter-item
-						u-display-inline-block
-						u-type-scale-epsilon u-type-font-display u-type-weight-bold u-type-link-undecorated
-						u-no-margin
-					"
-					href="/"
-				>
-					<img
-						class="b-logo icon | u-margin-right-narrow"
-						src="/images/pacific-logo-icon.svg"
-						alt="Pacific Regional Council for Early Childhood Development"
-						style="max-width: 4.5rem;"
-					>
-					<span class="u-hide-below@${breakpoint}">Pacific Regional Council for Early Childhood Development</span>
-				</a>
+				${currentPage !== '/'
+					? `<!-- logo -->
+						<a
+							class="
+								c-bookend-item left
+								c-gutter-item
+								u-type-scale-epsilon u-type-font-display u-type-weight-bold u-type-link-undecorated
+								u-no-margin
+							"
+							href="/"
+						>
+							<img
+								class="b-logo icon | u-margin-right-narrow"
+								src="/images/pacific-logo-icon.svg"
+								alt="Pacific Regional Council for Early Childhood Development"
+								style="max-width: 4.5rem;"
+							>
+							<span class="u-hide-below@${breakpoint}">Pacific Regional Council for Early Childhood Development</span>
+						</a>`
+					: ''
+				}
 
 				<!-- main nav -->
-				<nav class="c-bookend-item | c-gutter-item | u-display-inline-block">
+				<nav class="c-bookend-item right | c-gutter-item | u-display-inline-block">
 					<ul class="
 						u-display-inline-block
 						u-hide-visually u-show-visually-above@large
