@@ -100,7 +100,7 @@ module.exports = ({
 			${menu && `
 				<nav
 					x-show.transition.opacity="navOpen"
-					class="c-overlay centered | u-type-align-center"
+					class="c-overlay centered | u-type-align-center | u-border-bottom"
 					id="footer-nav"
 				>
 					<button
@@ -130,7 +130,7 @@ module.exports = ({
 			`}
 
 			<!-- copyright & contact -->
-			<aside class="u-border-top | u-padding-x-outside u-padding-y-narrow">
+			<aside class="u-padding-x-outside u-padding-y-narrow">
 				<div class="c-bookend horizontal@small | c-gutter narrow">
 					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<span
