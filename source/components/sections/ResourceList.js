@@ -3,16 +3,14 @@ const Markdown = require('../blocks/Markdown.js')
 const Passage = require('../blocks/Passage.js')
 const ResourceCard = require('../blocks/ResourceCard.js')
 const SectionWrapper = require('../blocks/SectionWrapper.js')
+const ContentWrapper = require('../blocks/ContentWrapper.js')
 
 function Search (resourcesIndex) {
 	return `
-		<div
-			class="u-padding-top"
-			x-data="{
-				searchTerm: '',
-				searchPath: '/resources/?searchTerm='
-			}"
-		>
+		<div x-data="{
+			searchTerm: '',
+			searchPath: '/resources/?searchTerm='
+		}">
 			<label
 				class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
 				for="footer-search"
@@ -51,11 +49,15 @@ module.exports = ({
 			${introduction ? Passage(Markdown(introduction)) : ''}
 
 			<!-- Search bar -->
-			${resourcesIndex ? Search(resourcesIndex) : 'shit'}
+			${resourcesIndex
+				? ContentWrapper(Search(resourcesIndex), { width: 'wide' })
+				: ''
+			}
+
 		</header>
 
 		${resources.length > 0
-			? `<div class="u-border-y u-padding-y-wide">
+			? `<div class="u-border-top u-padding-y-wide">
 					${Gallery(
 						resources.map(resource => ResourceCard(...resource)).join('')
 					)}
@@ -64,9 +66,9 @@ module.exports = ({
 		}
 
 		${callToAction
-			? `<div class="u-type-align-center">
+			? ContentWrapper(`
 					<a class="b-button" href="#">About ECD &rsaquo;</a>
-				</div>`
+				`, { width: 'wide', className: 'u-type-align-center | u-border-top' })
 			: ''
 		}
 	`, { className: 'u-margin-y-flow-wide' })
