@@ -17,34 +17,22 @@ function navSection (section) {
 	`
 }
 
-// footer nav and subscribe sections
-function navGrid (menu) {
+module.exports = ({
+	logo = '',
+	title = '',
+	menu
+} = {}) => {
 	return `
-		${menu && `
-			<nav class="c-gallery-item | u-color-bg-bg">
-				<div class="u-padding-x-outside u-padding-y">
-					${ContentWrapper(`
-						<div class="u-padding-bottom u-margin-bottom | u-border-bottom">
-							${navSection(menu.countries)}
-						</div>
-						${Gallery(menu.secondary.map((section) => `
-							<li>
-								${navSection(section)}
-							</li>
-						`).join(''), {
-							size: 'small',
-							gutter: 'medium'
-						})}
-					`, { width: 'wide' })}
-				</div>
-			</nav>
-		`}
-		<div class="c-gallery-item | u-color-bg-bg">
+		<footer
+			class="u-border-top"
+			role="contentinfo"
+		>
+			<!-- Subscribe callout -->
 			<div class="u-padding-x-outside u-padding-y">
 				${ContentWrapper(`
 					<form action="">
 						<label
-							class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
+							class="u-type-heading u-type-scale-delta | u-display-block | u-padding-bottom-narrow"
 							for="footer-subscribe"
 						>
 							Subscribe
@@ -67,77 +55,38 @@ function navGrid (menu) {
 					`, { className: 'u-padding-top-narrow u-color-fg-secondary' })}
 				`)}
 			</div>
-		</div>
-	`
-}
 
-module.exports = ({
-	logo = '',
-	title = '',
-	menu,
-	resourcesIndex
-} = {}) => {
-	return `
-		<footer
-			class="u-border-top | u-type-scale-zeta"
-			role="contentinfo"
-		>
-
-			<!-- logo and search -->
-			<div class="u-padding-x-outside u-padding-y-narrow | u-border-bottom">
-				<div class="c-bookend horizontal | c-gutter">
-					<div
-						class="c-bookend-item left | c-gutter-item"
-						style="max-width: 10rem;"
-					>
-						<img
-							src="${logo}"
-							alt="${title}"
-						>
+			<!-- footer nav -->
+			${menu && `
+				<nav>
+					<div class="u-padding-x-outside u-padding-y">
+						${ContentWrapper(`
+							${Gallery(menu.secondary.map((section) => `
+								<li>
+									${navSection(section)}
+								</li>
+							`).join(''), {
+								size: 'small',
+								gutter: 'medium'
+							})}
+						`, { width: 'wide' })}
 					</div>
-					<div
-						class="c-bookend-item right fill | c-gutter-item"
-						x-data="{
-							searchTerm: '',
-							searchPath: '/resources/?searchTerm='
-						}"
-					>
-						<label
-							class="u-hide-visually"
-							for="footer-search"
-						>
-							${resourcesIndex.label}
-						</label>
-						<div class="c-bookend c-gutter narrow horizontal@xsmall">
-							<div class="c-bookend-item c-gutter-item fill left">
-								<input
-									id="footer-search"
-									name="footer-search"
-									type="search"
-									placeholder="${resourcesIndex.placeholder}"
-									x-model="searchTerm"
-								>
-							</div>
-							<div class="c-bookend-item c-gutter-item right">
-								<a href="#" x-bind:href="searchPath + searchTerm" class="b-button">${resourcesIndex.button}</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- footer nav & subscribe -->
-			${Gallery(navGrid(menu), {
-				size: 'large',
-				tag: 'div',
-				gutter: 1,
-				className: 'u-color-bg-border'
-			})}
+				</nav>
+			`}
 
 			<!-- copyright & contact -->
 			<aside class="u-border-top | u-padding-x-outside u-padding-y-narrow">
 				<div class="c-bookend horizontal@small | c-gutter narrow">
 					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
+						<span
+							class="u-display-inline-block"
+							style="max-width: 10rem;"
+						>
+							<img
+								src="${logo}"
+								alt="${title}"
+							>
+						</span>
 						<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
 						<small>&copy; Copyright 2020. All rights reserved.</small>
 					</p>

@@ -14,11 +14,11 @@ const componentNames = {
 	update_list: require('./sections/UpdateList.js')
 }
 
-module.exports = (sections) => {
+module.exports = (sections, resourcesIndex) => {
 	return sections.map(section => {
 		const component = componentNames[section.itemType]
-		return component
+		return section.itemType !== 'resource_list'
 			? component({ ...section })
-			: `<p>Missing: ${section.itemType}</p>`
+			: component({ ...section }, { resourcesIndex })
 	}).join('')
 }

@@ -16,7 +16,7 @@ module.exports = ({
 				alt: site.logo.alt,
 				title: site.logo.title
 			},
-			nav: site.mainMenu.toMap(2)
+			nav: site.mainMenu.toMap(3)
 		},
 		footer: {
 			newsletterSignup: site.newsletterSignupBlurb,

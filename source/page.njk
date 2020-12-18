@@ -10,12 +10,12 @@ permalink: '/{{ pagination.items[0].slug }}/'
 {% set page = pagination.items[0] %}
 
 {% Cover %}
-	<h1>{{page.header.title or page.title }}</h1>
+	<h1>{{ page.header.title or page.title }}</h1>
 	{% if page.header.introduction %}
 		{% Passage { centered: false } %}
-			{% Markdown %}{{page.header.introduction}}{% endMarkdown %}
+			{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
 		{% endPassage %}
 	{% endif %}
 {% endCover %}
 
-{% PageContent page.sections %}
+{% PageContent page.sections, resourcesIndex %}
