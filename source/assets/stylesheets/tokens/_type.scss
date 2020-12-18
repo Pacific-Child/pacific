@@ -6,6 +6,30 @@
 @use 'scale';
 @use 'color';
 
+// --- type scale ---
+$scale: (
+	'alpha': 4,
+	'beta': 3,
+	'gamma': 2,
+	'delta': 1,
+	'epsilon': 0,
+	'zeta': -1
+);
+
+@function scale($size) {
+	@return scale.get(map.get($scale, $size));
+}
+
+// --- leading ---
+$leading: (
+	'tight': 1.2,
+	'default': 1.6
+);
+
+@function leading($name: 'default') {
+	@return map.get($leading, $name);
+}
+
 // --- fonts ---
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap');
 
@@ -78,30 +102,6 @@
 		@include color.add('highlight');
 		@include color.add('highlight', 'border-bottom-color');
 	}
-}
-
-// --- type scale ---
-$scale: (
-	'alpha': 4,
-	'beta': 3,
-	'gamma': 2,
-	'delta': 1,
-	'epsilon': 0,
-	'zeta': -1
-);
-
-@function scale($size) {
-	@return scale.get(map.get($scale, $size));
-}
-
-// --- leading ---
-$leading: (
-	'tight': 1.2,
-	'default': 1.6
-);
-
-@function leading($name: 'default') {
-	@return map.get($leading, $name);
 }
 
 // set up viewport-sized fluid type scaling, with minimum and maximum sizes
