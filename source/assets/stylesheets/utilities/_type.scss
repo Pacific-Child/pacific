@@ -22,13 +22,13 @@
 // scale
 h1,
 .u-type-scale-alpha {
-	@include type.fluid($size-min: 'gamma', $size-max: 'alpha');
+	@include type.fluid($size-min: 'beta', $size-max: 'alpha');
 	letter-spacing: -0.04em;
 }
 
 h2,
 .u-type-scale-beta {
-	@include type.fluid($size-min: 'delta', $size-max: 'beta');
+	@include type.fluid($size-min: 'gamma', $size-max: 'beta');
 	letter-spacing: -0.03em;
 }
 
@@ -40,7 +40,7 @@ h3,
 
 h4,
 .u-type-scale-delta {
-	@include type.fluid($size-min: 'epsilon', $size-max: 'delta');
+	font-size: type.scale('delta');
 }
 
 h5,
@@ -48,9 +48,8 @@ h5,
 	font-size: type.scale('epsilon');
 }
 
-h6,
-.u-type-scale-zeta {
-	font-size: type.scale('zeta');
+h6 {
+	font-size: type.scale('epsilon');
 }
 
 // set font size to zero to fix whitespace bugs

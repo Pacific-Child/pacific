@@ -38,7 +38,7 @@ module.exports = ({
 	blurbs
 }) => {
 	return SectionWrapper(`
-		<header>
+		<header class="u-margin-y-flow">
 			<h2 class="u-type-align-center">${title}</h2>
 			${image || introduction
 				? ContentWrapper(`

@@ -16,7 +16,11 @@ html {
 	}
 
 	@include breakpoints.query('medium') {
-		font-size: 115%;
+		font-size: 120%;
+	}
+
+	@include breakpoints.query('large') {
+		font-size: 130%;
 	}
 }
 
@@ -71,8 +75,6 @@ dl {
 }
 
 li {
-	font-size: type.scale('epsilon');
-
 	& + & {
 		padding-top: spacing.get('narrow', 1em);
 	}
@@ -98,7 +100,7 @@ textarea {
 	border: 1px solid var(--color-border);
 	border-radius: 0.3em;
 	display: block;
-	font-size: type.scale('epsilon');
+	font-size: type.scale('delta');
 	padding: ($base-padding + 0.1em) $base-padding ($base-padding - 0.1em);
 	position: relative;
 	text-shadow: none;

@@ -15,7 +15,7 @@ $-padding-x: spacing.get($unit: 1em);
 	border: 2px solid color.get('highlight');
 	border-radius: 0.2em;
 	display: inline-block;
-	font-size: type.scale('epsilon');
+	font-size: type.scale('delta');
 	padding: $-padding-y $-padding-x ($-padding-y - 0.2em);
 	position: relative;
 
