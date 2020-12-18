@@ -66,6 +66,20 @@
 	}
 }
 
+// base styles for links, used in both base and utilities
+@mixin link() {
+	border-bottom: 1px dotted color.get('border');
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
+
+	&:hover,
+	&:active {
+		@include color.add('highlight');
+		@include color.add('highlight', 'border-bottom-color');
+	}
+}
+
 // --- type scale ---
 $scale: (
 	'alpha': 4,

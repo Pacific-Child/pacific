@@ -80,16 +80,7 @@ li {
 }
 
 a {
-	border-bottom: 1px dotted color.get('border');
-	color: inherit;
-	text-decoration: none;
-	transition: all 0.25s ease-in-out;
-
-	&:hover,
-	&:active {
-		@include color.add('highlight', 'border-bottom-color');
-		@include color.add('highlight');
-	}
+	@include type.link();
 }
 
 // forms

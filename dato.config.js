@@ -16,10 +16,13 @@ module.exports = ({
 				alt: site.logo.alt,
 				title: site.logo.title
 			},
-			nav: site.mainMenu.toMap(3)
+			nav: site.mainMenu.toMap(2)
 		},
 		footer: {
-			newsletterSignup: site.newsletterSignupBlurb,
+			newsletterLabel: site.newsletterLabel,
+			newsletterInputPlaceholder: site.newsletterInputPlaceholder || "",
+			newsletterBlurb: site.newsletterBlurb || "",
+			newsletterButton: site.newsletterButton,
 			copyright: site.copyrightNotice
 		}
 	})

@@ -42,10 +42,10 @@ $palette: (
 	#{$prop}: var(--color-#{$role}, #{get($role)});
 }
 
-@mixin add-bg($role) {
+@mixin add-bg($role: 'bg') {
 	@include add($role, 'background-color');
 }
 
-@mixin add-border($role) {
+@mixin add-border($role: 'border') {
 	@include add($role, 'border-color');
 }

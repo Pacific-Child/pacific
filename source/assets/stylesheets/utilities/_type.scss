@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../tokens/type';
+@use '../tokens/color';
 
 // alignment
 @each $position in [left, center, right] {
@@ -64,6 +65,18 @@ h6,
 }
 
 // fonts, weights, styles
+.u-type-style-italic {
+	@include type.font($style: italic);
+}
+
+.u-type-weight-normal {
+	@include type.font($weight: 'normal');
+}
+
+.u-type-weight-bold {
+	@include type.font($weight: 'bold');
+}
+
 .u-type-font-display {
 	@include type.font('display');
 
@@ -85,23 +98,27 @@ h6,
 
 .u-type-font-default {
 	@include type.font();
+}
 
-	.u-type-weight-bold,
-	&.u-type-weight-bold {
-		@include type.font($weight: 'bold');
-	}
-
-	.u-type-style-italic,
-	&.u-type-style-italic {
-		@include type.font($style: italic);
-	}
-
-	.u-type-weight-normal,
-	&.u-type-weight-normal {
-		@include type.font($weight: 'normal');
-	}
+.u-type-link {
+	@include type.link();
 }
 
 .u-type-link-undecorated {
 	border-bottom: 0;
+}
+
+// add a pseudo-border to the top of a link or word
+.u-type-eyebrow-top {
+	position: relative;
+
+	&::before {
+		@include color.add-bg('highlight');
+		content: '';
+		height: 3px;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
 }

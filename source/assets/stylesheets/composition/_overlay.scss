@@ -1,0 +1,44 @@
+// Overlay
+// -> creates a translucent layer above the page to display modal content, e.g. a menu
+// -> if JS is unavailable, acts like any other block container
+@use '../tokens/color';
+
+.c-overlay {
+	position: relative;
+}
+
+.js .c-overlay {
+	@include color.add-bg('bg');
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 3;
+
+	&.centered {
+		.c-overlay-content {
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+.c-overlay-close {
+	display: none;
+
+	.js & {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+// freeze the background and prevent it from scrolling
+.c-overlay-freeze {
+	height: 100%;
+	overflow: hidden;
+}
