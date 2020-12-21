@@ -14,6 +14,7 @@ $-padding-x: spacing.get($unit: 1em);
 	@include type.font('display', 'bold');
 	border: 2px solid color.get('highlight');
 	border-radius: 0.2em;
+	cursor: pointer;
 	display: inline-block;
 	font-size: type.scale('delta');
 	padding: $-padding-y $-padding-x ($-padding-y - 0.2em);
