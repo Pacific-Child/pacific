@@ -81,9 +81,10 @@ module.exports = (config) => {
 	config.addPassthroughCopy({ './.tmp/main.css': './stylesheets/main.css' })
 	config.addPassthroughCopy({ './.tmp/main.css.map': './stylesheets/main.css.map' })
 
-	// copy images and uploads over
+	// copy images, uploads and fonts over
 	config.addPassthroughCopy({ './source/assets/images': './images' })
 	config.addPassthroughCopy({ './source/assets/uploads': './uploads' })
+	config.addPassthroughCopy({ './source/assets/fonts': './fonts' })
 
 	// folder config
 	return {
