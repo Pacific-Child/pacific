@@ -16,9 +16,11 @@ module.exports = ({
 				alt: site.logo.alt,
 				title: site.logo.title
 			},
+			header_organization_name: site.headerOrganizationName,
 			nav: site.mainMenu.toMap(2)
 		},
 		footer: {
+			footer_organization_name: site.footerOrganizationName,
 			newsletterLabel: site.newsletterLabel,
 			newsletterInputPlaceholder: site.newsletterInputPlaceholder || "",
 			newsletterBlurb: site.newsletterBlurb || "",
