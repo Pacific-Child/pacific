@@ -1,0 +1,20 @@
+// Cover
+// -> place 'book cover' content in a large visually exciting header
+
+.c-cover {
+	min-height: 100vh;
+	position: relative;
+
+	&.short {
+		min-height: 61vh;
+	}
+
+	&.centered {
+		@supports (display: flex) {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+}

@@ -11,8 +11,8 @@
 	counter-increment: prettyNumbers;
 
 	&::before {
+		@include color.add('highlight');
 		@include type.font('display', 'bold');
-		color: color.get('highlight');
 		content: counter(prettyNumbers);
 		display: block;
 		font-size: 4em;

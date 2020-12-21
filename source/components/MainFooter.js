@@ -1,76 +1,83 @@
 const ContentWrapper = require('./blocks/ContentWrapper.js')
-const Gallery = require('./blocks/Gallery.js')
 const Passage = require('./blocks/Passage.js')
 
-// a section of the nav
-function navSection (section) {
+function NewsletterSignup (strings) {
 	return `
-		<h2 class="u-type-scale-delta | u-padding-bottom-narrow">
-			<a href="${section.url}">${section.heading}</a>
-		</h2>
-		${Gallery(section.links.map(link => `
-			<li><a href="${link.url}">${link.label}</a></li>
-		`).join(''), {
-			size: 'small',
-			gutter: 'narrow'
-		})}
-	`
-}
-
-// footer nav and subscribe sections
-function navGrid (menu, footerStrings) {
-	return `
-		${menu && `
-			<nav class="c-gallery-item | u-color-bg-bg">
-				<div class="u-padding-x-outside u-padding-y">
-					${ContentWrapper(`
-						<div class="u-padding-bottom u-margin-bottom | u-border-bottom">
-							${navSection(menu.countries)}
-						</div>
-						${Gallery(menu.secondary.map((section) => `
-							<li>
-								${navSection(section)}
-							</li>
-						`).join(''), {
-							size: 'small',
-							gutter: 'medium'
-						})}
-					`, { width: 'wide' })}
-				</div>
-			</nav>
-		`}
-		<div class="c-gallery-item | u-color-bg-bg">
-			<div class="u-padding-x-outside u-padding-y">
+			<div class="u-padding-x-outside u-padding-y-wide u-border-bottom">
 				${ContentWrapper(`
+
 					<!-- Begin Mailchimp Signup Form -->
 					<div id="mc_embed_signup">
-						<form action="https://host-creative.us7.list-manage.com/subscribe/post?u=34a32d9d669cfa4d1d45bfa19&amp;id=33e8ddb123" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<label for="mce-EMAIL" class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow">${footerStrings.newsletterLabel}</label>
-							<div id="mc_embed_signup_scroll" class="c-bookend horizontal@xsmall | c-gutter narrow">
+						<form
+							action="https://host-creative.us7.list-manage.com/subscribe/post?u=34a32d9d669cfa4d1d45bfa19&amp;id=33e8ddb123" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+							novalidate
+						>
+							<label
+								for="mce-EMAIL"
+								class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
+							>
+								${strings.newsletterLabel}
+							</label>
+							<div
+								id="mc_embed_signup_scroll"
+								class="c-bookend horizontal@xsmall | c-gutter narrow"
+							>
 								<div class="mc-field-group | c-bookend-item left fill | c-gutter-item">
-									<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="${footerStrings.newsletterInputPlaceholder}">
+									<input
+										type="email"
+										value=""
+										name="EMAIL"
+										class="required email" id="mce-EMAIL"
+										placeholder="${strings.newsletterInputPlaceholder}"
+									>
 									<div id="mce-responses" class="clear">
 										<div class="response" id="mce-error-response" style="display:none"></div>
 										<div class="response" id="mce-success-response" style="display:none"></div>
 									</div>
-									<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+									<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
 									<div style="position: absolute; left: -5000px;" aria-hidden="true">
 										<input type="text" name="b_34a32d9d669cfa4d1d45bfa19_33e8ddb123" tabindex="-1" value="">
 									</div>
 								</div>
 								<div class="c-bookend-item right | c-gutter-item">
-									<input type="submit" value="${footerStrings.newsletterButton}" name="subscribe" id="mc-embedded-subscribe" class="button | b-button">
+									<input
+										type="submit"
+										value="${strings.newsletterButton}"
+										name="subscribe"
+										id="mc-embedded-subscribe"
+										class="button | b-button"
+									>
 								</div>
 							</div>
 						</form>
 					</div>
-					<!--End mc_embed_signup-->
+					<!-- End mc_embed_signup -->
+
 					${Passage(`
-						<p>${footerStrings.newsletterBlurb}</p>
-					`, { className: 'u-padding-top-narrow u-color-fg-secondary' })}
+						<p>${strings.newsletterBlurb}</p>
+					`, {
+						className: 'u-padding-top-narrow u-color-fg-secondary u-type-style-italic'
+					})}
 				`)}
 			</div>
 		</div>
+	`
+}
+
+function NavItem ({ link, label, currentPage }) {
+	return `
+		<li>
+			<a
+				class="
+					u-type-scale-delta u-type-font-display u-type-link-undecorated
+					u-display-inline-block
+					${currentPage.includes(link.slug) ? 'u-color-fg-highlight' : ''}
+				"
+				href="/${link.slug}"
+			>
+				${label}
+			</a>
+		</li>
 	`
 }
 
@@ -78,72 +85,66 @@ module.exports = ({
 	logo = '',
 	title = '',
 	menu,
-	footerStrings,
-	resourcesIndex
+	currentPage,
+	strings
 } = {}) => {
 	return `
 		<footer
-			class="u-border-top | u-type-scale-zeta"
+			class="u-border-top"
 			role="contentinfo"
 		>
+			<!-- Subscribe callout -->
+			${NewsletterSignup(strings)}
 
-			<!-- logo and search -->
-			<div class="u-padding-x-outside u-padding-y-narrow | u-border-bottom">
-				<div class="c-bookend horizontal | c-gutter">
-					<div
-						class="c-bookend-item left | c-gutter-item"
-						style="max-width: 10rem;"
+			<!-- footer nav -->
+			${menu && `
+				<nav
+					x-show.transition.opacity="navOpen"
+					class="
+						c-overlay centered
+						u-type-align-center
+						u-border-bottom
+						u-position-z-high
+					"
+					id="footer-nav"
+				>
+					<button
+						@click="navOpen = false"
+						class="
+							c-overlay-close
+							u-margin u-no-padding
+							u-no-border
+							u-type-link u-type-link-undecorated u-type-scale-gamma u-type-font-display
+							u-color-fg-primary u-color-bg-transparent
+							u-display-inline-block
+						"
 					>
-						<img
-							src="${logo}"
-							alt="${title}"
-						>
+						<svg xmlns="http://www.w3.org/2000/svg" class="b-icon large" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						  <line x1="18" y1="6" x2="6" y2="18" />
+						  <line x1="6" y1="6" x2="18" y2="18" />
+						</svg>
+						<span class="u-hide-visually">Close</span>
+					</button>
+					<div class="c-overlay-content | u-padding-x-outside u-padding-y">
+						<ul class="u-list-undecorated | u-padding-y-flow">
+							${menu.map((item) => NavItem({ currentPage, ...item })).join('')}
+						</ul>
 					</div>
-					<div
-						class="c-bookend-item right fill | c-gutter-item"
-						x-data="{
-							searchTerm: '',
-							searchPath: '/resources/?searchTerm='
-						}"
-					>
-						<label
-							class="u-hide-visually"
-							for="footer-search"
-						>
-							${resourcesIndex.label}
-						</label>
-						<div class="c-bookend c-gutter narrow horizontal@xsmall">
-							<div class="c-bookend-item c-gutter-item fill left">
-								<input
-									id="footer-search"
-									name="footer-search"
-									type="search"
-									placeholder="${resourcesIndex.placeholder}"
-									x-model="searchTerm"
-								>
-							</div>
-							<div class="c-bookend-item c-gutter-item right">
-								<a href="#" x-bind:href="searchPath + searchTerm" class="b-button">${resourcesIndex.button}</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- footer nav & subscribe -->
-			${Gallery(navGrid(menu, footerStrings), {
-				size: 'large',
-				tag: 'div',
-				gutter: 1,
-				className: 'u-color-bg-border'
-			})}
+				</nav>
+			`}
 
 			<!-- copyright & contact -->
-			<aside class="u-border-top | u-padding-x-outside u-padding-y-narrow">
-				<div class="c-bookend horizontal@small | c-gutter narrow">
+			<aside class="u-padding-x-outside u-padding-y">
+				<div class="c-bookend horizontal@large | c-gutter">
 					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<strong class="u-type-weight-bold">UNICEF</strong> Pacific Regional Council for Early Childhood Development
-						<small>${footerStrings.copyright}</small>
+						<span class="b-logo icon u-margin-right-narrow">
+							<img src="${logo}" alt="${title}">
+						</span>
+						<span class="u-display-inline-block">
+							<strong>UNICEF</strong> Pacific Regional Council for Early Childhood Development
+						</span>
+						<small class="u-display-inline-block">${strings.copyright}</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<a class="u-color-fg-highlight" href="/contact">

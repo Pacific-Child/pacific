@@ -23,24 +23,24 @@
 h1,
 .u-type-scale-alpha {
 	@include type.fluid($size-min: 'beta', $size-max: 'alpha');
-	letter-spacing: -0.02em;
+	letter-spacing: -0.04em;
 }
 
 h2,
 .u-type-scale-beta {
 	@include type.fluid($size-min: 'gamma', $size-max: 'beta');
-	letter-spacing: -0.02em;
+	letter-spacing: -0.03em;
 }
 
 h3,
 .u-type-scale-gamma {
 	@include type.fluid($size-min: 'delta', $size-max: 'gamma');
-	letter-spacing: -0.01em;
+	letter-spacing: -0.02em;
 }
 
 h4,
 .u-type-scale-delta {
-	@include type.fluid($size-min: 'epsilon', $size-max: 'delta');
+	font-size: type.scale('delta');
 }
 
 h5,
@@ -48,9 +48,8 @@ h5,
 	font-size: type.scale('epsilon');
 }
 
-h6,
-.u-type-scale-zeta {
-	font-size: type.scale('zeta');
+h6 {
+	font-size: type.scale('epsilon');
 }
 
 // set font size to zero to fix whitespace bugs
@@ -65,6 +64,18 @@ h6,
 }
 
 // fonts, weights, styles
+.u-type-style-italic {
+	@include type.font($style: italic);
+}
+
+.u-type-weight-normal {
+	@include type.font($weight: 'normal');
+}
+
+.u-type-weight-bold {
+	@include type.font($weight: 'bold');
+}
+
 .u-type-font-display {
 	@include type.font('display');
 
@@ -86,23 +97,27 @@ h6,
 
 .u-type-font-default {
 	@include type.font();
+}
 
-	.u-type-weight-bold,
-	&.u-type-weight-bold {
-		@include type.font($weight: 'bold');
-	}
-
-	.u-type-style-italic,
-	&.u-type-style-italic {
-		@include type.font($style: italic);
-	}
-
-	.u-type-weight-normal,
-	&.u-type-weight-normal {
-		@include type.font($weight: 'normal');
-	}
+.u-type-link {
+	@include type.link();
 }
 
 .u-type-link-undecorated {
 	border-bottom: 0;
+}
+
+// add a pseudo-border to the top of a link or word
+.u-type-eyebrow-top {
+	position: relative;
+
+	&::before {
+		@include color.add-bg('highlight');
+		content: '';
+		height: 3px;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
 }

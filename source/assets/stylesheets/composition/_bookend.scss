@@ -76,23 +76,6 @@
 	}
 }
 
-// .c-bookend.align-stretch {
-// 	@supports (align-items: flex-start) {
-// 		align-items: stretch !important;
-// 	}
-
-// 	.c-bookend-item {
-// 		max-width: var(--item-width);
-// 		vertical-align: top;
-
-// 		@supports (display: flex) {
-// 			display: flex;
-// 			flex: 1;
-// 			flex-direction: column;
-// 		}
-// 	}
-// }
-
 .c-bookend.align-top {
 	@supports (align-items: flex-start) {
 		align-items: flex-start !important;

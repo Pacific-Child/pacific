@@ -1,82 +1,12 @@
 ---
 title: UNICEF Pacific Regional Council for Early Childhood Development
-nav:
-  - label: Resources
-    url: resources
-  - label: About ECD
-    url: about-ecd
-  - label: Pacific Council
-    url: pacific-council
-footer_nav:
-  countries:
-    heading: Country profiles
-    url: /countries/
-    links:
-    - label: Cook Islands
-      url: /countries/
-    - label: Fiji
-      url: /countries/
-    - label: FSM
-      url: /countries/
-    - label: Kiribati
-      url: /countries/
-    - label: Marshall Islands
-      url: /countries/
-    - label: Nauru
-      url: /countries/
-    - label: Niue
-      url: /countries/
-    - label: Palau
-      url: /countries/
-    - label: Papau New Guinea
-      url: /countries/
-    - label: Samoa
-      url: /countries/
-    - label: Solomon Islands
-      url: /countries/
-    - label: Tokelau
-      url: /countries/
-    - label: Tonga
-      url: /countries/
-    - label: Tuvalu
-      url: /countries/
-    - label: Vanuatu
-      url: /countries/
-  secondary:
-    - heading: About ECD
-      url: /about-ecd/
-      links:
-      - label: Section
-        url: '#'
-      - label: Section
-        url: '#'
-      - label: Section
-        url: '#'
-    - heading: Resources
-      url: /resources/
-      links:
-      - label: Section
-        url: '#'
-      - label: Section
-        url: '#'
-      - label: Section
-        url: '#'
-    - heading: Pacific Council
-      url: /about-prc/
-      links:
-      - label: Section
-        url: '#'
-      - label: Section
-        url: '#'
-      - label: Section
-        url: '#'
 ---
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>{{title}}</title>
+		<title>{{site.title}}</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/stylesheets/main.css">
@@ -89,10 +19,13 @@ footer_nav:
 		</script>
 
 	</head>
-	<body>
+	<body
+	  x-data="{ navOpen: false }"
+	  :class="{ 'c-overlay-freeze': navOpen == true }"
+	>
 		{# Main header #}
 		{% MainNav {
-			logo: site.header.logo.url,
+			logo: '/images/pacific-logo-icon.svg',
 			items: site.header.nav,
 			currentPage: page.url
 		} %}
@@ -102,11 +35,11 @@ footer_nav:
 
 		{# Main footer #}
 		{% MainFooter {
-			logo: site.header.logo.url,
+			logo: '/images/pacific-logo-icon.svg',
 			title: site.title,
-			menu: footer_nav,
-			footerStrings: site.footer,
-			resourcesIndex: resourcesIndex
+			menu: site.header.nav,
+			currentPage: page.url,
+			strings: site.footer
 		} %}
 
 		{# Alpine JS from their CDN #}

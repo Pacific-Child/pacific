@@ -1,0 +1,16 @@
+// Styles for the Vitae logo
+// -> appearing in the header and footer
+
+.b-logo {
+	display: inline-block;
+
+	&.icon {
+		margin-bottom: -0.25em; // scoot down slightly to vertically balance the mark
+		max-width: 4.5rem;
+		vertical-align: middle;
+	}
+
+	&.full.vertical {
+		max-width: 35rem;
+	}
+}

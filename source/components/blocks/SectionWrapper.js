@@ -8,7 +8,7 @@ module.exports = (content, {
 	return `
 		<${tag} class="
 			u-border-top
-			u-padding-y-wide u-padding-x-outside
+			u-padding-y-xwide u-padding-x-outside
 			${className}
 		">
 			${content}

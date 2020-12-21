@@ -5,12 +5,12 @@
 
 // standard spacing for margins and padding, etc.
 $scale: (
-	'xxnarrow': -6,
-	'xnarrow': -3,
+	'xnarrow': -2,
 	'narrow': -1,
 	'medium': 1,
-	'wide': 3,
-	'xwide': 6
+	'wide': 2,
+	'xwide': 3,
+	'xxwide': 4
 );
 
 @function get($name: 'medium', $unit: 1rem) {

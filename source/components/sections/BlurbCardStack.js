@@ -7,33 +7,27 @@ const Markdown = require('../blocks/Markdown.js')
 
 const Card = ({ image, title, description }, index) => {
 	return `
-		<li>
-			<article class="
-				c-content-width centered wide
-				u-border u-border-radius
-				u-padding
+		<article class="u-border u-border-radius | u-padding">
+			<h3 class="u-padding-bottom-narrow">${title}</h3>
+			<div class="
+				c-bookend horizontal@small ${index % 2 === 0 ? 'reverse' : ''}
+				c-gutter
 			">
-				<h3 class="u-padding-top">${title}</h3>
-				<div class="
-					c-bookend horizontal@small ${index % 2 === 0 ? 'reverse' : ''}
-					c-gutter
-				">
-					${image
-						? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
-							<img
-								class="u-display-inline-block u-border-round"
-								src="${image.url}"
-								alt="${image.alt}"
-							>
-						</div>`
-						: ''
-					}
-					<div class="c-bookend-item right fill | c-gutter-item">
-						${Passage(Markdown(description))}
-					</div>
+				${image
+					? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
+						<img
+							class="u-display-inline-block u-border-round"
+							src="${image.url}"
+							alt="${image.alt}"
+						>
+					</div>`
+					: ''
+				}
+				<div class="c-bookend-item right fill | c-gutter-item">
+					${Passage(Markdown(description), { centered: false })}
 				</div>
-			</article>
-		</li>
+			</div>
+		</article>
 	`
 }
 
@@ -44,7 +38,7 @@ module.exports = ({
 	blurbs
 }) => {
 	return SectionWrapper(`
-		<header>
+		<header class="u-margin-y-flow">
 			<h2 class="u-type-align-center">${title}</h2>
 			${image || introduction
 				? ContentWrapper(`
@@ -74,8 +68,15 @@ module.exports = ({
 					`, { width: 'wide' })
 				: ''}
 		</header>
-		<ul class="u-list-undecorated | u-padding-y-flow">
-			${blurbs.map((blurb, index) => Card({ ...blurb }, index)).join('')}
-		</ul>
+		${ContentWrapper(
+			blurbs.map((blurb, index) => `
+				<li>${Card({ ...blurb }, index)}</li>
+			`).join(''),
+			{
+				width: 'wide',
+				tag: 'ul',
+				className: 'u-list-undecorated | u-margin-y-flow-narrow'
+			}
+		)}
 	`, { className: 'u-margin-y-flow-wide' })
 }

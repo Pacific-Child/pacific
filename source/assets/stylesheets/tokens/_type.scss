@@ -6,6 +6,29 @@
 @use 'scale';
 @use 'color';
 
+// --- type scale ---
+$scale: (
+	'alpha': 3,
+	'beta': 2,
+	'gamma': 1,
+	'delta': 0,
+	'epsilon': -1
+);
+
+@function scale($size) {
+	@return scale.get(map.get($scale, $size));
+}
+
+// --- leading ---
+$leading: (
+	'tight': 1.2,
+	'default': 1.6
+);
+
+@function leading($name: 'default') {
+	@return map.get($leading, $name);
+}
+
 // --- fonts ---
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600&display=swap');
 
@@ -53,7 +76,7 @@
 	}
 
 	strong {
-		color: color.get('highlight');
+		@include color.add('highlight');
 	}
 
 	a {
@@ -66,28 +89,18 @@
 	}
 }
 
-// --- type scale ---
-$scale: (
-	'alpha': 4,
-	'beta': 3,
-	'gamma': 2,
-	'delta': 1,
-	'epsilon': 0,
-	'zeta': -1
-);
+// base styles for links, used in both base and utilities
+@mixin link() {
+	border-bottom: 1px dotted color.get('border');
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
 
-@function scale($size) {
-	@return scale.get(map.get($scale, $size));
-}
-
-// --- leading ---
-$leading: (
-	'tight': 1.2,
-	'default': 1.6
-);
-
-@function leading($name: 'default') {
-	@return map.get($leading, $name);
+	&:hover,
+	&:active {
+		@include color.add('highlight');
+		@include color.add('highlight', 'border-bottom-color');
+	}
 }
 
 // set up viewport-sized fluid type scaling, with minimum and maximum sizes
@@ -108,7 +121,7 @@ $leading: (
 	}
 
 	// start to scale up at the minimum screen size
-	@include breakpoints.query('>#{$screen-min}') {
+	@include breakpoints.query($screen-min) {
 		@each $property in $properties {
 			// sass-lint:disable no-duplicate-properties
 			// -> using redundant props as fallback here
@@ -122,7 +135,7 @@ $leading: (
 	}
 
 	// stop scaling at the maximum screen size
-	@include breakpoints.query('>#{$screen-max}') {
+	@include breakpoints.query($screen-max) {
 		@each $property in $properties {
 			#{$property}: scale($size-max);
 		}
