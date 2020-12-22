@@ -21,7 +21,8 @@ module.exports = ({
 	logo = '',
 	items = [],
 	currentPage = '/',
-	breakpoint = 'medium'
+	breakpoint = 'medium',
+	strings
 } = {}) => {
 	return `
 		<header class="
@@ -46,7 +47,7 @@ module.exports = ({
 								alt="Pacific Regional Council for Early Childhood Development"
 								style="max-width: 4.5rem;"
 							>
-							<span class="u-hide-below@${breakpoint}">Pacific Regional Council for Early Childhood Development</span>
+							<span class="u-hide-below@${breakpoint}">${strings.header_organization_name}</span>
 						</a>`
 					: ''
 				}
