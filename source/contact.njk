@@ -2,11 +2,11 @@
 layout: default
 ---
 
-{% Cover %}
-	<h1>{{ contactForm.title }}</h1>
+<div class="u-padding-x-outside u-padding-y-xxwide">
+	<h1 class="u-type-align-center u-padding-bottom-narrow">{{ contactForm.title }}</h1>
 
 	{# Contact form - better styling to come #}
-	<form name="contact" method="POST" data-netlify="true" action="/contact-success">
+	<form name="contact" method="POST" data-netlify="true" action="/contact-success" class="c-content-width centered">
 		<label
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-name"
@@ -59,7 +59,4 @@ layout: default
 		></textarea>
 		<button class="b-button">{{ contactForm.submitButton }}</button>
 	</form>
-
-{% endCover %}
-
-{# List of resources here to be added #}
+</div>

@@ -3,6 +3,7 @@
 
 // Base styles
 // -> global element styles: lists, text, images, etc.
+@use 'fonts';
 @use 'base';
 
 // Composition styles
@@ -33,3 +34,4 @@
 @use 'utilities/spacing';
 @use 'utilities/type';
 @use 'utilities/shadow';
+@use 'utilities/animation';

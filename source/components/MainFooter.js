@@ -141,10 +141,8 @@ module.exports = ({
 						<span class="b-logo icon u-margin-right-narrow">
 							<img src="${logo}" alt="${title}">
 						</span>
-						<span class="u-display-inline-block">
-							<strong>UNICEF</strong> Pacific Regional Council for Early Childhood Development
-						</span>
-						<small class="u-display-inline-block">${strings.copyright}</small>
+						<span class="u-display-inline-block">${strings.footer_organization_name}</span>
+						<small class="u-display-inline-block"> ${strings.copyright}</small>
 					</p>
 					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
 						<a class="u-color-fg-highlight" href="/contact">
