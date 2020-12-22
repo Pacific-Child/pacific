@@ -17,6 +17,7 @@ $-padding-x: spacing.get($unit: 1em);
 	cursor: pointer;
 	display: inline-block;
 	font-size: type.scale('delta');
+	line-height: type.leading('tight');
 	padding: $-padding-y $-padding-x ($-padding-y - 0.2em);
 	position: relative;
 
