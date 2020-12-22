@@ -12,23 +12,23 @@ function Search (resourcesIndex) {
 			searchPath: '/resources/?searchTerm='
 		}">
 			<label
-				class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
+				class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 				for="footer-search"
 			>
 				${resourcesIndex.label}
 			</label>
 			<div class="c-bookend c-gutter narrow horizontal@xsmall">
-				<div class="c-bookend-item c-gutter-item fill left">
+				<div class="c-bookend-item c-gutter-item left fill">
 					<input
 						id="footer-search"
 						name="footer-search"
-						type="search"
-						placeholder="${resourcesIndex.placeholder}"
 						x-model="searchTerm"
+						type="text"
+						placeholder="${resourcesIndex.placeholder}"
 					>
 				</div>
 				<div class="c-bookend-item c-gutter-item right">
-					<a href="#" x-bind:href="searchPath + searchTerm" class="b-button">${resourcesIndex.button}</a>
+					<a href="#" x-bind:href="searchPath + searchTerm" class="b-button u-type-leading-tight">${resourcesIndex.button}</a>
 				</div>
 			</div>
 		</div>
