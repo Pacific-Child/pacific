@@ -6,8 +6,6 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>{{site.title}}</title>
-		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/stylesheets/main.css">
 		<script>
@@ -17,7 +15,31 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 			// Add a class if the browser/device supports touch
 			document.documentElement.className += (("ontouchstart" in document.documentElement) ? ' touch' : ' no-touch');
 		</script>
+		<!-- Primary Meta Tags -->
+		<title>{{site.title}}</title>
+		<meta name="title" content="{{site.title}}">
+		<meta name="description" content="{{site.meta_description}}">
 
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="{{site.title}}">
+		<meta property="og:description" content="{{site.meta_description}}">
+		<meta property="og:image" content="{{site.header.logo.url}}">
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content="{{site.title}}">
+		<meta property="twitter:description" content="{{site.meta_description}}">
+		<meta property="twitter:image" content="{{site.header.logo.url}}">
+
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+		<link rel="manifest" href="/images/favicons/site.webmanifest">
+		<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#ff99b7">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body
 	  x-data="{ navOpen: false }"
@@ -48,7 +70,9 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 			type="module"
 			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
 		></script>
-		<script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/truncate.min.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/truncate.min.js"
+		></script>
 		<script
 			nomodule
 			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/

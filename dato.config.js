@@ -10,6 +10,7 @@ module.exports = ({
 	root.createDataFile('source/data/site.json', 'json', {
 		organization: site.organizationName,
 		title: site.siteTitle,
+		meta_description: site.metaDescription,
 		header: {
 			logo: {
 				url: site.logo.url(),
