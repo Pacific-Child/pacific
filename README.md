@@ -8,8 +8,9 @@ The web platform of UNICEF's Pacific Regional Council for Early Childhood Develo
 1. Install Node.js if needed
 2. Run `npm install`
 3. Get the [Read-only authentication token](https://www.datocms.com/docs/content-delivery-api/authentication) from DatoCMS and copy it into an `.env` file: `DATO_API_TOKEN=[paste here]`
-3. Run `npm run setup` to pull content from Dato CMS.
-3. Run `npm start` to start a development server and build on code changes
+4. Run `npm run setup` to pull content from Dato CMS.
+5. Run `npm start` to start a development server and build on code changes
+6. Make pull requests to the `dev` branch
 
 ### Steps to do when setting up new site
 - Clone Pacific
