@@ -44,7 +44,7 @@ module.exports = ({
 							<img
 								class="b-logo icon | u-margin-right-narrow"
 								src="/images/pacific-logo-icon.svg"
-								alt="Pacific Regional Council for Early Childhood Development"
+								alt="${strings.header_organization_name}"
 								style="max-width: 4.5rem;"
 							>
 							<span class="u-hide-below@${breakpoint}">${strings.header_organization_name}</span>
