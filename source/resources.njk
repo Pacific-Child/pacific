@@ -21,13 +21,18 @@ layout: default
 							query {
 								searchResults(query: "${this.searchTerm}", page: ${this.page}, pageSize: ${this.pageSize}) {
 									results {
-										id
-										heading
-										body
-										author
-										updatedAt
-										url
-										imageUrl
+										... on UploadResult {
+												id
+												title
+												types
+												topics
+												author
+												organization
+												source
+												description
+												tags
+											__typename
+										}
 									}
 									total
 								}
@@ -36,6 +41,7 @@ layout: default
 					})
 					.then(res => res.json())
 					.then(res => {
+						// console.log(res)
 						this.isLoading = false;
 						this.results = res.data.searchResults.results;
 						this.totalResults = res.data.searchResults.total;
@@ -48,6 +54,16 @@ layout: default
 		var d = new Date(datetime);
 		return `${month[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 	}
+	function splitToList(string, sep) {
+		// list = string.split(sep);
+		console.log(string)
+		return list;
+	}
+
+	// source_url
+	// release_date
+	// attachment_link
+	// attachment_type
 </script>
 
 {% Cover { short: true } %}
@@ -136,19 +152,23 @@ layout: default
 								<article class="c-bookend align-top c-gutter narrow horizontal@xsmall">
 									<div class="c-bookend-item c-gutter-item fill | u-position-relative u-padding-right | c-content-width xwide">
 										<div class="u-padding-right">
-											<h4 class="u-type-scale-gamma" x-text="result.heading"></h4>
-											<p x-text="$truncate(result.body, { words: 19, ellipsis: '...' })"></p>
+											<h4 class="u-type-scale-gamma" x-text="result.title"></h4>
+											<p x-text="$truncate(result.description, { words: 19, ellipsis: '...' })"></p>
+											<span x-text="result.tags"></span>
 											<ul class="c-gutter narrow | u-list-undecorated | u-color-fg-secondary">
-												{% for item in [0, 1, 2, 3] %}
-													<li class="c-gutter-item | u-display-inline-block u-type-scale-zero">
+												<template
+													x-for="tag in splitToList(result.tags, ',')"
+													:key="tag"
+												>
+													<li class="c-gutter-item | u-display-inline-block">
 														<a
 															class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated | u-display-inline-block"
 															href="#"
 														>
-															tag
+															<span x-text="tag"></span>
 														</a>
 													</li>
-												{% endfor %}
+												</template>
 												<!-- will only need to show the following item if there's four or more tags -->
 												<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ resourcesIndex.moreTags }}</a></li>
 											</ul>
@@ -189,14 +209,7 @@ layout: default
 						</template>
 					</ul>
 				</template>
-			</div></div>
-									</div>
-								</article>
-							</li>
-						</template>
-					</ul>
-				</template>
-			</span>
+			</div>
 		</div>
 	{% endContentWrapper %}
 {% endSectionWrapper %}
