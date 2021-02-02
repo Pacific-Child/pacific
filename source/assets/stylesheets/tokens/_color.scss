@@ -3,10 +3,10 @@
 @use 'sass:map';
 @use 'bourbon';
 
-$-light-pink: #ff99b7;
-$-pink: #fd5486;
-$-dark-purple: #423757;
-$-light-purple: #7759b1;
+$-aqua: #4fa2ad;
+$-aqua-dark: #19464c;
+$-coral: #ff9886;
+$-coral-light: #ffb4a7;
 $-white: #fff;
 
 // Utility classes
@@ -14,21 +14,21 @@ $-white: #fff;
 $palette: (
 	'light': (
 		'bg': $-white,
-		'border': bourbon.tint($-dark-purple, 80),
-		'highlight': $-pink,
-		'accent': $-light-purple,
-		'primary': $-dark-purple,
-		'secondary': bourbon.tint($-dark-purple, 60),
-		'shadow': rgba(bourbon.tint($-dark-purple, 40), 0.4)
+		'border': bourbon.tint($-aqua-dark, 80),
+		'highlight': $-coral,
+		'accent': $-aqua,
+		'primary': $-aqua-dark,
+		'secondary': bourbon.tint($-aqua-dark, 60),
+		'shadow': rgba(bourbon.tint($-aqua-dark, 40), 0.4)
 	),
 	'dark': (
-		'bg': $-dark-purple,
-		'border': bourbon.tint($-dark-purple, 20),
-		'highlight': $-pink,
-		'accent': $-light-purple,
+		'bg': $-aqua-dark,
+		'border': bourbon.tint($-aqua-dark, 20),
+		'highlight': $-coral,
+		'accent': $-aqua,
 		'primary': $-white,
-		'secondary': bourbon.tint($-dark-purple, 60),
-		'shadow': rgba(bourbon.shade($-dark-purple, 40), 0.4)
+		'secondary': bourbon.tint($-aqua-dark, 60),
+		'shadow': rgba(bourbon.shade($-aqua-dark, 40), 0.4)
 	)
 );
 
