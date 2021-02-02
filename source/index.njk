@@ -5,45 +5,59 @@ title: Home
 
 {% Cover {
 	contentWidth: false,
-	className: 'u-type-align-center | u-margin-y-flow u-padding-x-outside u-padding-top-xwide'
+	className: 'u-padding-x-outside u-padding-top'
 } %}
-	{# Figure out how to mark this up - hide text? #}
-	<h1 class="b-logo full vertical u-type-scale-zero">
-		<img
-			class="u-display-inline-block"
-			src="/images/pacific-logo-vertical.svg"
-			alt="{{home.cover.logo.alt}}"
-		>
-		<span class="u-hide-visually">{{site.organization}}</span>
-	</h1>
-	{% ContentWrapper %}
-		<p class="u-type-heading u-type-weight-light u-type-scale-delta u-color-fg-secondary">
-			{% Markdown true %}{{home.cover.introduction}}{% endMarkdown %}
-		</p>
-	{% endContentWrapper %}
-	<a
-		class="b-button has-icon right"
-		href="/{{home.cover.callToAction.link.slug}}/"
-	>
-		{{home.cover.callToAction.label}}
-		<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-		  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-		  <polyline points="9 6 15 12 9 18" />
-		</svg>
-	</a>
 
-	<div class="
-	  u-position-absolute u-position-bottom-full
-	  u-type-scale-gamma
-	  u-padding-y-narrow
-	  u-color-fg-secondary
-	">
-	  <a href="#body" class="u-no-border-bottom u-display-block u-anim-bounce">
-	  	<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-		    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-		    <polyline points="6 9 12 15 18 9" />
-		  </svg>
+	{# Content #}
+	<div class="u-type-align-center | u-margin-y-flow-wide | u-position-z-middle">
+
+		{# Logo #}
+		<h1 class="b-logo full vertical u-type-scale-zero">
+			<img
+				class="u-display-inline-block"
+				src="/images/pacific-logo-vertical.svg"
+				alt="Pacific Child logo"
+			>
+			<span class="u-hide-visually">{{site.organization}}</span>
+		</h1>
+
+		{# Intro #}
+		{% ContentWrapper %}
+			<p class="u-type-scale-gamma">
+				{% Markdown true %}{{home.cover.introduction}}{% endMarkdown %}
+			</p>
+		{% endContentWrapper %}
+		<a
+			class="b-button has-icon right"
+			href="/{{home.cover.callToAction.link.slug}}/"
+		>
+			{{home.cover.callToAction.label}}
+			<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			  <polyline points="9 6 15 12 9 18" />
+			</svg>
 		</a>
+			
+		{# Call to action #}
+		<div class="
+		  u-position-absolute u-position-bottom-full
+		  u-type-scale-gamma
+		  u-padding-y-narrow
+		  u-color-fg-secondary
+		">
+		  <a href="#body" class="u-no-border-bottom u-display-block u-anim-bounce">
+		  	<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			    <polyline points="6 9 12 15 18 9" />
+			  </svg>
+			</a>
+		</div>
+	</div>
+
+	{# Seascape graphics #}
+	<div class="b-seascape u-no-margin u-position-z-low">
+		<img class="b-seascape-element u-position-z-middle" src="/images/seascape/horizon.svg" alt="Seascape background">
+		<img class="b-seascape-element u-position-z-low" src="/images/seascape/sky.svg" alt="Seascape background">
 	</div>
 {% endCover %}
 

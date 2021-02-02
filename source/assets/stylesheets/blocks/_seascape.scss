@@ -1,0 +1,23 @@
+// Seascape block
+// -> a Pacific seascape with islands and clouds for page covers
+@use '../tokens/breakpoints';
+
+.b-seascape {
+	display: block;
+	left: 0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: -0.6rem; // bump up a little so the clouds get cropped
+	width: 100%;
+	z-index: 0;
+}
+
+.b-seascape-element {
+	display: block;
+	height: 8rem;
+	object-fit: contain;
+	object-position: top center;
+	position: absolute;
+	width: 100%;
+}
