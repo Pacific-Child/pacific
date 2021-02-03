@@ -20,16 +20,16 @@ $palette: (
 		'primary': $-aqua-dark,
 		'secondary': bourbon.tint($-aqua-dark, 60),
 		'shadow': rgba(bourbon.tint($-aqua-dark, 40), 0.4)
-	),
-	'dark': (
-		'bg': $-aqua-dark,
-		'border': bourbon.tint($-aqua-dark, 20),
-		'highlight': $-coral,
-		'accent': $-aqua,
-		'primary': $-white,
-		'secondary': bourbon.tint($-aqua-dark, 60),
-		'shadow': rgba(bourbon.shade($-aqua-dark, 40), 0.4)
 	)
+	// 'dark': (
+	// 	'bg': $-aqua-dark,
+	// 	'border': bourbon.tint($-aqua-dark, 20),
+	// 	'highlight': $-coral,
+	// 	'accent': $-aqua,
+	// 	'primary': $-white,
+	// 	'secondary': bourbon.tint($-aqua-dark, 60),
+	// 	'shadow': rgba(bourbon.shade($-aqua-dark, 40), 0.4)
+	// )
 );
 
 @function get($role, $theme: 'light') {

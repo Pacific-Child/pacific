@@ -28,6 +28,7 @@ module.exports = ({
 		<header class="
 			u-padding-y-narrow u-padding-x-outside
 			u-position-absolute u-position-top-full u-position-z-middle
+			${currentPage === '/' ? 'b-seascape-margin' : ''}
 		">
 			<div class="c-bookend horizontal | c-gutter | u-type-scale-zero">
 				${currentPage !== '/'

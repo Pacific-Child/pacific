@@ -30,3 +30,19 @@
 .u-color-bg-transparent {
 	background-color: transparent;
 }
+
+.u-color-bg-sky {
+	background-color: #eaf4f5;
+}
+
+.u-color-bg-water {
+	// stylelint-disable
+	// need extra whitespace here to make this function readable
+	background-image: radial-gradient(
+		ellipse 70% 120% at top, 
+		rgba(color.get('accent'), 0) 20%, 
+		rgba(color.get('accent'), 0.08) 75%, 
+		rgba(color.get('accent'), 0.21) 100%
+	);
+	// stylelint-enable
+}

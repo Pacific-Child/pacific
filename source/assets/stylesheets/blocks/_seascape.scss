@@ -1,23 +1,89 @@
 // Seascape block
 // -> a Pacific seascape with islands and clouds for page covers
-@use '../tokens/breakpoints';
+@use '../tokens/breakpoints' as bp;
+
+$-bg-height: 4rem;
+$-raise-horizon: 1rem;
 
 .b-seascape {
+	bottom: 0;
 	display: block;
 	left: 0;
 	position: absolute;
 	right: 0;
 	text-align: center;
-	top: -0.6rem; // bump up a little so the clouds get cropped
+	top: ($-raise-horizon * -1);
 	width: 100%;
-	z-index: 0;
+}
+
+.b-seascape-bg {
+	display: block;
+	height: $-bg-height;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.b-seascape-water {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: $-bg-height;
 }
 
 .b-seascape-element {
 	display: block;
-	height: 8rem;
-	object-fit: contain;
-	object-position: top center;
+	height: $-bg-height;
+	left: 0;
 	position: absolute;
+	right: 0;
+	top: 0;
 	width: 100%;
+
+	> img {
+		display: block;
+		height: $-bg-height;
+		left: 0;
+		object-fit: cover;
+		object-position: bottom center;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+
+	&.top {
+		> img {
+			object-position: top center;
+		}
+	}
+}
+
+.b-seascape-ripple {
+	bottom: 0;
+	display: block;
+	max-width: 10rem;
+	position: absolute;
+
+	@include bp.query('small') {
+		max-width: 15rem;
+	}
+
+	@include bp.query('medium') {
+		max-width: 20rem;
+	}
+
+	&.left {
+		left: 0;
+	}
+
+	&.right {
+		right: 0;
+	}
+}
+
+.b-seascape-margin {
+	margin-top: ($-bg-height - $-raise-horizon);
 }

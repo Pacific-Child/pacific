@@ -1,6 +1,19 @@
 ---
 layout: default.njk
 title: Home
+seascape:
+  elements:
+    - name: 'sky'
+      alt: 'Seascape sky'
+    - name: 'horizon'
+      alt: 'Seascape horizon'
+  sizes:
+    - name: large
+      breakpoint: 100em
+      width: 1600
+    - name: medium
+      breakpoint: 37em
+      width: 1024
 ---
 
 {% Cover {
@@ -55,9 +68,41 @@ title: Home
 	</div>
 
 	{# Seascape graphics #}
-	<div class="b-seascape u-no-margin u-position-z-low">
-		<img class="b-seascape-element u-position-z-middle" src="/images/seascape/horizon.svg" alt="Seascape background">
-		<img class="b-seascape-element u-position-z-low" src="/images/seascape/sky.svg" alt="Seascape background">
+	<div class="b-seascape u-position-z-low">
+		<div class="b-seascape-bg u-color-bg-sky">
+			{% for element in seascape.elements %}
+				<picture class="b-seascape-element">
+					{%  for size in seascape.sizes %}
+						<source 
+							srcset="/images/seascape/{{size.name}}/{{element.name}}.svg {{size.width}}w" 
+							media="(min-width: {{size.breakpoint}})"
+						>
+					{% endfor %}
+					<img src="/images/seascape/small/{{element.name}}.svg" alt="element.alt">
+				</picture>
+			{% endfor %}
+		</div>
+		<div class="b-seascape-water u-color-bg-water">
+			<picture class="b-seascape-element top">
+				{%  for size in seascape.sizes %}
+					<source 
+						srcset="/images/seascape/{{size.name}}/reflections.svg {{size.width}}w" 
+						media="(min-width: {{size.breakpoint}})"
+					>
+				{% endfor %}
+				<img src="/images/seascape/small/reflections.svg" alt="Seascape reflections">
+			</picture>
+			<img 
+				class="b-seascape-ripple left"
+				src="/images/seascape/ripples/left.svg" 
+				alt="Seascape ripples" 
+			>
+			<img 
+				class="b-seascape-ripple right"
+				src="/images/seascape/ripples/right.svg" 
+				alt="Seascape ripples" 
+			>
+		</div>
 	</div>
 {% endCover %}
 
