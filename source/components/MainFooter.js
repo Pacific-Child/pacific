@@ -3,7 +3,7 @@ const Passage = require('./blocks/Passage.js')
 
 function NewsletterSignup (strings) {
 	return `
-			<div class="u-padding-x-outside u-padding-y-wide u-border-bottom">
+			<div class="u-theme-wash u-padding-x-outside u-padding-y-wide u-border-bottom">
 				${ContentWrapper(`
 
 					<!-- Begin Mailchimp Signup Form -->

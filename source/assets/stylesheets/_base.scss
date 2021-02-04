@@ -32,7 +32,7 @@ html {
 
 body {
 	@include color.add('primary');
-	@include color.add-bg('bg');
+	@include color.add-bg();
 	@include type.font();
 	font-size: 1rem;
 	line-height: type.leading();

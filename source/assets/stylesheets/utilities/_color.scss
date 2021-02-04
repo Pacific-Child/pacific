@@ -4,12 +4,12 @@
 @use '../tokens/color';
 
 :root {
-	@each $role, $color in map.get(color.$palette, 'light') {
-		--color-#{$role}: #{$color};
+	@each $role, $value in map.get(color.$palette, 'light') {
+		--color-#{$role}: #{$value};
 	}
 }
 
-@each $role, $color in map.get(color.$palette, 'light') {
+@each $role, $value in map.get(color.$palette, 'light') {
 	.u-color-fg-#{$role} {
 		@include color.add($role);
 	}
@@ -21,9 +21,11 @@
 
 @each $theme, $roles in color.$palette {
 	.u-theme-#{$theme} {
-		@each $role, $color in $roles {
-			--color-#{$role}: #{$color};
+		@each $role, $value in $roles {
+			--color-#{$role}: #{$value};
 		}
+		@include color.add('primary');
+		@include color.add-bg('bg');
 	}
 }
 
@@ -43,6 +45,13 @@
 		rgba(color.get('accent'), 0) 20%, 
 		rgba(color.get('accent'), 0.08) 75%, 
 		rgba(color.get('accent'), 0.21) 100%
+	);
+	// custom props for theming
+	background-image: radial-gradient(
+		ellipse 70% 120% at top, 
+		rgba(color.get-variable('accent'), 0) 20%, 
+		rgba(color.get-variable('accent'), 0.08) 75%, 
+		rgba(color.get-variable('accent'), 0.21) 100%
 	);
 	// stylelint-enable
 }

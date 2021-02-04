@@ -12,6 +12,24 @@ $-white: #fff;
 // Utility classes
 // -> global element styles: lists, text, images, etc.
 $palette: (
+	'dark': (
+		'bg': $-aqua-dark,
+		'border': bourbon.tint($-aqua-dark, 20),
+		'highlight': $-coral,
+		'accent': $-aqua,
+		'primary': $-white,
+		'secondary': bourbon.tint($-aqua-dark, 60),
+		'shadow': rgba(bourbon.shade($-aqua-dark, 40), 0.4)
+	),
+	'wash': (
+		'bg': $-aqua,
+		'border': bourbon.shade($-aqua, 20),
+		'highlight': $-white,
+		'accent': $-aqua-dark,
+		'primary': $-white,
+		'secondary': $-aqua-dark,
+		'shadow': rgba(bourbon.shade($-aqua, 60), 0.4)
+	),
 	'light': (
 		'bg': $-white,
 		'border': bourbon.tint($-aqua-dark, 80),
@@ -21,15 +39,6 @@ $palette: (
 		'secondary': bourbon.tint($-aqua-dark, 60),
 		'shadow': rgba(bourbon.tint($-aqua-dark, 40), 0.4)
 	)
-	// 'dark': (
-	// 	'bg': $-aqua-dark,
-	// 	'border': bourbon.tint($-aqua-dark, 20),
-	// 	'highlight': $-coral,
-	// 	'accent': $-aqua,
-	// 	'primary': $-white,
-	// 	'secondary': bourbon.tint($-aqua-dark, 60),
-	// 	'shadow': rgba(bourbon.shade($-aqua-dark, 40), 0.4)
-	// )
 );
 
 @function get($role, $theme: 'light') {
@@ -37,9 +46,13 @@ $palette: (
 	@return map.get($theme-colors, $role);
 }
 
+@function get-variable($role, $theme: 'light') {
+	@return var(--color-#{$role}, #{get($role)});
+}
+
 @mixin add($role, $prop: 'color') {
 	#{$prop}: get($role);
-	#{$prop}: var(--color-#{$role}, #{get($role)});
+	#{$prop}: get-variable($role);
 }
 
 @mixin add-bg($role: 'bg') {
