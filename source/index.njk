@@ -1,19 +1,6 @@
 ---
 layout: default.njk
 title: Home
-seascape:
-  elements:
-    - name: 'sky'
-      alt: 'Seascape sky'
-    - name: 'horizon'
-      alt: 'Seascape horizon'
-  sizes:
-    - name: large
-      breakpoint: 100em
-      width: 1600
-    - name: medium
-      breakpoint: 37em
-      width: 1024
 ---
 
 {% Cover {
@@ -28,7 +15,7 @@ seascape:
 		<h1 class="b-logo full vertical u-type-scale-zero">
 			<img
 				class="u-display-inline-block"
-				src="/images/pacific-logo-vertical.svg"
+				src="{{graphics.logo.vertical}}"
 				alt="Pacific Child logo"
 			>
 			<span class="u-hide-visually">{{site.organization}}</span>
@@ -70,9 +57,9 @@ seascape:
 	{# Seascape graphics #}
 	<div class="b-seascape u-position-z-low">
 		<div class="b-seascape-bg u-color-bg-sky">
-			{% for element in seascape.elements %}
+			{% for element in graphics.seascape.elements %}
 				<picture class="b-seascape-element">
-					{%  for size in seascape.sizes %}
+					{%  for size in graphics.seascape.sizes %}
 						<source 
 							srcset="/images/seascape/{{size.name}}/{{element.name}}.svg {{size.width}}w" 
 							media="(min-width: {{size.breakpoint}})"
@@ -84,7 +71,7 @@ seascape:
 		</div>
 		<div class="b-seascape-water u-color-bg-water">
 			<picture class="b-seascape-element top">
-				{%  for size in seascape.sizes %}
+				{%  for size in graphics.seascape.sizes %}
 					<source 
 						srcset="/images/seascape/{{size.name}}/reflections.svg {{size.width}}w" 
 						media="(min-width: {{size.breakpoint}})"

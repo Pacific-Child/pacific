@@ -1,4 +1,25 @@
 // Main header nav
+const Logo = (imageUrl, organizationName, breakpoint) => {
+	return `
+		<a
+			class="
+				c-bookend-item left
+				c-gutter-item
+				u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated
+				u-no-margin
+			"
+			href="/"
+		>
+			<img
+				class="b-logo icon | u-margin-right-narrow"
+				src="${imageUrl}"
+				alt="${organizationName}"
+				style="max-width: 4.5rem;"
+			>
+			<span class="u-hide-below@${breakpoint}">${organizationName}</span>
+		</a>
+	`
+}
 
 const NavItem = (item, currentPage) => {
 	return `
@@ -28,28 +49,10 @@ module.exports = ({
 		<header class="
 			u-padding-y-narrow u-padding-x-outside
 			u-position-absolute u-position-top-full u-position-z-middle
-			${currentPage === '/' ? 'b-seascape-margin' : ''}
 		">
 			<div class="c-bookend horizontal | c-gutter | u-type-scale-zero">
 				${currentPage !== '/'
-					? `<!-- logo -->
-						<a
-							class="
-								c-bookend-item left
-								c-gutter-item
-								u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated
-								u-no-margin
-							"
-							href="/"
-						>
-							<img
-								class="b-logo icon | u-margin-right-narrow"
-								src="/images/pacific-logo-icon.svg"
-								alt="${strings.header_organization_name}"
-								style="max-width: 4.5rem;"
-							>
-							<span class="u-hide-below@${breakpoint}">${strings.header_organization_name}</span>
-						</a>`
+					? Logo('/images/pacific-logo-icon.svg', strings.header_organization_name, breakpoint)
 					: ''
 				}
 

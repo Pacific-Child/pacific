@@ -6,6 +6,7 @@ const componentsDir = `./${inputDir}/components`
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const markdownIt = require('markdown-it')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
+const yaml = require('js-yaml')
 
 // components
 const MainFooter = require(`${componentsDir}/MainFooter.js`)
@@ -35,7 +36,9 @@ const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
 module.exports = (config) => {
-
+	// custom data formats
+	config.addDataExtension("yml", contents => yaml.load(contents))
+	
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,

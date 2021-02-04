@@ -2,8 +2,7 @@
 // -> a Pacific seascape with islands and clouds for page covers
 @use '../tokens/breakpoints' as bp;
 
-$-bg-height: 4rem;
-$-raise-horizon: 1rem;
+$-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
 
 .b-seascape {
 	bottom: 0;
@@ -12,7 +11,7 @@ $-raise-horizon: 1rem;
 	position: absolute;
 	right: 0;
 	text-align: center;
-	top: ($-raise-horizon * -1);
+	top: 0;
 	width: 100%;
 }
 
@@ -82,8 +81,4 @@ $-raise-horizon: 1rem;
 	&.right {
 		right: 0;
 	}
-}
-
-.b-seascape-margin {
-	margin-top: ($-bg-height - $-raise-horizon);
 }
