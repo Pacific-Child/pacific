@@ -9,9 +9,10 @@ const minifier = require('@sherby/eleventy-plugin-files-minifier')
 const yaml = require('js-yaml')
 
 // components
+const Cover = require(`${componentsDir}/Cover.js`)
+const CoverInterior = require(`${componentsDir}/CoverInterior.js`)
 const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
-const Cover = require(`${componentsDir}/Cover.js`)
 const PageContent = require(`${componentsDir}/PageContent.js`)
 
 // blocks
@@ -63,6 +64,7 @@ module.exports = (config) => {
 
 	// blocks & sections
 	config.addPairedShortcode('Cover', Cover)
+	config.addPairedShortcode('CoverInterior', CoverInterior)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('SectionWrapper', SectionWrapper)
