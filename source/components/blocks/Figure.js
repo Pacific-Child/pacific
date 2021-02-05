@@ -4,10 +4,13 @@ const Markdown = require('./Markdown.js')
 
 function Caption (content, { credit } = {}) {
 	return `
-		<figcaption class="u-padding-top-xnarrow | u-color-fg-secondary | u-type-align-left">
+		<figcaption class="u-padding-top-xnarrow u-padding-y-flow-xnarrow | u-color-fg-secondary | u-type-align-left">
 			${credit
 				? `
-					<cite class="u-display-block | u-type-align-right u-type-scale-epsilon u-type-font-display u-type-style-normal">
+					<cite class="
+						u-display-block
+						u-type-align-right u-type-scale-epsilon u-type-font-display u-type-style-normal
+					">
 						${credit}
 					</cite>
 					`

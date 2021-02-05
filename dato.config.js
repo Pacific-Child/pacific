@@ -63,6 +63,14 @@ module.exports = ({
 				header: {
 					headline: page.headline,
 					introduction: page.introduction,
+					image: page.image 
+						? {
+							url: page.image.url(),
+							alt: page.image.alt,
+							credit: page.imageCredit,
+							caption: page.imageCaption
+						}
+						: null,
 					callToAction: {
 						label: page.callToActionLabel,
 						link: page.callToActionLink

@@ -3,7 +3,7 @@
 // -> includes the seascape bg at the bottom
 const Cover = require('./Cover.js')
 
-module.exports = (content, seascape, { centered = false } = {}) => {
+module.exports = (content, seascape, { centered = true } = {}) => {
 	return Cover(`
 			${content}
 

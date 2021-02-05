@@ -38,7 +38,11 @@ permalink: '/{{ pagination.items[0].slug }}/'
 			{% if page.header.image %}
 				<div class="c-bookend-item right c-gutter-item u-type-align-center">
 					<div class="u-display-inline-block" style="max-width: 30rem;">
-						{% Figure 'https://placehold.it/800x600' %}
+						{% Figure page.header.image.url, {
+							alt: page.header.image.alt,
+							caption: page.header.image.caption,
+							credit: page.header.image.credit
+						} %}
 					</div>
 				</div>
 			</div>
