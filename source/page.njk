@@ -11,14 +11,54 @@ permalink: '/{{ pagination.items[0].slug }}/'
 
 {% Cover {
 	short: true,
-	className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow'
+	centered: false,
+	className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow | u-color-bg-sky'
 } %}
-	<h1>{{ page.header.title or page.title }}</h1>
-	{% if page.header.introduction %}
-		{% Passage { centered: false } %}
-			{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
-		{% endPassage %}
-	{% endif %}
+	{% set coverBreakpoint = 'medium' %}
+	{% ContentWrapper { width: 'xwide' } %}
+		<div class="c-bookend horizontal@{{coverBreakpoint}} | c-gutter wide | u-type-align-center u-type-align-left@{{coverBreakpoint}}">
+			<div class="c-bookend-item left fill | c-gutter-item">
+				<h1 class="
+					u-position-relative u-position-z-middle
+					
+				">
+					{{ page.header.title or page.title }}
+				</h1>
+				{% if page.header.introduction %}
+					{% Passage { 
+						centered: false, 
+						width: 'narrow',
+						className: 'u-type-scale-gamma | u-position-relative u-position-z-middle | u-padding-top | u-display-inline-block' 
+					} %}
+						<div class="u-type-align-left">
+							{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
+						</div>
+					{% endPassage %}
+				{% endif %}
+			</div>
+			<div class="c-bookend-item right c-gutter-item u-type-align-center">
+				<div class="u-display-inline-block" style="max-width: 30rem;">
+					<img src="https://placehold.it/800x600" alt="Cover image" style="border: 1rem solid #fff; border-radius: 0.25em;">
+				</div>
+			</div>
+		</div>
+	{% endContentWrapper %}
+
+	<div class="b-seascape bottom | no-margin | u-position-z-low">
+		<div class="b-seascape-bg bottom">
+			{% for element in graphics.seascape.elements %}
+				<picture class="b-seascape-element contain">
+					{%  for size in graphics.seascape.sizes %}
+						<source 
+							srcset="/images/seascape/{{size.name}}/{{element.name}}.svg {{size.width}}w" 
+							media="(min-width: {{size.breakpoint}})"
+						>
+					{% endfor %}
+					<img src="/images/seascape/small/{{element.name}}.svg" alt="element.alt">
+				</picture>
+			{% endfor %}
+		</div>
+	</div>
 {% endCover %}
 
 {% PageContent page.sections, resourcesIndex %}

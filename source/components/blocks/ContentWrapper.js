@@ -10,7 +10,9 @@ module.exports = (content, {
 } = {}) => {
 	const widthClasses = {
 		default: '',
-		wide: 'wide'
+		narrow: 'narrow',
+		wide: 'wide',
+		xwide: 'xwide'
 	}
 	const centeredClass = centered === true ? 'centered' : ''
 

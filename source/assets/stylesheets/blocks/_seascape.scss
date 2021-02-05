@@ -13,6 +13,10 @@ $-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
 	text-align: center;
 	top: 0;
 	width: 100%;
+
+	&.bottom {
+		top: auto;
+	}
 }
 
 .b-seascape-bg {
@@ -22,6 +26,11 @@ $-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
 	position: absolute;
 	right: 0;
 	top: 0;
+
+	&.bottom {
+		bottom: 0;
+		top: auto;
+	}
 }
 
 .b-seascape-water {
