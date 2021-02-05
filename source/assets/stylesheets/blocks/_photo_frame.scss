@@ -1,0 +1,15 @@
+// Draw a "Polaroid" frame around an image
+@use '../tokens/color';
+
+$-border-width: 1.5rem;
+
+.b-photo-frame {
+	@include color.add-bg();
+	border-radius: 0.25em;
+	border-style: solid;
+	border-width: 1.5rem;
+}
+
+.b-photo-frame.caption {
+	border-width: $-border-width $-border-width 0;
+}

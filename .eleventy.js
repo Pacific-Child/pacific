@@ -17,12 +17,13 @@ const PageContent = require(`${componentsDir}/PageContent.js`)
 // blocks
 // -> components use to render CMS "block" content
 const ContentWrapper = require(`${componentsDir}/blocks/ContentWrapper.js`)
+const Figure = require(`${componentsDir}/blocks/Figure.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
 const Markdown = require(`${componentsDir}/blocks/Markdown.js`)
 const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
-const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
+const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
@@ -71,6 +72,7 @@ module.exports = (config) => {
 	config.addShortcode('BlurbTimeline', BlurbTimeline)
 	config.addShortcode('CountriesList', CountriesList)
 	config.addShortcode('EventList', EventList)
+	config.addShortcode('Figure', Figure)
 	config.addShortcode('ResourceCard', ResourceCard)
 	config.addShortcode('ResourceList', ResourceList)
 	config.addShortcode('UpdateCard', UpdateCard)

@@ -1,6 +1,6 @@
 @use '../tokens/color';
 
 .u-shadow {
-	box-shadow: 0 0 0.25rem 0 color.get('shadow');
-	box-shadow: 0 0 0.25rem 0 var(--color-shadow);
+	box-shadow: 0 0.02rem 0.5rem 0 color.get('shadow');
+	box-shadow: 0 0.02rem 0.5rem 0 var(--color-shadow);
 }

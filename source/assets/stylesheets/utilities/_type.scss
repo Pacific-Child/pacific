@@ -83,6 +83,10 @@ h6 {
 	@include type.font($style: italic);
 }
 
+.u-type-style-normal {
+	font-style: normal;
+}
+
 .u-type-weight-normal {
 	@include type.font($weight: 'normal');
 }

@@ -12,11 +12,15 @@ permalink: '/{{ pagination.items[0].slug }}/'
 {% Cover {
 	short: true,
 	centered: false,
-	className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow | u-color-bg-sky'
+	className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow | u-color-bg-sky | u-hide-overflow'
 } %}
 	{% set coverBreakpoint = 'medium' %}
 	{% ContentWrapper { width: 'xwide' } %}
-		<div class="c-bookend horizontal@{{coverBreakpoint}} | c-gutter wide | u-type-align-center u-type-align-left@{{coverBreakpoint}}">
+		<div class="
+			c-bookend horizontal@{{coverBreakpoint}}
+			c-gutter wide
+			u-type-align-center u-type-align-left@{{coverBreakpoint}}
+		">
 			<div class="c-bookend-item left fill | c-gutter-item">
 				<h1 class="
 					u-position-relative u-position-z-middle
@@ -28,7 +32,7 @@ permalink: '/{{ pagination.items[0].slug }}/'
 					{% Passage { 
 						centered: false, 
 						width: 'narrow',
-						className: 'u-type-scale-gamma | u-position-relative u-position-z-middle | u-padding-top | u-display-inline-block' 
+						className: 'u-type-scale-gamma | u-position-relative u-position-z-middle | u-padding-top-narrow | u-display-inline-block' 
 					} %}
 						<div class="u-type-align-left">
 							{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
@@ -38,7 +42,7 @@ permalink: '/{{ pagination.items[0].slug }}/'
 			</div>
 			<div class="c-bookend-item right c-gutter-item u-type-align-center">
 				<div class="u-display-inline-block" style="max-width: 30rem;">
-					<img src="https://placehold.it/800x600" alt="Cover image" style="border: 1rem solid #fff; border-radius: 0.25em;">
+					{% Figure 'https://placehold.it/800x600' %}
 				</div>
 			</div>
 		</div>
