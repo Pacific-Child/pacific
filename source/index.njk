@@ -58,8 +58,8 @@ title: Home
 	</div>
 
 	{# Seascape graphics #}
-	<div class="b-seascape u-position-z-low">
-		<div class="b-seascape-bg u-color-bg-sky">
+	<div class="b-seascape | u-position-z-low">
+		<div class="b-seascape-bg | u-color-bg-sky">
 			{% for element in graphics.seascape.elements %}
 				<picture class="b-seascape-element">
 					{%  for size in graphics.seascape.sizes %}
@@ -72,7 +72,7 @@ title: Home
 				</picture>
 			{% endfor %}
 		</div>
-		<div class="b-seascape-water u-color-bg-water">
+		<div class="b-seascape-water | u-color-bg-water">
 			<picture class="b-seascape-element top">
 				{%  for size in graphics.seascape.sizes %}
 					<source 

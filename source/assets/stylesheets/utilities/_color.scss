@@ -34,7 +34,15 @@
 }
 
 .u-color-bg-sky {
+	// stylelint-disable
+	// need extra whitespace here to make this function readable
 	background-color: #eaf4f5;
+	background-image: radial-gradient(
+		ellipse 90% 90% at bottom, 
+		#eff4f5 0%, 
+		#dde9e9 100%
+	);
+	// stylelint-enable
 }
 
 .u-color-bg-water {
@@ -46,12 +54,13 @@
 		rgba(color.get('accent'), 0.08) 75%, 
 		rgba(color.get('accent'), 0.21) 100%
 	);
+	// TODO fix this - need to convert color tokens to HSL values somehow
 	// custom props for theming
-	background-image: radial-gradient(
-		ellipse 70% 120% at top, 
-		rgba(color.get-variable('accent'), 0) 20%, 
-		rgba(color.get-variable('accent'), 0.08) 75%, 
-		rgba(color.get-variable('accent'), 0.21) 100%
-	);
+	// background-image: radial-gradient(
+	// 	ellipse 70% 120% at top, 
+	// 	rgba(color.get-variable('accent'), 0) 20%, 
+	// 	rgba(color.get-variable('accent'), 0.08) 75%, 
+	// 	rgba(color.get-variable('accent'), 0.21) 100%
+	// );
 	// stylelint-enable
 }

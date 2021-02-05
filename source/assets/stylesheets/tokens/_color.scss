@@ -1,10 +1,9 @@
 // Color design tokens
-
 @use 'sass:map';
 @use 'bourbon';
 
-$-aqua: #4fa2ad;
-$-aqua-dark: #19464c;
+$-aqua: #4fa2ad; //187 37 49
+$-aqua-dark: #19464c; //187 50 20
 $-coral: #ff9886;
 $-coral-light: #ffb4a7;
 $-white: #fff;
@@ -15,6 +14,7 @@ $palette: (
 	'dark': (
 		'bg': $-aqua-dark,
 		'border': bourbon.tint($-aqua-dark, 20),
+		'well': bourbon.tint($-aqua-dark, 10),
 		'highlight': $-coral,
 		'accent': $-aqua,
 		'primary': $-white,
@@ -23,7 +23,8 @@ $palette: (
 	),
 	'wash': (
 		'bg': $-aqua,
-		'border': bourbon.shade($-aqua, 20),
+		'border': bourbon.shade($-aqua, 30),
+		'well': bourbon.shade($-aqua, 10),
 		'highlight': $-white,
 		'accent': $-aqua-dark,
 		'primary': $-white,
@@ -32,7 +33,8 @@ $palette: (
 	),
 	'light': (
 		'bg': $-white,
-		'border': bourbon.tint($-aqua-dark, 80),
+		'border': bourbon.tint($-aqua-dark, 75),
+		'well': bourbon.tint($-aqua-dark, 96),
 		'highlight': $-coral,
 		'accent': $-aqua,
 		'primary': $-aqua-dark,

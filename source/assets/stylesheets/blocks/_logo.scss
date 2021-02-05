@@ -8,6 +8,10 @@
 		margin-bottom: -0.25em; // scoot down slightly to vertically balance the mark
 		max-width: 4.5rem;
 		vertical-align: middle;
+
+		&.large {
+			max-width: 8rem;
+		}
 	}
 
 	&.full.vertical {

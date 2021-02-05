@@ -3,7 +3,7 @@ const Passage = require('./blocks/Passage.js')
 
 function NewsletterSignup (strings) {
 	return `
-			<div class="u-theme-wash u-padding-x-outside u-padding-y-wide u-border-bottom">
+			<div class="u-theme-wash u-padding-x-outside u-padding-y-xwide u-border-bottom">
 				${ContentWrapper(`
 
 					<!-- Begin Mailchimp Signup Form -->
@@ -14,7 +14,7 @@ function NewsletterSignup (strings) {
 						>
 							<label
 								for="mce-EMAIL"
-								class="u-type-heading u-scale-delta | u-display-block | u-padding-bottom-narrow"
+								class="u-type-heading u-scale-gamma | u-display-block | u-padding-bottom-narrow"
 							>
 								${strings.newsletterLabel}
 							</label>
@@ -56,7 +56,7 @@ function NewsletterSignup (strings) {
 					${Passage(`
 						<p>${strings.newsletterBlurb}</p>
 					`, {
-						className: 'u-padding-top-narrow u-color-fg-secondary u-type-style-italic'
+						className: 'u-padding-top-narrow u-color-fg-secondary'
 					})}
 				`)}
 			</div>
@@ -81,6 +81,45 @@ function NavItem ({ link, label, currentPage }) {
 	`
 }
 
+function Nav (menu, currentPage) {
+	return `
+		<nav
+			x-show.transition.opacity="navOpen"
+			class="
+				c-overlay centered
+				u-type-align-center
+				u-border-bottom
+				u-position-z-high
+			"
+			id="footer-nav"
+		>
+			<button
+				@click="navOpen = false"
+				class="
+					c-overlay-close
+					u-margin u-no-padding
+					u-no-border
+					u-type-link u-type-link-undecorated u-type-scale-gamma u-type-font-display
+					u-color-fg-primary u-color-bg-transparent
+					u-display-inline-block
+				"
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" class="b-icon large" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+				  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+				  <line x1="18" y1="6" x2="6" y2="18" />
+				  <line x1="6" y1="6" x2="18" y2="18" />
+				</svg>
+				<span class="u-hide-visually">Close</span>
+			</button>
+			<div class="c-overlay-content | u-padding-x-outside u-padding-y">
+				<ul class="u-list-undecorated | u-padding-y-flow">
+					${menu.map((item) => NavItem({ currentPage, ...item })).join('')}
+				</ul>
+			</div>
+		</nav>
+	`
+}
+
 module.exports = ({
 	logo = '',
 	title = '',
@@ -97,58 +136,43 @@ module.exports = ({
 			${NewsletterSignup(strings)}
 
 			<!-- footer nav -->
-			${menu && `
-				<nav
-					x-show.transition.opacity="navOpen"
-					class="
-						c-overlay centered
-						u-type-align-center
-						u-border-bottom
-						u-position-z-high
-					"
-					id="footer-nav"
-				>
-					<button
-						@click="navOpen = false"
-						class="
-							c-overlay-close
-							u-margin u-no-padding
-							u-no-border
-							u-type-link u-type-link-undecorated u-type-scale-gamma u-type-font-display
-							u-color-fg-primary u-color-bg-transparent
-							u-display-inline-block
-						"
-					>
-						<svg xmlns="http://www.w3.org/2000/svg" class="b-icon large" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-						  <line x1="18" y1="6" x2="6" y2="18" />
-						  <line x1="6" y1="6" x2="18" y2="18" />
-						</svg>
-						<span class="u-hide-visually">Close</span>
-					</button>
-					<div class="c-overlay-content | u-padding-x-outside u-padding-y">
-						<ul class="u-list-undecorated | u-padding-y-flow">
-							${menu.map((item) => NavItem({ currentPage, ...item })).join('')}
-						</ul>
-					</div>
-				</nav>
-			`}
+			${menu ? Nav(menu, currentPage) : ''}
 
 			<!-- copyright & contact -->
-			<aside class="u-padding-x-outside u-padding-y">
-				<div class="c-bookend horizontal@large | c-gutter">
-					<p class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<span class="b-logo icon u-margin-right-narrow">
-							<img src="${logo}" alt="${title}">
-						</span>
-						<span class="u-display-inline-block">${strings.footer_organization_name}</span>
-						<small class="u-display-inline-block"> ${strings.copyright}</small>
-					</p>
-					<div class="c-bookend-item | c-gutter-item | u-type-font-display">
-						<a class="u-color-fg-highlight" href="/contact">
-							Contact us
-						</a>
+			<aside class="u-position-relative | u-padding-x-outside u-padding-y-xwide">
+				<div class="u-position-relative u-position-z-middle | u-type-align-center">
+					<div class="b-logo icon large | u-margin-right-narrow">
+						<img src="${logo}" alt="${title}">
 					</div>
+					<p class="u-type-font-display | u-padding-top-narrow">
+						${strings.footer_organization_name}
+					</p>
+					<small class="
+						u-display-inline-block
+						u-padding-top-narrow
+						u-type-font-display u-type-scale-epsilon
+						u-color-fg-secondary
+					">
+						${strings.copyright}
+					</small>
+					</p>
+					<a class="b-button | u-margin-top" href="/contact">
+						Contact us
+					</a>
+				</div>
+
+				<!-- Seascape graphics -->
+				<div class="b-seascape | u-color-bg-water | u-position-z-low">
+					<img 
+						class="b-seascape-ripple left"
+						src="/images/seascape/ripples/left.svg" 
+						alt="Seascape ripples" 
+					>
+					<img 
+						class="b-seascape-ripple right"
+						src="/images/seascape/ripples/right.svg" 
+						alt="Seascape ripples" 
+					>
 				</div>
 			</aside>
 		</footer>
