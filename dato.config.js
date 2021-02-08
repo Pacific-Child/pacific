@@ -7,7 +7,7 @@ module.exports = ({
 }, root, i18n) => {
 
 	// global site config
-	root.createDataFile('source/data/dato/site.json', 'json', {
+	root.createDataFile('source/data/site.json', 'json', {
 		organization: site.organizationName,
 		title: site.siteTitle,
 		meta_description: site.metaDescription,
@@ -34,7 +34,7 @@ module.exports = ({
 	// use the site header logo if none is specified for the homepage
 	const homeLogo = home.logo || site.logo
 
-	root.createDataFile('source/data/dato/home.json', 'json', {
+	root.createDataFile('source/data/home.json', 'json', {
 		cover: {
 			logo: {
 				url: homeLogo.url(),
@@ -51,7 +51,7 @@ module.exports = ({
 	})
 
 	// interior pages
-	root.directory('source/data/dato/pages', (pagesDir) => {
+	root.directory('source/data/pages', (pagesDir) => {
 		// interior pages
 		pages.forEach((page) => {
 			pagesDir.createDataFile(`${page.slug}.json`, 'json', {
@@ -82,7 +82,7 @@ module.exports = ({
 	})
 
 	// contact page
-	root.createDataFile('source/data/dato/contactForm.json', 'json', {
+	root.createDataFile('source/data/contactForm.json', 'json', {
 		title: contactForm.title,
 		nameField: contactForm.nameField,
 		emailField: contactForm.emailField,
@@ -94,7 +94,7 @@ module.exports = ({
 	})
 
 	// resources index
-	root.createDataFile('source/data/dato/resourcesIndex.json', 'json', {
+	root.createDataFile('source/data/resourcesIndex.json', 'json', {
 		endpoint: resourcesIndex.endpoint,
 		title: resourcesIndex.title,
 		label: resourcesIndex.label,

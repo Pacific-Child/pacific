@@ -48,9 +48,9 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 		{# Main header #}
 		{% MainNav {
 			logo: graphics.logo.icon,
-			items: dato.site.header.nav,
+			items: site.header.nav,
 			currentPage: page.url,
-			strings: dato.site.header
+			strings: site.header
 		} %}
 
 		{# Content #}
@@ -59,10 +59,10 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 		{# Main footer #}
 		{% MainFooter {
 			logo: graphics.logo.icon,
-			title: dato.site.title,
-			menu: dato.site.header.nav,
+			title: site.title,
+			menu: site.header.nav,
 			currentPage: page.url,
-			strings: dato.site.footer
+			strings: site.footer
 		} %}
 
 		{# Alpine JS from their CDN #}

@@ -37,7 +37,7 @@ module.exports = (url, {
 			u-padding-narrow u-no-margin
 			${className}
 		">
-			<img class="u-display-block | u-border" src="${url}" ${alt ? `alt="${alt}"` : ''}>
+			<img class="u-display-block" src="${url}" ${alt ? `alt="${alt}"` : ''}>
 			${caption ? Caption(caption, { credit }) : ''}
 		</figure>
 	`
