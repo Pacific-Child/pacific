@@ -18,20 +18,20 @@ title: Home
 				src="{{graphics.logo.vertical}}"
 				alt="Pacific Child logo"
 			>
-			<span class="u-hide-visually">{{site.organization}}</span>
+			<span class="u-hide-visually">{{dato.site.organization}}</span>
 		</h1>
 
 		{# Intro #}
 		{% ContentWrapper %}
 			<p class="u-type-scale-gamma">
-				{% Markdown true %}{{home.cover.introduction}}{% endMarkdown %}
+				{% Markdown true %}{{dato.home.cover.introduction}}{% endMarkdown %}
 			</p>
 		{% endContentWrapper %}
 		<a
 			class="b-button has-icon right"
-			href="/{{home.cover.callToAction.link.slug}}/"
+			href="/{{dato.home.cover.callToAction.link.slug}}/"
 		>
-			{{home.cover.callToAction.label}}
+			{{dato.home.cover.callToAction.label}}
 			<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 			  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 			  <polyline points="9 6 15 12 9 18" />
@@ -97,5 +97,5 @@ title: Home
 {% endCover %}
 
 <div id="body">
-	{% PageContent home.sections, resourcesIndex %}
+	{% PageContent dato.home.sections, resourcesIndex %}
 </div>

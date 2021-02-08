@@ -3,7 +3,7 @@ layout: default
 ---
 
 <script>
-	var url = `{{ resourcesIndex.endpoint }}`;
+	var url = `{{ dato.resourcesIndex.endpoint }}`;
 	function resourcesSearch() {
 		return {
 			searchTerm: new URLSearchParams(location.search).get('searchTerm') || '*',
@@ -51,7 +51,7 @@ layout: default
 </script>
 
 {% CoverInterior graphics.seascape %}
-	<h1>{{ resourcesIndex.title }}</h1>
+	<h1>{{ dato.resourcesIndex.title }}</h1>
 {% endCoverInterior %}
 
 {# List of resources here to be added #}
@@ -73,7 +73,7 @@ layout: default
 					class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 					for="searchTerm"
 				>
-					{{ resourcesIndex.label }}
+					{{ dato.resourcesIndex.label }}
 				</label>
 				<div class="c-bookend c-gutter narrow horizontal@xsmall">
 					<div class="c-bookend-item c-gutter-item left fill">
@@ -82,7 +82,7 @@ layout: default
 							name="searchTerm"
 							x-model="searchTerm"
 							type="text"
-							placeholder="{{ resourcesIndex.placeholder }}"
+							placeholder="{{ dato.resourcesIndex.placeholder }}"
 							@keydown.enter="fetchResources()"
 						>
 					</div>
@@ -105,17 +105,19 @@ layout: default
 								>
 								</path>
 							</svg>
-							{{ resourcesIndex.button }}
+							{{ dato.resourcesIndex.button }}
 						</button>
 					</div>
 				</div>
 			</form>
 
 			<!-- empty state / no search done -->
-			<p x-show="!results">{{ resourcesIndex.instructions }}</p>
+			<p x-show="!results">{{ dato.resourcesIndex.instructions }}</p>
 
 			<!-- search done but no results -->
-			<p class="u-type-scale-beta" x-show="results && totalResults < 1">{{ resourcesIndex.noResultsMessage }}</p>
+			<p class="u-type-scale-beta" x-show="results && totalResults < 1">
+				{{ dato.resourcesIndex.noResultsMessage }}
+			</p>
 
 			<!-- results -->
 			<div class="u-padding-top u-padding-y-flow">
@@ -123,7 +125,7 @@ layout: default
 					x-show="results && totalResults > 0"
 					class="u-type-scale-beta"
 				>
-					<strong class="u-color-fg-highlight" x-text="totalResults"></strong> <span class="u-type-weight-light">{{ resourcesIndex.datasetSuffix }}</span>
+					<strong class="u-color-fg-highlight" x-text="totalResults"></strong> <span class="u-type-weight-light">{{ dato.resourcesIndex.datasetSuffix }}</span>
 				</h3>
 
 				<template x-if="results">
@@ -150,7 +152,7 @@ layout: default
 													</li>
 												{% endfor %}
 												<!-- will only need to show the following item if there's four or more tags -->
-												<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ resourcesIndex.moreTags }}</a></li>
+												<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ dato.resourcesIndex.moreTags }}</a></li>
 											</ul>
 										</div>
 										<a
@@ -180,7 +182,9 @@ layout: default
 												</svg>
 											</figure>
 											<p x-text="result.author"></p>
-											<time x-bind:datetime="result.updatedAt">{{ resourcesIndex.updated }} <span x-text="formatDate(result.updatedAt)"></span></time>
+											<time x-bind:datetime="result.updatedAt">
+												{{ dato.resourcesIndex.updated }} <span x-text="formatDate(result.updatedAt)"></span>
+											</time>
 											<p>File type:</p>
 										</div>
 									</div>
