@@ -8,17 +8,46 @@ permalink: '/{{ pagination.items[0].slug }}/'
 ---
 
 {% set page = pagination.items[0] %}
+{# If there is a header image, do not horizontally center the cover content #}
+{% set centerCover = false if page.header.image else true %}
 
-{% Cover {
-	short: true,
-	className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow'
-} %}
-	<h1>{{ page.header.title or page.title }}</h1>
-	{% if page.header.introduction %}
-		{% Passage { centered: false } %}
-			{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
-		{% endPassage %}
-	{% endif %}
-{% endCover %}
+{% CoverInterior graphics.seascape, { centered: centerCover } %}
+	{% set coverBreakpoint = 'medium' %}
+	{% ContentWrapper { width: 'xwide' } %}
+		<div class="
+			c-bookend horizontal@{{coverBreakpoint}}
+			c-gutter wide
+			u-type-align-center {% if page.header.image %}u-type-align-left@{{coverBreakpoint}}{% endif %}
+		">
+			<div class="c-bookend-item left fill | c-gutter-item">
+				<h1 class="u-position-relative u-position-z-middle">
+					{{ page.header.headline or page.title }}
+				</h1>
+				{% if page.header.introduction %}
+					{% Passage { 
+						centered: false, 
+						width: 'narrow',
+						className: 'u-type-scale-gamma | u-position-relative u-position-z-middle | u-padding-top-narrow | u-display-inline-block' 
+					} %}
+						<div class="u-type-align-left">
+							{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
+						</div>
+					{% endPassage %}
+				{% endif %}
+			</div>
+			{% if page.header.image %}
+				<div class="c-bookend-item right c-gutter-item u-type-align-center">
+					<div class="u-display-inline-block" style="max-width: 30rem;">
+						{% Figure page.header.image.url, {
+							alt: page.header.image.alt,
+							caption: page.header.image.caption,
+							credit: page.header.image.credit
+						} %}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	{% endContentWrapper %}
+{% endCoverInterior %}
 
 {% PageContent page.sections, resourcesIndex %}

@@ -6,22 +6,25 @@ const componentsDir = `./${inputDir}/components`
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const markdownIt = require('markdown-it')
 const minifier = require('@sherby/eleventy-plugin-files-minifier')
+const yaml = require('js-yaml')
 
 // components
+const Cover = require(`${componentsDir}/Cover.js`)
+const CoverInterior = require(`${componentsDir}/CoverInterior.js`)
 const MainFooter = require(`${componentsDir}/MainFooter.js`)
 const MainNav = require(`${componentsDir}/MainNav.js`)
-const Cover = require(`${componentsDir}/Cover.js`)
 const PageContent = require(`${componentsDir}/PageContent.js`)
 
 // blocks
 // -> components use to render CMS "block" content
 const ContentWrapper = require(`${componentsDir}/blocks/ContentWrapper.js`)
+const Figure = require(`${componentsDir}/blocks/Figure.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
 const Markdown = require(`${componentsDir}/blocks/Markdown.js`)
 const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
-const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
+const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
@@ -35,7 +38,9 @@ const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
 module.exports = (config) => {
-
+	// custom data formats
+	config.addDataExtension("yml", contents => yaml.load(contents))
+	
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,
@@ -59,6 +64,7 @@ module.exports = (config) => {
 
 	// blocks & sections
 	config.addPairedShortcode('Cover', Cover)
+	config.addPairedShortcode('CoverInterior', CoverInterior)
 	config.addPairedShortcode('Gallery', Gallery)
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('SectionWrapper', SectionWrapper)
@@ -68,6 +74,7 @@ module.exports = (config) => {
 	config.addShortcode('BlurbTimeline', BlurbTimeline)
 	config.addShortcode('CountriesList', CountriesList)
 	config.addShortcode('EventList', EventList)
+	config.addShortcode('Figure', Figure)
 	config.addShortcode('ResourceCard', ResourceCard)
 	config.addShortcode('ResourceList', ResourceList)
 	config.addShortcode('UpdateCard', UpdateCard)

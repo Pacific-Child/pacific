@@ -32,7 +32,7 @@ html {
 
 body {
 	@include color.add('primary');
-	@include color.add-bg('bg');
+	@include color.add-bg();
 	@include type.font();
 	font-size: 1rem;
 	line-height: type.leading();
@@ -64,6 +64,7 @@ h6 {
 }
 
 p {
+	font-size: inherit;
 	margin: 0;
 }
 
@@ -95,10 +96,12 @@ textarea {
 	$base-padding: spacing.get('narrow', $unit: 1em);
 
 	@include color.add('primary');
+	@include color.add-bg('well');
+	@include color.add-border();
 	@include type.font('display');
-	border: 1px solid color.get('border');
-	border: 1px solid var(--color-border);
 	border-radius: 0.3em;
+	border-style: solid;
+	border-width: 1px;
 	display: block;
 	font-size: type.scale('delta');
 	padding: ($base-padding + 0.1em) $base-padding ($base-padding - 0.1em);

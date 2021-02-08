@@ -22,7 +22,7 @@
 @include breakpoints.suffix(
 	'.c-bookend.horizontal',
 	$default: true,
-	$sizes: [xsmall, small]
+	$sizes: [xsmall, small, medium]
 ) {
 	@supports (display: flex) {
 		align-items: center;
