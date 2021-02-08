@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="u-padding-x-outside u-padding-y-xxwide">
-	<h1 class="u-type-align-center u-padding-bottom-narrow">{{ contactForm.title }}</h1>
+	<h1 class="u-type-align-center u-padding-bottom-narrow">{{ dato.contactForm.title }}</h1>
 
 	{# Contact form - better styling to come #}
 	<form name="contact" method="POST" data-netlify="true" action="/contact-success" class="c-content-width centered">
@@ -11,7 +11,7 @@ layout: default
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-name"
 		>
-			{{ contactForm.nameField }}
+			{{ dato.contactForm.nameField }}
 		</label>
 		<input
 			class="u-margin-bottom"
@@ -24,7 +24,7 @@ layout: default
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-email"
 		>
-			{{ contactForm.emailField }}
+			{{ dato.contactForm.emailField }}
 		</label>
 		<input
 			class="u-margin-bottom"
@@ -37,7 +37,7 @@ layout: default
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-subject"
 		>
-			{{ contactForm.subjectField }}
+			{{ dato.contactForm.subjectField }}
 		</label>
 		<input
 			class="u-margin-bottom"
@@ -50,13 +50,13 @@ layout: default
 			class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
 			for="contact-message"
 		>
-			{{ contactForm.messageField }}
+			{{ dato.contactForm.messageField }}
 		</label>
 		<textarea
 			class="u-margin-bottom"
 			id="contact-message"
 			name="contact-message"
 		></textarea>
-		<button class="b-button">{{ contactForm.submitButton }}</button>
+		<button class="b-button">{{ dato.contactForm.submitButton }}</button>
 	</form>
 </div>
