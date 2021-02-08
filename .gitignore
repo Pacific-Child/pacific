@@ -3,5 +3,11 @@
 build
 node_modules
 .env
-source/data
 source/assets/images/.DS_Store
+
+# data from the CMS
+source/data/pages
+source/data/contactForm.json
+source/data/home.json
+source/data/resourcesIndex.json
+source/data/site.json
