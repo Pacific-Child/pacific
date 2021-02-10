@@ -107,3 +107,9 @@
 		}
 	}
 }
+
+// fix collapsed margins on the first child elements
+.u-margin-fix-collapse-top {
+	margin-top: -1px;
+	padding-top: 1px;
+}

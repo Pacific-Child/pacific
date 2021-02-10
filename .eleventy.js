@@ -16,7 +16,7 @@ const MainNav = require(`${componentsDir}/MainNav.js`)
 const PageContent = require(`${componentsDir}/PageContent.js`)
 
 // blocks
-// -> components use to render CMS "block" content
+// -> components used to render bits and pieces of "sections"
 const ContentWrapper = require(`${componentsDir}/blocks/ContentWrapper.js`)
 const Figure = require(`${componentsDir}/blocks/Figure.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)

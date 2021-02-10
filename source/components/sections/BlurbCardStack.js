@@ -7,7 +7,7 @@ const Markdown = require('../blocks/Markdown.js')
 
 const Card = ({ image, title, description }, index) => {
 	return `
-		<article class="u-border u-border-radius | u-padding">
+		<article class="u-border u-border-radius | u-padding | u-hide-overflow">
 			<h3 class="u-padding-bottom-narrow">${title}</h3>
 			<div class="
 				c-bookend horizontal@small ${index % 2 === 0 ? 'reverse' : ''}

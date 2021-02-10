@@ -8,6 +8,8 @@ $-coral: #ff9886;
 $-coral-light: #ffb4a7;
 $-white: #fff;
 
+$-shadow-opacity: 0.2;
+
 // Utility classes
 // -> global element styles: lists, text, images, etc.
 $palette: (
@@ -19,7 +21,7 @@ $palette: (
 		'accent': $-aqua,
 		'primary': $-white,
 		'secondary': bourbon.tint($-aqua-dark, 60),
-		'shadow': rgba(bourbon.shade($-aqua-dark, 40), 0.4)
+		'shadow': rgba(bourbon.shade($-aqua-dark, 40), $-shadow-opacity)
 	),
 	'wash': (
 		'bg': $-aqua,
@@ -29,7 +31,7 @@ $palette: (
 		'accent': $-aqua-dark,
 		'primary': $-white,
 		'secondary': $-aqua-dark,
-		'shadow': rgba(bourbon.shade($-aqua, 60), 0.4)
+		'shadow': rgba(bourbon.shade($-aqua, 60), $-shadow-opacity)
 	),
 	'light': (
 		'bg': $-white,
@@ -39,7 +41,7 @@ $palette: (
 		'accent': $-aqua,
 		'primary': $-aqua-dark,
 		'secondary': bourbon.tint($-aqua-dark, 60),
-		'shadow': rgba(bourbon.tint($-aqua-dark, 40), 0.4)
+		'shadow': rgba(bourbon.tint($-aqua-dark, 40), $-shadow-opacity)
 	)
 );
 

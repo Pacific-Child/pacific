@@ -6,16 +6,15 @@ const Markdown = require('../blocks/Markdown.js')
 
 const Tab = ({ title, id }) => {
 	return `
-		<li
-			class="b-timeline-item"
-			:class="{ 'u-color-fg-highlight': tab === '${id}' }"
-		>
+		<li>
 			<a
-				class="u-type-heading u-type-scale-delta u-type-link-undecorated"
+				class="b-timeline-item | u-type-heading u-type-scale-delta u-type-link-undecorated"
+				:class="{ 'current': tab === '${id}' }"
 				@click.prevent="tab = '${id}'"
 				href="#${id}"
 			>
-				${title}
+				<!-- hide the label on small screens -->
+				<span class="u-hide-visually u-show-visually-above@small">${title}</span>
 			</a>
 		</li>
 	`
@@ -56,19 +55,22 @@ module.exports = ({
 			${introduction ? Passage(Markdown(introduction)) : ''}
 		</header>
 
-		<div x-data="{ tab: '${blurbs[0].id}' }">
+		<div 
+			class="c-content-width xwide centered | u-shadow | u-border-radius-bottom"
+			x-data="{ tab: '${blurbs[0].id}' }"
+		>
 			<nav class="
-				c-content-width xwide centered
-				u-padding-bottom-xwide
+				u-padding-bottom-wide
+				u-margin-fix-collapse-top
 			">
-				<ul class="b-timeline | u-margin-x-flow">
+				<ol class="b-timeline | u-show@js | u-margin-x-flow u-padding-x-outside">
 					${blurbs.map((blurb) => Tab({ ...blurb })).join('')}
-				</ul>
+				</ol>
 			</nav>
 			<ul class="c-content-width wide centered | u-list-undecorated">
 				${blurbs.map((blurb) => `
 					<li
-						class="u-no-padding-top"
+						class="u-no-padding-top u-padding-x-outside u-padding-bottom-wide | u-hide-overflow"
 						id="${blurb.id}"
 						x-show="tab === '${blurb.id}'"
 					>
