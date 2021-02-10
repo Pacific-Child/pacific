@@ -56,15 +56,14 @@ module.exports = ({
 		</header>
 
 		<div 
-			class="u-shadow | u-border-radius-bottom"
+			class="c-content-width xwide centered | u-shadow | u-border-radius-bottom"
 			x-data="{ tab: '${blurbs[0].id}' }"
 		>
 			<nav class="
-				c-content-width xwide centered
 				u-padding-bottom-wide
-				u-border-top <!-- add a border here to prevent margin collapse -->
+				u-margin-fix-collapse-top
 			">
-				<ol class="b-timeline | u-margin-x-flow u-padding-x-outside">
+				<ol class="b-timeline | u-show@js | u-margin-x-flow u-padding-x-outside">
 					${blurbs.map((blurb) => Tab({ ...blurb })).join('')}
 				</ol>
 			</nav>

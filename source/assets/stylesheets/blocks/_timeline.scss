@@ -1,3 +1,5 @@
+// Timeline block
+// clickable buttons that display in a sequence, used to display tab content
 @use '../tokens/color';
 @use '../tokens/spacing';
 @use '../tokens/type';
@@ -8,7 +10,7 @@ $-dot-size: 2.2rem;
 $-padding: spacing.get('narrow');
 $-line-top: (($-dot-size - $-line-h) / 2);
 
-// the clickable buttons that trigger the visibility of tab content
+// use with .u-show@js to ensure the tabs are hidden when JS is not available
 .b-timeline {
 	counter-reset: dots;
 	display: block;
@@ -22,11 +24,11 @@ $-line-top: (($-dot-size - $-line-h) / 2);
 
 	@supports (display: flex) {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 	}
 
 	&::before {
-		@include color.add-bg('border');
+		@include color.add-bg('primary');
 		content: '';
 		counter-reset: dots;
 		display: block;
@@ -42,9 +44,12 @@ $-line-top: (($-dot-size - $-line-h) / 2);
 		position: relative;
 	}
 
+	// stylelint-disable selector-max-compound-selectors
+	// need this selector to override default list behavior
 	> li + li {
 		padding-top: 0;
 	}
+	// stylelint-enable selector-max-compound-selectors
 }
 
 .b-timeline-item {
@@ -80,9 +85,5 @@ $-line-top: (($-dot-size - $-line-h) / 2);
 		&::before {
 			@include color.add-bg('highlight');
 		}
-	}
-
-	& + & {
-		padding-top: 0;
 	}
 }
