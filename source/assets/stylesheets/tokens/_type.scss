@@ -15,8 +15,8 @@ $scale: (
 	'epsilon': -1
 );
 
-@function scale($size) {
-	@return scale.get(map.get($scale, $size));
+@function scale($size, $unit: 1rem) {
+	@return scale.get(map.get($scale, $size), $unit);
 }
 
 // --- leading ---
