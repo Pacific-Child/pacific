@@ -13,7 +13,8 @@ const Tab = ({ title, id }) => {
 				@click.prevent="tab = '${id}'"
 				href="#${id}"
 			>
-				<span class="u-hide-below@small">${title}</span>
+				<!-- hide the label on small screens -->
+				<span class="u-hide-visually u-show-visually-above@small">${title}</span>
 			</a>
 		</li>
 	`
