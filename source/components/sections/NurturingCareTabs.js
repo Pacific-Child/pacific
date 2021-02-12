@@ -6,9 +6,9 @@ const Markdown = require('../blocks/Markdown.js')
 const ContentWrapper = require('../blocks/ContentWrapper.js')
 const Diagram = require('../blocks/NurturingCareDiagram/index.js')
 
-function Tab ({ id, title, description }) {
+function Tab ({ slug, title, description }) {
 	return `
-		<li x-show="tab === '${id}'" id="${id}">
+		<li x-show="tab === '${slug}'" id="${slug}">
 		${ContentWrapper(`
 			<h3 class="u-padding-bottom">${title}</h3>
 			${Passage(Markdown(description))}
@@ -20,7 +20,7 @@ function Tab ({ id, title, description }) {
 module.exports = ({
 	title,
 	introduction = false,
-	blurbs = [],
+	nurturingCareComponents = [],
 	breakpoint = 'medium'
 }) => {
 	return SectionWrapper(`
@@ -42,7 +42,7 @@ module.exports = ({
 						${ContentWrapper(Diagram(), { width: 'narrow' })}
 					</nav>
 					<ul class="c-bookend-item right fill | c-gutter-item | u-list-undecorated">
-						${blurbs.map(tab => Tab(tab)).join('')}
+						${nurturingCareComponents.map(tab => Tab(tab)).join('')}
 					</ul>
 				</div>
 			</div>
