@@ -5,6 +5,7 @@
 // section: OBJECT, containing the props of section components, e.g. title, introduction, etc.
 const componentNames = {
 	blurb_card_stack: require('./sections/BlurbCardStack.js'),
+	blurb_diagram: require('./sections/BlurbDiagramTabs.js'),
 	blurb_grid: require('./sections/BlurbGrid.js'),
 	blurb_section: require('./sections/BlurbSection.js'),
 	blurb_timeline: require('./sections/BlurbTimeline.js'),

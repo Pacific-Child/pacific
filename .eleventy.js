@@ -29,6 +29,7 @@ const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 // sections
 // -> components used to render CMS "section" content
 const BlurbCardStack = require(`${componentsDir}/sections/BlurbCardStack.js`)
+const BlurbDiagramTabs = require(`${componentsDir}/sections/BlurbDiagramTabs.js`)
 const BlurbGrid = require(`${componentsDir}/sections/BlurbGrid.js`)
 const BlurbSection = require(`${componentsDir}/sections/BlurbSection.js`)
 const BlurbTimeline = require(`${componentsDir}/sections/BlurbTimeline.js`)
@@ -69,6 +70,7 @@ module.exports = (config) => {
 	config.addPairedShortcode('Passage', Passage)
 	config.addPairedShortcode('SectionWrapper', SectionWrapper)
 	config.addShortcode('BlurbCardStack', BlurbCardStack)
+	config.addShortcode('BlurbDiagramTabs', BlurbDiagramTabs)
 	config.addShortcode('BlurbGrid', BlurbGrid)
 	config.addShortcode('BlurbSection', BlurbSection)
 	config.addShortcode('BlurbTimeline', BlurbTimeline)

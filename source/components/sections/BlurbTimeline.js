@@ -4,7 +4,7 @@ const SectionWrapper = require('../blocks/SectionWrapper.js')
 const Passage = require('../blocks/Passage.js')
 const Markdown = require('../blocks/Markdown.js')
 
-const Tab = ({ title, id }) => {
+function Tab ({ title, id }) {
 	return `
 		<li>
 			<a
@@ -20,7 +20,7 @@ const Tab = ({ title, id }) => {
 	`
 }
 
-const Blurb = ({ title, description, image }) => {
+function TabContent ({ title, description, image }) {
 	return `
 		<article class="c-bookend horizontal@small | c-gutter">
 			${image
@@ -50,7 +50,7 @@ module.exports = ({
 	return SectionWrapper(`
 		<header class="u-padding-bottom-xwide">
 			<h2 class="u-type-align-center | u-padding-bottom">
-				Stages of Early Childhood Development
+				${title}
 			</h2>
 			${introduction ? Passage(Markdown(introduction)) : ''}
 		</header>
@@ -67,14 +67,14 @@ module.exports = ({
 					${blurbs.map((blurb) => Tab({ ...blurb })).join('')}
 				</ol>
 			</nav>
-			<ul class="c-content-width wide centered | u-list-undecorated">
+			<ul class="u-list-undecorated">
 				${blurbs.map((blurb) => `
 					<li
 						class="u-no-padding-top u-padding-x-outside u-padding-bottom-wide | u-hide-overflow"
 						id="${blurb.id}"
 						x-show="tab === '${blurb.id}'"
 					>
-						${Blurb({ ...blurb })}
+						${TabContent({ ...blurb })}
 					</li>
 				`).join('')}
 			</ul>
