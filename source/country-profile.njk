@@ -1,0 +1,12 @@
+---
+layout: default
+pagination:
+  data: dato.countries
+  size: 1
+  resolve: values
+permalink: 'countries/{{ pagination.items[0].slug }}/'
+---
+
+{% set country = pagination.items[0] %}
+
+<h1>{{ country.name }}</h1>

@@ -6,7 +6,7 @@ const countries = require('./countries.js')
 function Country ({ groupPosition, label, url, circle, map }) {
 	return `
 		<g class="map-island" transform="translate(${groupPosition.x} ${groupPosition.y})">
-			<a href="/countries/${url}">
+			<a href="/countries/${url}/">
 				<text 
 					class="u-type-font-display u-type-weight-light" 
 					font-size="34" letter-spacing="-1.032"
