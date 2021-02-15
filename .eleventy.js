@@ -25,6 +25,7 @@ const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
+const CountriesMap = require(`${componentsDir}/blocks/CountriesMap/index.js`)
 
 // sections
 // -> components used to render CMS "section" content
@@ -81,6 +82,7 @@ module.exports = (config) => {
 	config.addShortcode('ResourceList', ResourceList)
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
+	config.addShortcode('CountriesMap', CountriesMap)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts
