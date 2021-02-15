@@ -1,3 +1,6 @@
+// Countries map
+// -> display an SVG map with clickable, labeled areas for each PRC country
+
 const countries = require('./countries.js')
 
 function Country ({ groupPosition, label, url, circle, map }) {

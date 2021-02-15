@@ -1,23 +1,21 @@
 // Countries List section
 // -> displays a list of countries with flags in cards
-const SectionWrapper = require('../blocks/SectionWrapper.js')
 const ContentWrapper = require('../blocks/ContentWrapper.js')
-
-const Placeholder = '<p>Countries list to come from albatross</p>'
+const CountriesMap = require('../blocks/CountriesMap/index.js')
+const PictureFrame = require('../blocks/PictureFrame.js')
+const SectionWrapper = require('../blocks/SectionWrapper.js')
 
 module.exports = ({
 	title,
 	countries = []
 }) => {
-	return `
-		${SectionWrapper(`
-			<h2 class="u-type-align-center">
-				${title}
-			</h2>
-			${countries.length > 0
-				? ContentWrapper(Placeholder, { width: 'wide' })
-				: ContentWrapper(Placeholder, { width: 'wide' })
-			}
-		`, { className: 'u-margin-y-flow-wide' })}
-	`
+	return countries.length > 0
+		? SectionWrapper(`
+				<h2 class="u-type-align-center">${title}</h2>
+				${ContentWrapper(
+					PictureFrame(CountriesMap()), 
+					{ width: 'xwide' }
+				)}
+			`, { className: 'u-margin-y-flow-wide' })
+		: ''
 }

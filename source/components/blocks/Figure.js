@@ -1,6 +1,7 @@
 // Figure component
 // -> displays an image in a "Polaroid" frame, with option caption and credit
 const Markdown = require('./Markdown.js')
+const PictureFrame = require('./PictureFrame.js')
 
 function Caption (content, { credit } = {}) {
 	return `
@@ -28,17 +29,8 @@ module.exports = (url, {
 	credit,
 	className = ''
 } = {}) => {
-	return `
-		<figure class="
-			u-display-inline-block 
-			u-color-bg-bg 
-			u-shadow 
-			u-border-radius 
-			u-padding-narrow u-no-margin
-			${className}
-		">
-			<img class="u-display-block | u-border" src="${url}" ${alt ? `alt="${alt}"` : ''}>
-			${caption ? Caption(caption, { credit }) : ''}
-		</figure>
-	`
+	return PictureFrame(`
+		<img class="u-display-block | u-border" src="${url}" ${alt ? `alt="${alt}"` : ''}>
+		${caption ? Caption(caption, { credit }) : ''}
+	`, { className })
 }
