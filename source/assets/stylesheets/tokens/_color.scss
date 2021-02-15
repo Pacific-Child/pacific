@@ -8,7 +8,7 @@ $-coral: #ff9886;
 $-coral-light: #ffb4a7;
 $-white: #fff;
 
-$-shadow-opacity: 0.2;
+$-shadow-opacity: 0.3;
 
 // Utility classes
 // -> global element styles: lists, text, images, etc.
@@ -27,7 +27,7 @@ $palette: (
 		'bg': $-aqua,
 		'border': bourbon.shade($-aqua, 30),
 		'well': bourbon.shade($-aqua, 10),
-		'highlight': $-white,
+		'highlight': $-coral,
 		'accent': $-aqua-dark,
 		'primary': $-white,
 		'secondary': $-aqua-dark,
