@@ -13,8 +13,6 @@ $-duration: 0.25s;
 $-translate: -0.2rem;
 
 .map {
-	--duration: 0.25s;
-	--translate: -0.2rem;
 	background-image: url('/images/map/map-background@600w.png');
 	background-position: center;
 	background-repeat: no-repeat;
@@ -32,26 +30,19 @@ $-translate: -0.2rem;
 
 .map-island {
 	@include color.add('secondary');
-	transition: color #{$-duration} ease;
-	transition: color var(--duration) ease;
+	transition: color #{$-duration} ease-in;
 	will-change: color;
 
 	circle {
 		@include color.add('bg');
-		filter: drop-shadow(0 0.02rem 0.5rem #{color.get('shadow')});
-		filter: drop-shadow(0 0.02rem 0.5rem var(--color-shadow));
 		transition: filter #{$-duration} ease, 
 			transform #{$-duration} ease, 
 			color #{$-duration} ease;
-		transition: filter var(--duration) ease, 
-			transform var(--duration) ease, 
-			color var(--duration) ease;
 		will-change: filter, transform;
 	}
 
 	path {
 		transition: transform #{$-duration} ease;
-		transition: transform var(--duration) ease;
 		will-change: transform;
 	}
 
@@ -64,15 +55,11 @@ $-translate: -0.2rem;
 
 		circle {
 			@include color.add('highlight');
-			filter: drop-shadow(0 0.2rem 0.75rem #{color.get('shadow')});
-			filter: drop-shadow(0 0.2rem 0.75rem var(--color-shadow));
 			transform: translateY(#{$-translate});
-			transform: translateY(var(--translate));
 		}
 
 		path {
 			transform: translateY(#{$-translate});
-			transform: translateY(var(--translate));
 		}
 	}
 }

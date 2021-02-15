@@ -15,7 +15,8 @@ function Country ({ groupPosition, label, url, circle, map }) {
 				<circle 
 					stroke="#fff" stroke-width="3"
 					fill="currentColor"
-					cx="${circle.x}" cy="${circle.y}" r="${circle.radius}""
+					cx="${circle.x}" cy="${circle.y}" r="${circle.radius}"
+					style="filter: url(#circle-shadow);"
 				/>
 				<g class="u-color-fg-primary">${map}</g>
 			</a>
@@ -31,6 +32,19 @@ module.exports = () => {
 			xmlns="http://www.w3.org/2000/svg"
 			xmlns:xlink="http://www.w3.org/1999/xlink"
 		>
+			<!-- drop shadow filters -->
+			<defs>
+				<filter id="circle-shadow">
+					<feDropShadow
+						dx="0"
+						dy="2"
+						stdDeviation="5"
+						flood-color="#19464c"
+						flood-opacity="0.4"
+					/>
+				</filter>
+			</defs>
+
 			<!-- BG elements -->
 			<text class="u-type-font-display u-type-weight-light u-color-fg-secondary" font-size="34" letter-spacing="-1.032" fill="currentColor" fill-opacity=".5"><tspan x="162" y="912">Australia</tspan></text>
 			<text class="u-type-font-display u-type-weight-light u-color-fg-secondary" font-size="34" letter-spacing="-1.032" fill="currentColor" fill-opacity=".5"><tspan x="1368" y="105">Hawaii</tspan></text>
