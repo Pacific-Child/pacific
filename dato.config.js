@@ -4,7 +4,8 @@ module.exports = ({
 	countryProfiles: countries,
 	siteConfiguration: site,
 	contactForm,
-	resourcesIndex
+	resourcesIndex,
+	countryProfilesIndex
 }, root, i18n) => {
 
 	// global site config
@@ -120,4 +121,12 @@ module.exports = ({
 		moreTags: resourcesIndex.moreTags,
 		updated: resourcesIndex.updated
 	})
+	
+	// countries index
+	root.createDataFile('source/data/dato/countryProfilesIndex.json', 'json', {
+		title: countryProfilesIndex.title,
+		slug: countryProfilesIndex.slug,
+		body: countryProfilesIndex.body
+	})
 }
+
