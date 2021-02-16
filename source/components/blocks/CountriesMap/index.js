@@ -3,10 +3,10 @@
 
 const countries = require('./countries.js')
 
-function Country ({ groupPosition, label, url, circle, map }) {
+function Country ({ groupPosition, label, slug, circle, map }) {
 	return `
 		<g class="map-island" transform="translate(${groupPosition.x} ${groupPosition.y})">
-			<a href="/countries/${url}/">
+			<a href="/countries/${slug}/">
 				<text 
 					class="u-type-font-display u-type-weight-light" 
 					font-size="34" letter-spacing="-1.032"
@@ -24,7 +24,7 @@ function Country ({ groupPosition, label, url, circle, map }) {
 	`
 }
 
-module.exports = () => {
+module.exports = (countryData) => {
 	return `
 		<svg 
 			class="map u-theme-wash"
@@ -51,7 +51,12 @@ module.exports = () => {
 			<text class="u-type-font-display u-type-weight-light u-color-fg-secondary" font-size="34" letter-spacing="-1.032" fill="currentColor" fill-opacity=".5"><tspan x="779" y="1027">New Zealand</tspan></text>
 
 			<!-- Islands -->
-			${countries.map(country => Country(country)).join('')}
+			${countries.reduce((result, country) => {
+				if (countryData.find(c => c.slug === country.slug)) {
+					result.push(Country(country))
+				}
+				return result
+			}, []).join('')}
 		</svg>
 	`
 }

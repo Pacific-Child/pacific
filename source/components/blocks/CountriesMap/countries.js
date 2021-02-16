@@ -1,8 +1,9 @@
 // SVG data for each country
+// -> note: the 'slug' property is what we use to match with the country data from Dato and Albatross, and to set the url for the profile.
 module.exports = [
 	{
 		label: '<tspan x=".429" y="26">Marshall Islands</tspan>',
-		url: 'marshall-islands',
+		slug: 'marshall-islands',
 		groupPosition: {
 			x: 788,
 			y: 115
@@ -17,8 +18,24 @@ module.exports = [
 		`
 	},
 	{
+		label: '<tspan x="136" y="70">Palau</tspan>',
+		slug: 'palau',
+		groupPosition: {
+			x: 142,
+			y: 281
+		},
+		circle: {
+			x: 61,
+			y: 61,
+			radius: 59.5
+		},
+		map: `
+			<path fill="currentColor" d="M44,90 L44,93.3333333 L42.5,93.3333333 L42.5,95 L41,93.3333333 L41,90 L44,90 Z M52,79 L52,82.2 L50.3333333,82.2 L52,83.8 L48.6666667,85.4 L48.6666667,87 L47,87 L47,85.4 L48.6666667,83.8 L50.3333333,80.6 L50.3333333,79 L52,79 Z M64.3333573,63.2 L66,64.8 L64.3333573,66.4 L64.3333573,64.8 L62.6667146,64.8 L60.9999281,68 L56,68 L56,64.8 L57.6666427,64.8 L57.6666427,66.4 L59.3332854,66.4 L62.6667146,63.2 L64.3333573,63.2 Z M64.3333573,60 L66,61.6 L64.333,63.199 L64.3333573,61.6 L62.6667146,60 L64.3333573,60 Z M80,34.444 L80,39.2778627 L78.4444444,42.5000695 L78.4444444,45.7222762 L80,45.7222762 L76.8888889,48.944483 L76.8888889,50.5555864 L75.3333333,50.5555864 L75.3333333,57 L69.1111111,57 L69.1111111,52.1666898 L67.5555556,52.1666898 L67.5555556,50.5555864 L66,50.5555864 L69.1111111,47.3333796 L70.6666667,48.944483 L70.6666667,45.7222762 L69.1111111,44.1111729 L72.2222222,40.8889661 L72.2222222,37.6667593 L73.7777778,37.6667593 L75.3333333,36.0556559 L78.4444444,36.0556559 L80,34.444 Z M78.4444444,28 L80,29.6112423 L80,34.444 L78.4444444,32.8334491 L76.8888889,28 L78.4444444,28 Z" id="Combined-Shape"/>
+		`
+	},
+	{
 		label: '<tspan x="5.197" y="26">Federated States</tspan> <tspan x="30.136" y="61">of Micronesia</tspan>',
-		url: 'micronesia',
+		slug: 'micronesia',
 		groupPosition: {
 			x: 411,
 			y: 82
@@ -34,7 +51,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="43" y="26">Vanuatu</tspan>',
-		url: 'vauatu',
+		slug: 'vauatu',
 		groupPosition: {
 			x: 699,
 			y: 633
@@ -50,7 +67,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x=".201" y="26">Papua New Guinea</tspan>',
-		url: 'papua-new-guinea',
+		slug: 'papua-new-guinea',
 		groupPosition: {
 			x: 264,
 			y: 435
@@ -66,7 +83,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="0" y="245">Solomon Islands</tspan>',
-		url: 'solomon-islands',
+		slug: 'solomon-islands',
 		groupPosition: {
 			x: 450.5,
 			y: 533
@@ -82,7 +99,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="3" y="26">Nauru</tspan>',
-		url: 'nauru',
+		slug: 'nauru',
 		groupPosition: {
 			x: 691,
 			y: 378
@@ -98,7 +115,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="3" y="26">Tuvalu</tspan>',
-		url: 'tuvalu',
+		slug: 'tuvalu',
 		groupPosition: {
 			x: 877,
 			y: 500
@@ -114,7 +131,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="19" y="26">Tokelau</tspan>',
-		url: 'tokelau',
+		slug: 'tokelau',
 		groupPosition: {
 			x: 1030,
 			y: 434
@@ -130,7 +147,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="0" y="26">Kiribati</tspan>',
-		url: 'kiribati',
+		slug: 'kiribati',
 		groupPosition: {
 			x: 1271,
 			y: 340
@@ -146,7 +163,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x=".138" y="26">Cook Islands</tspan>',
-		url: 'cook-islands',
+		slug: 'cook-islands',
 		groupPosition: {
 			x: 1347,
 			y: 656
@@ -162,7 +179,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="141" y="70">Samoa</tspan>',
-		url: 'samoa',
+		slug: 'samoa',
 		groupPosition: {
 			x: 995,
 			y: 620
@@ -178,7 +195,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="108" y="56">Niue</tspan>',
-		url: 'niue',
+		slug: 'niue',
 		groupPosition: {
 			x: 1068,
 			y: 736
@@ -194,7 +211,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="5" y="132">Tonga</tspan>',
-		url: 'tonga',
+		slug: 'tonga',
 		groupPosition: {
 			x: 973,
 			y: 778
@@ -210,7 +227,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="50" y="181">Fiji</tspan>',
-		url: 'fiji',
+		slug: 'fiji',
 		groupPosition: {
 			x: 855,
 			y: 668
