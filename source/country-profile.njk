@@ -87,28 +87,6 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 	{% endContentWrapper %}
 {% endSectionWrapper %}
 
-{# Threats #}
-{% SectionWrapper %}
-	{% ContentWrapper { width: 'wide' } %}
-		<h2 class="u-type-align-center u-padding-bottom">
-			Threats to early childhood development
-		</h2>
-		{% Gallery { flex: true } %}
-			{% for stat in countryTestData.demographics %}
-				<li>
-					{% StatCard {
-						title: stat.title,
-						number: stat.number,
-						context: stat.context,
-						unit: stat.unit,
-						className: 'u-position-flex-fill'
-					} %}
-				</li>
-			{% endfor %}
-		{% endGallery %}
-	{% endContentWrapper %}
-{% endSectionWrapper %}
-
 {# Nurturing care #}
 {% SectionWrapper %}
 	{% ContentWrapper { width: 'wide' } %}
