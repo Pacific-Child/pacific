@@ -83,22 +83,29 @@ module.exports = ({
 		})
 	})
 
-	// countries
-	// -> convert country profile data into a big array of objects
+	// countries index
+	root.createDataFile('source/data/dato/countryProfilesIndex.json', 'json', {
+		title: countryProfilesIndex.title,
+		slug: countryProfilesIndex.slug,
+		body: countryProfilesIndex.body
+	})
+
+	// country profiles
+	// -> convert countries data into a big array of objects so it's easier to loop through
 	const countryList = countries.reduce((result, country) => {
 		result.push({
-			name: country.countryName,
+			name: country.countryName.trim(),
 			slug: country.slug,
 			flag: country.flag,
 			introduction: country.introduction,
-			summary: country.hoverDescription,
+			summary: country.hoverDescription.trim(),
 			resources: country.resources.toMap()
 		})
 		return result
 	}, []).sort((a, b) => {
 		// sort the countries alphabetically by name
-		const nameA = a.name.replace('The ', '')
-		const nameB = b.name.replace('The ', '')
+		const nameA = a.name.replace('The', '').trim().toUpperCase()
+		const nameB = b.name.replace('The', '').trim().toUpperCase()
 
 		if (nameA < nameB) {
 			return -1
@@ -134,13 +141,6 @@ module.exports = ({
 		datasetSuffix: resourcesIndex.datasetSuffix,
 		moreTags: resourcesIndex.moreTags,
 		updated: resourcesIndex.updated
-	})
-	
-	// countries index
-	root.createDataFile('source/data/dato/countryProfilesIndex.json', 'json', {
-		title: countryProfilesIndex.title,
-		slug: countryProfilesIndex.slug,
-		body: countryProfilesIndex.body
 	})
 }
 
