@@ -82,6 +82,7 @@ module.exports = ({
 		})
 	})
 
+	// country profiles
 	root.directory('source/data/dato/countries', (countriesDir) => {
 		countries.forEach((country) => {
 			countriesDir.createDataFile(`${country.slug}.json`, 'json', {

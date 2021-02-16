@@ -1,0 +1,115 @@
+demographics:
+  - title: Population
+    number: 307150
+    unit: null
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Annual births
+    number: 8838
+    unit: null
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Children under 5 years old
+    number: 42080
+    unit: null
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Under-five mortality
+    number: 26
+    unit: null
+    context: per 1000 births
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+
+ecd_indexes:
+  - title: ECDI
+    number: 12.4
+    unit: '%'
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+    description: >-
+      Lorem ipsum dolor sit amet urna bibendum orci est eiusmod. Dolore justo platea libero erat massa molestie platea vestibulum volutpat fermentum feugiat facilisis. Laoreet pellentesque ultrices etiam erat maecenas fringilla ultricies mattis eu auctor ornare ac. Sodales eiusmod iaculis maecenas pretium bibendum incididunt quisque morbi facilisis justo fames scelerisque adipiscing quam. Sapien sodales dapibus lobortis platea fringilla praesent fusce quam mi lacus incididunt elementum.
+  - title: Lifetime cost of growth deficit in early childhood
+    number: 139
+    unit: '%'
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+    description: >-
+      Lorem ipsum dolor sit amet urna bibendum orci est eiusmod. Dolore justo platea libero erat massa molestie platea vestibulum volutpat fermentum feugiat facilisis.
+  - title: Human capital index
+    number: 0.47
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+    description: >-
+      Lorem ipsum dolor sit amet urna bibendum orci est eiusmod. Dolore justo platea libero erat massa molestie platea vestibulum volutpat fermentum feugiat facilisis. Laoreet pellentesque ultrices etiam erat maecenas fringilla ultricies mattis eu auctor ornare ac.
+
+threats:
+  - title: Maternal mortality
+    number: 34000
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Low birthweight
+    number: null
+    context: of all births
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Under-five stunting
+    number: 8
+    unit: '%'
+    context: of all births
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Child poverty
+    number: 32
+    unit: '%'
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Violent discipline
+    number: null
+    context: of all births
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Preterm births
+    number: 10
+    unit: '%'
+    context: of all births
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Young mothers
+    number: null
+    context: births by 18y
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Inadequate supervision
+    number: null
+    hint: >-
+      Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+
+nurturing_care:
+  - title: Healthcare
+    stats:
+      - title: Antenatal care
+        number: 52
+        unit: '%'
+        hint: >-
+          Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+      - title: Postnatal visits
+        number: null
+        hint: >-
+          Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+  - title: Nutrition
+    stats:
+      - title: Early initiation of breastfeeding
+        number: 85
+        unit: '%'
+        hint: >-
+          Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+      - title: Exclusive breastfeeding
+        number: 73
+        unit: '%'
+        hint: >-
+          Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.
+      - title: Minimum acceptable diet
+        number: null
+        hint: >-
+          Lorem ipsum dolor sit amet dapibus molestie luctus sapien luctus fermentum quis mi. Phasellus donec vitae neque etiam ut eros etiam venenatis pretium dictum.

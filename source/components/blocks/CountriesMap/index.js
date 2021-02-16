@@ -1,7 +1,8 @@
 // Countries map
 // -> display an SVG map with clickable, labeled areas for each PRC country
+// -> uses local data for the map graphics, but checks each countries' slug prop against the passed data (from Dato/Albatross)
 
-const countries = require('./countries.js')
+const countriesMapData = require('./countries.js')
 
 function Country ({ groupPosition, label, slug, circle, map }) {
 	return `
@@ -24,7 +25,7 @@ function Country ({ groupPosition, label, slug, circle, map }) {
 	`
 }
 
-module.exports = (countryData) => {
+module.exports = (countriesData) => {
 	return `
 		<svg 
 			class="map u-theme-wash"
@@ -51,8 +52,8 @@ module.exports = (countryData) => {
 			<text class="u-type-font-display u-type-weight-light u-color-fg-secondary" font-size="34" letter-spacing="-1.032" fill="currentColor" fill-opacity=".5"><tspan x="779" y="1027">New Zealand</tspan></text>
 
 			<!-- Islands -->
-			${countries.reduce((result, country) => {
-				if (countryData.find(c => c.slug === country.slug)) {
+			${countriesMapData.reduce((result, country) => {
+				if (countriesData.find(data => data.slug === country.slug)) {
 					result.push(Country(country))
 				}
 				return result
