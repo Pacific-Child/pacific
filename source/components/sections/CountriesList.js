@@ -29,7 +29,7 @@ module.exports = ({
 }) => {
 	return countries.length > 0
 		? SectionWrapper(`
-				<h2 class="u-type-align-center">${title}</h2>
+				${title ? `<h2 class="u-type-align-center">${title}</h2>` : ''}
 				${ContentWrapper(
 					Countries(countries),
 					{ width: 'xwide' }

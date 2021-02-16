@@ -1,6 +1,20 @@
 ---
 layout: default
-title: Country profiles
 ---
 
-<h1>{{title}}</h1>
+{% set content = dato.countryProfilesIndex %}
+
+{% CoverInterior graphics.seascape %}
+	<h1>{{ content.title }}</h1>
+	{% if content.body %}
+		{% Passage {
+			centered: false,
+			width: 'narrow',
+			className: 'u-type-scale-gamma u-type-align-left | u-position-relative u-position-z-middle | u-padding-top-narrow | u-display-inline-block'
+		} %}
+			{% Markdown %}{{ content.body }}{% endMarkdown %}
+		{% endPassage %}
+	{% endif %}
+{% endCoverInterior %}
+
+{% CountriesList { countries: dato.countries } %}

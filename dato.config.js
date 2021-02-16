@@ -4,7 +4,8 @@ module.exports = ({
 	countryProfiles: countries,
 	siteConfiguration: site,
 	contactForm,
-	resourcesIndex
+	resourcesIndex,
+	countryProfilesIndex
 }, root, i18n) => {
 
 	// global site config
@@ -82,18 +83,39 @@ module.exports = ({
 		})
 	})
 
-	// country profiles
-	root.directory('source/data/dato/countries', (countriesDir) => {
-		countries.forEach((country) => {
-			countriesDir.createDataFile(`${country.slug}.json`, 'json', {
-				name: country.countryName,
-				slug: country.slug,
-				introduction: country.introduction,
-				description: country.hoverDescription,
-				resources: country.resources.toMap()
-			})
-		})
+	// countries index
+	root.createDataFile('source/data/dato/countryProfilesIndex.json', 'json', {
+		title: countryProfilesIndex.title,
+		slug: countryProfilesIndex.slug,
+		body: countryProfilesIndex.body
 	})
+
+	// country profiles
+	// -> convert countries data into a big array of objects so it's easier to loop through
+	const countryList = countries.reduce((result, country) => {
+		result.push({
+			name: country.countryName.trim(),
+			slug: country.slug,
+			flag: country.flag,
+			introduction: country.introduction,
+			summary: country.hoverDescription.trim(),
+			resources: country.resources.toMap()
+		})
+		return result
+	}, []).sort((a, b) => {
+		// sort the countries alphabetically by name
+		const nameA = a.name.replace('The', '').trim().toUpperCase()
+		const nameB = b.name.replace('The', '').trim().toUpperCase()
+
+		if (nameA < nameB) {
+			return -1
+		}
+		if (nameA > nameB) {
+			return 1
+		}
+		return 0
+	})
+	root.createDataFile('source/data/dato/countries.json', 'json', countryList)
 
 	// contact page
 	root.createDataFile('source/data/dato/contactForm.json', 'json', {
@@ -121,3 +143,4 @@ module.exports = ({
 		updated: resourcesIndex.updated
 	})
 }
+
