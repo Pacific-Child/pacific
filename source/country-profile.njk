@@ -13,17 +13,21 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 	paddingClasses: 'u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside',
 	className: 'u-type-align-center'
 } %}
-	<p class="
-		u-type-heading u-type-case-upper u-type-leading-xtight u-type-scale-delta
-		u-color-secondary
-		u-padding-bottom-narrow u-margin-x-flow-xxnarrow
-	">
+	{% set flagHeight = '3rem' %}
+	<p 
+		class="
+			u-type-heading u-type-case-upper u-type-scale-delta
+			u-color-secondary
+			u-padding-bottom-narrow u-margin-x-flow-xxnarrow
+		"
+		style="line-height: {{ flagHeight }};"
+	>
 		<span class="u-display-inline-block | u-position-vertical-align-middle">
 			Country
 		</span>
 		<img
 			class="u-display-inline-block | u-position-vertical-align-middle | u-border-round"
-			style="width: 3rem; margin-top: -0.2rem;"
+			style="height: {{ flagHeight }}; margin-top: -0.2rem;"
 			src="{{ country.flag or 'https://placehold.it/400x400' }}"
 			alt="{{ country.name }} flag"
 		>
@@ -70,14 +74,14 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 						<div class="c-bookend horizontal@xsmall align-stretch">
 							<div
 								class="c-bookend-item left flex | u-padding-y-flow-xxnarrow"
-								style="width: 12rem;"
 							>
 								{% StatCard {
 									title: stat.title,
 									number: stat.number,
 									context: stat.context,
 									unit: stat.unit,
-									className: 'u-position-flex-fill'
+									className: 'u-position-flex-fill',
+									contentWidth: '12rem'
 								} %}
 							</div>
 							<div class="c-bookend-item right fill flex | u-padding-narrow">

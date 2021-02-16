@@ -90,6 +90,11 @@ a {
 	@include type.link();
 }
 
+sup {
+	font-size: 0.6em;
+	vertical-align: top;
+}
+
 // forms
 label {
 	@include type.font('display', 'bold');
