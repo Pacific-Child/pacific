@@ -17,6 +17,4 @@ layout: default
 	{% endif %}
 {% endCoverInterior %}
 
-{% SectionWrapper %}
-	{% CountriesMap dato.countries %}
-{% endSectionWrapper %}
+{% CountriesList { countries: dato.countries } %}
