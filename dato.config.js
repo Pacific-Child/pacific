@@ -83,18 +83,20 @@ module.exports = ({
 		})
 	})
 
-	// country profiles
-	root.directory('source/data/dato/countries', (countriesDir) => {
-		countries.forEach((country) => {
-			countriesDir.createDataFile(`${country.slug}.json`, 'json', {
-				name: country.countryName,
-				slug: country.slug,
-				introduction: country.introduction,
-				description: country.hoverDescription,
-				resources: country.resources.toMap()
-			})
+	// convert country profile data into a big array of objects
+	const countryList = countries.reduce((result, country) => {
+		result.push({
+			name: country.countryName,
+			slug: country.slug,
+			flag: country.flag,
+			introduction: country.introduction,
+			summary: country.hoverDescription,
+			resources: country.resources.toMap()
 		})
-	})
+		return result
+	}, [])
+
+	root.createDataFile('source/data/dato/countries.json', 'json', countryList)
 
 	// contact page
 	root.createDataFile('source/data/dato/contactForm.json', 'json', {
