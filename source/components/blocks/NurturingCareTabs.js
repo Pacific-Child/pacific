@@ -5,11 +5,15 @@ const SectionWrapper = require('./SectionWrapper.js')
 
 function Tab ({ id, title, description }) {
 	return `
-		<li x-show="tab === '${id}'" id="${id}">
-		${ContentWrapper(`
-			<h3 class="u-padding-bottom">${title}</h3>
-			${Passage(description)}
-		`)}
+		<li 
+			class="u-no-padding" 
+			x-show="tab === '${id}'" 
+			id="${id}"
+		>
+			${ContentWrapper(`
+				<h3 class="u-padding-bottom">${title}</h3>
+				${Passage(description)}
+			`)}
 		</li>
 	`
 }

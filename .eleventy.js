@@ -26,6 +26,7 @@ const PictureFrame = require(`${componentsDir}/blocks/PictureFrame.js`)
 const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
+const StatCard = require(`${componentsDir}/blocks/StatCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
@@ -81,6 +82,7 @@ module.exports = (config) => {
 	config.addShortcode('NurturingCareTabs', NurturingCareTabs)
 	config.addShortcode('ResourceCard', ResourceCard)
 	config.addShortcode('ResourceList', ResourceList)
+	config.addShortcode('StatCard', StatCard)
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
 

@@ -98,11 +98,13 @@ $max-percentage: 100%;
 	// 	max-width: 100ch;
 	// }
 
-	.c-gallery.flex & {
-		@supports (display: flex) {
-			display: flex;
-			flex-direction: column;
-		}
-	}
 	// stylelint-enable order/properties-alphabetical-order
+}
+
+.c-gallery.flex > li,
+.c-gallery.flex .c-gallery-item {
+	@supports (display: flex) {
+		display: flex;
+		flex-direction: column;
+	}
 }

@@ -1,6 +1,7 @@
 module.exports = ({
 	home,
 	pages,
+	countryProfiles: countries,
 	siteConfiguration: site,
 	contactForm,
 	resourcesIndex
@@ -77,6 +78,19 @@ module.exports = ({
 					}
 				},
 				sections: page.sections.toMap()
+			})
+		})
+	})
+
+	// country profiles
+	root.directory('source/data/dato/countries', (countriesDir) => {
+		countries.forEach((country) => {
+			countriesDir.createDataFile(`${country.slug}.json`, 'json', {
+				name: country.countryName,
+				slug: country.slug,
+				introduction: country.introduction,
+				description: country.hoverDescription,
+				resources: country.resources.toMap()
 			})
 		})
 	})

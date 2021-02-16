@@ -13,7 +13,7 @@ module.exports = ({
 		? SectionWrapper(`
 				<h2 class="u-type-align-center">${title}</h2>
 				${ContentWrapper(
-					PictureFrame(CountriesMap(), { display: 'block' }),
+					PictureFrame(CountriesMap(countries), { display: 'block' }),
 					{ width: 'xwide' }
 				)}
 			`, { className: 'u-margin-y-flow-wide' })
