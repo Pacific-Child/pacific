@@ -18,6 +18,8 @@ const PageContent = require(`${componentsDir}/PageContent.js`)
 // blocks
 // -> components used to render bits and pieces of "sections"
 const ContentWrapper = require(`${componentsDir}/blocks/ContentWrapper.js`)
+const CountriesGrid = require(`${componentsDir}/blocks/CountriesGrid.js`)
+const CountriesMap = require(`${componentsDir}/blocks/CountriesMap/index.js`)
 const Figure = require(`${componentsDir}/blocks/Figure.js`)
 const Gallery = require(`${componentsDir}/blocks/Gallery.js`)
 const Markdown = require(`${componentsDir}/blocks/Markdown.js`)
@@ -25,8 +27,8 @@ const Passage = require(`${componentsDir}/blocks/Passage.js`)
 const PictureFrame = require(`${componentsDir}/blocks/PictureFrame.js`)
 const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
-const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 const StatCard = require(`${componentsDir}/blocks/StatCard.js`)
+const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
 
 // sections
 // -> components used to render CMS "section" content
@@ -76,6 +78,8 @@ module.exports = (config) => {
 	config.addShortcode('BlurbGrid', BlurbGrid)
 	config.addShortcode('BlurbSection', BlurbSection)
 	config.addShortcode('BlurbTimeline', BlurbTimeline)
+	config.addShortcode('CountriesGrid', CountriesGrid)
+	config.addShortcode('CountriesMap', CountriesMap)
 	config.addShortcode('CountriesList', CountriesList)
 	config.addShortcode('EventList', EventList)
 	config.addShortcode('Figure', Figure)
