@@ -83,7 +83,8 @@ module.exports = ({
 		})
 	})
 
-	// convert country profile data into a big array of objects
+	// countries
+	// -> convert country profile data into a big array of objects
 	const countryList = countries.reduce((result, country) => {
 		result.push({
 			name: country.countryName,
@@ -94,8 +95,19 @@ module.exports = ({
 			resources: country.resources.toMap()
 		})
 		return result
-	}, [])
+	}, []).sort((a, b) => {
+		// sort the countries alphabetically by name
+		const nameA = a.name.replace('The ', '')
+		const nameB = b.name.replace('The ', '')
 
+		if (nameA < nameB) {
+			return -1
+		}
+		if (nameA > nameB) {
+			return 1
+		}
+		return 0
+	})
 	root.createDataFile('source/data/dato/countries.json', 'json', countryList)
 
 	// contact page
