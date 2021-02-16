@@ -24,7 +24,7 @@ module.exports = ({
 			</p>
 			${context
 				? `
-						<small class="u-type-scale-delta u-color-fg-secondary u-type-font-display">
+						<small class="u-type-scale-delta u-type-font-display | u-color-fg-secondary">
 							${context}
 						</small>
 					`
