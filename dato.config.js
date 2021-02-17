@@ -65,7 +65,7 @@ module.exports = ({
 				header: {
 					headline: page.headline,
 					introduction: page.introduction,
-					image: page.image 
+					image: page.image
 						? {
 							url: page.image.url(),
 							alt: page.image.alt,
@@ -100,7 +100,8 @@ module.exports = ({
 				url: country.flag.url()
 			},
 			introduction: country.introduction,
-			summary: country.hoverDescription
+			summary: country.hoverDescription,
+			dataSections: country.dataSections.toMap()
 		})
 		return result
 	}, []).sort((a, b) => {

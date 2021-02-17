@@ -14,7 +14,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 	className: 'u-type-align-center'
 } %}
 	{% set flagHeight = '3rem' %}
-	<p 
+	<p
 		class="
 			u-type-heading u-type-case-upper u-type-scale-delta
 			u-color-secondary
@@ -46,8 +46,17 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 {# Demographics #}
 {% SectionWrapper %}
 	{% ContentWrapper { width: 'wide' } %}
-		<h2 class="u-type-align-center u-padding-bottom">Demographics</h2>
+		<h2 class="u-type-align-center u-padding-bottom">{{ country.dataSections[0].title }}</h2>
 		{% Gallery { flex: true } %}
+				<li>
+					{% StatCard {
+						title: country.dataSections[0].populationTitle,
+						number: stat.number,
+						context: stat.context,
+						unit: stat.unit,
+						className: 'u-position-flex-fill'
+					} %}
+				</li>
 			{% for stat in countryTestData.demographics %}
 				<li>
 					{% StatCard {
