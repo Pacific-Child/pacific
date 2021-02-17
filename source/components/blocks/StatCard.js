@@ -29,7 +29,7 @@ module.exports = ({
 				</h3>
 				<div class="${verticallyJustify ? 'u-margin-top-auto' : ''}">
 					<p class="u-type-scale-beta u-type-font-display u-type-weight-bold u-type-leading-xtight | u-padding-top-xnarrow">
-						${number || 'No data'}${unit ? `<sup>${unit}</sup>` : ''}
+						${number || '<span class="u-color-fg-secondary">No data</span>'}${unit ? `<sup>${unit}</sup>` : ''}
 					</p>
 					${context
 						? `
