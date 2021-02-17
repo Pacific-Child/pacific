@@ -3,6 +3,8 @@ const Gallery = require('./Gallery.js')
 module.exports = (countries, {
 	className = ''
 } = {}) => {
+	console.log(countries[0].flag.url)
+
 	return Gallery(
 		countries.map(country => `
 			<li>
@@ -15,11 +17,11 @@ module.exports = (countries, {
 							<img 
 								class="u-border-round | u-display-inline-block" 
 								style="width: 2rem;"
-								src="${country.flag || 'https://placehold.it/400x400'}"
+								src="${country.flag.url}"
 							>
 						</div>
 						<h3 class="c-bookend-item right fill | c-gutter-item | u-type-scale-delta | u-type-align-left">
-							${country.countryName}
+							${country.name || country.countryName}
 						</h3>
 					</div>
 				</a>

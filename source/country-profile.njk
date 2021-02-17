@@ -28,7 +28,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 		<img
 			class="u-display-inline-block | u-position-vertical-align-middle | u-border-round"
 			style="height: {{ flagHeight }}; margin-top: -0.2rem;"
-			src="{{ country.flag or 'https://placehold.it/400x400' }}"
+			src="{{ country.flag.url }}"
 			alt="{{ country.name }} flag"
 		>
 		<span class="u-display-inline-block | u-position-vertical-align-center">

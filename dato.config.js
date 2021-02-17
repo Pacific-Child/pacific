@@ -94,11 +94,13 @@ module.exports = ({
 	// -> convert countries data into a big array of objects so it's easier to loop through
 	const countryList = countries.reduce((result, country) => {
 		result.push({
-			name: country.countryName.trim(),
+			name: country.countryName,
 			slug: country.slug,
-			flag: country.flag,
+			flag: {
+				url: country.flag.url()
+			},
 			introduction: country.introduction,
-			summary: country.hoverDescription.trim()
+			summary: country.hoverDescription
 		})
 		return result
 	}, []).sort((a, b) => {
