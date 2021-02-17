@@ -98,8 +98,7 @@ module.exports = ({
 			slug: country.slug,
 			flag: country.flag,
 			introduction: country.introduction,
-			summary: country.hoverDescription.trim(),
-			resources: country.resources.toMap()
+			summary: country.hoverDescription.trim()
 		})
 		return result
 	}, []).sort((a, b) => {
