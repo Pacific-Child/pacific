@@ -37,13 +37,11 @@ const BlurbGrid = require(`${componentsDir}/sections/BlurbGrid.js`)
 const BlurbSection = require(`${componentsDir}/sections/BlurbSection.js`)
 const BlurbTimeline = require(`${componentsDir}/sections/BlurbTimeline.js`)
 const CountriesList = require(`${componentsDir}/sections/CountriesList.js`)
+const CountryProfileData = require(`${componentsDir}/sections/CountryProfileData.js`)
 const EventList = require(`${componentsDir}/sections/EventList.js`)
 const NurturingCareTabs = require(`${componentsDir}/sections/NurturingCareTabs.js`)
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
-
-// country profile data sections
-const CountryProfileData = require(`${componentsDir}/sections/CountryProfileData.js`)
 // const CountryProfileECDIndices = require(`${componentsDir}/sections/CountryProfileData/Demographics.js`)
 
 module.exports = (config) => {
@@ -83,8 +81,9 @@ module.exports = (config) => {
 	config.addShortcode('BlurbSection', BlurbSection)
 	config.addShortcode('BlurbTimeline', BlurbTimeline)
 	config.addShortcode('CountriesGrid', CountriesGrid)
-	config.addShortcode('CountriesMap', CountriesMap)
 	config.addShortcode('CountriesList', CountriesList)
+	config.addShortcode('CountriesMap', CountriesMap)
+	config.addShortcode('CountryProfileData', CountryProfileData)
 	config.addShortcode('EventList', EventList)
 	config.addShortcode('Figure', Figure)
 	config.addShortcode('NurturingCareTabs', NurturingCareTabs)
@@ -93,9 +92,6 @@ module.exports = (config) => {
 	config.addShortcode('StatCard', StatCard)
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
-
-	// country data sections
-	config.addShortcode('CountryProfileData', CountryProfileData)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts

@@ -11,14 +11,16 @@ function getSectionContent (uid, country) {
 }
 
 // --- Sub-components for layout in each section ---
+// group data under a heading
 function Section (content, { title, description, className } = {}) {
 	return SectionWrapper(`
-		<h2 class="u-type-align-center u-padding-bottom">${title}</h2>
+		<h2 class="u-type-align-center | u-padding-bottom">${title}</h2>
 		${description ? Passage(Markdown(description)) : ''}
 		${ContentWrapper(content, { width: 'wide' })}
 	`, { className })
 }
 
+// group data under a subheading (e.g. Healthcare)
 function Subsection (content, {
 	title,
 	description,
@@ -26,7 +28,7 @@ function Subsection (content, {
 	className
 } = {}) {
 	return `
-		<section class="${border ? 'u-border-top u-margin-top-wide u-padding-top' : ''}">
+		<section class="${border ? 'u-border-top | u-margin-top-wide u-padding-top' : ''}">
 			<h3 class="u-padding-bottom">${title}</h3>
 			${description
 				? Passage(Markdown(description), { className: 'u-padding-bottom' })
@@ -37,10 +39,12 @@ function Subsection (content, {
 	`
 }
 
+// display data cards in a grid
 function DataGallery (content) {
 	return Gallery(content, { flex: true })
 }
 
+// display data cards in a vertical 'stack' with descriptions
 function DataStack (content) {
 	return ContentWrapper(`
 		<ul class="u-list-undecorated | u-padding-y-flow">
@@ -52,7 +56,7 @@ function DataStack (content) {
 function DataStackItem ({ label, number, context, unit, description }) {
 	return `
 		<li class="u-display-block">
-			<div class="u-color-bg-well u-border-radius">
+			<div class="u-color-bg-well | u-border-radius">
 				<div class="c-bookend horizontal@xsmall align-stretch">
 					<div class="c-bookend-item left flex | u-padding-y-flow-xxnarrow">
 						${StatCard({
