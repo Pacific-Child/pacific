@@ -2,7 +2,7 @@
 // -> a little card displaying a statistic
 
 module.exports = ({
-	title,
+	label,
 	number,
 	unit,
 	context,
@@ -25,7 +25,7 @@ module.exports = ({
 				style="${contentWidth ? `width: ${contentWidth};` : ''}"
 			>
 				<h3 class="u-type-scale-delta u-color-fg-accent">
-					${title}
+					${label}
 				</h3>
 				<div class="${verticallyJustify ? 'u-margin-top-auto' : ''}">
 					<p class="u-type-scale-beta u-type-font-display u-type-weight-bold u-type-leading-xtight | u-padding-top-xnarrow">

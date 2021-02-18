@@ -43,7 +43,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 	{% endif %}
 {% endSectionWrapper %}
 
-{% CountryProfileDemographic country, protoAlbatross.countries %}
+{% CountryProfileData country, protoAlbatross.countries %}
 
 {# ECD Indices #}
 {% SectionWrapper { className: 'u-hide-overflow' } %}
@@ -56,7 +56,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 						<div class="c-bookend horizontal@xsmall align-stretch">
 							<div class="c-bookend-item left flex | u-padding-y-flow-xxnarrow">
 								{% StatCard {
-									title: stat.title,
+									label: stat.title,
 									number: stat.number,
 									context: stat.context,
 									unit: stat.unit,
@@ -87,7 +87,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 			{% for stat in countryTestData.demographics %}
 				<li>
 					{% StatCard {
-						title: stat.title,
+						label: stat.title,
 						number: stat.number,
 						context: stat.context,
 						className: 'u-position-flex-fill'
@@ -111,7 +111,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 					{% for stat in section.stats %}
 						<li>
 							{% StatCard {
-								title: stat.title,
+								label: stat.title,
 								number: stat.number,
 								context: stat.context,
 								unit: stat.unit,
