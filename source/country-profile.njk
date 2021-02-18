@@ -43,25 +43,7 @@ permalink: 'countries/{{ pagination.items[0].slug }}/'
 	{% endif %}
 {% endSectionWrapper %}
 
-{# Demographics #}
-{% SectionWrapper %}
-	{% ContentWrapper { width: 'wide' } %}
-		<h2 class="u-type-align-center u-padding-bottom">Demographics</h2>
-		{% Gallery { flex: true } %}
-			{% for stat in countryTestData.demographics %}
-				<li>
-					{% StatCard {
-						title: stat.title,
-						number: stat.number,
-						context: stat.context,
-						unit: stat.unit,
-						className: 'u-position-flex-fill'
-					} %}
-				</li>
-			{% endfor %}
-		{% endGallery %}
-	{% endContentWrapper %}
-{% endSectionWrapper %}
+{% CountryProfileDemographic country, protoAlbatross.countries %}
 
 {# ECD Indices #}
 {% SectionWrapper { className: 'u-hide-overflow' } %}

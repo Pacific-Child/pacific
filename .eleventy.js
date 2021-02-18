@@ -42,9 +42,13 @@ const NurturingCareTabs = require(`${componentsDir}/sections/NurturingCareTabs.j
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 
+// country profile data sections
+const CountryProfileDemographic = require(`${componentsDir}/sections/CountryProfileData/Demographic.js`)
+// const CountryProfileECDIndices = require(`${componentsDir}/sections/CountryProfileData/Demographics.js`)
+
 module.exports = (config) => {
 	// custom data formats
-	config.addDataExtension("yml", contents => yaml.load(contents))
+	config.addDataExtension('yml', contents => yaml.load(contents))
 	
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
@@ -89,6 +93,9 @@ module.exports = (config) => {
 	config.addShortcode('StatCard', StatCard)
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
+
+	// country data sections
+	config.addShortcode('CountryProfileDemographic', CountryProfileDemographic)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts

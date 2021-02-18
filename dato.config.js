@@ -95,12 +95,14 @@ module.exports = ({
 	const countryList = countries.reduce((result, country) => {
 		result.push({
 			name: country.countryName,
+			code: country.countryCode,
 			slug: country.slug,
 			flag: {
 				url: country.flag.url()
 			},
 			introduction: country.introduction,
-			summary: country.hoverDescription
+			summary: country.hoverDescription,
+			dataSections: country.dataSections.toMap()
 		})
 		return result
 	}, []).sort((a, b) => {
