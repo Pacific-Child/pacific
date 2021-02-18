@@ -327,6 +327,7 @@ function EnablingEnvironmentsSection (country, indicators) {
 // render all the sections... finally
 module.exports = (country, data) => {
 	const indicators = data.find(d => d.countryCode === country.code).indicators['2021']
+
 	return [
 		DemographicSection(country, indicators),
 		ECDIndicesSection(country, indicators),
