@@ -12,7 +12,7 @@ function Search (resourcesIndex) {
 			searchPath: '/resources/?searchTerm='
 		}">
 			<label
-				class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
+				class="u-padding-bottom-narrow u-display-block u-type-scale-delta u-type-heading"
 				for="footer-search"
 			>
 				${resourcesIndex.label}
