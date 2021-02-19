@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+{% set page = dato.eventsIndex %}
+
+{% CoverInterior graphics.seascape %}
+	<h1>{{ page.title }}</h1>
+	{% if page.introduction %}
+		{% Passage %}
+			{% Markdown %}{{ page.introduction }}{% endMarkdown %}
+		{% endPassage %}
+	{% endif %}
+{% endCoverInterior %}
+
+{% SectionWrapper %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h2 class="u-type-align-center | u-padding-bottom">Meetings</h2>
+
+		<ul class="u-list-undecorated u-margin-y-flow">
+			{% set totalEvents = dato.events | length %}
+			{% for event in dato.events | toArrayReverse | limit(5) %}
+				<li class="u-shadow | u-border-radius | u-display-block | u-padding">
+					<h3 class="u-padding-bottom-narrow">
+						<time datetime="{{ event.date }}">{{ event.date | dateFull }}</time>
+					</h3>
+					<div class="c-bookend horizontal@small reverse | c-gutter narrow">
+						{% if event.photo.url %}
+							<div
+								class="c-bookend-item left | c-gutter-item"
+								style="max-width: 16rem;"
+							>
+								<img src="{{ event.photo.url }}" alt="{{ event.photo.alt }}">
+							</div>
+						{% endif %}
+						<div class="c-bookend-item right fill | c-gutter-item">
+							{% Passage { centered: false } %}
+								{% Markdown %}{{ event.summary }}{% endMarkdown %}
+							{% endPassage %}
+						</div>
+
+					</div>
+					<div class="u-padding-top-narrow">
+						<a
+							class="b-button has-icon right"
+							href="/events/slug"
+						>
+							Meeting details
+							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <polyline points="9 6 15 12 9 18" />
+							</svg>
+						</a>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+		{% if totalEvents > 0 %}
+			<div class="u-padding-top-wide | u-type-align-center">
+				<a
+					class="b-button has-icon right"
+					href="/events/page/1"
+				>
+					More meetings
+					<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					  <polyline points="9 6 15 12 9 18" />
+					</svg>
+				</a>
+			</div>
+		{% endif %}
+	{% endContentWrapper %}
+{% endSectionWrapper %}
+
+{% set totalUpdates = dato.updates | toArrayReverse | length %}
+{% if totalUpdates > 0 %}
+	
+{% endif %}

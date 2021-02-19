@@ -1,0 +1,12 @@
+---
+layout: default
+pagination:
+  data: dato.events
+  size: 10
+  resolve: values
+permalink: 'events/page/{{ pagination.pageNumber + 1 }}/'
+---
+
+{% set page = pagination.items[0] %}
+
+<h1>Meetings</h1>
