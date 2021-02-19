@@ -2,6 +2,8 @@ const inputDir = 'source'
 const outputDir = 'build'
 const componentsDir = `./${inputDir}/components`
 
+const dateFNS = require('date-fns')
+
 // plugins and libs
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster')
 const markdownIt = require('markdown-it')
@@ -57,6 +59,23 @@ module.exports = (config) => {
   	outputDirectory: outputDir
   }))
 	config.addPlugin(minifier)
+
+	// filters
+	config.addFilter('toArray', value => Object.values)
+
+	config.addFilter('toArrayReverse', value => Object.values(value).reverse())
+
+	config.addFilter('dateFull', (value) => {
+		return dateFNS.format(new Date(value), 'd LLLL, yyyy')
+	})
+
+	config.addFilter('datePath', (value) => {
+		return dateFNS.format(new Date(value), 'yyyy/MM/dd')
+	})
+
+	config.addFilter('length', value => Object.values(value).length)
+
+	config.addFilter('limit', (value, number) => value.slice(0, number))
 
 	// Eleventy shortcode components pattern:
 	// https://github.com/adamduncan/eleventy-shortcomps

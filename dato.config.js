@@ -1,15 +1,26 @@
+const dateFNS = require('date-fns')
+
+const path = 'source/data/dato/'
+
+function makeDateFilename (date, template = 'yyyy-MM-dd') {
+	return dateFNS.format(new Date(date), template)
+}
+
 module.exports = ({
 	home,
 	pages,
+	events,
+	updates,
 	countryProfiles: countries,
 	siteConfiguration: site,
 	contactForm,
 	resourcesIndex,
-	countryProfilesIndex
+	countryProfilesIndex,
+	eventsIndex
 }, root, i18n) => {
 
 	// global site config
-	root.createDataFile('source/data/dato/site.json', 'json', {
+	root.createDataFile(`${path}/site.json`, 'json', {
 		organization: site.organizationName,
 		title: site.siteTitle,
 		meta_description: site.metaDescription,
@@ -35,8 +46,7 @@ module.exports = ({
 	// homepage
 	// use the site header logo if none is specified for the homepage
 	const homeLogo = home.logo || site.logo
-
-	root.createDataFile('source/data/dato/home.json', 'json', {
+	root.createDataFile(`${path}/home.json`, 'json', {
 		cover: {
 			logo: {
 				url: homeLogo.url(),
@@ -53,8 +63,7 @@ module.exports = ({
 	})
 
 	// interior pages
-	root.directory('source/data/dato/pages', (pagesDir) => {
-		// interior pages
+	root.directory(`${path}/pages`, (pagesDir) => {
 		pages.forEach((page) => {
 			pagesDir.createDataFile(`${page.slug}.json`, 'json', {
 				title: page.title,
@@ -83,8 +92,48 @@ module.exports = ({
 		})
 	})
 
+	// events index
+	root.createDataFile(`${path}/eventsIndex.json`, 'json', {
+		title: eventsIndex.title,
+		slug: eventsIndex.slug,
+		introduction: eventsIndex.introduction
+	})
+
+	// events
+	root.directory(`${path}/events`, (eventsDir) => {
+		events.forEach((event) => {
+			eventsDir.createDataFile(`${makeDateFilename(event.date)}.json`, 'json', {
+				date: event.date,
+				summary: event.summary,
+				photo: event.photo
+					? {
+						url: event.photo.url(),
+						alt: event.photo.alt
+					}
+					: null,
+				description: event.description,
+				documents: event.documents.toMap(),
+				outcomes: event.outcomes.toMap()
+			})
+		})
+	})
+
+	// updates
+	root.directory(`${path}/updates`, (updatesDir) => {
+		updates.forEach((update) => {
+			updatesDir.createDataFile(`${makeDateFilename(update.date)}.json`, 'json', {
+				date: update.date,
+				title: update.title,
+				subtitle: update.subtitle,
+				summary: update.summary,
+				body: update.body,
+				sources: update.sources.toMap()
+			})
+		})
+	})
+
 	// countries index
-	root.createDataFile('source/data/dato/countryProfilesIndex.json', 'json', {
+	root.createDataFile(`${path}/countryProfilesIndex.json`, 'json', {
 		title: countryProfilesIndex.title,
 		slug: countryProfilesIndex.slug,
 		body: countryProfilesIndex.body
@@ -116,10 +165,10 @@ module.exports = ({
 		}
 		return 0
 	})
-	root.createDataFile('source/data/dato/countries.json', 'json', countryList)
+	root.createDataFile(`${path}/countries.json`, 'json', countryList)
 
 	// contact page
-	root.createDataFile('source/data/dato/contactForm.json', 'json', {
+	root.createDataFile(`${path}/contactForm.json`, 'json', {
 		title: contactForm.title,
 		nameField: contactForm.nameField,
 		emailField: contactForm.emailField,
@@ -131,7 +180,7 @@ module.exports = ({
 	})
 
 	// resources index
-	root.createDataFile('source/data/dato/resourcesIndex.json', 'json', {
+	root.createDataFile(`${path}/resourcesIndex.json`, 'json', {
 		endpoint: resourcesIndex.endpoint,
 		title: resourcesIndex.title,
 		label: resourcesIndex.label,

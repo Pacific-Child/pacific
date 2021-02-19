@@ -1,0 +1,65 @@
+---
+layout: default.njk
+pagination:
+  data: dato.updates
+  size: 1
+  resolve: values
+permalink: '/updates/{{ pagination.items[0].date | datePath }}/'
+---
+
+{% set page = pagination.items[0] %}
+
+<header class="u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside u-padding-y-flow-xxnarrow | u-hide-overflow | u-type-align-center">
+	<h1 class="u-padding-bottom-xxnarrow">{{ page.title }}</h1>
+	<time 
+		class="u-type-heading u-type-scale-delta | u-color-fg-secondary | u-padding-bottom-narrow"
+		datetime="{{ page.date }}"
+	>
+		{{ page.date | dateFull }}
+	</time>
+</header>
+
+{% SectionWrapper %}
+	{% Passage %}
+		{% Markdown %}{{ page.body }}{% endMarkdown %}
+	{% endPassage %}
+
+	<aside class="u-padding-top-wide">
+		<h2 class="u-type-align-center u-type-scale-gamma | u-padding-bottom">
+			Sources
+		</h2>
+		{% ContentWrapper %}
+			<ul class="u-list-undecorated u-margin-y-flow-narrow">
+				{% for source in page.sources %}
+					<li class="u-shadow | u-border-radius | u-padding-narrow">
+						<div class="c-bookend horizontal@small | c-gutter">
+							<div class="c-bookend-item left fill | c-gutter-item">
+								<p class="u-type-scale-gamma">
+									{{ source.title }}
+								</p>
+								<p class="u-type-scale-delta | u-color-fg-secondary">
+									{{ source.attribution }}
+								</p>
+							</div>
+							<cite class="c-bookend-item right | c-gutter-item | u-type-style-normal">
+								<a 
+									class="b-button has-icon right" 
+									href="{{ source.link }}"
+									target="_blank"
+								>
+									View
+									<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+									  <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+									  <line x1="10" y1="14" x2="20" y2="4" />
+									  <polyline points="15 4 20 4 20 9" />
+									</svg>
+								</a>
+							</cite>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endContentWrapper %}
+	</aside>
+{% endSectionWrapper %}
