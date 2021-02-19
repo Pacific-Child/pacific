@@ -236,7 +236,7 @@ layout: default
 									</div>
 
 									{# Topics/tags #}
-									{# <span x-text="result.tags">Test</span> #}
+									{# Just show all the tags here, no need for a "see more" flyout thingy - they can just wrap #}
 									<div class="u-padding-top-narrow">
 										<ul class="c-gutter narrow | u-list-undecorated | u-color-fg-secondary">
 											<template
@@ -252,18 +252,6 @@ layout: default
 													</a>
 												</li>
 											</template>
-											<!-- will only need to show the following item if there's four or more tags -->
-											<li 
-												class="u-display-inline-block u-type-scale-zero"
-												x-show="{result.tags.length > 4}"
-											>
-												<a 
-													href="#" 
-													class="u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block"
-											>
-												+1 {{ dato.resourcesIndex.moreTags }}
-											</a>
-											</li>
 										</ul>
 									</div>
 								</article>
