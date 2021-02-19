@@ -45,7 +45,7 @@ function NewsletterSignup (strings) {
 										value="${strings.newsletterButton}"
 										name="subscribe"
 										id="mc-embedded-subscribe"
-										class="button | b-button"
+										class="b-button large"
 									>
 								</div>
 							</div>
@@ -56,7 +56,7 @@ function NewsletterSignup (strings) {
 					${Passage(`
 						<p>${strings.newsletterBlurb}</p>
 					`, {
-						className: 'u-padding-top-narrow u-color-fg-secondary'
+						className: 'u-padding-top-narrow u-color-fg-secondary u-type-style-italic'
 					})}
 				`)}
 			</div>
@@ -156,7 +156,7 @@ module.exports = ({
 						${strings.copyright}
 					</small>
 					</p>
-					<a class="b-button | u-margin-top" href="/contact">
+					<a class="b-button large | u-margin-top" href="/contact">
 						Contact us
 					</a>
 				</div>
