@@ -42,7 +42,8 @@ function ResourcesGrid (resources, className = '') {
 	`
 }
 
-function IndicatorCallout(heading, body) {
+// A callout/interstitial to warn of empty data
+function IndicatorCallout (heading, body) {
 	return `
 		<aside class="u-color-bg-well | u-border-radius | u-padding u-padding-y-flow-xnarrow">
 			<div class="c-bookend horizontal | c-gutter narrow">
@@ -358,7 +359,7 @@ function NurturingCareSection (country, indicators) {
 			IndicatorCallout(
 				section.indicatorCalloutHeadingDataNeeded,
 				section.indicatorCalloutDescriptionDataNeeded
-			), 
+			),
 			{ title: section.indicatorSubsectionResponsiveCaregiving }
 		)
 	].join(''), { ...section })
