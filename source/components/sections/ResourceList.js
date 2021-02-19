@@ -59,7 +59,7 @@ module.exports = ({
 		${resources.length > 0
 			? `<div class="u-border-top u-padding-y-wide">
 					${Gallery(
-						resources.map(resource => ResourceCard(...resource)).join('')
+						resources.map(resource => ResourceCard(resource)).join('')
 					)}
 				</div>`
 			: ''
