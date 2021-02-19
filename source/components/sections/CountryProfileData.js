@@ -11,12 +11,69 @@ function getSectionContent (uid, country) {
 }
 
 // --- Sub-components for layout in each section ---
+// display a list of resources in a data section
+function ResourcesGrid (resources, className = '') {
+	return `
+		<aside class="u-padding-top-wide">
+			<h3 class="u-padding-bottom-xxnarrow u-border-bottom">
+				Resources
+			</h3>
+			<div class="u-padding-top | u-hide-overflow">
+				<ul class="c-gutter flush | u-list-undecorated">
+				${resources.map(({ title, documentUrl }) => {
+					return `
+						<li class="u-display-inline-block | c-gutter-item">
+							<a 
+								class="b-button has-icon right | u-position-flex-fill"
+								href="${documentUrl}"
+							>
+								${title}
+								<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								  <polyline points="9 6 15 12 9 18" />
+								</svg>
+							</a>
+						</li>
+					`
+				}).join('')}
+				</ul>
+			</div>
+		</aside>
+	`
+}
+
+// A callout/interstitial to warn of empty data
+function IndicatorCallout (heading, body) {
+	return `
+		<aside class="u-color-bg-well | u-border-radius | u-padding u-padding-y-flow-xnarrow">
+			<div class="c-bookend horizontal | c-gutter narrow">
+				<div class="c-bookend-item left | c-gutter-item | u-type-scale-beta | u-color-fg-highlight">
+					<svg xmlns="http://www.w3.org/2000/svg" class="b-icon xlarge" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					  <path d="M12 9v2m0 4v.01" />
+					  <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+					</svg>
+				</div>
+				<div class="c-bookend-item right fill | c-gutter-item">
+					${ContentWrapper(`
+						<h3>${heading}</h3>
+						${Passage(Markdown(body))}
+					`)}
+				</div>
+			</div>
+		</aside>
+	`
+}
+
 // group data under a heading
-function Section (content, { title, description, className } = {}) {
+function Section (content, { title, description, resources, className } = {}) {
 	return SectionWrapper(`
 		<h2 class="u-type-align-center | u-padding-bottom">${title}</h2>
 		${description ? Passage(Markdown(description)) : ''}
-		${ContentWrapper(content, { width: 'wide' })}
+		${ContentWrapper(`
+			${content}
+			${resources && resources.length > 0 ? ResourcesGrid(resources) : ''}
+		`, { width: 'wide' })}
 	`, { className })
 }
 
@@ -46,11 +103,11 @@ function DataGallery (content) {
 
 // display data cards in a vertical 'stack' with descriptions
 function DataStack (content) {
-	return ContentWrapper(`
+	return `
 		<ul class="u-list-undecorated | u-padding-y-flow">
 			${content}
 		</ul>
-	`, { width: 'wide' })
+	`
 }
 
 function DataStackItem ({ label, number, context, unit, description }) {
@@ -295,7 +352,16 @@ function NurturingCareSection (country, indicators) {
 					number: indicators.basicSanitation
 				})}
 			</li>
-		`), { title: section.subsectionSecurityAndSafety })
+		`), { title: section.subsectionSecurityAndSafety }),
+
+		// Responsive caregiving
+		Subsection(
+			IndicatorCallout(
+				section.indicatorCalloutHeadingDataNeeded,
+				section.indicatorCalloutDescriptionDataNeeded
+			),
+			{ title: section.indicatorSubsectionResponsiveCaregiving }
+		)
 	].join(''), { ...section })
 }
 
