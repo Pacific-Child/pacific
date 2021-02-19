@@ -74,7 +74,7 @@ layout: default
 {% SectionWrapper %}
 	{% ContentWrapper { width: 'wide' } %}
 		<div
-			{# x-data="resourcesSearch()"
+			x-data="resourcesSearch()"
 			x-init="() => {
 				$watch('searchTerm', (value) => {
 					const url = new URL(window.location.href);
@@ -82,7 +82,7 @@ layout: default
 					history.pushState(null, document.title, url.toString());
 				})
 				fetchResources()
-			}" #}
+			}"
 		>
 			<form>
 				<label
@@ -96,28 +96,28 @@ layout: default
 						<input
 							id="searchTerm"
 							name="searchTerm"
-							{# x-model="searchTerm" #}
+							x-model="searchTerm"
 							type="text"
 							placeholder="{{ dato.resourcesIndex.placeholder }}"
-							{# @keydown.enter="fetchResources()" #}
+							@keydown.enter="fetchResources()"
 						>
 					</div>
 					<div class="c-bookend-item c-gutter-item right">
 						<button
 							class="b-button has-icon left"
 							type="submit"
-							{# @click="fetchResources()" #}
-							{# :disabled="isLoading" #}
+							@click="fetchResources()"
+							:disabled="isLoading"
 						>
 							{# Search icon #}
-							<svg class="b-icon b-button-icon" xmlns="http://www.w3.org/2000/svg" {# x-show="!isLoading" #} viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<svg class="b-icon b-button-icon" xmlns="http://www.w3.org/2000/svg" x-show="!isLoading" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
 							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 							  <circle cx="10" cy="10" r="7" />
 							  <line x1="21" y1="21" x2="15" y2="15" />
 							</svg>
 
 							{# Loading icon #}
-							<svg class="b-icon b-button-icon" {# x-show="isLoading" #} x-cloak version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><path fill="currentColor" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+							<svg class="b-icon b-button-icon" x-show="isLoading" x-cloak version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><path fill="currentColor" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
 								<animateTransform
 									attributeType="xml"
 									attributeName="transform"
@@ -138,37 +138,37 @@ layout: default
 			<!-- empty state / no search done -->
 			<p
 				class="u-padding-top-narrow | u-type-style-italic | u-color-fg-secondary"
-				{# x-show="!results" #}
+				x-show="!results"
 			>
 				{{ dato.resourcesIndex.instructions }}
 			</p>
 
 			<!-- search done but no results -->
-			<p class="u-type-scale-beta | u-padding-top-wide" {# x-show="results && totalResults < 1" #}>
+			<p class="u-type-scale-beta | u-padding-top-wide" x-show="results && totalResults < 1">
 				{{ dato.resourcesIndex.noResultsMessage }}
 			</p>
 
 			<!-- results -->
 			<div class="u-padding-top u-padding-y-flow">
 				<h3
-					{# x-show="results && totalResults > 0" #}
+					x-show="results && totalResults > 0"
 					class="u-type-scale-beta"
 				>
-					<strong class="u-color-fg-highlight" {# x-text="totalResults" #}>50</strong> <span class="u-type-weight-light u-type-font-display">{{ dato.resourcesIndex.datasetSuffix }}</span>
+					<strong class="u-color-fg-highlight" x-text="totalResults"></strong> <span class="u-type-weight-light u-type-font-display">{{ dato.resourcesIndex.datasetSuffix }}</span>
 				</h3>
 
-				{# <template x-if="results"> #}
+				<template x-if="results">
 					<ul class="u-list-undecorated | u-margin-y-flow-narrow">
-						{# <template
+						<template
 							x-for="result in results"
 							:key="result.id"
-						> #}
+						>
 							<li class="u-shadow | u-border-radius | u-padding">
 								<article class="u-position-relative">
 									<h4
 										class="u-type-scale-gamma"
-										{# x-text="result.title" #}
-									>Title lorem ipsum dolor sit</h4>
+										x-text="result.title"
+									></h4>
 									
 									{# download link #}
 									<a
@@ -188,9 +188,7 @@ layout: default
 										<div class="c-bookend horizontal@xsmall align-top | c-gutter">
 											<div class="c-bookend-item left fill | c-gutter-item | u-padding-right">
 												{% ContentWrapper %}
-													<p {# x-text="$truncate(result.description, { words: 19, ellipsis: '...' })" #}>
-														Lorem ipsum dolor sit amet vulputate eiusmod massa tristique aliquet. Lectus ullamcorper cras magna aliquam ultrices eleifend convallis magna vitae auctor tincidunt aliquet. Leo libero et hendrerit vitae tellus volutpat dictumst molestie erat cursus. Ullamcorper justo fringilla id eiusmod rhoncus venenatis ut pharetra tincidunt integer fames elementum iaculis purus. Nibh nisi habitasse proin cras egestas mollis phasellus vel netus mauris aenean egestas nullam.
-													</p>
+													<p x-text="$truncate(result.description, { words: 19, ellipsis: '...' })"></p>
 												{% endContentWrapper %}
 											</div>
 
@@ -200,40 +198,38 @@ layout: default
 												c-gutter-item
 												u-type-font-display u-type-weight-normal u-type-scale-zeta u-type-align-center
 												u-color-fg-secondary
+												u-padding-y-flow-narrow
 											">
-												<figure
-													class="u-type-scale-delta | u-no-margin"
-													{# x-bind:class="{ 'u-type-align-center u-padding-y-wide u-color-bg-secondary u-no-margin': !result.imageUrl }" #}
+												<img
+													x-bind:src="result.imageUrl"
+													x-bind:alt="result.title"
+													x-show="result.imageUrl"
+													src=""
+													alt=""
+													class="u-display-block"
+													style="max-width: 12rem;"
 												>
-													<img
-														{# x-bind:src="result.imageUrl" #}
-														src="https://placehold.it/1000x600"
-														alt="" {# x-show="result.imageUrl" #}
-														class="u-display-block"
-														style="max-width: 12rem;"
-													>
-													
-												</figure>
-												<dl class="u-list-undecorated | u-padding-top-narrow |  u-type-align-left">
+												<dl class="u-list-undecorated | u-type-align-left">
 													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">Author:</dt>
 														<dd 
 															class="u-display-inline-block"
-															{# x-text="result.author" #}
-														>Hugh P. Baldwin</dd>
+															x-text="result.author"
+														></dd>
 													</div>
 													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.updated }}:</dt>
 														<dd class="u-display-inline-block">
-															<time {# x-bind:datetime="result.updatedAt" #}>
-																<span {# x-text="formatDate(result.updatedAt)" #}>11.12.2020</span>
+															<time x-bind:datetime="result.updatedAt">
+																<span x-text="formatDate(result.updatedAt)"></span>
 															</time>
 														</dd>
 													</div>
-													<div class="u-margin-x-flow-xxnarrow">
+													{# No data for file type yet? #}
+													{# <div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">File type:</dt>
 														<dd class="u-display-inline-block">PDF</dd>
-													</div>
+													</div> #}
 												</dl>
 											</div>
 										</div>
@@ -243,28 +239,38 @@ layout: default
 									{# <span x-text="result.tags">Test</span> #}
 									<div class="u-padding-top-narrow">
 										<ul class="c-gutter narrow | u-list-undecorated | u-color-fg-secondary">
-											{# <template
+											<template
 												x-for="tag in splitToList(result.tags, ',')"
 												:key="tag"
-											> #}
+											>
 												<li class="c-gutter-item | u-display-inline-block">
 													<a
 														class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated | u-display-inline-block"
 														href="#"
 													>
-														<span {# x-text="tag" #}>Test</span>
+														<span x-text="tag"></span>
 													</a>
 												</li>
-											{# </template> #}
+											</template>
 											<!-- will only need to show the following item if there's four or more tags -->
-											<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ dato.resourcesIndex.moreTags }}</a></li>
+											<li 
+												class="u-display-inline-block u-type-scale-zero"
+												x-show="{result.tags.length > 4}"
+											>
+												<a 
+													href="#" 
+													class="u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block"
+											>
+												+1 {{ dato.resourcesIndex.moreTags }}
+											</a>
+											</li>
 										</ul>
 									</div>
 								</article>
 							</li>
-						{# </template> #}
+						</template>
 					</ul>
-				{# </template> #}
+				</template>
 			</div>
 		</div>
 	{% endContentWrapper %}
