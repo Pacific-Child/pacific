@@ -1,5 +1,5 @@
 // Main header nav
-const Logo = (imageUrl, organizationName, breakpoint) => {
+const Logo = (imageUrl, organizationName, logoBreakpoint) => {
 	return `
 		<a
 			class="
@@ -16,7 +16,7 @@ const Logo = (imageUrl, organizationName, breakpoint) => {
 				alt="${organizationName}"
 				style="max-width: 4.5rem;"
 			>
-			<span class="u-hide-below@${breakpoint}">${organizationName}</span>
+			<span class="u-hide-below@${logoBreakpoint}">${organizationName}</span>
 		</a>
 	`
 }
@@ -42,7 +42,8 @@ module.exports = ({
 	logo = '',
 	items = [],
 	currentPage = '/',
-	breakpoint = 'medium',
+	logoBreakpoint = 'medium',
+	menuBreakpoint = 'xlarge',
 	strings
 } = {}) => {
 	return `
@@ -53,7 +54,7 @@ module.exports = ({
 		">
 			<div class="c-bookend horizontal | c-gutter | u-type-scale-zero">
 				${currentPage !== '/'
-					? Logo('/images/pacific-logo-icon.svg', strings.header_organization_name, breakpoint)
+					? Logo('/images/pacific-logo-icon.svg', strings.header_organization_name, logoBreakpoint)
 					: ''
 				}
 
@@ -61,7 +62,7 @@ module.exports = ({
 				<nav class="c-bookend-item right | c-gutter-item | u-display-inline-block">
 					<ul class="
 						u-display-inline-block
-						u-hide-visually u-show-visually-above@large
+						u-hide-visually u-show-visually-above@${menuBreakpoint}
 						u-margin-x-flow
 					">
 						${items.map(item => NavItem(item, currentPage)).join('')}
@@ -71,7 +72,7 @@ module.exports = ({
 					<a
 						@click.prevent="navOpen = true"
 						x-show.transition.opacity="!navOpen"
-						class="u-display-inline-block | u-hide-above@large | u-type-font-display u-type-scale-delta u-type-link-undecorated"
+						class="u-display-inline-block | u-hide-above@${menuBreakpoint} | u-type-font-display u-type-scale-delta u-type-link-undecorated"
 						href="#footer-nav"
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
