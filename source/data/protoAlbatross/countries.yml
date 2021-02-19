@@ -1,0 +1,559 @@
+# Fiji
+- countryCode: FJ
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Kiribati
+- countryCode: KI
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Niue
+- countryCode: NU
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Marshall Islands
+- countryCode: MH
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Vanuatu
+- countryCode: VU
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Tuvalu
+- countryCode: TV
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Tokelau
+- countryCode: TK
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Fiji
+- countryCode: TK
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Tonga
+- countryCode: TO
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Solomon Islands
+- countryCode: SB
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Samoa
+- countryCode: AS
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# New Guinea
+- countryCode: PG
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Palau
+- countryCode: PW
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Cook Islands
+- countryCode: CK
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Nauru
+- countryCode: NR
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%
+
+# Micronesia
+- countryCode: FM
+  indicators:
+    2021:
+      population: 307150
+      annualBirths: 8838
+      childrenUnderFive: 42080
+      underFiveMortality: 26
+      ecdi: 12.4
+      lifetimeCostOfGrowthDeficit: 139
+      humanCapitalIndex: 0.47
+      maternalMortality: 34000
+      lowBirthweight: null
+      underFiveStunting: 8%
+      childPoverty: 32
+      violentDiscipline: null
+      pretermBirths: 10%
+      youngMothers: null
+      inadequateSupervision: null
+      antenatalCare: 52%
+      postnatalVisits: null
+      earlyInitiationOfBreastfeeding: 85%
+      exclusiveBreastfeeding: 73%
+      minimumAcceptableDiet: null
+      attendanceInECD: 43%
+      earlyStimulationAtHome: 7%
+      childrensBooksAtHome: 91%
+      birthRegistration: 43%
+      positiveDiscipline: 7%
+      basicDrinkingWater: 91%
+      basicSanitation: 34%
+      paidMaternityLeave: 43%
+      paidPaternityLeave: 7%
+      childAndFamilySocialProtection: 91%

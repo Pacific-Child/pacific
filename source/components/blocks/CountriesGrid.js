@@ -3,8 +3,6 @@ const Gallery = require('./Gallery.js')
 module.exports = (countries, {
 	className = ''
 } = {}) => {
-	console.log(countries[0].flag.url)
-
 	return Gallery(
 		countries.map(country => `
 			<li>
