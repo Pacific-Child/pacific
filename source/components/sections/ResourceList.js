@@ -72,7 +72,7 @@ module.exports = ({
 					Gallery(
 						resources.map(resource => ResourceCard(resource)).join(''),
 						{ flex: true }
-					), 
+					),
 					{ width: 'xwide', className: 'u-border-top u-padding-y-wide' }
 				)
 			: ''
