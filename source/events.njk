@@ -22,7 +22,9 @@ maxPosts: 5
 			{% for event in dato.events | toArrayReverse | limit(maxPosts) %}
 				<li class="u-shadow | u-border-radius | u-display-block | u-padding">
 					<h3 class="u-padding-bottom-narrow">
-						<time datetime="{{ event.date }}">{{ event.date | dateFull }}</time>
+						<a href="/events/{{ event.date | datePath }}/">
+							<time datetime="{{ event.date }}">{{ event.date | dateFull }}</time>
+						</a>
 					</h3>
 					<div class="c-bookend horizontal@small reverse | c-gutter narrow">
 						{% if event.photo.url %}
@@ -38,12 +40,11 @@ maxPosts: 5
 								{% Markdown %}{{ event.summary }}{% endMarkdown %}
 							{% endPassage %}
 						</div>
-
 					</div>
 					<div class="u-padding-top-narrow">
 						<a
 							class="b-button has-icon right"
-							href="/events/slug"
+							href="/events/{{ event.date | datePath }}/"
 						>
 							Meeting details
 							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -9,14 +9,37 @@ permalink: '/events/{{ pagination.items[0].date | datePath }}/'
 
 {% set page = pagination.items[0] %}
 
-<header class="u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside u-padding-y-flow-xxnarrow | u-type-align-center">
-	<time
-		class="u-display-block | u-type-heading u-type-scale-alpha"
-		datetime="{{ page.date }}"
-	>
-		{{ page.date | dateFull }}
-	</time>
-	<h1 class="u-type-scale-delta u-type-case-upper u-color-fg-accent">Meeting</h1>
+<header class="u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside u-padding-y-flow-xxnarrow | u-hide-overflow">
+	{% set coverBreakpoint = 'medium' %}
+	{% ContentWrapper { width: 'xwide' } %}
+		<div class="
+			c-bookend horizontal@{{coverBreakpoint}} reverse
+			c-gutter wide
+			u-type-align-center
+			u-hide-overflow
+		">
+			{% if page.photo %}
+				<div class="c-bookend-item right c-gutter-item u-type-align-center">
+					<div class="u-display-inline-block" style="max-width: 30rem;">
+						{% Figure 'https://placehold.it/1000x400', {
+							alt: page.photo.alt,
+							caption: page.photo.caption,
+							credit: page.photo.credit
+						} %}
+					</div>
+				</div>
+			{% endif %}
+			<div class="c-bookend-item left fill | c-gutter-item">
+				<time
+					class="u-display-block | u-type-heading u-type-scale-alpha"
+					datetime="{{ page.date }}"
+				>
+					{{ page.date | dateFull }}
+				</time>
+				<h1 class="u-type-scale-delta u-type-case-upper u-color-fg-accent">Meeting</h1>
+			</div>
+		</div>
+	{% endContentWrapper %}
 </header>
 
 {% SectionWrapper %}
