@@ -1,25 +1,25 @@
 ---
 layout: default
+maxPosts: 5
 ---
 
-{% set page = dato.eventsIndex %}
-
 {% CoverInterior graphics.seascape %}
-	<h1>{{ page.title }}</h1>
-	{% if page.introduction %}
-		{% Passage %}
-			{% Markdown %}{{ page.introduction }}{% endMarkdown %}
+	<h1>{{ dato.eventsIndex.title }}</h1>
+	{% if dato.eventsIndex.introduction %}
+		{% Passage { width: 'narrow', className: 'u-type-scale-gamma' } %}
+			{% Markdown %}{{ dato.eventsIndex.introduction }}{% endMarkdown %}
 		{% endPassage %}
 	{% endif %}
 {% endCoverInterior %}
 
+{# Meetings #}
 {% SectionWrapper %}
 	{% ContentWrapper { width: 'wide' } %}
 		<h2 class="u-type-align-center | u-padding-bottom">Meetings</h2>
 
 		<ul class="u-list-undecorated u-margin-y-flow">
 			{% set totalEvents = dato.events | length %}
-			{% for event in dato.events | toArrayReverse | limit(5) %}
+			{% for event in dato.events | toArrayReverse | limit(maxPosts) %}
 				<li class="u-shadow | u-border-radius | u-display-block | u-padding">
 					<h3 class="u-padding-bottom-narrow">
 						<time datetime="{{ event.date }}">{{ event.date | dateFull }}</time>
@@ -55,7 +55,7 @@ layout: default
 				</li>
 			{% endfor %}
 		</ul>
-		{% if totalEvents > 0 %}
+		{% if totalEvents > maxPosts %}
 			<div class="u-padding-top-wide | u-type-align-center">
 				<a
 					class="b-button has-icon right"
@@ -72,7 +72,53 @@ layout: default
 	{% endContentWrapper %}
 {% endSectionWrapper %}
 
-{% set totalUpdates = dato.updates | toArrayReverse | length %}
-{% if totalUpdates > 0 %}
-	
+{# Updates #}
+{% if dato.updates %}
+	{% set totalUpdates = dato.updates | length %}
+	{% if totalUpdates > 0 %}
+		{% SectionWrapper %}
+			{% ContentWrapper %}
+				<h2 class="u-type-align-center u-padding-bottom">Updates</h2>
+				<ul class="u-list-undecorated u-margin-y-flow">
+					{% for i in [0,1,2,3,4,5] | limit(5) %}
+						<li class="u-border-radius | u-shadow | u-padding">
+								<h3 class="u-padding-bottom-xxnarrow">
+									<a href="/events/page/1">Lorem ipsum dolor sit</a>
+								</h3>
+								<time class="u-type-heading u-type-scale-delta | u-color-fg-secondary | u-padding-bottom-narrow">
+									20 February 2021
+								</time>
+								{% Passage %}
+									<p>Lorem ipsum dolor sit amet tellus feugiat quisque est fames neque in. Iaculis volutpat sagittis nisl do ullamcorper vel tellus donec leo congue mi lobortis hendrerit. Dui proin mollis euismod quis pharetra vel vivamus vulputate lacinia vitae nullam ultricies.</p>
+								{% endPassage %}
+								<a
+									class="u-type-font-display u-type-scale-epsilon u-type-case-upper u-type-weight-bold | u-margin-top-xnarrow | u-display-inline-block"
+									href="/events/page/1"
+								>
+									Read more
+									<svg xmlns="http://www.w3.org/2000/svg" class="b-icon small" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+									  <polyline points="9 6 15 12 9 18" />
+									</svg>
+								</a>
+						</li>
+					{% endfor %}
+				</ul>
+				{% if totalUpdates > maxPosts %}
+					<div class="u-padding-top-wide | u-type-align-center">
+						<a
+							class="b-button has-icon right"
+							href="/events/page/1"
+						>
+							More meetings
+							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <polyline points="9 6 15 12 9 18" />
+							</svg>
+						</a>
+					</div>
+				{% endif %}
+			{% endContentWrapper %}
+		{% endSectionWrapper %}
+	{% endif %}
 {% endif %}
