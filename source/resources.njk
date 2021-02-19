@@ -39,7 +39,8 @@ layout: default
 						this.isLoading = false;
 						this.results = res.data.searchResults.results;
 						this.totalResults = res.data.searchResults.total;
-					});
+					})
+					.catch(error => console.log(error))
 			}
 		}
 	}
