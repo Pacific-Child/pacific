@@ -28,7 +28,18 @@ function Search (resourcesIndex) {
 					>
 				</div>
 				<div class="c-bookend-item c-gutter-item right">
-					<a href="#" x-bind:href="searchPath + searchTerm" class="b-button">${resourcesIndex.button}</a>
+					<a
+						class="b-button large has-icon left" 
+						href="#"
+						x-bind:href="searchPath + searchTerm"
+					>
+						<svg class="b-icon b-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						  <circle cx="10" cy="10" r="7" />
+						  <line x1="21" y1="21" x2="15" y2="15" />
+						</svg>
+						${resourcesIndex.button}
+					</a>
 				</div>
 			</div>
 		</div>
@@ -57,11 +68,13 @@ module.exports = ({
 		</header>
 
 		${resources.length > 0
-			? `<div class="u-border-top u-padding-y-wide">
-					${Gallery(
-						resources.map(resource => ResourceCard(resource)).join('')
-					)}
-				</div>`
+			? ContentWrapper(
+					Gallery(
+						resources.map(resource => ResourceCard(resource)).join(''),
+						{ flex: true }
+					), 
+					{ width: 'xwide', className: 'u-border-top u-padding-y-wide' }
+				)
 			: ''
 		}
 
