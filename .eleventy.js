@@ -69,6 +69,10 @@ module.exports = (config) => {
 		return dateFNS.format(new Date(value), 'd LLLL, yyyy')
 	})
 
+	config.addFilter('datePath', (value) => {
+		return dateFNS.format(new Date(value), 'yyyy/MM/dd')
+	})
+
 	config.addFilter('length', value => Object.values(value).length)
 
 	config.addFilter('limit', (value, number) => value.slice(0, number))
