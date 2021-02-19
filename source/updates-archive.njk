@@ -1,0 +1,83 @@
+---
+layout: default
+pagination:
+  data: dato.updates
+  size: 10
+  resolve: values
+  reverse: true
+permalink: 'updates/page/{{ pagination.pageNumber + 1 }}/'
+---
+
+<header class="u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside | u-type-align-center">
+	<h1>Updates</h1>
+</header>
+
+{% ContentWrapper { width: 'wide', className: 'u-padding-bottom-xwide' } %}
+	<ul class="u-list-undecorated u-margin-y-flow">
+		{% set totalEvents = dato.updates | length %}
+		{% for update in pagination.items %}
+			<li class="u-border-radius | u-shadow | u-padding">
+				<h3 class="u-padding-bottom-xxnarrow">
+					<a href="/updates/{{ update.date | datePath }}">
+						{{ update.title }}
+					</a>
+				</h3>
+				<time 
+					class="u-type-heading u-type-scale-delta | u-color-fg-secondary | u-padding-bottom-narrow"
+					datetime="{{ update.date }}"
+				>
+					{{ update.date | dateFull }}
+				</time>
+				{% Passage %}
+					{% Markdown %}{{ update.summary }}{% endMarkdown %}
+				{% endPassage %}
+				<a
+					class="u-type-font-display u-type-scale-epsilon u-type-case-upper u-type-weight-bold | u-margin-top-xnarrow | u-display-inline-block"
+					href="/updates/{{ update.date | datePath }}/"
+				>
+					Read more
+					<svg xmlns="http://www.w3.org/2000/svg" class="b-icon small" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					  <polyline points="9 6 15 12 9 18" />
+					</svg>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{# Pagination nav #}
+	{% if pagination.pages.length > 1 %}
+		<div class="u-padding-top-xwide | u-type-align-center">
+			<div class="c-bookend horizontal | c-gutter">
+				{% if pagination.pageNumber > 0 %}
+					<div class="c-bookend-item | c-gutter-item">
+						<a
+							class="b-button has-icon left"
+							href="{{ pagination.href.next }}"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <polyline points="15 6 9 12 15 18" />
+							</svg>
+							Next updates
+						</a>
+					</div>
+				{% endif %}
+				{% if pagination.pageNumber < pagination.pages.length - 1 %}
+					<div class="c-bookend-item | c-gutter-item">
+						<a
+							class="b-button has-icon right"
+							href="{{ pagination.href.previous }}"
+						>
+							Previous updates
+							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <polyline points="9 6 15 12 9 18" />
+							</svg>
+						</a>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+{% endContentWrapper %}
