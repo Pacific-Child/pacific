@@ -4,8 +4,9 @@
 @use '../tokens/spacing';
 @use '../tokens/type';
 
-$-padding-y: spacing.get('narrow', 1em);
-$-padding-x: spacing.get($unit: 1em);
+$-padding-y: spacing.get('xnarrow', 1em);
+$-padding-x: spacing.get('narrow', 1em);
+$-baseline-compensation: 0.2em;
 
 // --- base ---
 .b-button {
@@ -20,7 +21,7 @@ $-padding-x: spacing.get($unit: 1em);
 	display: inline-block;
 	font-size: type.scale('delta');
 	line-height: type.leading('tight');
-	padding: $-padding-y $-padding-x ($-padding-y - 0.2em);
+	padding: $-padding-y $-padding-x ($-padding-y - $-baseline-compensation);
 	position: relative;
 
 	&:hover,
@@ -48,37 +49,60 @@ $-padding-x: spacing.get($unit: 1em);
 	}
 }
 
+.b-button.large {
+	$-padding-y: spacing.get('narrow', 1em);
+	$-padding-x: spacing.get('medium', 1em);
+	padding: $-padding-y $-padding-x ($-padding-y - $-baseline-compensation);
+}
+
 .b-button.disabled {
 	@include color.add('secondary');
 	@include color.add-border('secondary');
 }
 
 .b-button.has-icon {
+	// stylelint-disable order/order
 	$-icon-size: 1em;
-	$-icon-margin: spacing.get('narrow', 1em);
-	$-icon-position: spacing.get('narrow', 1em);
+	$-icon-margin: spacing.get('xxnarrow', 1em);
+	$-icon-position: spacing.get('xnarrow', 1em);
+	--icon-size: #{$-icon-size};
+	--icon-margin: #{$-icon-margin};
+	--icon-position: #{$-icon-position};
+
+	&.large {
+		--icon-margin: #{spacing.get('xnarrow', 1em)};
+		--icon-position: #{spacing.get('narrow', 1em)};
+	}
 
 	.b-button-icon {
 		height: $-icon-size;
+		height: var(--icon-size);
 		margin-top: -($-icon-size / 2);
+		margin-top: calc((var(--icon-size) / 2) * -1);
 		position: absolute;
 		top: 50%;
 		width: $-icon-size;
+		width: var(--icon-size);
 	}
 
 	&.left {
 		padding-left: ($-icon-size + $-icon-position + $-icon-margin);
+		padding-left: calc(var(--icon-size) + var(--icon-position) + var(--icon-margin));
 
 		.b-button-icon {
 			left: $-icon-position;
+			left: var(--icon-position);
 		}
 	}
 
 	&.right {
 		padding-right: ($-icon-size + $-icon-position + $-icon-margin);
+		padding-right: calc(var(--icon-size) + var(--icon-position) + var(--icon-margin));
 
 		.b-button-icon {
 			right: $-icon-position;
+			right: var(--icon-position);
 		}
 	}
+	// stylelint-enable order/order
 }

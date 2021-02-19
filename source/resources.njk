@@ -21,13 +21,18 @@ layout: default
 							query {
 								searchResults(query: "${this.searchTerm}", page: ${this.page}, pageSize: ${this.pageSize}) {
 									results {
-										id
-										heading
-										body
-										author
-										updatedAt
-										url
-										imageUrl
+										... on UploadResult {
+												id
+												title
+												types
+												topics
+												author
+												organization
+												source
+												description
+												tags
+											__typename
+										}
 									}
 									total
 								}
@@ -39,7 +44,8 @@ layout: default
 						this.isLoading = false;
 						this.results = res.data.searchResults.results;
 						this.totalResults = res.data.searchResults.total;
-					});
+					})
+					.catch(error => console.log(error))
 			}
 		}
 	}
@@ -48,6 +54,16 @@ layout: default
 		var d = new Date(datetime);
 		return `${month[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 	}
+	function splitToList(string, sep) {
+		// list = string.split(sep);
+		console.log(string)
+		return list;
+	}
+
+	// source_url
+	// release_date
+	// attachment_link
+	// attachment_type
 </script>
 
 {% CoverInterior graphics.seascape %}
@@ -70,7 +86,7 @@ layout: default
 		>
 			<form>
 				<label
-					class="u-padding-bottom-narrow u-display-block u-scale-delta u-type-heading"
+					class="u-padding-bottom-narrow u-display-block u-type-scale-gamma u-type-heading"
 					for="searchTerm"
 				>
 					{{ dato.resourcesIndex.label }}
@@ -88,12 +104,20 @@ layout: default
 					</div>
 					<div class="c-bookend-item c-gutter-item right">
 						<button
-							class="b-button has-icon left"
+							class="b-button large has-icon left"
 							type="submit"
 							@click="fetchResources()"
 							:disabled="isLoading"
 						>
-							<svg class="b-icon b-button-icon" x-show="isLoading" x-cloak version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><path fill="currentColor" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+							{# Search icon #}
+							<svg class="b-icon b-button-icon" xmlns="http://www.w3.org/2000/svg" x-show="!isLoading" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <circle cx="10" cy="10" r="7" />
+							  <line x1="21" y1="21" x2="15" y2="15" />
+							</svg>
+
+							{# Loading icon #}
+							<svg class="b-icon b-button-icon" x-show="isLoading" x-cloak version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><path fill="currentColor" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
 								<animateTransform
 									attributeType="xml"
 									attributeName="transform"
@@ -112,10 +136,15 @@ layout: default
 			</form>
 
 			<!-- empty state / no search done -->
-			<p x-show="!results">{{ dato.resourcesIndex.instructions }}</p>
+			<p
+				class="u-padding-top-narrow | u-type-style-italic | u-color-fg-secondary"
+				x-show="!results"
+			>
+				{{ dato.resourcesIndex.instructions }}
+			</p>
 
 			<!-- search done but no results -->
-			<p class="u-type-scale-beta" x-show="results && totalResults < 1">
+			<p class="u-type-scale-beta | u-padding-top-wide" x-show="results && totalResults < 1">
 				{{ dato.resourcesIndex.noResultsMessage }}
 			</p>
 
@@ -125,7 +154,7 @@ layout: default
 					x-show="results && totalResults > 0"
 					class="u-type-scale-beta"
 				>
-					<strong class="u-color-fg-highlight" x-text="totalResults"></strong> <span class="u-type-weight-light">{{ dato.resourcesIndex.datasetSuffix }}</span>
+					<strong class="u-color-fg-highlight" x-text="totalResults"></strong> <span class="u-type-weight-light u-type-font-display">{{ dato.resourcesIndex.datasetSuffix }}</span>
 				</h3>
 
 				<template x-if="results">
@@ -134,73 +163,103 @@ layout: default
 							x-for="result in results"
 							:key="result.id"
 						>
-							<li class="u-border u-border-radius u-padding">
-								<article class="c-bookend align-top c-gutter narrow horizontal@xsmall">
-									<div class="c-bookend-item c-gutter-item fill | u-position-relative u-padding-right | c-content-width xwide">
-										<div class="u-padding-right">
-											<h4 class="u-type-scale-gamma" x-text="result.heading"></h4>
-											<p x-text="$truncate(result.body, { words: 19, ellipsis: '...' })"></p>
-											<ul class="c-gutter narrow | u-list-undecorated | u-color-fg-secondary">
-												{% for item in [0, 1, 2, 3] %}
-													<li class="c-gutter-item | u-display-inline-block u-type-scale-zero">
-														<a
-															class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated | u-display-inline-block"
-															href="#"
-														>
-															tag
-														</a>
-													</li>
-												{% endfor %}
-												<!-- will only need to show the following item if there's four or more tags -->
-												<li class="u-display-inline-block u-type-scale-zero"><a href="#" class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated u-display-inline-block">+1 {{ dato.resourcesIndex.moreTags }}</a></li>
-											</ul>
+							<li class="u-shadow | u-border-radius | u-padding">
+								<article class="u-position-relative">
+									<h4
+										class="u-type-scale-gamma"
+										x-text="result.title"
+									></h4>
+									
+									{# download link #}
+									<a
+										class="u-position-absolute u-position-top-right | u-type-link-undecorated u-type-scale-delta | u-color-fg-accent"
+										href="#"
+									>
+										<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+											<line x1="4" y1="20" x2="20" y2="20" />
+											<line x1="12" y1="14" x2="12" y2="4" />
+											<line x1="12" y1="14" x2="16" y2="10" />
+											<line x1="12" y1="14" x2="8" y2="10" />
+										</svg>
+									</a>
+
+									<div class="u-padding-top-narrow">
+										<div class="c-bookend horizontal@xsmall align-top | c-gutter">
+											<div class="c-bookend-item left fill | c-gutter-item | u-padding-right">
+												{% ContentWrapper %}
+													<p x-text="$truncate(result.description, { words: 19, ellipsis: '...' })"></p>
+												{% endContentWrapper %}
+											</div>
+
+											{# Result metadata #}
+											<div class="
+												c-bookend-item right
+												c-gutter-item
+												u-type-font-display u-type-weight-normal u-type-scale-zeta u-type-align-center
+												u-color-fg-secondary
+												u-padding-y-flow-narrow
+											">
+												<img
+													x-bind:src="result.imageUrl"
+													x-bind:alt="result.title"
+													x-show="result.imageUrl"
+													src=""
+													alt=""
+													class="u-display-block"
+													style="max-width: 12rem;"
+												>
+												<dl class="u-list-undecorated | u-type-align-left">
+													<div class="u-margin-x-flow-xxnarrow">
+														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">Author:</dt>
+														<dd 
+															class="u-display-inline-block"
+															x-text="result.author"
+														></dd>
+													</div>
+													<div class="u-margin-x-flow-xxnarrow">
+														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.updated }}:</dt>
+														<dd class="u-display-inline-block">
+															<time x-bind:datetime="result.updatedAt">
+																<span x-text="formatDate(result.updatedAt)"></span>
+															</time>
+														</dd>
+													</div>
+													{# No data for file type yet? #}
+													{# <div class="u-margin-x-flow-xxnarrow">
+														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">File type:</dt>
+														<dd class="u-display-inline-block">PDF</dd>
+													</div> #}
+												</dl>
+											</div>
 										</div>
-										<a
-											class="u-position-absolute u-position-top-right | u-type-link-undecorated u-type-scale-delta | u-color-fg-accent"
-											href="#"
-										>
-											<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-												<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-												<line x1="4" y1="20" x2="20" y2="20" />
-												<line x1="12" y1="14" x2="12" y2="4" />
-												<line x1="12" y1="14" x2="16" y2="10" />
-												<line x1="12" y1="14" x2="8" y2="10" />
-											</svg>
-										</a>
 									</div>
-									<div class="c-bookend-item c-gutter-item | u-border-left u-margin-left | u-type-font-display u-type-weight-normal u-type-scale-zeta | u-color-fg-secondary">
-										<div class="u-padding-left">
-											<figure class="u-type-scale-delta" x-bind:class="{ 'u-type-align-center u-padding-y-wide u-color-bg-secondary u-no-margin': !result.imageUrl }">
-												<img x-bind:src="result.imageUrl" src="" alt="" x-show="result.imageUrl" class="u-display-block">
-												<svg x-show="!result.imageUrl" xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-													<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-													<line x1="3" y1="3" x2="21" y2="21" />
-													<line x1="15" y1="8" x2="15.01" y2="8" />
-													<path d="M19.121 19.122a3 3 0 0 1 -2.121 .878h-10a3 3 0 0 1 -3 -3v-10c0 -.833 .34 -1.587 .888 -2.131m3.112 -.869h9a3 3 0 0 1 3 3v9" />
-													<path d="M4 15l4 -4c.928 -.893 2.072 -.893 3 0l5 5" />
-													<path d="M16.32 12.34c.577 -.059 1.162 .162 1.68 .66l2 2" />
-												</svg>
-											</figure>
-											<p x-text="result.author"></p>
-											<time x-bind:datetime="result.updatedAt">
-												{{ dato.resourcesIndex.updated }} <span x-text="formatDate(result.updatedAt)"></span>
-											</time>
-											<p>File type:</p>
-										</div>
+
+									{# Topics/tags #}
+									{# Just show all the tags here, no need for a "see more" flyout thingy - they can just wrap #}
+									<div class="u-padding-top-narrow">
+										<ul class="c-gutter narrow | u-list-undecorated | u-color-fg-secondary">
+											<template
+												x-for="tag in splitToList(result.tags, ',')"
+												:key="tag"
+											>
+												<li class="c-gutter-item | u-display-inline-block">
+													<a
+														class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated | u-display-inline-block"
+														href="#"
+													>
+														<span x-text="tag"></span>
+													</a>
+												</li>
+											</template>
+										</ul>
 									</div>
 								</article>
 							</li>
 						</template>
 					</ul>
 				</template>
-			</div></div>
-									</div>
-								</article>
-							</li>
-						</template>
-					</ul>
-				</template>
-			</span>
+			</div>
 		</div>
 	{% endContentWrapper %}
 {% endSectionWrapper %}

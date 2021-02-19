@@ -28,7 +28,7 @@ title: Home
 			</p>
 		{% endContentWrapper %}
 		<a
-			class="b-button has-icon right"
+			class="b-button large has-icon right"
 			href="/{{dato.home.cover.callToAction.link.slug}}/"
 		>
 			{{dato.home.cover.callToAction.label}}
@@ -98,5 +98,5 @@ title: Home
 {% endCover %}
 
 <div id="body">
-	{% PageContent dato.home.sections, resourcesIndex %}
+	{% PageContent dato.home.sections, dato.resourcesIndex %}
 </div>

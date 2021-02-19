@@ -17,6 +17,10 @@
 	.u-color-bg-#{$role} {
 		@include color.add-bg($role);
 	}
+
+	.u-color-border-#{$role} {
+		@include color.add-border($role);
+	}
 }
 
 @each $theme, $roles in color.$palette {

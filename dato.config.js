@@ -11,6 +11,7 @@ module.exports = ({
 	pages,
 	events,
 	updates,
+	resources,
 	countryProfiles: countries,
 	siteConfiguration: site,
 	contactForm,
@@ -166,6 +167,17 @@ module.exports = ({
 		return 0
 	})
 	root.createDataFile(`${path}/countries.json`, 'json', countryList)
+
+	// featured resources
+	root.createDataFile(`${path}/resources.json`, 'json', resources.map((resource) => {
+		return {
+			title: resource.title,
+			dataSourceName: resource.dataSourceName,
+			documentUrl: resource.documentUrl,
+			type: resource.resourceType,
+			updatedAt: resource.updatedAt
+		}
+	}))
 
 	// contact page
 	root.createDataFile(`${path}/contactForm.json`, 'json', {
