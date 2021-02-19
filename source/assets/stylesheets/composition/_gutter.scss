@@ -7,6 +7,11 @@
 .c-gutter {
 	margin: -(spacing.get());
 	padding: (spacing.get() / 2);
+
+	&.flush {
+		margin: -(spacing.get() / 2);
+		padding: 0;
+	}
 }
 
 // --- modifiers
@@ -15,6 +20,11 @@
 		.c-gutter.#{$name} {
 			margin: -(spacing.get($name));
 			padding: (spacing.get($name) / 2);
+
+			&.flush {
+				margin: -(spacing.get($name) / 2);
+				padding: 0;
+			}
 
 			.c-gutter-item {
 				padding: (spacing.get($name) / 2);

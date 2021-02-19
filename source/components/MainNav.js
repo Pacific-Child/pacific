@@ -1,4 +1,25 @@
 // Main header nav
+const Logo = (imageUrl, organizationName, logoBreakpoint) => {
+	return `
+		<a
+			class="
+				c-bookend-item left
+				c-gutter-item
+				u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated
+				u-no-margin
+			"
+			href="/"
+		>
+			<img
+				class="b-logo icon | u-margin-right-narrow"
+				src="${imageUrl}"
+				alt="${organizationName}"
+				style="max-width: 4.5rem;"
+			>
+			<span class="u-hide-below@${logoBreakpoint}">${organizationName}</span>
+		</a>
+	`
+}
 
 const NavItem = (item, currentPage) => {
 	return `
@@ -21,34 +42,19 @@ module.exports = ({
 	logo = '',
 	items = [],
 	currentPage = '/',
-	breakpoint = 'medium',
+	logoBreakpoint = 'medium',
+	menuBreakpoint = 'xlarge',
 	strings
 } = {}) => {
 	return `
 		<header class="
 			u-padding-y-narrow u-padding-x-outside
 			u-position-absolute u-position-top-full u-position-z-middle
+			u-hide-overflow
 		">
 			<div class="c-bookend horizontal | c-gutter | u-type-scale-zero">
 				${currentPage !== '/'
-					? `<!-- logo -->
-						<a
-							class="
-								c-bookend-item left
-								c-gutter-item
-								u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated
-								u-no-margin
-							"
-							href="/"
-						>
-							<img
-								class="b-logo icon | u-margin-right-narrow"
-								src="/images/pacific-logo-icon.svg"
-								alt="${strings.header_organization_name}"
-								style="max-width: 4.5rem;"
-							>
-							<span class="u-hide-below@${breakpoint}">${strings.header_organization_name}</span>
-						</a>`
+					? Logo('/images/pacific-logo-icon.svg', strings.header_organization_name, logoBreakpoint)
 					: ''
 				}
 
@@ -56,7 +62,7 @@ module.exports = ({
 				<nav class="c-bookend-item right | c-gutter-item | u-display-inline-block">
 					<ul class="
 						u-display-inline-block
-						u-hide-visually u-show-visually-above@large
+						u-hide-visually u-show-visually-above@${menuBreakpoint}
 						u-margin-x-flow
 					">
 						${items.map(item => NavItem(item, currentPage)).join('')}
@@ -66,7 +72,7 @@ module.exports = ({
 					<a
 						@click.prevent="navOpen = true"
 						x-show.transition.opacity="!navOpen"
-						class="u-display-inline-block | u-hide-above@large | u-type-font-display u-type-scale-delta u-type-link-undecorated"
+						class="u-display-inline-block | u-hide-above@${menuBreakpoint} | u-type-font-display u-type-scale-delta u-type-link-undecorated"
 						href="#footer-nav"
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

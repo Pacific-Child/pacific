@@ -3,12 +3,13 @@
 
 module.exports = (content, {
 	className = '',
-	tag = 'section'
+	tag = 'section',
+	paddingClasses = 'u-padding-y-xwide u-padding-x-outside'
 } = {}) => {
 	return `
 		<${tag} class="
 			u-border-top
-			u-padding-y-xwide u-padding-x-outside
+			${paddingClasses}
 			${className}
 		">
 			${content}

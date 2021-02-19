@@ -1,30 +1,36 @@
+// Timeline block
+// clickable buttons that display in a sequence, used to display tab content
 @use '../tokens/color';
 @use '../tokens/spacing';
+@use '../tokens/type';
+@use '../tokens/breakpoints' as bp;
 
 $-line-h: 0.5rem;
-$-dot-h: 1rem;
+$-dot-size: 2.2rem;
 $-padding: spacing.get('narrow');
-$-line-top: (($-dot-h - $-line-h) / 2);
+$-line-top: (($-dot-size - $-line-h) / 2);
 
-// the clickable buttons that trigger the visibility of tab content
+// use with .u-show@js to ensure the tabs are hidden when JS is not available
 .b-timeline {
+	counter-reset: dots;
 	display: block;
 	list-style: none;
+	margin-top: -#{($-dot-size - $-line-h) / 2};
 	overflow-x: scroll;
 	padding-left: 0;
-	padding-top: ($-padding + $-dot-h);
 	position: relative;
 	text-align: center;
+	
 
 	@supports (display: flex) {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 	}
 
 	&::before {
-		@include color.add-bg('border');
-		border-radius: 1000000px;
+		@include color.add-bg('primary');
 		content: '';
+		counter-reset: dots;
 		display: block;
 		height: $-line-h;
 		left: 0;
@@ -32,30 +38,52 @@ $-line-top: (($-dot-h - $-line-h) / 2);
 		right: 0;
 		top: $-line-top;
 	}
+
+	> li {
+		display: inline-block;
+		position: relative;
+	}
+
+	// stylelint-disable selector-max-compound-selectors
+	// need this selector to override default list behavior
+	> li + li {
+		padding-top: 0;
+	}
+	// stylelint-enable selector-max-compound-selectors
 }
 
 .b-timeline-item {
 	display: inline-block;
+	min-width: $-dot-size;
 	position: relative;
 
-	@supports (flex: 1) {
-		flex: 1;
-	}
-
 	&::before {
-		background-color: currentColor;
+		@include color.add('bg');
+		@include color.add-bg('primary');
+		@include color.add-border('bg');
+		@include type.font('display');
 		border-radius: 10000000px;
-		content: '';
+		border-style: solid;
+		border-width: 1px;
+		content: counter(dots);
+		counter-increment: dots;
 		display: block;
-		height: $-dot-h;
-		left: 50%;
-		margin-left: -#{$-dot-h / 2};
-		position: absolute;
-		top: -#{$-padding + $-dot-h};
-		width: $-dot-h;
+		height: $-dot-size;
+		line-height: $-dot-size;
+		margin: 0 auto $-padding;
+		position: relative;
+		text-align: center;
+		transition: background-color 0.25s ease-in-out;
+		width: $-dot-size;
 	}
 
-	& + & {
-		padding-top: 0;
+	&:hover,
+	&:active,
+	&.current {
+		@include color.add('highlight');
+
+		&::before {
+			@include color.add-bg('highlight');
+		}
 	}
 }

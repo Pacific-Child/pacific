@@ -9,11 +9,13 @@ $-padding-x: spacing.get($unit: 1em);
 
 // --- base ---
 .b-button {
-	@include color.add('highlight');
-	@include color.add-bg();
+	@include color.add('primary');
+	@include color.add-border('primary');
 	@include type.font('display', 'bold');
-	border: 2px solid color.get('highlight');
+	background: transparent;
 	border-radius: 0.2em;
+	border-style: solid;
+	border-width: 2px;
 	cursor: pointer;
 	display: inline-block;
 	font-size: type.scale('delta');
@@ -23,12 +25,26 @@ $-padding-x: spacing.get($unit: 1em);
 
 	&:hover,
 	&:active {
-		filter: brightness(1.1);
+		@include color.add('primary');
+		@include color.add-border('primary');
+		filter: brightness(1.5);
 	}
 
 	&:hover {
 		box-shadow: 0 2px 5px color.get('shadow');
 		box-shadow: 0 2px 5px var(--color-shadow);
+	}
+}
+
+.b-button.primary {
+	@include color.add('highlight');
+	@include color.add-border('highlight');
+
+	&:hover,
+	&:active {
+		@include color.add('highlight');
+		@include color.add-border('highlight');
+		filter: brightness(1);
 	}
 }
 

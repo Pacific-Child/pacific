@@ -1,9 +1,16 @@
 .b-icon {
+	$size: 1.5em;
 	display: inline-block;
-	height: 1.5em;
+	height: $size;
 	margin-top: -0.3em;
 	max-height: 100%;
 	max-width: 100%;
 	vertical-align: middle;
-	width: 1.5em;
+	width: $size;
+
+	&.small {
+		$size: 0.8em;
+		height: $size;
+		width: $size;
+	}
 }

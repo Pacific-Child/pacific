@@ -1,0 +1,130 @@
+---
+layout: default
+maxPosts: 5
+---
+
+{% CoverInterior graphics.seascape %}
+	<h1>{{ dato.eventsIndex.title }}</h1>
+	{% if dato.eventsIndex.introduction %}
+		{% Passage { width: 'narrow', className: 'u-type-scale-gamma' } %}
+			{% Markdown %}{{ dato.eventsIndex.introduction }}{% endMarkdown %}
+		{% endPassage %}
+	{% endif %}
+{% endCoverInterior %}
+
+{# Meetings #}
+{% SectionWrapper %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h2 class="u-type-align-center | u-padding-bottom">Meetings</h2>
+
+		<ul class="u-list-undecorated u-margin-y-flow">
+			{% set totalEvents = dato.events | length %}
+			{% for event in dato.events | toArrayReverse | limit(maxPosts) %}
+				<li class="u-shadow | u-border-radius | u-display-block | u-padding">
+					<h3 class="u-padding-bottom-narrow">
+						<a href="/events/{{ event.date | datePath }}/">
+							<time datetime="{{ event.date }}">{{ event.date | dateFull }}</time>
+						</a>
+					</h3>
+					<div class="c-bookend horizontal@small reverse | c-gutter narrow">
+						{% if event.photo.url %}
+							<div
+								class="c-bookend-item left | c-gutter-item"
+								style="max-width: 16rem;"
+							>
+								<img src="{{ event.photo.url }}" alt="{{ event.photo.alt }}">
+							</div>
+						{% endif %}
+						<div class="c-bookend-item right fill | c-gutter-item">
+							{% Passage { centered: false } %}
+								{% Markdown %}{{ event.summary }}{% endMarkdown %}
+							{% endPassage %}
+						</div>
+					</div>
+					<div class="u-padding-top-narrow">
+						<a
+							class="b-button has-icon right"
+							href="/events/{{ event.date | datePath }}/"
+						>
+							Meeting details
+							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <polyline points="9 6 15 12 9 18" />
+							</svg>
+						</a>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+		{% if totalEvents > maxPosts %}
+			<div class="u-padding-top-wide | u-type-align-center">
+				<a
+					class="b-button has-icon right"
+					href="/events/page/1"
+				>
+					More meetings
+					<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					  <polyline points="9 6 15 12 9 18" />
+					</svg>
+				</a>
+			</div>
+		{% endif %}
+	{% endContentWrapper %}
+{% endSectionWrapper %}
+
+{# Updates #}
+{% if dato.updates %}
+	{% set totalUpdates = dato.updates | length %}
+	{% if totalUpdates > 0 %}
+		{% SectionWrapper %}
+			{% ContentWrapper %}
+				<h2 class="u-type-align-center u-padding-bottom">Updates</h2>
+				<ul class="u-list-undecorated u-margin-y-flow">
+					{% for update in dato.updates | toArrayReverse | limit(5) %}
+						<li class="u-border-radius | u-shadow | u-padding">
+							<h3 class="u-padding-bottom-xxnarrow">
+								<a href="/updates/{{ update.date | datePath }}">
+									{{ update.title }}
+								</a>
+							</h3>
+							<time 
+								class="u-type-heading u-type-scale-delta | u-color-fg-secondary | u-padding-bottom-narrow"
+								datetime="{{ update.date }}"
+							>
+								{{ update.date | dateFull }}
+							</time>
+							{% Passage %}
+								{% Markdown %}{{ update.summary }}{% endMarkdown %}
+							{% endPassage %}
+							<a
+								class="u-type-font-display u-type-scale-epsilon u-type-case-upper u-type-weight-bold | u-margin-top-xnarrow | u-display-inline-block"
+								href="/updates/{{ update.date | datePath }}/"
+							>
+								Read more
+								<svg xmlns="http://www.w3.org/2000/svg" class="b-icon small" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								  <polyline points="9 6 15 12 9 18" />
+								</svg>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+				{% if totalUpdates > maxPosts %}
+					<div class="u-padding-top-wide | u-type-align-center">
+						<a
+							class="b-button has-icon right"
+							href="/events/page/1"
+						>
+							More updates
+							<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							  <polyline points="9 6 15 12 9 18" />
+							</svg>
+						</a>
+					</div>
+				{% endif %}
+			{% endContentWrapper %}
+		{% endSectionWrapper %}
+	{% endif %}
+{% endif %}

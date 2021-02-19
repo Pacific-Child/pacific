@@ -1,0 +1,144 @@
+---
+layout: default
+pagination:
+  data: dato.countries
+  size: 1
+  resolve: values
+permalink: 'countries/{{ pagination.items[0].slug }}/'
+---
+
+{% set country = pagination.items[0] %}
+
+{% SectionWrapper {
+	paddingClasses: 'u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside',
+	className: 'u-type-align-center'
+} %}
+	{% set flagHeight = '3rem' %}
+	<p 
+		class="
+			u-type-heading u-type-case-upper u-type-scale-delta
+			u-color-secondary
+			u-padding-bottom-narrow u-margin-x-flow-xxnarrow
+		"
+		style="line-height: {{ flagHeight }};"
+	>
+		<span class="u-display-inline-block | u-position-vertical-align-middle">
+			Country
+		</span>
+		<img
+			class="u-display-inline-block | u-position-vertical-align-middle | u-border-round"
+			style="height: {{ flagHeight }}; margin-top: -0.2rem;"
+			src="{{ country.flag.url }}"
+			alt="{{ country.name }} flag"
+		>
+		<span class="u-display-inline-block | u-position-vertical-align-center">
+			Profile
+		</span>
+	</p>
+	<h1>{{ country.name }}</h1>
+	{% if country.introduction %}
+		{% Passage { width: 'narrow', className: 'u-type-align-left u-type-scale-gamma | u-padding-top' } %}
+			{% Markdown %}{{ country.introduction }}{% endMarkdown %}
+		{% endPassage %}
+	{% endif %}
+{% endSectionWrapper %}
+
+{# Demographics #}
+{% SectionWrapper %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h2 class="u-type-align-center u-padding-bottom">Demographics</h2>
+		{% Gallery { flex: true } %}
+			{% for stat in countryTestData.demographics %}
+				<li>
+					{% StatCard {
+						title: stat.title,
+						number: stat.number,
+						context: stat.context,
+						unit: stat.unit,
+						className: 'u-position-flex-fill'
+					} %}
+				</li>
+			{% endfor %}
+		{% endGallery %}
+	{% endContentWrapper %}
+{% endSectionWrapper %}
+
+{# ECD Indices #}
+{% SectionWrapper { className: 'u-hide-overflow' } %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h2 class="u-type-align-center u-padding-bottom">ECD Indices</h2>
+		<ul class="u-list-undecorated | u-padding-y-flow">
+			{% for stat in countryTestData.ecd_indexes %}
+				<li class="u-display-block">
+					<div class="u-color-bg-well u-border-radius">
+						<div class="c-bookend horizontal@xsmall align-stretch">
+							<div class="c-bookend-item left flex | u-padding-y-flow-xxnarrow">
+								{% StatCard {
+									title: stat.title,
+									number: stat.number,
+									context: stat.context,
+									unit: stat.unit,
+									className: 'u-position-flex-fill',
+									contentWidth: '12rem'
+								} %}
+							</div>
+							<div class="c-bookend-item right fill flex | u-padding-narrow">
+								{% Passage { centered: false } %}
+									{% Markdown %}{{ stat.description }}{% endMarkdown %}
+								{% endPassage %}
+							</div>
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endContentWrapper %}
+{% endSectionWrapper %}
+
+{# Threats #}
+{% SectionWrapper %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h2 class="u-type-align-center u-padding-bottom">
+			Threats to early childhood development
+		</h2>
+		{% Gallery { flex: true } %}
+			{% for stat in countryTestData.demographics %}
+				<li>
+					{% StatCard {
+						title: stat.title,
+						number: stat.number,
+						context: stat.context,
+						className: 'u-position-flex-fill'
+					} %}
+				</li>
+			{% endfor %}
+		{% endGallery %}
+	{% endContentWrapper %}
+{% endSectionWrapper %}
+
+{# Nurturing care #}
+{% SectionWrapper %}
+	{% ContentWrapper { width: 'wide' } %}
+		<h2 class="u-type-align-center">
+			Nurturing care
+		</h2>
+		{% for section in countryTestData.nurturing_care %}
+			<section class="u-border-top | u-margin-top-wide u-padding-top-wide">
+				<h3 class="u-padding-bottom">{{ section.title }}</h3>
+				{% Gallery { flex: true } %}
+					{% for stat in section.stats %}
+						<li>
+							{% StatCard {
+								title: stat.title,
+								number: stat.number,
+								context: stat.context,
+								unit: stat.unit,
+								className: 'u-position-flex-fill'
+							} %}
+						</li>
+					{% endfor %}
+				{% endGallery %}
+			</section>
+		{% endfor %}
+	{% endContentWrapper %}
+{% endSectionWrapper %}

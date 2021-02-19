@@ -5,48 +5,98 @@ title: Home
 
 {% Cover {
 	contentWidth: false,
-	className: 'u-type-align-center | u-margin-y-flow u-padding-x-outside u-padding-top-xwide'
+	className: 'u-padding-x-outside u-padding-top'
 } %}
-	{# Figure out how to mark this up - hide text? #}
-	<h1 class="b-logo full vertical u-type-scale-zero">
-		<img
-			class="u-display-inline-block"
-			src="/images/pacific-logo-vertical.svg"
-			alt="{{home.cover.logo.alt}}"
-		>
-		<span class="u-hide-visually">{{site.organization}}</span>
-	</h1>
-	{% ContentWrapper %}
-		<p class="u-type-heading u-type-weight-light u-type-scale-delta u-color-fg-secondary">
-			{% Markdown true %}{{home.cover.introduction}}{% endMarkdown %}
-		</p>
-	{% endContentWrapper %}
-	<a
-		class="b-button has-icon right"
-		href="/{{home.cover.callToAction.link.slug}}/"
-	>
-		{{home.cover.callToAction.label}}
-		<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-		  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-		  <polyline points="9 6 15 12 9 18" />
-		</svg>
-	</a>
 
-	<div class="
-	  u-position-absolute u-position-bottom-full
-	  u-type-scale-gamma
-	  u-padding-y-narrow
-	  u-color-fg-secondary
-	">
-	  <a href="#body" class="u-no-border-bottom u-display-block u-anim-bounce">
-	  	<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-		    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-		    <polyline points="6 9 12 15 18 9" />
-		  </svg>
+	{# Content #}
+	<div class="u-type-align-center | u-margin-y-flow-wide | u-position-z-middle">
+
+		{# Logo #}
+		<h1 class="b-logo full vertical u-type-scale-zero">
+			<img
+				class="u-display-inline-block"
+				src="{{graphics.logo.vertical}}"
+				alt="Pacific Child logo"
+			>
+			<span class="u-hide-visually">{{dato.site.organization}}</span>
+		</h1>
+
+		{# Intro #}
+		{% ContentWrapper %}
+			<p class="u-type-scale-gamma">
+				{% Markdown true %}{{dato.home.cover.introduction}}{% endMarkdown %}
+			</p>
+		{% endContentWrapper %}
+		<a
+			class="b-button has-icon right"
+			href="/{{dato.home.cover.callToAction.link.slug}}/"
+		>
+			{{dato.home.cover.callToAction.label}}
+			<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			  <polyline points="9 6 15 12 9 18" />
+			</svg>
 		</a>
+			
+		{# Call to action #}
+		<div class="
+		  u-position-absolute u-position-bottom-full
+		  u-type-scale-gamma
+		  u-padding-y-narrow
+		  u-color-fg-secondary
+		">
+		  <a 
+		  	class="u-no-border-bottom | u-display-block | u-anim-bounce | u-color-fg-primary"
+		  	href="#body" 
+	  	>
+		  	<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			    
+			    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			    <polyline points="6 9 12 15 18 9" />
+			  </svg>
+			</a>
+		</div>
+	</div>
+
+	{# Seascape graphics #}
+	<div class="b-seascape | u-position-z-low">
+		<div class="b-seascape-bg | u-color-bg-sky">
+			{% for element in graphics.seascape.elements %}
+				<picture class="b-seascape-element">
+					{%  for size in graphics.seascape.sizes %}
+						<source 
+							srcset="/images/seascape/{{size.name}}/{{element.name}}.svg {{size.width}}w" 
+							media="(min-width: {{size.breakpoint}})"
+						>
+					{% endfor %}
+					<img src="/images/seascape/small/{{element.name}}.svg" alt="element.alt">
+				</picture>
+			{% endfor %}
+		</div>
+		<div class="b-seascape-water | u-color-bg-water">
+			<picture class="b-seascape-element top">
+				{%  for size in graphics.seascape.sizes %}
+					<source 
+						srcset="/images/seascape/{{size.name}}/reflections.svg {{size.width}}w" 
+						media="(min-width: {{size.breakpoint}})"
+					>
+				{% endfor %}
+				<img src="/images/seascape/small/reflections.svg" alt="Seascape reflections">
+			</picture>
+			<img 
+				class="b-seascape-ripple left"
+				src="/images/seascape/ripples/left.svg" 
+				alt="Seascape ripples" 
+			>
+			<img 
+				class="b-seascape-ripple right"
+				src="/images/seascape/ripples/right.svg" 
+				alt="Seascape ripples" 
+			>
+		</div>
 	</div>
 {% endCover %}
 
 <div id="body">
-	{% PageContent home.sections, resourcesIndex %}
+	{% PageContent dato.home.sections, resourcesIndex %}
 </div>

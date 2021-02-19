@@ -107,3 +107,14 @@
 		}
 	}
 }
+
+// fix collapsed margins on the first child elements
+.u-margin-fix-collapse-top {
+	margin-top: -1px;
+	padding-top: 1px;
+}
+
+// push something to the bottom of a flex container
+.u-margin-top-auto {
+	margin-top: auto;
+}

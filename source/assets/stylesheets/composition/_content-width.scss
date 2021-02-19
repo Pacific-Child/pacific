@@ -6,14 +6,19 @@
 	max-width: 70ch;
 
 	// variations
+	&.narrow {
+		max-width: 25rem;
+		max-width: 50ch;
+	}
+
 	&.wide {
 		max-width: 64rem;
 		max-width: 100ch;
 	}
 
 	&.xwide {
-		max-width: 90rem;
-		max-width: 175ch;
+		max-width: 75rem;
+		max-width: 150ch;
 	}
 
 	&.centered {

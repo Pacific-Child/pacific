@@ -1,0 +1,65 @@
+// Map block
+// -> display an interactive map of PRC countries
+@use '../tokens/color';
+@use '../tokens/breakpoints' as bp;
+
+$-bg-sizes: (
+	'small': 1000,
+	'medium': 1600,
+	'large': 2400
+);
+
+$-duration: 0.25s;
+$-translate: -0.2rem;
+
+.map {
+	background-image: url('/images/map/map-background@600w.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: block;
+	margin: 0;
+	width: 100%;
+
+	@each $size, $width in $-bg-sizes {
+		@include bp.query($size) {
+			background-image: url('/images/map/map-background@#{$width}w.png');
+		}
+	}
+}
+
+.map-island {
+	@include color.add('secondary');
+	transition: color #{$-duration} ease-in;
+	will-change: color;
+
+	circle {
+		@include color.add('bg');
+		transition: filter #{$-duration} ease, 
+			transform #{$-duration} ease, 
+			color #{$-duration} ease;
+		will-change: filter, transform;
+	}
+
+	path {
+		transition: transform #{$-duration} ease;
+		will-change: transform;
+	}
+
+	&:hover {
+		@include color.add('primary');
+
+		a {
+			@include color.add('primary');
+		}
+
+		circle {
+			@include color.add('highlight');
+			transform: translateY(#{$-translate});
+		}
+
+		path {
+			transform: translateY(#{$-translate});
+		}
+	}
+}

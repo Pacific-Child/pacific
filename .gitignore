@@ -3,5 +3,7 @@
 build
 node_modules
 .env
-source/data
 source/assets/images/.DS_Store
+
+# data from the CMS
+source/data/dato

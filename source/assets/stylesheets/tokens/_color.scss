@@ -1,34 +1,47 @@
 // Color design tokens
-
 @use 'sass:map';
 @use 'bourbon';
 
-$-light-pink: #ff99b7;
-$-pink: #fd5486;
-$-dark-purple: #423757;
-$-light-purple: #7759b1;
+$-aqua: #4fa2ad; //187 37 49
+$-aqua-dark: #19464c; //187 50 20
+$-coral: #ff9886;
+$-coral-light: #ffb4a7;
 $-white: #fff;
+
+$-shadow-opacity: 0.3;
 
 // Utility classes
 // -> global element styles: lists, text, images, etc.
 $palette: (
+	'dark': (
+		'bg': $-aqua-dark,
+		'border': bourbon.tint($-aqua-dark, 20),
+		'well': bourbon.tint($-aqua-dark, 10),
+		'highlight': $-coral,
+		'accent': $-aqua,
+		'primary': $-white,
+		'secondary': bourbon.tint($-aqua-dark, 60),
+		'shadow': rgba(bourbon.shade($-aqua-dark, 40), $-shadow-opacity)
+	),
+	'wash': (
+		'bg': $-aqua,
+		'border': bourbon.shade($-aqua, 30),
+		'well': bourbon.shade($-aqua, 10),
+		'highlight': $-coral,
+		'accent': $-aqua-dark,
+		'primary': $-white,
+		'secondary': $-aqua-dark,
+		'shadow': rgba(bourbon.shade($-aqua, 60), $-shadow-opacity)
+	),
 	'light': (
 		'bg': $-white,
-		'border': bourbon.tint($-dark-purple, 80),
-		'highlight': $-pink,
-		'accent': $-light-purple,
-		'primary': $-dark-purple,
-		'secondary': bourbon.tint($-dark-purple, 60),
-		'shadow': rgba(bourbon.tint($-dark-purple, 40), 0.4)
-	),
-	'dark': (
-		'bg': $-dark-purple,
-		'border': bourbon.tint($-dark-purple, 20),
-		'highlight': $-pink,
-		'accent': $-light-purple,
-		'primary': $-white,
-		'secondary': bourbon.tint($-dark-purple, 60),
-		'shadow': rgba(bourbon.shade($-dark-purple, 40), 0.4)
+		'border': bourbon.tint($-aqua-dark, 75),
+		'well': bourbon.tint($-aqua-dark, 96),
+		'highlight': $-coral,
+		'accent': $-aqua,
+		'primary': $-aqua-dark,
+		'secondary': bourbon.tint($-aqua-dark, 60),
+		'shadow': rgba(bourbon.tint($-aqua-dark, 40), $-shadow-opacity)
 	)
 );
 
@@ -37,9 +50,13 @@ $palette: (
 	@return map.get($theme-colors, $role);
 }
 
+@function get-variable($role, $theme: 'light') {
+	@return var(--color-#{$role}, #{get($role)});
+}
+
 @mixin add($role, $prop: 'color') {
 	#{$prop}: get($role);
-	#{$prop}: var(--color-#{$role}, #{get($role)});
+	#{$prop}: get-variable($role);
 }
 
 @mixin add-bg($role: 'bg') {

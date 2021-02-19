@@ -47,10 +47,10 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 	>
 		{# Main header #}
 		{% MainNav {
-			logo: '/images/pacific-logo-icon.svg',
-			items: site.header.nav,
+			logo: graphics.logo.icon,
+			items: dato.site.header.nav,
 			currentPage: page.url,
-			strings: site.header
+			strings: dato.site.header
 		} %}
 
 		{# Content #}
@@ -58,11 +58,11 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 
 		{# Main footer #}
 		{% MainFooter {
-			logo: '/images/pacific-logo-icon.svg',
-			title: site.title,
-			menu: site.header.nav,
+			logo: graphics.logo.icon,
+			title: dato.site.title,
+			menu: dato.site.header.nav,
 			currentPage: page.url,
-			strings: site.footer
+			strings: dato.site.footer
 		} %}
 
 		{# Alpine JS from their CDN #}
