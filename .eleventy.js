@@ -44,7 +44,6 @@ const EventList = require(`${componentsDir}/sections/EventList.js`)
 const NurturingCareTabs = require(`${componentsDir}/sections/NurturingCareTabs.js`)
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
-// const CountryProfileECDIndices = require(`${componentsDir}/sections/CountryProfileData/Demographics.js`)
 
 module.exports = (config) => {
 	// custom data formats
