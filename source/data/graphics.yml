@@ -1,16 +1,3 @@
 logo:
   icon: /images/pacific-logo-icon.svg
   vertical: /images/pacific-logo-vertical.svg
-seascape:
-  elements:
-    - name: sky
-      alt: Seascape sky
-    - name: horizon
-      alt: Seascape horizon
-  sizes:
-    - name: large
-      breakpoint: 100em
-      width: 1600
-    - name: medium
-      breakpoint: 37em
-      width: 1024
