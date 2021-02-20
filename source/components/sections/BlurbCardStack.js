@@ -7,16 +7,15 @@ const Markdown = require('../blocks/Markdown.js')
 
 const Card = ({ image, title, description }, index) => {
 	return `
-		<article class="u-border u-border-radius | u-padding | u-hide-overflow">
-			<h3 class="u-padding-bottom-narrow">${title}</h3>
+		<article class="u-shadow | u-border-radius | u-padding | u-hide-overflow">
 			<div class="
 				c-bookend horizontal@small ${index % 2 === 0 ? 'reverse' : ''}
 				c-gutter
 			">
 				${image
-					? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 16rem;">
+					? `<div class="c-bookend-item left | c-gutter-item | u-type-align-center" style="max-width: 12rem;">
 						<img
-							class="u-display-inline-block u-border-round"
+							class="u-display-inline-block"
 							src="${image.url}"
 							alt="${image.alt}"
 						>
@@ -24,6 +23,7 @@ const Card = ({ image, title, description }, index) => {
 					: ''
 				}
 				<div class="c-bookend-item right fill | c-gutter-item">
+					<h3 class="u-padding-bottom-narrow">${title}</h3>
 					${Passage(Markdown(description), { centered: false })}
 				</div>
 			</div>
