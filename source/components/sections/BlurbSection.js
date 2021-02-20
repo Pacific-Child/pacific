@@ -52,7 +52,7 @@ function TwoColumnLayout ({ title, description, image, imageWidth } = {}) {
 
 	return ContentWrapper(`
 		<h2 class="u-type-align-center | u-padding-bottom">${title}</h2>
-		<div class="c-bookend ${breakpoint} | c-gutter wide">
+		<div class="c-bookend ${breakpoint} align-top | c-gutter wide">
 			${image
 				? `<div class="c-bookend-item left | c-gutter-item">
 						${ContentWrapper(Figure(image.url, {
