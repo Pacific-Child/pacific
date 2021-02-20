@@ -6,6 +6,11 @@
 	max-width: 70ch;
 
 	// variations
+	&.xnarrow {
+		max-width: 20rem;
+		max-width: 40ch;
+	}
+
 	&.narrow {
 		max-width: 25rem;
 		max-width: 50ch;

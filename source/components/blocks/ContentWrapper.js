@@ -10,6 +10,7 @@ module.exports = (content, {
 } = {}) => {
 	const widthClasses = {
 		default: '',
+		xnarrow: 'xnarrow',
 		narrow: 'narrow',
 		wide: 'wide',
 		xwide: 'xwide'
