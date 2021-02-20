@@ -26,11 +26,6 @@ module.exports = ({
 		title: site.siteTitle,
 		meta_description: site.metaDescription,
 		header: {
-			logo: {
-				url: site.logo.url(),
-				alt: site.logo.alt,
-				title: site.logo.title
-			},
 			header_organization_name: site.headerOrganizationName,
 			nav: site.mainMenu.toMap(2)
 		},
@@ -49,11 +44,6 @@ module.exports = ({
 	const homeLogo = home.logo || site.logo
 	root.createDataFile(`${path}/home.json`, 'json', {
 		cover: {
-			logo: {
-				url: homeLogo.url(),
-				alt: homeLogo.alt,
-				title: homeLogo.title
-			},
 			introduction: home.introduction,
 			callToAction: {
 				label: home.callToActionLabel,

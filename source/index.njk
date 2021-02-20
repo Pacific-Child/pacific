@@ -59,41 +59,15 @@ title: Home
 	</div>
 
 	{# Seascape graphics #}
-	<div class="b-seascape | u-position-z-low">
-		<div class="b-seascape-bg | u-color-bg-sky">
-			{% for element in graphics.seascape.elements %}
-				<picture class="b-seascape-element">
-					{%  for size in graphics.seascape.sizes %}
-						<source 
-							srcset="/images/seascape/{{size.name}}/{{element.name}}.svg {{size.width}}w" 
-							media="(min-width: {{size.breakpoint}})"
-						>
-					{% endfor %}
-					<img src="/images/seascape/small/{{element.name}}.svg" alt="element.alt">
-				</picture>
-			{% endfor %}
+	<div class="b-seascape u-color-bg-water | u-position-z-low">
+		<div class="b-seascape-water"></div>
+		<div class="b-seascape-bg u-color-bg-sky">
+			<div class="b-seascape-horizon sky"></div>
+			<div class="b-seascape-horizon islands"></div>
+			<div class="b-seascape-horizon reflections"></div>
 		</div>
-		<div class="b-seascape-water | u-color-bg-water">
-			<picture class="b-seascape-element top">
-				{%  for size in graphics.seascape.sizes %}
-					<source 
-						srcset="/images/seascape/{{size.name}}/reflections.svg {{size.width}}w" 
-						media="(min-width: {{size.breakpoint}})"
-					>
-				{% endfor %}
-				<img src="/images/seascape/small/reflections.svg" alt="Seascape reflections">
-			</picture>
-			<img 
-				class="b-seascape-ripple left"
-				src="/images/seascape/ripples/left.svg" 
-				alt="Seascape ripples" 
-			>
-			<img 
-				class="b-seascape-ripple right"
-				src="/images/seascape/ripples/right.svg" 
-				alt="Seascape ripples" 
-			>
-		</div>
+		<div class="b-seascape-ripple left"></div>
+		<div class="b-seascape-ripple right"></div>
 	</div>
 {% endCover %}
 

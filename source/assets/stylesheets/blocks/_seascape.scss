@@ -2,7 +2,19 @@
 // -> a Pacific seascape with islands and clouds for page covers
 @use '../tokens/breakpoints' as bp;
 
-$-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
+$-bg-height: 4rem; // height of the 'horizon' bg images and reflections
+
+@mixin seascape-element($name) {
+	background-image: url('/images/seascape/small/#{$name}.svg');
+	
+	@include bp.query('small') {
+		background-image: url('/images/seascape/medium/#{$name}.svg');
+	}
+
+	@include bp.query('xlarge') {
+		background-image: url('/images/seascape/large/#{$name}.svg');
+	}
+}
 
 .b-seascape {
 	bottom: 0;
@@ -13,10 +25,6 @@ $-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
 	text-align: center;
 	top: 0;
 	width: 100%;
-
-	&.bottom {
-		top: auto;
-	}
 }
 
 .b-seascape-bg {
@@ -26,11 +34,6 @@ $-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
 	position: absolute;
 	right: 0;
 	top: 0;
-
-	&.bottom {
-		bottom: 0;
-		top: auto;
-	}
 }
 
 .b-seascape-water {
@@ -41,53 +44,59 @@ $-bg-height: 4.75rem; // height of the 'horizon' bg images and reflections
 	top: $-bg-height;
 }
 
-.b-seascape-element {
-	display: block;
+.b-seascape-horizon {
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	height: $-bg-height;
 	left: 0;
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 100%;
 
-	> img {
-		display: block;
-		height: $-bg-height;
-		left: 0;
-		object-fit: cover;
-		object-position: bottom center;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 100%;
+	&.islands {
+		@include seascape-element('horizon');
 	}
 
-	&.top {
-		> img {
-			object-position: top center;
-		}
+	&.sky {
+		@include seascape-element('sky');
+	}
+
+	&.reflections {
+		@include seascape-element('reflections');
+		background-position: top center;
+		top: $-bg-height;
 	}
 }
 
 .b-seascape-ripple {
+	background-repeat: no-repeat;
+	background-size: contain;
 	bottom: 0;
 	display: block;
-	max-width: 10rem;
+	height: 10rem;
 	position: absolute;
+	width: 10rem;
 
 	@include bp.query('small') {
-		max-width: 15rem;
+		height: 15rem;
+		width: 15rem;
 	}
 
 	@include bp.query('medium') {
-		max-width: 20rem;
+		height: 20rem;
+		width: 20rem;
 	}
 
 	&.left {
+		background-image: url('/images/seascape/ripples/left.svg');
+		background-position: bottom left;
 		left: 0;
 	}
 
 	&.right {
+		background-image: url('/images/seascape/ripples/right.svg');
+		background-position: bottom right;
 		right: 0;
 	}
 }

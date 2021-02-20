@@ -35,20 +35,22 @@ module.exports = ({
 		${ContentWrapper(`
 			<div class="u-padding-x-outside u-padding-y">
 				<div 
-					class="c-bookend horizontal@medium | c-gutter wide"
+					class="c-bookend horizontal@medium align-top | c-gutter wide"
 					x-data="{ tab: 'none' }"
 				>
 					<nav class="c-bookend-item left | c-gutter-item">
-						${ContentWrapper(Diagram(), { width: 'narrow' })}
+						${ContentWrapper(Diagram(), { width: 'xnarrow' })}
 					</nav>
 					<ul class="c-bookend-item right fill | c-gutter-item | u-list-undecorated">
-						${nurturingCareComponents.map(tab => Tab(tab)).join('')}
+						<div class="u-padding-top-wide">
+							${nurturingCareComponents.map(tab => Tab(tab)).join('')}
+						</div>
 					</ul>
 				</div>
 			</div>
 		`, {
 			tag: 'section',
-			width: 'xwide',
+			width: 'wide',
 			className: 'u-shadow | u-border-radius'
 		})}
 	`)
