@@ -92,13 +92,5 @@
 		rgba(color.get('accent'), 0.08) 75%, 
 		rgba(color.get('accent'), 0.21) 100%
 	);
-	// TODO fix this - need to convert color tokens to HSL values somehow
-	// custom props for theming
-	// background-image: radial-gradient(
-	// 	ellipse 70% 120% at top, 
-	// 	rgba(color.get-variable('accent'), 0) 20%, 
-	// 	rgba(color.get-variable('accent'), 0.08) 75%, 
-	// 	rgba(color.get-variable('accent'), 0.21) 100%
-	// );
 	// stylelint-enable
 }
