@@ -4,7 +4,6 @@ layout: default
 
 <script>
 	var url = `{{ dato.resourcesIndex.endpoint }}`;
-	// var url = "http://localhost:3000/graphql";
 	function resourcesSearch() {
 		return {
 			searchTerm: new URLSearchParams(location.search).get('searchTerm') || '*',
