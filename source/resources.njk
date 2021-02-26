@@ -4,6 +4,7 @@ layout: default
 
 <script>
 	var url = `{{ dato.resourcesIndex.endpoint }}`;
+	// var url = "http://localhost:3000/graphql";
 	function resourcesSearch() {
 		return {
 			searchTerm: new URLSearchParams(location.search).get('searchTerm') || '*',
@@ -31,6 +32,9 @@ layout: default
 												source
 												description
 												tags
+												attachmentType
+												attachmentLink
+												releaseDate
 											__typename
 										}
 									}
@@ -49,21 +53,16 @@ layout: default
 			}
 		}
 	}
+
 	function formatDate(datetime) {
 		var month=["January","February","March","April","May","June","July","August","September","October","November","December"]
 		var d = new Date(datetime);
 		return `${month[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 	}
-	function splitToList(string, sep) {
-		// list = string.split(sep);
-		console.log(string)
-		return list;
-	}
 
-	// source_url
-	// release_date
-	// attachment_link
-	// attachment_type
+	function convertAttachmentType(string) {
+		return string.split('/')[1].toUpperCase();
+	}
 </script>
 
 {% CoverInterior graphics.seascape %}
@@ -158,22 +157,22 @@ layout: default
 				</h3>
 
 				<template x-if="results">
-					<ul class="u-list-undecorated | u-margin-y-flow-narrow">
+					<div class="u-margin-y-flow-narrow">
 						<template
 							x-for="result in results"
 							:key="result.id"
 						>
-							<li class="u-shadow | u-border-radius | u-padding">
-								<article class="u-position-relative">
+							<article class="u-shadow | u-border-radius | u-padding">
+								<div class="u-position-relative">
 									<h4
 										class="u-type-scale-gamma"
 										x-text="result.title"
 									></h4>
-									
+
 									{# download link #}
 									<a
 										class="u-position-absolute u-position-top-right | u-type-link-undecorated u-type-scale-delta | u-color-fg-accent"
-										href="#"
+										x-bind:href="result.attachmentLink"
 									>
 										<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 											<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -212,52 +211,42 @@ layout: default
 												<dl class="u-list-undecorated | u-type-align-left">
 													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">Author:</dt>
-														<dd 
-															class="u-display-inline-block"
-															x-text="result.author"
-														></dd>
+														<dd class="u-display-inline-block" x-text="result.author"></dd>
 													</div>
 													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.updated }}:</dt>
 														<dd class="u-display-inline-block">
-															<time x-bind:datetime="result.updatedAt">
-																<span x-text="formatDate(result.updatedAt)"></span>
+															<time x-bind:datetime="result.releaseDate">
+																<span x-text="formatDate(result.releaseDate)"></span>
 															</time>
 														</dd>
 													</div>
-													{# No data for file type yet? #}
-													{# <div class="u-margin-x-flow-xxnarrow">
+													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">File type:</dt>
-														<dd class="u-display-inline-block">PDF</dd>
-													</div> #}
+														<dd class="u-display-inline-block" x-text="convertAttachmentType(result.attachmentType)"></dd>
+													</div>
 												</dl>
 											</div>
 										</div>
 									</div>
 
 									{# Topics/tags #}
-									{# Just show all the tags here, no need for a "see more" flyout thingy - they can just wrap #}
 									<div class="u-padding-top-narrow">
 										<ul class="c-gutter narrow | u-list-undecorated | u-color-fg-secondary">
 											<template
-												x-for="tag in splitToList(result.tags, ',')"
+												x-for="tag in result.tags"
 												:key="tag"
 											>
 												<li class="c-gutter-item | u-display-inline-block">
-													<a
-														class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated | u-display-inline-block"
-														href="#"
-													>
-														<span x-text="tag"></span>
-													</a>
+													<span class="u-type-scale-zeta u-type-font-display u-type-weight-bold u-type-link-undecorated | u-display-inline-block" x-text="tag"></span>
 												</li>
 											</template>
 										</ul>
 									</div>
-								</article>
-							</li>
+								</div>
+							</article>
 						</template>
-					</ul>
+					</div>
 				</template>
 			</div>
 		</div>
