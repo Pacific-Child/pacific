@@ -11,7 +11,7 @@ layout: default
 			results: null,
 			totalResults: 0,
 			page: 1,
-			pageSize: 10,
+			pageSize: 20,
 			fetchResources() {
 				this.isLoading = true;
 				fetch(url, {
@@ -133,11 +133,7 @@ layout: default
 				</div>
 			</form>
 
-			<!-- empty state / no search done -->
-			<p
-				class="u-padding-top-narrow | u-type-style-italic | u-color-fg-secondary"
-				x-show="!results"
-			>
+			<p class="u-padding-top-narrow | u-type-style-italic | u-color-fg-secondary">
 				{{ dato.resourcesIndex.instructions }}
 			</p>
 
