@@ -210,11 +210,11 @@ layout: default
 												>
 												<dl class="u-list-undecorated | u-type-align-left">
 													<div class="u-margin-x-flow-xxnarrow">
-														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">Author:</dt>
+														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.author }}</dt>
 														<dd class="u-display-inline-block" x-text="result.author"></dd>
 													</div>
 													<div class="u-margin-x-flow-xxnarrow">
-														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.updated }}:</dt>
+														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.updated }}</dt>
 														<dd class="u-display-inline-block">
 															<time x-bind:datetime="result.releaseDate">
 																<span x-text="formatDate(result.releaseDate)"></span>
@@ -222,7 +222,7 @@ layout: default
 														</dd>
 													</div>
 													<div class="u-margin-x-flow-xxnarrow">
-														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">File type:</dt>
+														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.fileType }}</dt>
 														<dd class="u-display-inline-block" x-text="convertAttachmentType(result.attachmentType)"></dd>
 													</div>
 												</dl>
