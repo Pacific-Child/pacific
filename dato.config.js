@@ -65,7 +65,7 @@ module.exports = ({
 				header: {
 					headline: page.headline,
 					introduction: page.introduction,
-					image: page.image 
+					image: page.image
 						? {
 							url: page.image.url(),
 							alt: page.image.alt,
@@ -193,8 +193,9 @@ module.exports = ({
 		instructions: resourcesIndex.instructions,
 		noResultsMessage: resourcesIndex.noResultsMessage,
 		datasetSuffix: resourcesIndex.datasetSuffix,
-		moreTags: resourcesIndex.moreTags,
-		updated: resourcesIndex.updated
+		author: resourcesIndex.author,
+		updated: resourcesIndex.updated,
+		fileType: resourcesIndex.fileType
 	})
 }
 
