@@ -48,7 +48,7 @@ const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 module.exports = (config) => {
 	// custom data formats
 	config.addDataExtension('yml', contents => yaml.load(contents))
-	
+
 	// custom markdown settings
 	config.setLibrary('md', markdownIt({
 		typographer: true,

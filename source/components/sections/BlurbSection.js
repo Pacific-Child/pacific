@@ -28,7 +28,7 @@ function getBreakpoint (imageWidth) {
 }
 
 // single-column version of the layout
-function SingleColumnLayout ({ title, description, image, imageWidth } = {}) {
+function SingleColumnLayout ({ title, description, image, imageWidth, linkExternalSite, label } = {}) {
 	return `
 		<h2 class="u-type-align-center">${title}</h2>
 		${image
@@ -43,6 +43,21 @@ function SingleColumnLayout ({ title, description, image, imageWidth } = {}) {
 			: ''
 		}
 		${description ? Passage(Markdown(description)) : ''}
+		${ContentWrapper(`
+			${linkExternalSite
+				? `<a
+						class="b-button has-icon right"
+						href="${linkExternalSite}"
+					>
+						${label}
+						<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						  <polyline points="9 6 15 12 9 18" />
+						</svg>
+					</a>`
+				: ''
+			}
+		`, { className: 'u-type-align-center' })}
 	`
 }
 
@@ -70,7 +85,7 @@ function TwoColumnLayout ({ title, description, image, imageWidth } = {}) {
 			<div class="c-bookend-item right fill | c-gutter-item | u-padding-y-flow">
 				${description ? Passage(Markdown(description)) : ''}
 			</div>
-			
+
 		</div>
 	`, { width: 'xwide' })
 }
