@@ -23,7 +23,7 @@ function ResourcesGrid (resources, className = '') {
 				${resources.map(({ title, documentUrl }) => {
 					return `
 						<li class="u-display-inline-block | c-gutter-item">
-							<a 
+							<a
 								class="b-button has-icon right | u-position-flex-fill"
 								href="${documentUrl}"
 							>
@@ -136,7 +136,7 @@ function DataStackItem ({ label, number, context, unit, description }) {
 
 // --- Sections ---
 // Demographic section
-function DemographicSection (country, indicators) {
+function DemographicSection (country, indicator) {
 	const section = getSectionContent('demographic', country)
 
 	return Section(
@@ -144,25 +144,25 @@ function DemographicSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPopulation,
-					number: indicators.population
+					number: indicator.population
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelAnnualBirths,
-					number: indicators.annualBirths
+					number: indicator.annualBirths
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildrenUnderFive,
-					number: indicators.childrenUnderFive
+					number: indicator.childrenUnderFive
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelUnderFiveMortality,
-					number: indicators.underFiveMortality,
+					number: indicator.underFiveMortality,
 					context: section.indicatorContextUnderFiveMortality
 				})}
 			</li>
@@ -172,30 +172,30 @@ function DemographicSection (country, indicators) {
 }
 
 // ECD Indices section
-function ECDIndicesSection (country, indicators) {
+function ECDIndicesSection (country, indicator) {
 	const section = getSectionContent('ecdIndices', country)
 
 	return Section(DataStack([
 		DataStackItem({
 			label: section.indicatorLabelEcdi,
-			number: indicators.ecdi,
+			number: indicator.ecdi,
 			description: section.indicatorDescriptionEcdi
 		}),
 		DataStackItem({
 			label: section.indicatorLabelLifetimeCostOfGrowthDeficit,
-			number: indicators.lifetimeCostOfGrowthDeficit,
+			number: indicator.lifetimeCostOfGrowthDeficit,
 			description: section.indicatorDescriptionLifetimeCostOfGrowthDeficit
 		}),
 		DataStackItem({
 			label: section.indicatorLabelHumanCapitalIndex,
-			number: indicators.humanCapitalIndex,
+			number: indicator.humanCapitalIndex,
 			description: section.indicatorDescriptionHumanCapitalIndex
 		})
 	].join('')), { ...section, className: 'u-hide-overflow' })
 }
 
 // Threats to ECD section
-function ThreatsToECDSection (country, indicators) {
+function ThreatsToECDSection (country, indicator) {
 	const section = getSectionContent('threatsToECD', country)
 
 	return Section(
@@ -203,56 +203,56 @@ function ThreatsToECDSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelMaternalMortality,
-					number: indicators.maternalMortality,
+					number: indicator.maternalMortality,
 					context: section.indicatorContextMaternalMortality
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelLowBirthweight,
-					number: indicators.lowBirthweight,
+					number: indicator.lowBirthweight,
 					context: section.indicatorContextLowBirthweight
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelUnderFiveStunting,
-					number: indicators.underFiveStunting,
+					number: indicator.underFiveStunting,
 					context: section.indicatorContextUnderFiveStunting
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildPoverty,
-					number: indicators.childPoverty,
+					number: indicator.childPoverty,
 					context: section.indicatorContextChildPoverty
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelViolentDiscipline,
-					number: indicators.violentDiscipline,
+					number: indicator.violentDiscipline,
 					context: section.indicatorContextViolentDiscipline
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPretermBirths,
-					number: indicators.pretermBirths,
+					number: indicator.pretermBirths,
 					context: section.indicatorContextPretermBirths
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelYoungMothers,
-					number: indicators.pretermBirths,
+					number: indicator.pretermBirths,
 					context: section.indicatorContextYoungMothers
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelInadequateSupervision,
-					number: indicators.inadequateSupervision,
+					number: indicator.inadequateSupervision,
 					context: section.indicatorContextInadequateSupervision
 				})}
 			</li>
@@ -262,7 +262,7 @@ function ThreatsToECDSection (country, indicators) {
 }
 
 // Nurturing care section
-function NurturingCareSection (country, indicators) {
+function NurturingCareSection (country, indicator) {
 	const section = getSectionContent('nurturingCare', country)
 
 	return Section([
@@ -271,13 +271,13 @@ function NurturingCareSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelAntenatalCare,
-					number: indicators.antenatalCare
+					number: indicator.antenatalCare
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPostnatalVisits,
-					number: indicators.postnatalVisits
+					number: indicator.postnatalVisits
 				})}
 			</li>
 		`), { title: section.subsectionHealthcare, border: false }),
@@ -287,19 +287,19 @@ function NurturingCareSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelEarlyInitiationOfBreastfeeding,
-					number: indicators.earlyInitiationOfBreastfeeding
+					number: indicator.earlyInitiationOfBreastfeeding
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelExclusiveBreastfeeding,
-					number: indicators.exclusiveBreastfeeding
+					number: indicator.exclusiveBreastfeeding
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelMinimumAcceptableDiet,
-					number: indicators.minimumAcceptableDiet
+					number: indicator.minimumAcceptableDiet
 				})}
 			</li>
 		`), { title: section.subsectionNutrition }),
@@ -309,19 +309,19 @@ function NurturingCareSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelAttendanceInEcd,
-					number: indicators.attendanceInECD
+					number: indicator.attendanceInECD
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelEarlyStimulationAtHome,
-					number: indicators.earlyStimulationAtHome
+					number: indicator.earlyStimulationAtHome
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildrenSBooks,
-					number: indicators.childrensBooksAtHome
+					number: indicator.childrensBooksAtHome
 				})}
 			</li>
 		`), { title: section.subsectionEarlyLearning }),
@@ -331,25 +331,25 @@ function NurturingCareSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelBirthRegistration,
-					number: indicators.birthRegistration
+					number: indicator.birthRegistration
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPositiveDiscipline,
-					number: indicators.positiveDiscipline
+					number: indicator.positiveDiscipline
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelBasicDrinkingWater,
-					number: indicators.basicDrinkingWater
+					number: indicator.basicDrinkingWater
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelBasicSanitation,
-					number: indicators.basicSanitation
+					number: indicator.basicSanitation
 				})}
 			</li>
 		`), { title: section.subsectionSecurityAndSafety }),
@@ -366,7 +366,7 @@ function NurturingCareSection (country, indicators) {
 }
 
 // Enabling environments section
-function EnablingEnvironmentsSection (country, indicators) {
+function EnablingEnvironmentsSection (country, indicator) {
 	const section = getSectionContent('enablingEnvironments', country)
 
 	return Section(
@@ -374,19 +374,19 @@ function EnablingEnvironmentsSection (country, indicators) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPaidMaternityLeave,
-					number: indicators.paidMaternityLeave
+					number: indicator.paidMaternityLeave
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPaidPaternityLeave,
-					number: indicators.paidPaternityLeave
+					number: indicator.paidPaternityLeave
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildAndFamilySocialProtection,
-					number: indicators.childAndFamilySocialProtection
+					number: indicator.childAndFamilySocialProtection
 				})}
 			</li>
 		`),
@@ -396,13 +396,14 @@ function EnablingEnvironmentsSection (country, indicators) {
 
 // render all the sections... finally
 module.exports = (country, data) => {
-	const indicators = data.find(d => d.countryCode === country.code).indicators['2021']
+	const indicators = data.find(d => d.countryCode === country.code).indicators
+	const firstIndicator = Object.entries(indicators)[0][1]
 
 	return [
-		DemographicSection(country, indicators),
-		ECDIndicesSection(country, indicators),
-		ThreatsToECDSection(country, indicators),
-		NurturingCareSection(country, indicators),
-		EnablingEnvironmentsSection(country, indicators)
+		DemographicSection(country, firstIndicator),
+		ECDIndicesSection(country, firstIndicator),
+		ThreatsToECDSection(country, firstIndicator),
+		NurturingCareSection(country, firstIndicator),
+		EnablingEnvironmentsSection(country, firstIndicator)
 	].join('')
 }
