@@ -1,72 +1,72 @@
 # Fiji
 - countryCode: FJ
   indicators:
-    2021:
+    2020:
       population: 896,444
-      annualBirths: 8838
-      childrenUnderFive: 42080
+      annualBirths: 18,472
+      childrenUnderFive: 89,390
       underFiveMortality: 26
-      ecdi: 12.4
-      lifetimeCostOfGrowthDeficit: 139
-      humanCapitalIndex: 0.47
-      maternalMortality: 34000
+      ecdi: null
+      lifetimeCostOfGrowthDeficit: 20
+      humanCapitalIndex: 0.51
+      maternalMortality: 34
       lowBirthweight: null
       underFiveStunting: 8%
-      childPoverty: 32
+      childPoverty: null
       violentDiscipline: null
       pretermBirths: 10%
       youngMothers: null
       inadequateSupervision: null
-      antenatalCare: 52%
+      antenatalCare: 94%
       postnatalVisits: null
-      earlyInitiationOfBreastfeeding: 85%
-      exclusiveBreastfeeding: 73%
+      earlyInitiationOfBreastfeeding: 57%
+      exclusiveBreastfeeding: 40%
       minimumAcceptableDiet: null
-      attendanceInECD: 43%
-      earlyStimulationAtHome: 7%
-      childrensBooksAtHome: 91%
-      birthRegistration: 43%
-      positiveDiscipline: 7%
-      basicDrinkingWater: 91%
-      basicSanitation: 34%
-      paidMaternityLeave: 43%
-      paidPaternityLeave: 7%
-      childAndFamilySocialProtection: 91%
+      attendanceInECD: null
+      earlyStimulationAtHome: null
+      childrensBooksAtHome: null
+      birthRegistration: null
+      positiveDiscipline: null
+      basicDrinkingWater: 94%
+      basicSanitation: 95%
+      paidMaternityLeave: 14-17.9 weeks
+      paidPaternityLeave: <14 weeks
+      childAndFamilySocialProtection: Yes
 
 # Kiribati
 - countryCode: KI
   indicators:
-    2021:
-      population: 307150
-      annualBirths: 8838
-      childrenUnderFive: 42080
-      underFiveMortality: 26
-      ecdi: 12.4
-      lifetimeCostOfGrowthDeficit: 139
-      humanCapitalIndex: 0.47
-      maternalMortality: 34000
+    2020:
+      population: 119,446
+      annualBirths: 3,233
+      childrenUnderFive: 15,160
+      underFiveMortality: 51
+      ecdi: null
+      lifetimeCostOfGrowthDeficit: 159
+      humanCapitalIndex: 0.49
+      maternalMortality: 92
       lowBirthweight: null
-      underFiveStunting: 8%
-      childPoverty: 32
+      underFiveStunting: 34%
+      childPoverty: null
       violentDiscipline: null
       pretermBirths: 10%
-      youngMothers: null
+      youngMothers: 9
       inadequateSupervision: null
-      antenatalCare: 52%
+      antenatalCare: 71%
       postnatalVisits: null
-      earlyInitiationOfBreastfeeding: 85%
-      exclusiveBreastfeeding: 73%
+      earlyInitiationOfBreastfeeding: 80%
+      exclusiveBreastfeeding: 66%
       minimumAcceptableDiet: null
-      attendanceInECD: 43%
-      earlyStimulationAtHome: 7%
-      childrensBooksAtHome: 91%
-      birthRegistration: 43%
-      positiveDiscipline: 7%
-      basicDrinkingWater: 91%
-      basicSanitation: 34%
-      paidMaternityLeave: 43%
-      paidPaternityLeave: 7%
-      childAndFamilySocialProtection: 91%
+      attendanceInECD: null
+      earlyStimulationAtHome: null
+      childrensBooksAtHome: null
+      birthRegistration: 94%
+      positiveDiscipline: null
+      basicDrinkingWater: 72%
+      basicSanitation: 48%
+      paidMaternityLeave: <14 weeks
+      paidPaternityLeave: No paid leave
+      childAndFamilySocialProtection: No
 
 # Niue
 - countryCode: NU
