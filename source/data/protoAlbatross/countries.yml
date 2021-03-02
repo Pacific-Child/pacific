@@ -30,7 +30,7 @@
       basicDrinkingWater: 94%
       basicSanitation: 95%
       paidMaternityLeave: 14-17.9 weeks
-      paidPaternityLeave: <14 weeks
+      paidPaternityLeave: '&lt;14 weeks'
       childAndFamilySocialProtection: Yes
 
 # Kiribati
@@ -64,7 +64,7 @@
       positiveDiscipline: null
       basicDrinkingWater: 72%
       basicSanitation: 48%
-      paidMaternityLeave: <14 weeks
+      paidMaternityLeave: '&lt;14 weeks'
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
 
