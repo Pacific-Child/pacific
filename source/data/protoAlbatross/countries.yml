@@ -2,7 +2,7 @@
 - countryCode: FJ
   indicators:
     2021:
-      population: 896444
+      population: 896,444
       annualBirths: 8838
       childrenUnderFive: 42080
       underFiveMortality: 26
