@@ -29,7 +29,7 @@ function Search (resourcesIndex) {
 				</div>
 				<div class="c-bookend-item c-gutter-item right">
 					<a
-						class="b-button large has-icon left" 
+						class="b-button large has-icon left"
 						href="#"
 						x-bind:href="searchPath + searchTerm"
 					>

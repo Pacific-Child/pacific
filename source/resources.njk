@@ -68,6 +68,24 @@ layout: default
 	<h1>{{ dato.resourcesIndex.title }}</h1>
 {% endCoverInterior %}
 
+{% SectionWrapper { className: 'u-margin-y-flow-wide' } %}
+	<header class="u-margin-y-flow">
+		<h2 class="u-type-align-center">{{ dato.resourcesIndex.featuredResources[0].title }}</h2>
+		{% if dato.resourcesIndex.featuredResources[0].introduction %}
+			{% ContentWrapper { width: 'wide' } %}
+				{{ dato.resourcesIndex.featuredResources[0].introduction }}
+			{% endContentWrapper %}
+		{% endif %}
+	</header>
+	{% ContentWrapper { width: 'xwide', className: 'u-border-top u-padding-y-wide' } %}
+		{% Gallery { width: 'xwide', flex: true } %}
+			{% for resource in dato.resourcesIndex.featuredResources[0].resources %}
+				{% ResourceCard resource %}
+			{% endfor %}
+		{% endGallery %}
+	{% endContentWrapper %}
+{% endSectionWrapper %}
+
 {# List of resources here to be added #}
 {% SectionWrapper %}
 	{% ContentWrapper { width: 'wide' } %}

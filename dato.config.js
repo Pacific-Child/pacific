@@ -195,7 +195,8 @@ module.exports = ({
 		datasetSuffix: resourcesIndex.datasetSuffix,
 		author: resourcesIndex.author,
 		updated: resourcesIndex.updated,
-		fileType: resourcesIndex.fileType
+		fileType: resourcesIndex.fileType,
+		featuredResources: resourcesIndex.featuredResources.toMap()
 	})
 }
 
