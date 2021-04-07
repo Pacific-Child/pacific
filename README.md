@@ -5,7 +5,7 @@ The web platform of UNICEF's Pacific Regional Council for Early Childhood Develo
 ## How to run this site locally
 
 ### Development
-1. Install Node.js if needed
+1. Install [Node.js](http://nodejs.org) if you don't have it. The version this site uses is specified in the `.nvmrc` config file at the project root. (A package manager like [Node Version Manager](https://github.com/nvm-sh/nvm) or [asdf](https://asdf-vm.com/#/) might be helpful.)
 2. Run `npm install`
 3. Get the [Read-only authentication token](https://www.datocms.com/docs/content-delivery-api/authentication) from DatoCMS and copy it into an `.env` file: `DATO_API_TOKEN=[paste here]`
 4. Run `npm run setup` to pull content from Dato CMS.
