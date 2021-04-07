@@ -17,6 +17,7 @@ The deploy command is `npm run build`. This site is hosted on Netlify; push or m
 
 ### Code style
 - This site is built on [Eleventy](http://11ty.dev), a Node static site generator, using the "[Shortcode components](https://github.com/adamduncan/eleventy-shortcomps)" pattern. We are using [Nunjucks](https://www.11ty.dev/docs/languages/nunjucks/) templates for pages, and [Javascript functions](https://www.11ty.dev/docs/languages/javascript/) for components.
+- Client-side Javascript uses [Alpine.js](https://github.com/alpinejs/alpine/).
 - The CSS is written in [Sass](https://sass-lang.com) (the [Dart version](https://sass-lang.com/dart-sass)), and follows [Cube CSS](https://piccalil.li/cube-css/) conventions.
 	- Class naming format: `.[category prefix]-[partial name]-[variation]`, e.g. `.u-border-top`
 	- Category prefixes are:
