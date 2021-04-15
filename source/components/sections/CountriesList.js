@@ -5,6 +5,8 @@ const CountriesGrid = require('../blocks/CountriesGrid.js')
 const CountriesMap = require('../blocks/CountriesMap/index.js')
 const PictureFrame = require('../blocks/PictureFrame.js')
 const SectionWrapper = require('../blocks/SectionWrapper.js')
+const Markdown = require('../blocks/Markdown.js')
+const Passage = require('../blocks/Passage.js')
 
 const breakpoint = 'medium'
 
@@ -25,11 +27,13 @@ function Countries (countries) {
 
 module.exports = ({
 	title,
+	description,
 	countries = []
 }) => {
 	return countries.length > 0
 		? SectionWrapper(`
 				${title ? `<h2 class="u-type-align-center">${title}</h2>` : ''}
+				${description ? Passage(Markdown(description)) : ''}
 				${ContentWrapper(
 					Countries(countries),
 					{ width: 'xwide' }
