@@ -47,6 +47,7 @@ layout: default
 						this.isLoading = false;
 						this.results = res.data.searchResults.results;
 						this.totalResults = res.data.searchResults.total;
+						location.hash = '#searchContentWrapper';
 					})
 					.catch(error => console.log(error))
 			}
@@ -90,6 +91,7 @@ layout: default
 {% SectionWrapper %}
 	{% ContentWrapper { width: 'wide' } %}
 		<div
+			id= 'searchContentWrapper'
 			x-data="resourcesSearch()"
 			x-init="() => {
 				$watch('searchTerm', (value) => {
