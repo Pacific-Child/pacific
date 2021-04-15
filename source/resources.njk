@@ -60,7 +60,7 @@ layout: default
 	}
 
 	function convertAttachmentType(string) {
-		return string.split('/')[1].toUpperCase();
+		return string.split('.').pop().toUpperCase();
 	}
 </script>
 
@@ -236,7 +236,7 @@ layout: default
 													</div>
 													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.fileType }}</dt>
-														<dd class="u-display-inline-block" x-text="convertAttachmentType(result.attachmentType)"></dd>
+														<dd class="u-display-inline-block" x-text="convertAttachmentType(result.attachmentLink)"></dd>
 													</div>
 												</dl>
 											</div>
