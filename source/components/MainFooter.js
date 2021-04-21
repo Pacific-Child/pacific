@@ -9,7 +9,7 @@ function NewsletterSignup (strings) {
 					<!-- Begin Mailchimp Signup Form -->
 					<div id="mc_embed_signup">
 						<form
-							action="https://host-creative.us7.list-manage.com/subscribe/post?u=34a32d9d669cfa4d1d45bfa19&amp;id=33e8ddb123" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+							action="https://unicef.us1.list-manage.com/subscribe/post?u=22fe753684dc9e88cb85c387b&amp;id=0413af538b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
 							novalidate
 						>
 							<label
@@ -163,15 +163,15 @@ module.exports = ({
 
 				<!-- Seascape graphics -->
 				<div class="b-seascape | u-color-bg-water | u-position-z-low">
-					<img 
+					<img
 						class="b-seascape-ripple left"
-						src="/images/seascape/ripples/left.svg" 
-						alt="Seascape ripples" 
+						src="/images/seascape/ripples/left.svg"
+						alt="Seascape ripples"
 					>
-					<img 
+					<img
 						class="b-seascape-ripple right"
-						src="/images/seascape/ripples/right.svg" 
-						alt="Seascape ripples" 
+						src="/images/seascape/ripples/right.svg"
+						alt="Seascape ripples"
 					>
 				</div>
 			</aside>
