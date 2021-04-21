@@ -8,6 +8,7 @@
 
 // Composition styles
 // -> unopinionated, composeable layout
+@use 'composition/aspect-ratio';
 @use 'composition/bookend';
 @use 'composition/content-width';
 @use 'composition/cover';

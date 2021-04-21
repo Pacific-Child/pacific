@@ -44,6 +44,7 @@ const EventList = require(`${componentsDir}/sections/EventList.js`)
 const NurturingCareTabs = require(`${componentsDir}/sections/NurturingCareTabs.js`)
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
+const VideoSection = require(`${componentsDir}/sections/VideoSection.js`)
 
 module.exports = (config) => {
 	// custom data formats
@@ -110,6 +111,7 @@ module.exports = (config) => {
 	config.addShortcode('StatCard', StatCard)
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
+	config.addShortcode('VideoSection', VideoSection)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts

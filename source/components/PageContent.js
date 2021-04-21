@@ -12,7 +12,8 @@ const componentNames = {
 	countries_list: require('./sections/CountriesList.js'),
 	event_list: require('./sections/EventList.js'),
 	resource_list: require('./sections/ResourceList.js'),
-	update_list: require('./sections/UpdateList.js')
+	update_list: require('./sections/UpdateList.js'),
+	video_section: require('./sections/VideoSection.js')
 }
 
 module.exports = (sections, resourcesIndex) => {
