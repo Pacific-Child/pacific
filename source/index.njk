@@ -37,19 +37,19 @@ title: Home
 			  <polyline points="9 6 15 12 9 18" />
 			</svg>
 		</a>
-			
+
 		{# Call to action #}
 		<div class="
 		  u-position-absolute u-position-bottom-full
 		  u-type-scale-gamma
 		  u-color-fg-secondary
 		">
-		  <a 
+		  <a
 		  	class="u-no-border-bottom | u-display-block | u-anim-bounce | u-color-fg-primary"
-		  	href="#body" 
+		  	href="#body"
 	  	>
 		  	<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			    
+
 			    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 			    <polyline points="6 9 12 15 18 9" />
 			  </svg>
@@ -71,5 +71,22 @@ title: Home
 {% endCover %}
 
 <div id="body">
+	{% if dato.home.showBanner %}
+		<aside class="u-padding-x-outside u-padding-y u-color-bg-highlight">
+			<div class="c-content-width xwide centered | c-bookend horizontal@small">
+				{% if dato.home.bannerTitle %}
+					<h1 class="c-bookend-item u-type-scale-gamma | u-padding-xnarrow">{{ dato.home.bannerTitle }}</h1>
+				{% endif %}
+				{% if dato.home.bannerDescription %}
+					<p class="c-bookend-item fill | u-padding-xnarrow">{{ dato.home.bannerDescription }}</p>
+				{% endif %}
+				{% if dato.home.bannerButtonUrl %}
+					<div class="u-padding-xnarrow">
+						<a href="{{ dato.home.bannerButtonUrl }}" class="b-button | c-bookend-item">{{ dato.home.bannerButtonText }}</a>
+					</div>
+				{% endif %}
+			</div>
+		</aside>
+	{% endif %}
 	{% PageContent dato.home.sections, dato.resourcesIndex %}
 </div>
