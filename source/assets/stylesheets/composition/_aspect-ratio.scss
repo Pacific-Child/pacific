@@ -1,0 +1,43 @@
+// Aspect Ratio component
+// -> constrain content to a fluid aspect ratio
+@use '../tokens/scale';
+@use '../tokens/spacing';
+
+// create an aspect ratio modifier class
+@mixin aspect-variation($w: 3, $h: 1, $use-scale: true) {
+	&::before {
+		@if $use-scale {
+			padding-top: ((scale.get($h) / scale.get($w)) * 100%);
+		} @else {
+			padding-top: ($h / $w * 100%);
+		}
+	}
+
+	@supports (aspect-ratio: #{$w} / #{$h}) {
+		aspect-ratio: #{$w} / #{$h};
+
+		&::before {
+			padding-top: 0;
+		}
+	}
+}
+
+.c-aspect {
+	@include aspect-variation(16, 9, false);
+	position: relative;
+	width: 100%;
+
+	&::before {
+		content: '';
+		display: block;
+	}
+}
+
+.c-aspect-content {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
