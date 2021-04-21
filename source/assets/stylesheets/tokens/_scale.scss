@@ -4,10 +4,16 @@
 // Modular scale ratio
 // -> golden section scale, 1.618
 // -> 1rem base (https://www.modularscale.com/?1&rem&1.618)
-bourbon.$bourbon: (
-	'modular-scale-ratio': 1.618
-);
+// bourbon.$bourbon: (
+// 	'modular-scale-ratio': 1.618
+// );
 
+// Modular scale ratio
+// -> minor third scale (1.2, 5:6)
+// -> 16px base (http://www.modularscale.com/?16&px&1.2&web&text)
+bourbon.$bourbon: (
+	'modular-scale-ratio': 1.2
+);
 @function get($size, $unit: 1rem) {
 	@return bourbon.modular-scale($size, $unit);
 }
