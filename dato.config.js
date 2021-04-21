@@ -50,6 +50,11 @@ module.exports = ({
 				link: home.callToActionLink.toMap(1)
 			}
 		},
+		showBanner: home.showBanner,
+		bannerTitle: home.bannerTitle,
+		bannerDescription: home.bannerDescription,
+		bannerButtonText: home.bannerButtonText,
+		bannerButtonUrl: home.bannerButtonUrl,
 		sections: home.sections.toMap()
 	})
 
