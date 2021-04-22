@@ -92,7 +92,12 @@ module.exports = ({
 	root.createDataFile(`${path}/eventsIndex.json`, 'json', {
 		title: eventsIndex.title,
 		slug: eventsIndex.slug,
-		introduction: eventsIndex.introduction
+		introduction: eventsIndex.introduction,
+		updateSectionTitle: eventsIndex.updateSectionTitle,
+		showUpdateSection: eventsIndex.showUpdateSection,
+		ecdEventsTitle: eventsIndex.ecdEventsTitle,
+		prc4ecdMeetingsTitle: eventsIndex.prc4ecdMeetingsTitle,
+		regionalEcdForumTitle: eventsIndex.regionalEcdForumTitle,
 	})
 
 	// events
@@ -109,7 +114,8 @@ module.exports = ({
 					: null,
 				description: event.description,
 				documents: event.documents.toMap(),
-				outcomes: event.outcomes.toMap()
+				outcomes: event.outcomes.toMap(),
+				section: event.section,
 			})
 		})
 	})
