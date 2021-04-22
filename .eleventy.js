@@ -31,6 +31,7 @@ const ResourceCard = require(`${componentsDir}/blocks/ResourceCard.js`)
 const SectionWrapper = require(`${componentsDir}/blocks/SectionWrapper.js`)
 const StatCard = require(`${componentsDir}/blocks/StatCard.js`)
 const UpdateCard = require(`${componentsDir}/blocks/UpdateCard.js`)
+const EventItem = require(`${componentsDir}/blocks/EventItem.js`)
 
 // sections
 // -> components used to render CMS "section" content
@@ -79,6 +80,10 @@ module.exports = (config) => {
 
 	config.addFilter('limit', (value, number) => value.slice(0, number))
 
+	config.addFilter('eventFilterSection', (array, section) => {
+		return array.filter(event => event.section === section)
+	})
+
 	// Eleventy shortcode components pattern:
 	// https://github.com/adamduncan/eleventy-shortcomps
   // components
@@ -112,6 +117,7 @@ module.exports = (config) => {
 	config.addShortcode('UpdateCard', UpdateCard)
 	config.addShortcode('UpdateList', UpdateList)
 	config.addShortcode('VideoSection', VideoSection)
+	config.addShortcode('EventItem', EventItem)
 
 	// integrate Sass pipeline
 	// -> see Package.json scripts
