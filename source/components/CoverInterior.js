@@ -7,6 +7,6 @@ module.exports = (content, seascape, { centered = true } = {}) => {
 	return Cover(content, {
 		short: true,
 		centered,
-		className: 'u-padding-x-outside u-padding-y-xxwide u-margin-y-flow | u-hide-overflow | u-color-bg-sky-horizon'
+		className: 'u-padding-x-outside u-padding-y-xxxlarge u-margin-y-flow | u-hide-overflow | u-color-bg-sky-horizon'
 	})
 }

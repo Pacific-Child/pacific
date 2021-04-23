@@ -5,7 +5,7 @@ const Logo = (imageUrl, organizationName, logoBreakpoint) => {
 			class="
 				c-bookend-item left
 				c-gutter-item
-				u-type-scale-delta u-type-font-display u-type-weight-bold u-type-link-undecorated
+				u-type-scale-epsilon u-type-font-display u-type-weight-bold u-type-link-undecorated
 				u-no-margin
 			"
 			href="/"
@@ -23,10 +23,10 @@ const Logo = (imageUrl, organizationName, logoBreakpoint) => {
 
 const NavItem = (item, currentPage) => {
 	return `
-		<li class="u-display-inline-block u-no-padding-top u-type-scale-zero">
+		<li class="u-display-inline-block u-no-padding-top u-type-scale-epsilon">
 			<a
 				class="
-					u-type-scale-delta u-type-font-display u-type-link-undecorated
+					u-type-scale-epsilon u-type-font-display u-type-link-undecorated
 					u-display-inline-block
 					${item.link.slug.includes(currentPage) ? 'u-border-bottom' : ''}
 				"
@@ -43,7 +43,7 @@ module.exports = ({
 	items = [],
 	currentPage = '/',
 	logoBreakpoint = 'medium',
-	menuBreakpoint = 'xlarge',
+	menuBreakpoint = 'large',
 	strings
 } = {}) => {
 	return `
