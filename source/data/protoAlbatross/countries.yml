@@ -29,6 +29,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 94%
       basicSanitation: 95%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: 14-17.9 weeks
       paidPaternityLeave: '&lt;14 weeks'
       childAndFamilySocialProtection: Yes
@@ -64,6 +66,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 72%
       basicSanitation: 48%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: Yes
       paidMaternityLeave: '&lt;14 weeks'
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -99,6 +103,8 @@
       positiveDiscipline: null
       basicDrinkingWater: null
       basicSanitation: null
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: null
       paidPaternityLeave: null
       childAndFamilySocialProtection: null
@@ -134,6 +140,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 88%
       basicSanitation: 83%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: Yes
       paidMaternityLeave: No paid leave
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -169,6 +177,8 @@
       positiveDiscipline: 7%
       basicDrinkingWater: 91%
       basicSanitation: 34%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: Yes
       paidMaternityLeave: '&lt;14 weeks'
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -204,6 +214,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 99%
       basicSanitation: 84%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: '&lt;14 weeks'
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -239,6 +251,8 @@
       positiveDiscipline: null
       basicDrinkingWater: null
       basicSanitation: null
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: null
       paidPaternityLeave: null
       childAndFamilySocialProtection: null
@@ -274,6 +288,8 @@
       positiveDiscipline: 7%
       basicDrinkingWater: 91%
       basicSanitation: 34%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: 43%
       paidPaternityLeave: 7%
       childAndFamilySocialProtection: 91%
@@ -309,6 +325,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 100
       basicSanitation: 93%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: No paid leave
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -344,6 +362,8 @@
       positiveDiscipline: 13%
       basicDrinkingWater: 68%
       basicSanitation: 34%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: Yes
       paidMaternityLeave: '&lt;14 weeks'
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -379,6 +399,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 97%
       basicSanitation: 98%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: '&lt;14 weeks'
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -414,6 +436,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 41%
       basicSanitation: 13%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: No paid leave
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -449,6 +473,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 100%
       basicSanitation: 100%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: No paid leave
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -484,6 +510,8 @@
       positiveDiscipline: null
       basicDrinkingWater: null
       basicSanitation: null
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: null
       paidPaternityLeave: null
       childAndFamilySocialProtection: null
@@ -519,6 +547,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 99%
       basicSanitation: 66%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: No paid leave
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
@@ -554,6 +584,8 @@
       positiveDiscipline: null
       basicDrinkingWater: 79%
       basicSanitation: 88%
+      NationalECDPolicy: No
+      ECDCoordinationMechanism: No
       paidMaternityLeave: No paid leave
       paidPaternityLeave: No paid leave
       childAndFamilySocialProtection: No
