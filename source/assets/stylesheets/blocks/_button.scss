@@ -19,7 +19,7 @@ $-baseline-compensation: 0.2em;
 	border-width: 2px;
 	cursor: pointer;
 	display: inline-block;
-	font-size: type.scale('delta');
+	font-size: type.scale('epsilon');
 	line-height: type.leading('tight');
 	padding: $-padding-y $-padding-x ($-padding-y - $-baseline-compensation);
 	position: relative;
