@@ -48,6 +48,7 @@ $-baseline-compensation: 0.2em;
 		filter: brightness(1);
 	}
 }
+
 .b-button.home {
 	@include color.add('bg');
 	@include color.add-bg('primary');
@@ -58,6 +59,7 @@ $-baseline-compensation: 0.2em;
 		filter: brightness(1);
 	}
 }
+
 .b-button.large {
 	$-padding-y: spacing.get('narrow', 1em);
 	$-padding-x: spacing.get('medium', 1em);
