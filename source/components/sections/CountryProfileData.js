@@ -10,6 +10,25 @@ function getSectionContent (uid, country) {
 	return country.dataSections.find(s => s.uid === uid)
 }
 
+function getDataPointValue (albatrossCountryData, csvColumnName, returnType) {
+	const result = albatrossCountryData.find(obj => {
+		return obj.dataPointName === csvColumnName
+	})
+	if (returnType === 'number') {
+		return result.value.toLocaleString('en-US', { minimumFractionDigits: 0 })
+	}
+	if (returnType === 'raw') {
+		return result.value
+	}
+	if (returnType === 'percent') {
+		console.log(csvColumnName)
+		return result.value ? `${Math.floor(result.value * 100)}%` : null
+	}
+	if (returnType === 'bool') {
+		return result.value === 1 ? 'Yes' : 'No'
+	}
+}
+
 // --- Sub-components for layout in each section ---
 // display a list of resources in a data section
 function ResourcesGrid (resources, className = '') {
@@ -136,7 +155,7 @@ function DataStackItem ({ label, number, context, unit, description }) {
 
 // --- Sections ---
 // Demographic section
-function DemographicSection (country, indicator) {
+function DemographicSectionAlbatross (country, albatrossCountryData) {
 	const section = getSectionContent('demographic', country)
 
 	return Section(
@@ -144,25 +163,25 @@ function DemographicSection (country, indicator) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPopulation,
-					number: indicator.population
+					number: getDataPointValue(albatrossCountryData, 'pop_total', 'number')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelAnnualBirths,
-					number: indicator.annualBirths
+					number: getDataPointValue(albatrossCountryData, 'births_annual', 'number')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildrenUnderFive,
-					number: indicator.childrenUnderFive
+					number: getDataPointValue(albatrossCountryData, 'pop_under_five', 'number')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelUnderFiveMortality,
-					number: indicator.underFiveMortality,
+					number: getDataPointValue(albatrossCountryData, 'mortality_under_five', 'raw'),
 					context: section.indicatorContextUnderFiveMortality
 				})}
 			</li>
@@ -172,30 +191,30 @@ function DemographicSection (country, indicator) {
 }
 
 // ECD Indices section
-function ECDIndicesSection (country, indicator) {
+function ECDIndicesSectionAlbatross (country, albatrossCountryData) {
 	const section = getSectionContent('ecdIndices', country)
 
 	return Section(DataStack([
 		DataStackItem({
 			label: section.indicatorLabelEcdi,
-			number: indicator.ecdi,
+			number: getDataPointValue(albatrossCountryData, 'ecdi', 'raw'),
 			description: section.indicatorDescriptionEcdi
 		}),
 		DataStackItem({
 			label: section.indicatorLabelLifetimeCostOfGrowthDeficit,
-			number: indicator.lifetimeCostOfGrowthDeficit,
+			number: getDataPointValue(albatrossCountryData, 'cost_growth_lifetime', 'percent'),
 			description: section.indicatorDescriptionLifetimeCostOfGrowthDeficit
 		}),
 		DataStackItem({
 			label: section.indicatorLabelHumanCapitalIndex,
-			number: indicator.humanCapitalIndex,
+			number: getDataPointValue(albatrossCountryData, 'hci', 'raw'),
 			description: section.indicatorDescriptionHumanCapitalIndex
 		})
 	].join('')), { ...section, className: 'u-hide-overflow' })
 }
 
 // Threats to ECD section
-function ThreatsToECDSection (country, indicator) {
+function ThreatsToECDSectionAlbatross (country, albatrossCountryData) {
 	const section = getSectionContent('threatsToECD', country)
 
 	return Section(
@@ -203,56 +222,56 @@ function ThreatsToECDSection (country, indicator) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelMaternalMortality,
-					number: indicator.maternalMortality,
+					number: getDataPointValue(albatrossCountryData, 'mortality_maternal', 'number'),
 					context: section.indicatorContextMaternalMortality
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelLowBirthweight,
-					number: indicator.lowBirthweight,
+					number: getDataPointValue(albatrossCountryData, 'birth_weight_low', 'percent'),
 					context: section.indicatorContextLowBirthweight
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelUnderFiveStunting,
-					number: indicator.underFiveStunting,
+					number: getDataPointValue(albatrossCountryData, 'stunting_under_five', 'percent'),
 					context: section.indicatorContextUnderFiveStunting
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildPoverty,
-					number: indicator.childPoverty,
+					number: getDataPointValue(albatrossCountryData, 'poverty_child', 'percent'),
 					context: section.indicatorContextChildPoverty
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelViolentDiscipline,
-					number: indicator.violentDiscipline,
+					number: getDataPointValue(albatrossCountryData, 'discipline_violent', 'percent'),
 					context: section.indicatorContextViolentDiscipline
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPretermBirths,
-					number: indicator.pretermBirths,
+					number: getDataPointValue(albatrossCountryData, 'births_preterm', 'percent'),
 					context: section.indicatorContextPretermBirths
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelYoungMothers,
-					number: indicator.pretermBirths,
+					number: getDataPointValue(albatrossCountryData, 'births_young_mothers', 'percent'),
 					context: section.indicatorContextYoungMothers
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelInadequateSupervision,
-					number: indicator.inadequateSupervision,
+					number: getDataPointValue(albatrossCountryData, 'supervision_inadequate', 'percent'),
 					context: section.indicatorContextInadequateSupervision
 				})}
 			</li>
@@ -262,7 +281,7 @@ function ThreatsToECDSection (country, indicator) {
 }
 
 // Nurturing care section
-function NurturingCareSection (country, indicator) {
+function NurturingCareSectionAlbatross (country, albatrossCountryData) {
 	const section = getSectionContent('nurturingCare', country)
 
 	return Section([
@@ -271,13 +290,13 @@ function NurturingCareSection (country, indicator) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelAntenatalCare,
-					number: indicator.antenatalCare
+					number: getDataPointValue(albatrossCountryData, 'antenatal_care', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPostnatalVisits,
-					number: indicator.postnatalVisits
+					number: getDataPointValue(albatrossCountryData, 'postnatal_visits', 'percent')
 				})}
 			</li>
 		`), { title: section.subsectionHealthcare, border: false }),
@@ -287,19 +306,19 @@ function NurturingCareSection (country, indicator) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelEarlyInitiationOfBreastfeeding,
-					number: indicator.earlyInitiationOfBreastfeeding
+					number: getDataPointValue(albatrossCountryData, 'breastfeeding_early', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelExclusiveBreastfeeding,
-					number: indicator.exclusiveBreastfeeding
+					number: getDataPointValue(albatrossCountryData, 'breastfeeding_exclusive', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelMinimumAcceptableDiet,
-					number: indicator.minimumAcceptableDiet
+					number: getDataPointValue(albatrossCountryData, 'diet_minimum', 'percent')
 				})}
 			</li>
 		`), { title: section.subsectionNutrition }),
@@ -309,19 +328,19 @@ function NurturingCareSection (country, indicator) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelAttendanceInEcd,
-					number: indicator.attendanceInECD
+					number: getDataPointValue(albatrossCountryData, 'early_learning_attendance', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelEarlyStimulationAtHome,
-					number: indicator.earlyStimulationAtHome
+					number: getDataPointValue(albatrossCountryData, 'early_learning_home', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelChildrenSBooks,
-					number: indicator.childrensBooksAtHome
+					number: getDataPointValue(albatrossCountryData, 'early_learning_books', 'percent')
 				})}
 			</li>
 		`), { title: section.subsectionEarlyLearning }),
@@ -331,25 +350,25 @@ function NurturingCareSection (country, indicator) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelBirthRegistration,
-					number: indicator.birthRegistration
+					number: getDataPointValue(albatrossCountryData, 'births_registration', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelPositiveDiscipline,
-					number: indicator.positiveDiscipline
+					number: getDataPointValue(albatrossCountryData, 'discipline_positive', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelBasicDrinkingWater,
-					number: indicator.basicDrinkingWater
+					number: getDataPointValue(albatrossCountryData, 'water_access', 'percent')
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelBasicSanitation,
-					number: indicator.basicSanitation
+					number: getDataPointValue(albatrossCountryData, 'sanitation_access', 'percent')
 				})}
 			</li>
 		`), { title: section.subsectionSecurityAndSafety }),
@@ -366,27 +385,43 @@ function NurturingCareSection (country, indicator) {
 }
 
 // Enabling environments section
-function EnablingEnvironmentsSection (country, indicator) {
+// function EnablingEnvironmentsSection (country, indicator) {
+// 	const section = getSectionContent('enablingEnvironments', country)
+
+// 	return Section(
+// 		DataGallery(`
+// 			<li>
+// 				${StatCard({
+// 					label: section.indicatorLabelPaidMaternityLeave,
+// 					number: indicator.paidMaternityLeave
+// 				})}
+// 			</li>
+// 			<li>
+// 				${StatCard({
+// 					label: section.indicatorLabelPaidPaternityLeave,
+// 					number: indicator.paidPaternityLeave
+// 				})}
+// 			</li>
+// 			<li>
+// 				${StatCard({
+// 					label: section.indicatorLabelChildAndFamilySocialProtection,
+// 					number: indicator.childAndFamilySocialProtection
+// 				})}
+// 			</li>
+// 		`),
+// 		{ ...section }
+// 	)
+// }
+
+function EnablingEnvironmentsSectionAlbatross (country, albatrossCountryData) {
 	const section = getSectionContent('enablingEnvironments', country)
 
 	return Section(
 		DataGallery(`
 			<li>
 				${StatCard({
-					label: section.indicatorLabelPaidMaternityLeave,
-					number: indicator.paidMaternityLeave
-				})}
-			</li>
-			<li>
-				${StatCard({
-					label: section.indicatorLabelPaidPaternityLeave,
-					number: indicator.paidPaternityLeave
-				})}
-			</li>
-			<li>
-				${StatCard({
 					label: section.indicatorLabelChildAndFamilySocialProtection,
-					number: indicator.childAndFamilySocialProtection
+					number: getDataPointValue(albatrossCountryData, 'social_protection', 'bool')
 				})}
 			</li>
 		`),
@@ -395,15 +430,18 @@ function EnablingEnvironmentsSection (country, indicator) {
 }
 
 // render all the sections... finally
-module.exports = (country, data) => {
-	const indicators = data.find(d => d.countryCode === country.code).indicators
-	const firstIndicator = Object.entries(indicators)[0][1]
+module.exports = (country, data, albatrossData) => {
+	// const indicators = data.find(d => d.countryCode === country.code).indicators
+	// const firstIndicator = Object.entries(indicators)[0][1]
+	// const albatrossCountryData = albatrossData[`countries_${country.codeThreeCharacter}`]
+	const albatrossCountryData = albatrossData.countries_FJI
 
 	return [
-		DemographicSection(country, firstIndicator),
-		ECDIndicesSection(country, firstIndicator),
-		ThreatsToECDSection(country, firstIndicator),
-		NurturingCareSection(country, firstIndicator),
-		EnablingEnvironmentsSection(country, firstIndicator)
+		DemographicSectionAlbatross(country, albatrossCountryData),
+		ECDIndicesSectionAlbatross(country, albatrossCountryData),
+		ThreatsToECDSectionAlbatross(country, albatrossCountryData),
+		NurturingCareSectionAlbatross(country, albatrossCountryData),
+		// EnablingEnvironmentsSection(country, firstIndicator),
+		EnablingEnvironmentsSectionAlbatross(country, albatrossCountryData)
 	].join('')
 }
