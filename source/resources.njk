@@ -27,12 +27,11 @@ layout: default
 												types
 												topics
 												author
-												organization
 												source
 												description
 												tags
 												attachmentType
-												attachmentLink
+												attachmentUrl
 												releaseDate
 											__typename
 										}
@@ -187,7 +186,8 @@ layout: default
 									{# download link #}
 									<a
 										class="u-position-absolute u-position-top-right | u-type-link-undecorated u-type-scale-delta | u-color-fg-accent"
-										x-bind:href="result.attachmentLink"
+										x-bind:href="result.attachmentUrl"
+										x-show="result.attachmentUrl"
 									>
 										<svg xmlns="http://www.w3.org/2000/svg" class="b-icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 											<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -236,10 +236,12 @@ layout: default
 															</time>
 														</dd>
 													</div>
-													<div class="u-margin-x-flow-xxnarrow">
-														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.fileType }}</dt>
-														<dd class="u-display-inline-block" x-text="convertAttachmentType(result.attachmentLink)"></dd>
-													</div>
+													<template x-if="result.attachmentUrl">
+														<div class="u-margin-x-flow-xxnarrow">
+															<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.fileType }}</dt>
+															<dd class="u-display-inline-block" x-text="convertAttachmentType(result.attachmentUrl)"></dd>
+														</div>
+													</template>
 												</dl>
 											</div>
 										</div>
