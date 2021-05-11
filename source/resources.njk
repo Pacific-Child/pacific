@@ -32,7 +32,7 @@ layout: default
 												tags
 												attachmentType
 												attachmentUrl
-												releaseDate
+												releasedOn
 											__typename
 										}
 									}
@@ -231,8 +231,8 @@ layout: default
 													<div class="u-margin-x-flow-xxnarrow">
 														<dt class="u-display-inline-block | u-type-font-display u-type-weight-light">{{ dato.resourcesIndex.updated }}</dt>
 														<dd class="u-display-inline-block">
-															<time x-bind:datetime="result.releaseDate">
-																<span x-text="formatDate(result.releaseDate)"></span>
+															<time x-bind:datetime="result.releasedOn">
+																<span x-text="formatDate(result.releasedOn)"></span>
 															</time>
 														</dd>
 													</div>
