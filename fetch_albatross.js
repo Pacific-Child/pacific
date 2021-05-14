@@ -72,7 +72,6 @@ const optsTopics = {
                     })
                     .catch(console.error);
             }
-            console.log(restructuredData)
             fs.writeFile(`source/data/albatross/countries_${countryArray[cindex]}.json`, JSON.stringify(restructuredData), (error) => {
                 if (error) throw error
             })
