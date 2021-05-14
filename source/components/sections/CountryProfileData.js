@@ -11,9 +11,15 @@ function getSectionContent (uid, country) {
 }
 
 function getDataPointValue (albatrossCountryData, csvColumnName, returnType) {
+	if (!albatrossCountryData) {
+		return
+	}
 	const result = albatrossCountryData.find(obj => {
 		return obj.dataPointName === csvColumnName
 	})
+	if (result.value === null) {
+		return 'No data'
+	}
 	if (returnType === 'number') {
 		return result.value.toLocaleString('en-US', { minimumFractionDigits: 0 })
 	}
@@ -21,7 +27,6 @@ function getDataPointValue (albatrossCountryData, csvColumnName, returnType) {
 		return result.value
 	}
 	if (returnType === 'percent') {
-		console.log(csvColumnName)
 		return result.value ? `${Math.floor(result.value * 100)}%` : null
 	}
 	if (returnType === 'bool') {
@@ -202,7 +207,7 @@ function ECDIndicesSectionAlbatross (country, albatrossCountryData) {
 		}),
 		DataStackItem({
 			label: section.indicatorLabelLifetimeCostOfGrowthDeficit,
-			number: getDataPointValue(albatrossCountryData, 'cost_growth_lifetime', 'percent'),
+			number: getDataPointValue(albatrossCountryData, 'cost_growth_lifetime', 'number'),
 			description: section.indicatorDescriptionLifetimeCostOfGrowthDeficit
 		}),
 		DataStackItem({
@@ -431,10 +436,7 @@ function EnablingEnvironmentsSectionAlbatross (country, albatrossCountryData) {
 
 // render all the sections... finally
 module.exports = (country, data, albatrossData) => {
-	// const indicators = data.find(d => d.countryCode === country.code).indicators
-	// const firstIndicator = Object.entries(indicators)[0][1]
-	// const albatrossCountryData = albatrossData[`countries_${country.codeThreeCharacter}`]
-	const albatrossCountryData = albatrossData.countries_FJI
+	const albatrossCountryData = albatrossData[`countries_${country.codeThreeCharacter}`]
 
 	return [
 		DemographicSectionAlbatross(country, albatrossCountryData),
