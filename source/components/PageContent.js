@@ -13,14 +13,15 @@ const componentNames = {
 	event_list: require('./sections/EventList.js'),
 	resource_list: require('./sections/ResourceList.js'),
 	update_list: require('./sections/UpdateList.js'),
-	video_section: require('./sections/VideoSection.js')
+	video_section: require('./sections/VideoSection.js'),
+	document_download: require('./sections/DocumentDownload.js')
 }
 
 module.exports = (sections, resourcesIndex) => {
 	return sections.map(section => {
 		const component = componentNames[section.itemType]
 		return section.itemType !== 'resource_list'
-			? component({ ...section })
+			? component({ ...section }, { resourcesIndex })
 			: component({ ...section }, { resourcesIndex })
 	}).join('')
 }

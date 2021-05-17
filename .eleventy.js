@@ -46,6 +46,8 @@ const NurturingCareTabs = require(`${componentsDir}/sections/NurturingCareTabs.j
 const ResourceList = require(`${componentsDir}/sections/ResourceList.js`)
 const UpdateList = require(`${componentsDir}/sections/UpdateList.js`)
 const VideoSection = require(`${componentsDir}/sections/VideoSection.js`)
+const DocumentDownload = require(`${componentsDir}/sections/DocumentDownload.js`)
+const DocumentDownloadList = require(`${componentsDir}/sections/DocumentDownloadList.js`)
 
 module.exports = (config) => {
 	// custom data formats

@@ -11,6 +11,39 @@ permalink: '/{{ pagination.items[0].slug }}/'
 {# If there is a header image, do not horizontally center the cover content #}
 {% set centerCover = false if page.header.image else true %}
 
+<script>
+	function getDocumentDownloadURL(id) {
+		return {
+			isLoading: true,
+			downloadLink: id,
+			fetchDocumentDownloadURL() {
+				fetch(albatrossEndpoint, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ query: `
+						query {
+							documents(ids: ${id}) {
+								results {
+									attachmentUrl
+								}
+							}
+						}`
+					}),
+				})
+				.then(res => res.json())
+				.then(res => {
+					this.isLoading = false;
+					if (res.data.documents.results[0]) {
+						this.downloadLink = res.data.documents.results[0].attachmentUrl;
+					} else {
+						this.downloadLink = '';
+					}
+				});
+			}
+		}
+	}
+</script>
+
 {% CoverInterior graphics.seascape, { centered: centerCover } %}
 	{% set coverBreakpoint = 'medium' %}
 	{% ContentWrapper { width: 'xwide' } %}
@@ -25,10 +58,10 @@ permalink: '/{{ pagination.items[0].slug }}/'
 					{{ page.header.headline or page.title }}
 				</h1>
 				{% if page.header.introduction %}
-					{% Passage { 
-						centered: false, 
+					{% Passage {
+						centered: false,
 						width: 'narrow',
-						className: 'u-type-scale-gamma | u-position-relative u-position-z-middle | u-padding-top-narrow | u-display-inline-block' 
+						className: 'u-type-scale-gamma | u-position-relative u-position-z-middle | u-padding-top-narrow | u-display-inline-block'
 					} %}
 						<div class="u-type-align-left">
 							{% Markdown %}{{ page.header.introduction }}{% endMarkdown %}
