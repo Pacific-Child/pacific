@@ -227,7 +227,7 @@ function ECDIndicesSectionAlbatross (country, albatrossCountryData) {
 		}),
 		DataStackItem({
 			label: section.indicatorLabelLifetimeCostOfGrowthDeficit,
-			number: getDataPointValue(albatrossCountryData, 'number', 'cost_growth_lifetime', null),
+			number: getDataPointValue(albatrossCountryData, 'percent', 'cost_growth_lifetime', null),
 			description: section.indicatorDescriptionLifetimeCostOfGrowthDeficit
 		}),
 		DataStackItem({
