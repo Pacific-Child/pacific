@@ -409,35 +409,6 @@ function NurturingCareSectionAlbatross (country, albatrossCountryData) {
 	].join(''), { ...section })
 }
 
-// Enabling environments section
-// function EnablingEnvironmentsSection (country, indicator) {
-// 	const section = getSectionContent('enablingEnvironments', country)
-
-// 	return Section(
-// 		DataGallery(`
-// 			<li>
-// 				${StatCard({
-// 					label: section.indicatorLabelPaidMaternityLeave,
-// 					number: indicator.paidMaternityLeave
-// 				})}
-// 			</li>
-// 			<li>
-// 				${StatCard({
-// 					label: section.indicatorLabelPaidPaternityLeave,
-// 					number: indicator.paidPaternityLeave
-// 				})}
-// 			</li>
-// 			<li>
-// 				${StatCard({
-// 					label: section.indicatorLabelChildAndFamilySocialProtection,
-// 					number: indicator.childAndFamilySocialProtection
-// 				})}
-// 			</li>
-// 		`),
-// 		{ ...section }
-// 	)
-// }
-
 function EnablingEnvironmentsSectionAlbatross (country, albatrossCountryData) {
 	const section = getSectionContent('enablingEnvironments', country)
 
