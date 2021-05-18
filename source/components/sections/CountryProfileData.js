@@ -37,7 +37,7 @@ function getDataPointValue (albatrossCountryData, returnType, csvColumnName, csv
 			return `${result.value}&dash;${resultSecondary.value} weeks`
 		}
 	}
-	if (result.value === null) {
+	if (result.value === null || result.value === -1) {
 		return '<span class="u-color-fg-secondary">No data</span>'
 	}
 	if (returnType === 'number') {
