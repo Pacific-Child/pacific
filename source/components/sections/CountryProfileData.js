@@ -21,7 +21,7 @@ function getDataPointValue (albatrossCountryData, returnType, csvColumnName, csv
 		const resultSecondary = albatrossCountryData.find(obj => {
 			return obj.dataPointName === csvColumnNameSecondary
 		})
-		if (result.value === null && resultSecondary.value === null) {
+		if ((result.value === null && resultSecondary.value === null) || (result.value === -1 && resultSecondary.value === -1)) {
 			return '<span class="u-color-fg-secondary">No data</span>'
 		}
 		if (result.value === 0 && resultSecondary.value === 0) {
