@@ -48,7 +48,9 @@ const optsTopics = {
                                     country
                                     dataPoint {
                                         id
-                                        body
+                                        bodyEn
+                                        bodyEs
+                                        bodyPt
                                         csvColumnName
                                         name
                                     }
