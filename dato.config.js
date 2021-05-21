@@ -147,6 +147,7 @@ module.exports = ({
 		result.push({
 			name: country.countryName,
 			code: country.countryCode,
+			codeThreeCharacter: country.countryCodeThreeCharacter,
 			slug: country.slug,
 			flag: {
 				url: country.flag.url()
