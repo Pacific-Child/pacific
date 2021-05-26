@@ -432,6 +432,18 @@ function EnablingEnvironmentsSectionAlbatross (country, albatrossCountryData) {
 					number: getDataPointValue(albatrossCountryData, 'bool', 'social_protection', null)
 				})}
 			</li>
+			<li>
+				${StatCard({
+					label: section.indicatorLabelNationalEcdPolicy,
+					number: getDataPointValue(albatrossCountryData, 'percent', 'ecd_policy', null)
+				})}
+			</li>
+			<li>
+				${StatCard({
+					label: section.indicatorLabelEcdCoordinationMechanism,
+					number: getDataPointValue(albatrossCountryData, 'percent', 'ecd_coordination', null)
+				})}
+			</li>
 		`),
 		{ ...section }
 	)
