@@ -30,13 +30,14 @@ permalink: '/events/{{ pagination.items[0].date | datePath }}/'
 				</div>
 			{% endif %}
 			<div class="c-bookend-item left fill | c-gutter-item">
+				<h1 class="u-padding-top-wide">{{ page.title }}</h1>
 				<time
-					class="u-display-block | u-type-heading u-type-scale-alpha"
+					class="u-display-block | u-type-heading u-padding-bottom-narrow"
 					datetime="{{ page.date }}"
 				>
 					{{ page.date | dateFull }}
 				</time>
-				<h1 class="u-type-scale-delta u-type-case-upper u-color-fg-accent">Meeting</h1>
+				<h2 class="u-type-scale-delta u-type-case-upper u-color-fg-accent">Meeting</h2>
 			</div>
 		</div>
 	{% endContentWrapper %}

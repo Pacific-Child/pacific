@@ -19,7 +19,7 @@ module.exports = (event) => {
 		<li class="u-shadow | u-border-radius | u-display-block | u-padding">
 			<h3 class="u-padding-bottom-narrow">
 				<a href="/events/${datePath(event.date)}/">
-					<time datetime="${event.date}">${dateFull(event.date)}</time>
+					<h2>${event.title}</h2>
 				</a>
 			</h3>
 			<div class="c-bookend horizontal@small reverse | c-gutter narrow">
@@ -33,6 +33,7 @@ module.exports = (event) => {
 					: ''
 				}
 				<div class="c-bookend-item right fill | c-gutter-item">
+					<time datetime="${event.date}">${dateFull(event.date)}</time>
 					${Passage(Markdown(event.summary), { centered: false })}
 				</div>
 			</div>

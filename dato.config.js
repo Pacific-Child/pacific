@@ -104,6 +104,7 @@ module.exports = ({
 	root.directory(`${path}/events`, (eventsDir) => {
 		events.forEach((event) => {
 			eventsDir.createDataFile(`${makeDateFilename(event.date)}.json`, 'json', {
+				title: event.title,
 				date: event.date,
 				summary: event.summary,
 				photo: event.photo
