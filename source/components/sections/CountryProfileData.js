@@ -435,13 +435,13 @@ function EnablingEnvironmentsSectionAlbatross (country, albatrossCountryData) {
 			<li>
 				${StatCard({
 					label: section.indicatorLabelNationalEcdPolicy,
-					number: getDataPointValue(albatrossCountryData, 'percent', 'ecd_policy', null)
+					number: getDataPointValue(albatrossCountryData, 'bool', 'ecd_policy', null)
 				})}
 			</li>
 			<li>
 				${StatCard({
 					label: section.indicatorLabelEcdCoordinationMechanism,
-					number: getDataPointValue(albatrossCountryData, 'percent', 'ecd_coordination', null)
+					number: getDataPointValue(albatrossCountryData, 'bool', 'ecd_coordination', null)
 				})}
 			</li>
 		`),
