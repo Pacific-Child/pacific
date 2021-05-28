@@ -52,7 +52,7 @@ module.exports = ({
 				u-position-flex-fill
 				u-shadow
 				u-border-radius-bottom
-				u-border-top thick 
+				u-border-top thick
 				u-color-border-${resourceTypeStyles[resourceType] ? resourceTypeStyles[resourceType].color : 'secondary'}
 				u-padding-narrow u-padding-y-flow-narrow
 			">
@@ -60,13 +60,13 @@ module.exports = ({
 					${resourceTypeStyles[resourceType] ? resourceTypeStyles[resourceType].icon : ''}
 					${resourceType}
 				</p>
-				<h3><a href="${documentUrl}">${title}</a></h3>
+				<h3><a href="${documentUrl}" target="_blank">${title}</a></h3>
 				${dataSourceName
 					? `<p class="u-type-heading u-type-font-display u-type-weight-light">${dataSourceName}</p>`
 					: ''
 				}
 				<div class="u-margin-top-auto">
-					<a class="b-button has-icon right" href="${documentUrl}">
+					<a class="b-button has-icon right" target="_blank" href="${documentUrl}">
 						See more
 						<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -79,7 +79,7 @@ module.exports = ({
 						u-type-font-display u-type-weight-light u-type-scale-epsilon
 						u-color-fg-secondary
 					">
-						Updated: 
+						Updated:
 						<strong>
 							<time datetime="${updatedAt}">
 								${dateFNS.format(new Date(updatedAt), 'd LLLL, yyyy')}
