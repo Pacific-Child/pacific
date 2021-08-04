@@ -28,7 +28,7 @@ maxPosts: 50
 		{% if prc4ecdMeetings > 0 %}
 			<h2 class="u-type-align-center | u-padding-top-xwide u-padding-bottom">{{ dato.eventsIndex.prc4ecdMeetingsTitle }}</h2>
 			<ul class="u-list-undecorated u-margin-y-flow">
-				{% for event in dato.events | toArrayReverse | limit(maxPosts) | eventFilterSection("ECD Events") %}
+				{% for event in dato.events | toArrayReverse | limit(maxPosts) | eventFilterSection("PRC4ECD Meetings") %}
 					{% EventItem event %}
 				{% endfor %}
 			</ul>
@@ -37,7 +37,7 @@ maxPosts: 50
 		{% if regionalEcdForum > 0 %}
 			<h2 class="u-type-align-center | u-padding-top-xwide u-padding-bottom">{{ dato.eventsIndex.regionalEcdForumTitle }}</h2>
 			<ul class="u-list-undecorated u-margin-y-flow">
-				{% for event in dato.events | toArrayReverse | limit(maxPosts) | eventFilterSection("ECD Events") %}
+				{% for event in dato.events | toArrayReverse | limit(maxPosts) | eventFilterSection("Regional ECD Forum") %}
 					{% EventItem event %}
 				{% endfor %}
 			</ul>
