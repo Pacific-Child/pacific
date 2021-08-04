@@ -11,7 +11,7 @@ permalink: '/events/{{ pagination.items[0].date | datePath }}/'
 
 <header class="u-padding-top-xxwide u-padding-bottom-xwide u-padding-x-outside u-padding-y-flow-xxnarrow | u-hide-overflow">
 	{% set coverBreakpoint = 'medium' %}
-	{% ContentWrapper { width: 'xwide' } %}
+	{% ContentWrapper { width: 'xwide', className: 'u-padding-top-xxwide' } %}
 		<div class="
 			c-bookend horizontal@{{coverBreakpoint}} reverse
 			c-gutter wide
@@ -20,8 +20,8 @@ permalink: '/events/{{ pagination.items[0].date | datePath }}/'
 		">
 			{% if page.photo %}
 				<div class="c-bookend-item right c-gutter-item u-type-align-center">
-					<div class="u-display-inline-block" style="max-width: 30rem;">
-						{% Figure 'https://placehold.it/1000x400', {
+					<div class="u-display-inline-block" style="max-width: 20rem;">
+						{% Figure page.photo.url, {
 							alt: page.photo.alt,
 							caption: page.photo.caption,
 							credit: page.photo.credit
@@ -78,12 +78,12 @@ permalink: '/events/{{ pagination.items[0].date | datePath }}/'
 							c-gutter-item
 							u-type-scale-gamma
 						">
-							{{ doc.label }}
+							{{ doc.title }}
 						</p>
 						<div class="c-bookend-item right | c-gutter-item">
-							<a 
-								class="b-button has-icon left" 
-								href="{{ doc.file.url }}"
+							<a
+								class="b-button has-icon left"
+								href="{{ doc.url }}"
 							>
 								<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon left" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 								  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

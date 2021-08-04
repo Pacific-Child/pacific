@@ -114,8 +114,8 @@ module.exports = ({
 					}
 					: null,
 				description: event.description,
-				documents: event.documents.toMap(),
 				outcomes: event.outcomes.toMap(),
+				documents: event.documents.toMap(),
 				section: event.section,
 			})
 		})
@@ -212,4 +212,3 @@ module.exports = ({
 		featuredResources: resourcesIndex.featuredResources.toMap()
 	})
 }
-
