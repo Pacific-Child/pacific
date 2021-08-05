@@ -115,7 +115,8 @@ module.exports = ({
 					: null,
 				description: event.description,
 				outcomes: event.outcomes.toMap(),
-				documents: event.documents.toMap(),
+				document_title: event.document_title,
+				document_url: event.document_url,
 				section: event.section,
 			})
 		})

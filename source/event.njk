@@ -64,16 +64,39 @@ permalink: '/events/{{ pagination.items[0].date | datePath }}/'
 	{% endContentWrapper %}
 {% endSectionWrapper %}
 
-
-{% SectionWrapper { className: 'u-margin-y-flow-wide' } %}
+{% SectionWrapper %}
 	<h2 class="u-type-align-center u-padding-bottom">
-  	Documents
-  </h2>
-	{% ContentWrapper { width: 'xwide', className: 'u-border-top u-padding-y-wide' } %}
-		{% Gallery { width: 'xwide', flex: true } %}
-			{% for resource in page.documents %}
-				{% ResourceCard resource %}
-			{% endfor %}
-		{% endGallery %}
+		Documents
+	</h2>
+	{% ContentWrapper %}
+		<ul class="u-list-undecorated u-margin-y-flow-narrow">
+				<li class="u-shadow | u-border-radius | u-padding-narrow">
+					<div class="c-bookend horizontal@small | c-gutter">
+						<p class="
+							c-bookend-item left fill
+							c-gutter-item
+							u-type-scale-gamma
+						">
+							{{ page.document_title }}
+						</p>
+						<div class="c-bookend-item right | c-gutter-item">
+							<a
+								class="b-button has-icon left"
+                target="_blank"
+                title="{{ page.document_title }}"
+								href="{{ page.document_url }}"
+							>
+								<svg xmlns="http://www.w3.org/2000/svg" class="b-icon b-button-icon left" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								  <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+								  <polyline points="7 11 12 16 17 11" />
+								  <line x1="12" y1="4" x2="12" y2="16" />
+								</svg>
+								Download
+							</a>
+						</div>
+					</div>
+				</li>
+		</ul>
 	{% endContentWrapper %}
 {% endSectionWrapper %}
