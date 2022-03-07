@@ -49,6 +49,16 @@ title: UNICEF Pacific Regional Council for Early Childhood Development
 	  x-data="{ navOpen: false }"
 	  :class="{ 'c-overlay-freeze': navOpen == true }"
 	>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-958WKYJXNN"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-958WKYJXNN');
+	</script>
+
 		{# Main header #}
 		{% MainNav {
 			logo: graphics.logo.icon,
