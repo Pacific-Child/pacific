@@ -51,7 +51,7 @@ module.exports = [
 	},
 	{
 		label: '<tspan x="43" y="26">Vanuatu</tspan>',
-		slug: 'vauatu',
+		slug: 'vanuatu',
 		groupPosition: {
 			x: 699,
 			y: 633
