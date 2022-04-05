@@ -156,8 +156,20 @@ module.exports = ({
 						${strings.copyright}
 					</small>
 					</p>
-					<a class="b-button large | u-margin-top" href="/contact">
+					<a class="b-button large | u-margin-top u-margin-right" href="/contact">
 						Contact us
+					</a>
+
+					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.facebook_url}">
+						Facebook
+					</a>
+
+					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.twitter_url}">
+						Twitter
+					</a>
+
+					<a class="b-button large | u-margin-top" target="_blank" href="${strings.youtube_url}">
+						Youtube
 					</a>
 				</div>
 
