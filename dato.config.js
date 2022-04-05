@@ -35,7 +35,10 @@ module.exports = ({
 			newsletterInputPlaceholder: site.newsletterInputPlaceholder || "",
 			newsletterBlurb: site.newsletterBlurb || "",
 			newsletterButton: site.newsletterButton,
-			copyright: site.copyrightNotice
+			copyright: site.copyrightNotice,
+			facebook: site.facebookUrl,
+			twitter: site.twitterUrl,
+			youtube: site.youtubeUrl
 		}
 	})
 

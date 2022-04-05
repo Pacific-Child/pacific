@@ -159,15 +159,15 @@ module.exports = ({
 					<a class="b-button large | u-margin-top u-margin-right" href="/contact">
 						Contact us
 					</a>
-					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.facebookUrl}">
+					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.facebook}">
 						Facebook
 					</a>
 
-					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.twitterUrl}">
+					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.twitter}">
 						Twitter
 					</a>
 
-					<a class="b-button large | u-margin-top" target="_blank" href="${strings.youtubeUrl}">
+					<a class="b-button large | u-margin-top" target="_blank" href="${strings.youtube}">
 						Youtube
 					</a>
 				</div>
