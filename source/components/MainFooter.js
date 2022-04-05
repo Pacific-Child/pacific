@@ -159,7 +159,6 @@ module.exports = ({
 					<a class="b-button large | u-margin-top u-margin-right" href="/contact">
 						Contact us
 					</a>
-
 					<a class="b-button large | u-margin-top u-margin-right" target="_blank" href="${strings.facebookUrl}">
 						Facebook
 					</a>
