@@ -3,61 +3,19 @@ const Passage = require('./blocks/Passage.js')
 
 function NewsletterSignup (strings) {
 	return `
-			<div class="u-theme-wash u-padding-x-outside u-padding-y-xwide u-border-bottom">
+			<div class="u-theme-wash u-padding-x-outside u-type-align-center u-padding-y-xwide u-border-bottom ">
 				${ContentWrapper(`
 
-					<!-- Begin Mailchimp Signup Form -->
-					<div id="mc_embed_signup">
-						<form
-							action="https://unicef.us1.list-manage.com/subscribe/post?u=22fe753684dc9e88cb85c387b&amp;id=0413af538b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
-							novalidate
-						>
-							<label
-								for="mce-EMAIL"
-								class="u-type-heading u-scale-gamma | u-display-block | u-padding-bottom-narrow"
-							>
-								${strings.newsletterLabel}
-							</label>
-							<div
-								id="mc_embed_signup_scroll"
-								class="c-bookend horizontal@xsmall | c-gutter narrow"
-							>
-								<div class="mc-field-group | c-bookend-item left fill | c-gutter-item">
-									<input
-										type="email"
-										value=""
-										name="EMAIL"
-										class="required email" id="mce-EMAIL"
-										placeholder="${strings.newsletterInputPlaceholder}"
-									>
-									<div id="mce-responses" class="clear">
-										<div class="response" id="mce-error-response" style="display:none"></div>
-										<div class="response" id="mce-success-response" style="display:none"></div>
-									</div>
-									<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
-									<div style="position: absolute; left: -5000px;" aria-hidden="true">
-										<input type="text" name="b_34a32d9d669cfa4d1d45bfa19_33e8ddb123" tabindex="-1" value="">
-									</div>
-								</div>
-								<div class="c-bookend-item right | c-gutter-item">
-									<input
-										type="submit"
-										value="${strings.newsletterButton}"
-										name="subscribe"
-										id="mc-embedded-subscribe"
-										class="b-button large"
-									>
-								</div>
-							</div>
-						</form>
-					</div>
-					<!-- End mc_embed_signup -->
-
 					${Passage(`
-						<p>${strings.newsletterBlurb}</p>
+						<h3>${strings.newsletterBlurb}</h3>
 					`, {
-						className: 'u-padding-top-narrow u-color-fg-secondary u-type-style-italic'
+						className: 'u-padding-top-narrow u-padding-bottom-narrow u-color-fg-secondary u-type-style-italic'
 					})}
+					<div id="mc_embed_signup">
+						<div class="c-bookend-item | c-gutter-item">
+							<a href="https://pacific-child.us14.list-manage.com/subscribe?u=a3b103a9149d91d3074f3662d&id=89c1d125a0" alt="Sign up for the Pacific Child Newsletter" target="_blank" class="b-button large">Subscribe</a>
+						</div>
+					</div>
 				`)}
 			</div>
 		</div>
